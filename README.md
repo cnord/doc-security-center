@@ -20,6 +20,10 @@ Styled HTML file with `pandoc.css`
 
 ## Tools
 
-* [Pandoc](http://johnmacfarlane.net/pandoc/) -- converting documents form markdown to PDF, HTML, Word, etc.
+* [Pandoc](http://johnmacfarlane.net/pandoc/) -- converting documents form Markdown to PDF, HTML, Word, etc.
 
 * [Markdown Syntax](http://daringfireball.net/projects/markdown/) -- Markdown is intended to be as easy-to-read and easy-to-write as is feasible.
+
+* [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) -- MultiMarkdown is a superset of the Markdown syntax, originally created by John Gruber. It adds multiple syntax features (tables, footnotes, and citations, to name a few).
+
+* [Типограф](http://www.artlebedev.ru/tools/typograf/) -- автоматический типограф текстов.
