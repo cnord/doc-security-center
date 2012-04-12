@@ -90,23 +90,23 @@ In case when value for some additional object characteristic is not defined its 
 
 ### Altonika
 
-The tab "Altonika" is intended to adjust the parameters of object which are specific for Altonika equipment.
+The tab “Altonika” is intended to adjust the parameters of object which are specific for Altonika equipment.
 
 #### Equipment type
 
-For correct operation of algorithms of  "Security Center" signal processing  it is necessary to specify the correct system type of the equipment used on object: «Lonta-202» or «RS-200». In case the object has an equipment of other system, it is necessary to specify type "Another".
+For correct operation of algorithms of  “Security Center” signal processing  it is necessary to specify the correct system type of the equipment used on object: “Lonta-202” or “RS-200”. In case the object has an equipment of other system, it is necessary to specify type “Another”.
 
 #### Signal levels
 
-For object on which system "Lonta-202" equipment is used it is possible to change value for trigger levels of the signal accepted from object. If the signal level, accepted from object, becomes less than value set in the field «Warning level» the system event with code ZZXV will be created.
+For object on which system “Lonta-202” equipment is used it is possible to change value for trigger levels of the signal accepted from object. If the signal level, accepted from object, becomes less than value set in the field “Warning level” the system event with code ZZXV will be created.
 
-If the signal level, accepted from object, is less than value set in the field «Alarm level» the system event with code ZZXU will be created. By means of system events with codes ZZXV and ZZXU it is possible to control automatically level of signal, accepted from objects, drawing of attention of the operator only to those objects where his interference is required.
+If the signal level, accepted from object, is less than value set in the field “Alarm level” the system event with code ZZXU will be created. By means of system events with codes ZZXV and ZZXU it is possible to control automatically level of signal, accepted from objects, drawing of attention of the operator only to those objects where his interference is required.
 
-It is necessary to mark that  in the module «Duty operator»  function of review of accepted signal  level is accessible for objects on which system "Lonta-202" equipment is installed. At an object card there is a bookmark which allows to display signal level  in the form of the diagram or  in the form of the table of values.
+It is necessary to mark that  in the module “Duty operator”  function of review of accepted signal  level is accessible for objects on which system “Lonta-202” equipment is installed. At an object card there is a bookmark which allows to display signal level  in the form of the diagram or  in the form of the table of values.
 
 #### The transmitter
 
-In the situation when some object devices are connected to one radio transmitter of system "Lonta-202", for identification of such devices it is necessary to specify object transmitter number in the field «Object number», and number of category which corresponds to the device in the field «Category number» . 
+In the situation when some object devices are connected to one radio transmitter of system “Lonta-202”, for identification of such devices it is necessary to specify object transmitter number in the field “Object number”, and number of category which corresponds to the device in the field “Category number” . 
 
-The values specified in fields «Object number» and «Category number» have priority in relation to standard numbers of "Security Center" objects: at reception of events first the values entered on a bookmark of "Altonika" are viewed and only then – values of objects' numbers.
+The values specified in fields “Object number” and “Category number” have priority in relation to standard numbers of “Security Center” objects: at reception of events first the values entered on a bookmark of “Altonika” are viewed and only then – values of objects' numbers.
 

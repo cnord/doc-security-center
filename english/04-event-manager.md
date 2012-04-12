@@ -59,7 +59,7 @@ When source from PimaGuard is used in the mode of receiving events via Ethernet,
 
 It is designed to receive events via network supporting TCP/IP protocol form the following equipment manufactured by C-Nord company:
 
-* GSM transmitters: ТР-100GSM and ТР-100GSM II – via GPRS channel
+* GSM transmitters: TP-100GSM and TP-100GSM II – via GPRS channel
 * panic button “Button” – via GPRS channel
 * “Cepheus” extender – via Ethernet channel
 
@@ -112,7 +112,7 @@ By setting different shifts of channel numbers for different event sources you c
 
 The “Shift of channel number” is of special interest when several identical event sources are used because types and numbers of communication channels used by these sources will surely coincide.
 
-The “Type of receiving channel” and the “Number of receiving channel” permits to clearly specify the parameters corresponding them by value in case when they can’t be uniquely identified. For example, The “Event source via TCP/IP” can receive events both from TР-100GSM transmitters via GPRS channel and from “Cepheus” extenders via Ethernet channel. Event source cannot identify communication channel which is used during transmission. Therefore when setting an event source it is necessary to specify clearly the type of communication channel which is used during transmission (GPRS if the source is intended to receive events from ТР-100GSM or Ethernet if the source is receiving data from “Cepheus”. Additionally, if several such event sources are used then to differ which source has received the event it is necessary to specify different numbers of receiving channels for them.
+The “Type of receiving channel” and the “Number of receiving channel” permits to clearly specify the parameters corresponding them by value in case when they can’t be uniquely identified. For example, The “Event source via TCP/IP” can receive events both from TP-100GSM transmitters via GPRS channel and from “Cepheus” extenders via Ethernet channel. Event source cannot identify communication channel which is used during transmission. Therefore when setting an event source it is necessary to specify clearly the type of communication channel which is used during transmission (GPRS if the source is intended to receive events from TP-100GSM or Ethernet if the source is receiving data from “Cepheus”. Additionally, if several such event sources are used then to differ which source has received the event it is necessary to specify different numbers of receiving channels for them.
 
 The “Reinititilazation Interval” parameter permits to force reinitialization of equipment (e.g. GSM modem) connected to event source.
 
