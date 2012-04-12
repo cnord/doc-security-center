@@ -2,11 +2,11 @@
 ### To PDF
 Simple command to compile English manual 
 
-	pandoc *.md -o manual.html
+	pandoc *.md -o manual.pdf
 
 Extended command to compile Russian manual
 
-	pandoc --include-in-header ~/pandoc-ru.tex *.md -o manual.html
+	pandoc --include-in-header ~/pandoc-ru.tex *.md -o manual.pdf
 
 ### To HTML
 

@@ -27,7 +27,7 @@ On the basis of volume of saved during backup information it is recommended to e
 
 To store backup copies it is recommended to use one but better- several data mediums which are not physically connected with the disk subsystem of the computer where the “Security Center” database is stored. For example, it can be a separate hard drive, flesh drive or network resource. It should be noted that when adjusting backup you can specify several paths for backup copy saving.
 
-In order to improve the entire system reliability the “Security Center” performs automatic backup. Operating copies of database are saved in the “ANDROMEDA DATA\SYSBACKUP” folder, interval of automatic backup copies creation is 24 hours.
+In order to improve the entire system reliability the “Security Center” performs automatic backup. Operating copies of database are saved in the `ANDROMEDA DATA\SYSBACKUP` folder, interval of automatic backup copies creation is 24 hours.
 
 ### Restore from backup
 
@@ -166,10 +166,10 @@ The type of the backup copy from which the restore must be done. “0” value f
 
 	AnDBWiz.exe 
 		/BACKUPDB 
-		/FOLDER:”E:\Backup Data\Operational”;”\\Storage\Andromeda Backup\Operational” 		
+		/FOLDER:E:\Backup\Operational;\\Storage\Backup\Operational
 		/BACKUPCOUNT:25
 
-Above mentioned set of the command line parameters means that the “Database Wizard” module must create the operating database copy and copy it to the folders ”E:\Backup Data\Operational” and ”\\Storage\Andromeda Backup\Operational”. 
+Above mentioned set of the command line parameters means that the “Database Wizard” module must create the operating database copy and copy it to the folders `E:\Backup\Operational` and `\\Storage\Backup\Operational`. 
 
 When copying the backup copy to the destination folder the “Database Wizard” module must verify that total number of the operating backup copy files in the destination folder does not exceed 24, and if there are more files then the oldest by time of the creation backup copy file must be deleted.
 
