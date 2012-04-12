@@ -70,7 +70,7 @@ When the full installation has been performed the named instance of Microsoft SQ
 #### Installation on network workstation
 
 When the “Security Center” software is installed on a network workstation it is necessary to specify the instance of Microsoft SQL Server software which is used to store database. 
-The instance of Microsoft SQL Server software is installed during the full installation of the “Security Center”. The name of instance being installed is ANDROMEDA. Thus, it is necessary to select from the list the string such as “\<computer name>\ANDROMEDA”, where \<computer name> is the name of a computer, on which the full installation of the “Security Center” software has been performed.
+The instance of Microsoft SQL Server software is installed during the full installation of the “Security Center”. The name of instance being installed is ANDROMEDA. Thus, it is necessary to select from the list the string such as `<computer name>/ANDROMEDA`, where `<computer name>` is the name of a computer, on which the full installation of the “Security Center” software has been performed.
 
 If the installation program could not find in local network the instance of Microsoft SQL Server software, which is used to store database of the “Security Center” we recommend to specify a computer name and an instance name manually.
 
@@ -92,4 +92,4 @@ If you refer by e-mail we recommend to attach to your letter the archive contain
 * Files from `C:\Program Files\Microsoft SQL Server\90\SetupBootstrap\LOG folder`. Files in this folder  and its subfolders contain activity logs of Microsoft SQL Server program installation.
 
 The listed files do not contain personal data or any confidential information.
- 
+
