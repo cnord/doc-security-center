@@ -6,8 +6,8 @@ Simple command to compile English manual
 
 Extended command to compile Russian manual
 
-	pandoc --include-in-header ~/pandoc-ru.tex *.md -o manual.pdf
-
+	pandoc --template template/template.latex -V lang=russian *.md -o manual.pdf
+	
 ### To HTML
 
 Plain HTML file
@@ -16,7 +16,7 @@ Plain HTML file
 
 Styled HTML file with `pandoc.css`
 
-	pandoc --include-in-header pandoc.css *.md -o manual.html
+	pandoc --include-in-header template/pandoc.css *.md -o manual.html
 
 ## Tools
 
