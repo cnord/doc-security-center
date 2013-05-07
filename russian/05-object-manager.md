@@ -383,7 +383,7 @@
 [id-05-03-03]: img/ObjMngr-03-ObjectList-03.png "Список объектов: окно настройки фильтрации"
 [id-05-03-04]: img/ObjMngr-03-ObjectList-04.png "Список объектов: результат фильтрации сравнением «похоже на %ик%»"
 [id-05-04]: img/ObjMngr-04-Object.png "Вкладка «Объект»"
-[id-05-04-01]: img/ObjMngr-04-ObjectImage-03.png "Вкладка «Объект»: изображения объекта"
+[id-05-04-01]: img/ObjMngr-04-ObjectImage-03.PNG "Вкладка «Объект»: изображения объекта"
 [id-05-05]: img/ObjMngr-05-Parts.png "Вкладка «Разделы»"
 [id-05-06]: img/ObjMngr-06-Zones.png "Вкладка «Шлейфы»"
 [id-05-07]: img/ObjMngr-07-DoorKeys.png "Вкладка «Ответственные лица»"
