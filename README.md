@@ -33,3 +33,5 @@ If Pandoc installed to MacOS with BasicTeX you can add additional package to com
 
 	sudo tlmgr install cm-lgc cmcyr cyrillic cyrillic-bin cyrplain eskd eskdx lh lhcyr ruhyphen t2 expl3 
 	kastrup xpackages realscripts makecmds
+	
+[Список пакетов](https://trac.macports.org/wiki/TeXLivePackages) TeXLive и их назначение. 
