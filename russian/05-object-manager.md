@@ -453,19 +453,4 @@
 [id-05-13]: img/ObjMngr-13-EventHandlers.png "Вкладка «Обработчики событий»"
 [id-05-14]: img/ObjMngr-14-Altonika.png "Вкладка «Альтоника»"
 [id-05-15]: img/ObjMngr-15-Comments.png "Вкладка «Комментарий»"
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 [id-05-16]: img/ObjMngr-16-VideoRouters.png "Вкладка «Видеороутеры»"
->>>>>>> origin/0011-video-routers
