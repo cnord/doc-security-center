@@ -192,4 +192,4 @@
 [id-13-11]: img/CldSrvcs-11-CallCenter.png "Настройка услуги «Call-центр» в учетной записи партнера"
 [id-13-12]: img/CldSrvcs-12-AlarmPassword.png "Пароли доступа к приложению «Тревога в ГБР»"
 [id-13-13]: img/CldSrvcs-13-PrivateOffice.png "Настройка услуги «Личный кабинет» в учетной записи партнера"
-[id-13-14]: img/CldSrvcs-14-SituationalMapLink.png "Настройка услуги «Ситуационная карта"» в учетной записи партнера"
+[id-13-14]: img/CldSrvcs-14-SituationalMapLink.png "Настройка услуги «Ситуационная карта» в учетной записи партнера"
