@@ -96,7 +96,7 @@ $header-includes$
 $endfor$
 
 \begin{document}
-\input{title.tex}
+\input{title-install.tex}
 
 \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
 
