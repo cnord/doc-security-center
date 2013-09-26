@@ -1,4 +1,3 @@
-<<<<<<< HEAD:russian/05-object-manager.md
 # Менеджер объектов
 
 Модуль «Менеджер объектов» предназначен для управления описанием объектов, имеющихся в программном обеспечении «Центр охраны».
@@ -1106,4 +1105,3 @@
 [id-05-22]: img/ObjMngr-22-ObjectRecovery.png "Восстановление удаленного объекта"
 [id-05-23]: img/ObjMngr-23-ObjectRecovery-01.png "Выбор удаленного объекта для восстановления"
 [id-05-24]: img/ObjMngr-24-ObjectRecovery-02.png "Информация о номере восстановленного объекта и его разделов"
->>>>>>> remotes/origin/dague-works:russian/security-center/05-object-manager.md
