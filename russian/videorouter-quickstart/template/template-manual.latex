@@ -104,7 +104,7 @@ $for(include-before)$
 $include-before$
 $endfor$
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 $body$
 
