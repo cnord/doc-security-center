@@ -27,3 +27,19 @@ Styled HTML file with `pandoc.css`
 * [MultiMarkdown](http://fletcherpenney.net/multimarkdown/) -- MultiMarkdown is a superset of the Markdown syntax, originally created by John Gruber. It adds multiple syntax features (tables, footnotes, and citations, to name a few).
 
 * [Типограф](http://www.artlebedev.ru/tools/typograf/) -- автоматический типограф текстов.
+
+## Tips
+If Pandoc installed to MacOS with BasicTeX you can add additional package to compile texts with cyrrilic symbols using following command
+
+	sudo tlmgr install cm-lgc cmcyr cyrillic cyrillic-bin cyrplain eskd eskdx lh lhcyr ruhyphen t2 expl3 
+	kastrup xpackages realscripts makecmds
+	
+[Список пакетов](https://trac.macports.org/wiki/TeXLivePackages) TeXLive и их назначение. 
+
+## Полезные ссылки:
+* [Как писать руководства и инструкции пользователя (Горбунов)](http://artgorbunov.ru/bb/soviet/20140112/)
+* [Метагайд (Кагарлицкий)](http://www.philosoft.ru/_subsites/tcportal/metaguide/)
+* [Руководство пользователя (wikipedia)](http://ru.wikipedia.org/wiki/Руководство_пользователя)
+* [Описание программы по ГОСТ 19.402-78 (tdocs.ru)](http://tdocs.su/11970)
+* [Как писать руководство пользователя (tdocs.ru)](http://tdocs.su/1391)
+
