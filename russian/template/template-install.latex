@@ -1,7 +1,12 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$]{$documentclass$}
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
+
 \usepackage[utf8]{inputenc}
+\usepackage[russian]{babel} % правила переноса
+\usepackage{cmap} % чтобы работал поиск по PDF
+\pdfcompresslevel=9 % сжимать PDF
 
 \usepackage{geometry}
 \geometry{top=2cm} %поле сверху
@@ -106,27 +111,31 @@ $endfor$
 
 \setcounter{tocdepth}{2}
 \tableofcontents
+
+\newpage
+
 $body$
 
 $if(natbib)$
-$if(biblio-files)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
+	$if(biblio-files)$
+		$if(biblio-title)$
+			$if(book-class)$
+				\renewcommand\bibname{$biblio-title$}
+			$else$
+				\renewcommand\refname{$biblio-title$}
+			$endif$
+		$endif$
+		
+		\bibliography{$biblio-files$}
+	$endif$
 $endif$
-$endif$
-\bibliography{$biblio-files$}
 
-$endif$
-$endif$
 $if(biblatex)$
 \printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
 $endif$
+
 $for(include-after)$
 $include-after$
-
 $endfor$
+
 \end{document}
