@@ -1,88 +1,177 @@
-## System Setup
+# Настройка системы
 
-The “System Setting” module is intended for modification of the “Security Center” service reference guides properties, for instance, event templates or object types.
+Модуль «Настройка системы» предназначен для изменения служебных справочников «Центра охраны», например, шаблонов событий или типов объектов.
 
-### Event classes
+## Классы событий
 
-In the “Security Center” software, the events being created are divided into the several types:
+В программном обеспечении «Центр охраны» создаваемые события делятся на несколько типов:
 
-* Alarm 
-* Warning 
-* Arming 
-* Disarming 
-* Defect 
-* Reconstitution 
-* Elimination 
-* Test 
-* Others 
-* Reset 
+* Тревога
+* Предупреждение
+* Взятие под охрану
+* Снятие с охраны
+* Неисправность
+* Восстановление
+* Исключение
+* Тест
+* Другое 
+* Сброс
 
-The type of event determines method of its handling. Thus events of the “Alarm” type require compulsory actions by an operator called response to alarm. Additionally, the alarms response to which is not started or not finished change current status of objects. When responding to events of the “Arming” or the “Disarming” type, object status also changes.
+Тип события определяет способ его обработки. Так, события имеющие тип «Тревога» требуют обязательных действий оператора, называемых отработкой тревоги. Кроме того, тревоги, отработка которых не начата или не завершена, изменяют текущий статус объектов. При обработке событий, имеющих тип «Взятие под охрану» или «Снятие с охраны», статус объекта также меняется.
 
-The list of event types is predefined and can’t be changed by user. To combine events in groups and manage them classes of events are intended. The class of event determines its type. In this case you can create several classes of the “Alarm” type and define for each class individual lists of alarm responses and their cancellations.
+Список типов событий предопределен и не может быть изменен пользователем. Для того чтобы объединять события в группы и управлять ими предназначены классы событий. Класс события определяет его тип, при этом можно создать несколько классов с типом «Тревога» и определить индивидуальные списки действий и отмен для каждой тревоги.
 
-In the “Event classes” tab you can edit the list of event classes being used.
-The event class determines appearance of event in the list of received events of the “Duty Operator” module. Color, style of type, background color – all these event class properties can be changed in the “System Setup” module.
+![Вкладка «Классы событий»][id-06-01]
 
-In addition to attributes responsible for events display it is possible to specify sound file which will be played when an event will be received.
+На вкладке «Классы событий» можно изменить список используемых классов событий. 
 
-For the event classes having the “Alarm” type lists of actions and cancellations are available which can be recorded by an operator when executing alarm response. It is important that you can determine not only the list of actions but also their sequence. 
+Для того, чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать классы событий» для модуля «Настройка системы».
 
-If the “Security Center” is operated long enough there is possibility that the list of event classes is contaminated. For example, there are duplicated classes in it or it contains information about classes which already are not used. Nevertheless, the “Security Center” prevents their deleting because there are events for which these classes are used in the descriptions. To solve this problem it is possible to replace duplicates or not used event classes with their actual analogs.
+Класс события определяет внешний вид события в списке принятых событий модуля «Дежурный оператор». Цвет, гарнитуру шрифта, цвет фона, — все эти свойства класса событий можно изменить в модуле «Настройка системы».
 
-### Templates of events
+Кроме атрибутов, отвечающих за отображение событий, есть возможность указать звуковой файл, который будет воспроизводиться при получении события.
 
-The same event occurred on object can be transmitted to the “Security Center” in different ways. Event format in which information about event will be received depends on type of transmitting equipment and communication channel. 
+Для классов событий, имеющих тип «Тревога», доступны для изменения списки действий и отмен, которые оператор может зарегистрировать, выполняя отработку тревоги. Важно, что можно определить не только список действия, но также и их последовательность при отображении. 
 
-The list of events which can be received after decoding events from objects is called the “Template of Events”. 
+Поскольку классы событий определяют внешний вид, звуковое сопровождение и сценарий отработки тревоги, «Центр охраны» обеспечивает неизменность этих параметров для уже зарегистрированных событий. Другими словами, любые изменения и даже удаление классов событий никак не отражаются на тех событиях, которые уже приняты и зарегистрированы в базе данных. Если будет изменен цвет или размер шрифта, с помощью которого должно отображаться событие или же тип события, то эти изменения будет применяться только к новым событиям, тем, которые будут зарегистрированы в базе данных после выполнения изменений.
 
-Template of Events is inherent characteristics of object. You can specify template of events which should be used for an object in the “Object Manager” module.
+#### Замена класса событий
+Если «Центр охраны» эксплуатируется достаточно давно, то есть вероятность, что список классов событий замусорен. Например, в нем встречаются классы-дубликаты, либо он содержит информацию о классах, которые уже не используются. Тем не менее, удалить эти классы нельзя, потому что есть события, при описании которых эти классы используются. Для того, чтобы справиться с этой проблемой, есть возможность заменить дубликаты или не используемые классы событий на их актуальные аналоги.
+Заменить устаревший класс событий на тот, что используется в настоящий момент, можно с помощью кнопки «Заменить...». 
 
-In the “Templates of Events” tab you can modify the list of templates used by the “Security Center”. Additionally, you can modify the description of events contained in a template.
-When describing events it is recommended to use `%user%` and `%zone%` macros. If during the event decoding a macro is found in its description then in the description the value is inserted which corresponds to loop a name (`%zone%` macro) or a responsible person name (`%user%` macro). In this case loop or user number will be taken from the very event. 
+![Окно «Замена класса события»][id-06-02]
 
-Information about loops and responsible persons on the object is very important. This information for an object can be entered in the “Object Manager” module.
+В появившемся окне необходимо выбрать класс событий, который будет использоваться вместо заменяемого, а также указать необходимость удаления класса события, который заменяется.
 
-The interesting feature of an event description in template consists in possibility to determine an event up to a channel over which it has been received. Hence, the same event code received, for example, by phone or over GPRS can be described in different ways.
+## Шаблоны событий
 
-It should be noted that the quality of event templates provided with the new versions of the “Security Center” is constantly improved therefore we recommend to use the latest versions of event templates in the describing objects.
+Одно и то же событие, возникшее на объекте, может быть передано в «Центр охраны» по-разному. Формат извещения, в котором будет получена информация о событии, зависит от типа передающего оборудования и канала связи. 
 
-In order to specify another, more actual template for objects instead of outdated one you can implement event template replacement function. 
+Шаблоном событий называется список событий, которые могут быть получены при расшифровке извещений от объекта.
 
-### Actions
+Шаблон событий является неотъемлемой характеристикой объекта. Указать шаблон событий, который должен использовать для объекта, можно в модуле «Менеджер объектов».
 
-The “Actions” tab is intended for modification of list of actions which an operator can record during the executing alarm response.
+![Вкладка «Шаблоны событий»][id-06-03]
 
-The following types of actions are defined in the “Security Center” software:
+На вкладке «Шаблоны событий» можно изменить список шаблонов, используемых «Центром охраны». Кроме того, можно изменить описание событий, содержащихся в шаблоне.
 
-* **Send guard**. When recording action of this type an operator will need to specify response guard which has been sent to an object. If a guard has been sent to an object then an object alarm can be cancelled only after the guard arrival to an object or its call cancellation is recorded.
-* **Guard arrival**. The action of the “Guard arrival” type is available for recording only after the send guard to an object has been recorded. When the recording action of the “Guard arrival” type an operator will have to select a guard which arrival he is recording.
-* **Guard cancellation**. Guard cancellation recording is available only after its send to an object has been recorded.When recording guard cancellation an operator should select a guard which call cancellation he executes.
-* **Operator comment**. Action of this type allows an operator to enter a user-defined text connected with process of alarm response. Actions of this type can be recorded in any step of alarm response. It is recommended to include an action of this type in the action lists for all alarms available in the “Security Center”.
-* **Other**. Actions of the “Other” type are for informational purposes only and used for quick recording the actions frequently used in the alarm response (call to a responsible person, police call, etc.) Actions of this type can be recorded in any step of alarm response.
-We recommend to refresh the list of actions of the “Other” type permanently in order they would correspond to current security policy. Recorded operator comments can be good source for new actions of the “Other” type.
+Для того, чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать шаблоны событий» для модуля «Настройка системы».
 
-The list of response guards used by the “Security Center” can be modified in the “Personnel Manager” module.
+Изменения, которые вносятся в описание событий шаблона на вкладке «Настройка системы» коснутся всех объектов, которые используют этот шаблон событий. Настоятельно не рекомендуется вносить изменения в шаблон событий объекта без веской причины.
 
-### Cancellations of alarms
+Нельзя удалить шаблон событий, используемый при описании объектов. Если шаблон, который пользователь хочет удалить, используется в качестве шаблона событий для какого-нибудь объекта, то попытка удаления будет завершена с ошибкой.
 
-In the “Cancellations of alarms” you can edit the list of reasons recorded in the event of alarm cancellation.
+#### Замена шаблона событий
 
-The list of available alarm cancellations is closely connected with an object security policy being used and is of great importance for enterprise efficiency analysis.
+Необходимо отметить, что качество шаблонов событий, поставляемых с «Центром охраны» постоянно улучшается, поэтому при описании объектов рекомендуется использовать самые последние версии шаблонов событий.
+Для того, чтобы вместо устаревшего шаблона для объектов указать другой, более актуальный, можно воспользоваться функцией замены шаблона событий. 
+Заменить устаревший шаблон событий на тот, что используется в настоящий момент, можно с помощью кнопки «Заменить...». 
 
-The “Security Center” software contains several analytical reports which allow you to evaluate reasons for alarm cancellations including evaluation in relation to objects. 
+![Окно «Замена шаблона событий»][id-06-04]
 
-In order to make use of these reports you should maintain the list of alarm cancellations in current status, and orderly schedule the use of each cancellation in the operator’s instructions.
+В появившемся окне необходимо выбрать шаблон событий, который должен использоваться вместо заменяемого, а также указать необходимость удаления устаревшего шаблона события.
 
-### Types of objects
 
-The “Type of objects” tab is designed to manage the list of object types. Object type is mandatory property of any object. Object type is used to simplify management (sorting, grouping) of objects list for example during object properties viewing or report generation. Object type can be specified in the “Object Manager” module.
+#### Изменение событий
 
-### Fields of objects
+При изменении событий шаблона изменения в базе сохраняются сразу же после того, как пользователь внес изменения в  событие шаблона. Отменить изменения нельзя. 
 
-In the “Fields of Objects” tab you can modify the list of additional fields which will be available during filling-in the object card.
+При создании нового события или изменении существующего все атрибуты события можно указать в окне «Изменить событие».
 
-During generation of fields list you can define their sequence order in which they will be displayed in the object card.
-If values of any field represents the list of foregone values then you can fill-in this list by specifying corresponding type for the field. In this case the list of values does not limit the possibility to specify a value for the object field manually if necessary.
+![Окно «Изменить событие»][id-06-05]
 
-In the list of object fields there are two fields for which it is recommended to change the list of possible values only. These are the “Object Section Equipment” and the “Object Loop Equipment” fields. As it follows from their names, they are intended to simplify filling-in the values for Equipment  field while editing sections and loops of objects in
+* «Тип канала приема» — при расшифровке события важно, какой канал использовался при его приеме «Центром охраны». Например, один и тот же код события может быть расшифрован по разному, для событий, принятых по радио и по телефону. Если код события определен и для конкретных каналов связи и для канала связи «Любой», то расшифровка для канала связи «Любой» применяется только в том случае, если расшифровка по конкретному каналу связи не найдена. 
+
+* «Код события» — значащая часть сообщения, передаваемого с объекта. Именно код идентифицирует изменение, которое произошло с контрольной панелью на объекте. Коды событий могут быть разной длины, она зависит от формата (протокола) и канала связи используемых при передаче информации от объектового прибора на центральную станцию. «Центр охраны» поддерживает коды событий длиной до 25 символов.
+
+* «Класс события» — класс события, который будет сопоставлен полученному коду при расшифровке события. Класс события определяет внешний вид события в списке событий, а также список возможных действий по отработке, если _тип_ класса события — «Тревога».
+
+* «Номер раздела» — это атрибут, который может использоваться для дополнительной идентификации события при расшифровке. Если в протоколе обмена с объектовым прибором содержится номер раздела, к которому относится событие, то событие будет идентифицировано не только по коду и каналу приема, но еще и по номеру раздела. Кроме того, номер раздела используется при автоматическом формировании описания события: если номер раздела ненулевой, а в описании события содержится макрос `%part%`, то вместо макроса будет подставлено описание раздела объекта, соответствующего номеру раздела, полученного от объекта.
+
+* «Шлейф/Пользователь» — это атрибут, который может использоваться в зависимости от того, насколько информативный формат (протокол) используется для передачи информации от контрольной панели в «Центр охраны». 
+
+	Предположим, что панель при передаче на станцию использует протокол ContactID, в котором, среди прочего, передается номер сработавшего шлейфа или номер пользователя, выполнившего снятие объекта. В этом случае «Центр охраны» игнорирует номер шлейфа или пользователя, указанный в описании события и всегда использует значение, полученное от панели: какой номер шлейфа прислала панель, такой и будет использован при расшифровке события. 
+
+	Теперь рассмотрим ситуацию, когда панель при передаче на станцию использует протокол EPAF, в котором передается только номер объекта и код события. Номера шлейфа или пользователя в явном виде не передается, но зато известна зависимость между кодом события и номером шлейфа или пользователя. В этом случае номер шлейфа или пользователя указывается в шаблоне события — в соответствии с кодом события, и именно значение, указанное в шаблоне будет использоваться при формировании описания события.
+
+	В качестве примера можно рассмотреть сообщение о тревоге в первом шлейфе, переданной в разных протоколах. В протоколе ContactID это сообщение будет передано кодом E130 и номером шлейфа 1. При формировании описания «Центр охраны» сразу же выполнит подстановку описания первого шлейфа в описание события. А в протоколе EPAF это же сообщение будет передано только кодом AA и для того, чтобы получить номер шлейфа, соответствующего этому коду, «Центру охраны» придется заглянуть в шаблон событий.
+
+* «Описание события» — произвольная текстовая строка, описывающая событие. 
+	
+	При описании событий рекомендуется использовать макросы `%user%` и `%zone%`. Если при расшифровке события в его описании будет найден макрос, то в описание будет подставлено значение, соответствующее названию шлейфа (макрос `%zone%`) или имени ответственного (макрос `%user%`). При этом номер шлейфа или пользователя будет взят из самого события. 
+	
+	Информация о шлейфах и ответственных лицах на объекте является очень важной. Внести эту информацию для объекта можно в модуле «Менеджер объектов».
+
+## Действия {#system-setup-actions}
+
+![Вкладка «Действия»][id-06-06]
+
+Вкладка «Действия» предназначена для изменения списка действий, которые оператор может зарегистрировать при отработке тревоги.
+
+Для того чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать действия операторов» для модуля «Настройка системы».
+
+В программном обеспечении «Центр охраны» определены следующие типы действий:
+
+* «Вызов группы» — при регистрации действия этого типа оператору необходимо будет указать группу реагирования, которая была вызвана на объект. Если на объект была вызвана группа, то тревогу по объекту можно отменить только после того, как будет зарегистрировано прибытие группы на объект или отмена ее вызова. Список групп реагирования, используемых «Центром охраны», можно изменить в модуле «Менеджер персонала».
+
+* «Прибытие группы» — действие типа «Прибытие группы» доступно для регистрации только после того, как будет зарегистрирован вызов группы на объект. При регистрации действия с типом «Прибытие группы» оператор должен будет выбрать группу, прибытие которой он фиксирует.
+
+* «Отмена вызова группы» — регистрация отмены вызова группы доступна только после того, как будет зарегистрирован ее вызов на объект. При регистрации отмены вызова оператор должен будет выбрать группу, отмену вызова которой он выполняет.
+
+* «Комментарий оператора» — действие этого типа позволяет ввести оператору произвольный текст, связанный с процессом отработки тревоги. Действия этого типа могут быть зарегистрированы на любом этапе отработки тревоги. Рекомендуется включать действие этого типа в списки действий для всех тревог, имеющихся в «Центре охраны».
+
+* «Требуется перезакрытие» - действие этого типа позволяет оператору автоматически информировать ответственных по объекту о необходимости перезакрытия объекта. При регистрации действия данного типа ответственным лицам, для которых в модуле «Менеджер объектов» настроено оповещение о необходимости перезакрытия, рассылается SMS-сообщение. В SMS указывается номер, название и адрес объекта, который нужно вскрыть, осмотреть и повторно сдать под охрану после устранения причин срабатывания тревожной сигнализации.
+
+* «Отказ от перезакрытия» - действие этого типа позволяет оператору автоматически информировать ответственных по объекту об отказе ответственного от перезакрытия. При регистрации действия данного типа оператор должен выбрать в списке ответственных по объекту ответственного, отказавшегося от выезда на перезакрытие. В списке присутствуют только те ответственные, для которых в модуле «Менеджер объектов» настроено оповещение о необходимости перезакрытия. При этом Ф.И.О. ответственного, в отношении которого зарегистрирован отказ от перезакрытия, отображается в поле «Примечание» при записи действия в журнал событий. При регистрации действия данного типа ответственным по объекту лицам, для которых в модуле «Менеджер объектов» настроено оповещение об отказе от перезакрытия, рассылается SMS-сообщение. В SMS указывается Ф.И.О. ответственного, отказавшегося от перезакрытия, а также номер, название и адрес объекта.
+
+* «Другое» — действия типа «Другое» носят информационный характер и используются для быстрой регистрации действий, часто используемых при отработке тревоги (звонок ответственному, вызов милиции и т.д.). Действия этого типа могут быть зарегистрированы на любом этапе отработки тревоги.
+Список действия с типом «Другое» рекомендуется постоянно актуализировать, чтобы они соответствовали тактике охраны, используемой в настоящий момент. Хорошим источником для новых действий с типом «Другое» могут быть регистрируемые комментарии операторов.
+
+Действие любого типа можно сделать обязательным для выполнения при отработке тревог. Для этого нужно выбрать действие в списке и отметить галку в чек-боксе «Обязательное действие».
+
+## Отмены тревог
+
+![Вкладка «Отмены тревог»][id-06-07]
+
+На вкладке «Отмены тревог» можно отредактировать список причин, регистрируемых при отмене тревоги.
+
+Для того, чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать отмены тревог» для модуля «Настройка системы».
+
+Список доступных отмен тревог тесно связан с используемой тактикой охраны объектов и имеет большое значение при анализе эффективности работы предприятия.
+
+Программное обеспечение «Центр охраны» содержит несколько аналитических отчетов, позволяющих оценить наиболее распространенные причины отмен тревог, в том числе и в разрезе объектов. 
+Для того, чтобы этими отчетами можно было пользоваться, нужно поддерживать список отмен тревог в актуальном состоянии и четко регламентировать использование каждой отмены в инструкциях оператору.
+
+## Типы объектов
+
+![Вкладка «Типы объектов»][id-06-08]
+
+Вкладка «Типы объектов» предназначена для управления списком типов объектов. 
+
+Для того, чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать типы объектов» для модуля «Настройка системы».
+
+Тип объекта является обязательным свойством объекта. Тип объекта используется для удобства организации (сортировки, группировки) списка объектов, например, при просмотре свойств объектов или создании отчетов. Указать тип для объекта можно в модуле «Менеджер объектов».
+
+## Поля объектов
+
+![Вкладка «Поля объектов»][id-06-09]
+
+На вкладке «Поля объектов» можно изменить список дополнительных полей, которые будут доступны при заполнении карточки объекта.
+
+Для того, чтобы сохранить изменения, произведенные на этой вкладке, пользователь должен обладать разрешением «Редактировать поля объектов» для модуля «Настройка системы».
+
+При формировании списка полей можно задать порядок их следования при отображении в карточке объекта.
+
+Если значения какого-то поля представляют собой список заранее известных значений, то можно заполнить этот список, указав для поля соответствующий тип. При этом, список значений не ограничивает возможность указать значение для поля объекта вручную, если это необходимо.
+
+В списке полей объектов присутствуют два поля, для которых рекомендуется изменять только список возможных значений. Это поля «\*Оборудование раздела объекта» и «\*Оборудование шлейфа объекта». Как следует из их названий, они предназначены для того, чтобы при редактировании разделов и шлейфов объектов в модуле «Менеджер объектов» было удобнее заполнять значения для поля «Оборудование».
+
+[id-06-01]: img/syssetup-03.png "Вкладка «Классы событий»"
+[id-06-02]: img/syssetup-03-01.png "Окно «Замена класса события»"
+[id-06-03]: img/syssetup-01.png "Вкладка «Шаблоны событий»"
+[id-06-04]: img/syssetup-01-01.png "Окно «Замена шаблона событий»"
+[id-06-05]: img/syssetup-01-02.png "Окно «Изменить событие»"
+[id-06-06]: img/syssetup-04.png "Вкладка «Действия»"
+[id-06-07]: img/syssetup-05.png "Вкладка «Отмены тревог»"
+[id-06-08]: img/syssetup-02.png "Вкладка «Типы объектов»"
+[id-06-09]: img/syssetup-06.png "Вкладка «Поля объектов»"

@@ -1,76 +1,71 @@
-## Getting Started
+# Приступая к работе
 
-### “Security Center” editions
+## Редакции «Центра охраны»
 
-“Andromeda Security Center” is supplied in various editions.
+Редакции программного обеспечения «Центр охраны» отличаются максимально возможным количеством обслуживаемых объектов: 1000, 1500, 2000 и так далее.
 
-#### A100 and A600
+Ограничений на использование источников событий нет, при этом источники событий от пультов централизованного наблюдения производства третьих фирм приобретаются отдельно.
 
-These “Security Center” editions are designed to be operated with central surveillance units manufactured by Altonika Company.
+Стартовая редакция «Центра охраны» является бесплатной и позволяет осуществлять охрану до 1000 объектов.
 
-“A100” and “A600” editions allow to use only those event sources, which are  designed to receive events from these units.
+## Назначение модулей
 
-When you order “Security Center”, editions “A100” and “A600”, it is necessary to specify number of event sources from “Lonta-202” or “RS-200”. The number should correspond  to number of units, which are supposed to be connected to “Security Center”.
+Программное обеспечение «Центр охраны» состоит из модулей, каждый из которых предназначен для решения конкретных задач.
 
-Among themselves the editions differ the maximum possible number of serviced objects: no more than 100  objects for edition “A100” and no more than 600 objects for edition “A600”.
+Модуль «**Менеджер событий**» служит для приема извещений от приемного оборудования центральной станции, а также напрямую от некоторых видов объектового оборудования, например, по каналам связи GPRS и Ethernet. 
 
-If while operating “Security Center”, edition  “A100” or “A600” either the other central surveillance unit is required to connect  or the number of serviced objects will exceed 600 pieces it is necessary to update the edition of “Security Center” to one of the standard.
+Кроме того, именно в модуле «Менеджер событий» происходит автоматизированной обработка событий: контроль цепочек событий, отправка SMS-сообщений и передача событий в другие системы. 
+Необходимо отметить, что «Менеджер событий» является связующим звеном для всех остальных модулей «Центра охраны»: он должен быть запущен первым, так как именно с его помощью модули обмениваются информацией о новых событиях, действиях операторов и других изменениях, произошедших при работе модулей.
 
-#### Standard editions
+С помощью модуля «**Менеджер объектов**» осуществляется создание новых объектов и изменение описания для существующих объектов.
 
-Standard editions of the “Security Center” software differ the maximum possible number of serviced objects: 250, 500, 750, 1000, 1500, 2000 and so on.
-There is no restrictions on usage of event sources, but event sources from central surveillance unit of other firms are purchased separately.
+Модуль «**Дежурный оператор**» используется оператором для обработки событий. Основные функции модуля — наблюдение за оперативным состоянием объектов, просмотр последних полученных событий, регистрация действий оператора по отработке тревог, полученных от объектов.
 
-### Purpose of modules
+Назначение модуля «**Карты объектов**» - создание схем подъезда к объекту, поэтажных планов и расположения рубежей охраны. Кроме того, модуль «Карты объектов» используется для отображения тревожных шлейфов объекта на поэтажном плане при отработке тревоги.
 
-The “Andromeda Security Center” software consists of modules each one of which is designed to fulfill specific tasks.
+Список операторов «Центра охраны», а также их прав в каждом из модулей устанавливаются в «**Менеджере персонала**». В этом же модуле можно изменить список групп реагирования, а также список компьютеров локальной сети, на которых эксплуатируются сетевые рабочие места «Центра охраны».
 
-The “Event manager” module serves to receive events from receiving equipment of a central station as well as directly from certain types of field equipment, e.g. via GPRS and Ethernet communication channels. 
+Модуль «**Мастер базы данных**» предназначен для выполнения следующих операций:
 
-In addition, it is just the “**Event Manager**” module where automated event processing takes place: event chains control, sending SMS messages and transmitting events to other systems. 
-It is necessary to note that the “Event Manager” is the interlink for all other modules of the “Security Center”: it should be started the first as it is the one via which other modules exchange information about new events, actions of operators and other changes which have taken place during module.
+* проверка базы данных и устранение ошибок
+* создание резервной копии базы данных
+* восстановление базы данных из резервной копии
+* импорт данных из базы данных программного обеспечения «Андромеда», программного обеспечения «Андромеда Либерти», программного обеспечения «Страж» и программного обеспечения «CSM32»
+* экспорт данных из базы данных «Центра охраны» для использования в других программах
 
-Using the “**Object Manager**” module new objects are created and descriptions of existing objects are changed.
+В модуле «**Настройка системы**» можно изменить справочники, которые используются при описании объектов: список шаблонов событий, классы событий и связанные с ними действия, типы объектов и список дополнительных характеристик.
 
-The “**Duty Operator**” module is used by operator to process events. The main module functions are monitoring of operational status of objects, viewing the last received events, recording operator actions in response to alarms received from objects.
+## Первый запуск
 
-The “**Maps of Objects**” module is designed to create object approach schemes, floor plans and arrangement of security lines. Also, the “Maps of Objects” module is used to display object alarm loops on the floor plan when responding to alarm.
+Для того чтобы приступить к работе нужно запустить модуль «Менеджер событий» и настроить источники событий — специальные компоненты модуля, предназначенные для приема событий от оборудования центральной станции.
 
-The list of “Security Center” operators as well as their rights in each of modules is established in the “**Personnel Manager**” module. In the same module, you can modify the list of response guards as well as the list of local network computers which run network workstations of the “Security Center”.
+Настройка источников событий осуществляется в окне «Источники событий». Для доступа к нему нужно выбрать пункт «Источники событий...» в меню модуля «Менеджер событий» (щёлкнуть правой кнопкой мыши на иконке в системной области панели задач).
 
-The “**Database Wizard**” is designed to fulfill the following operations:
+Если «Центр охраны» установлен для ознакомительных целей, то для создания событий от объектов можно воспользоваться пунктом «Эмуляция событий...» в меню «Менеджера событий».
 
-* database verification and error correction
-* database backing-up
-* restore database from backup copy
-* data import from the “Andromeda” software database, the “Andromeda Liberty” software, the “Guardian” software and the “CSM32” software.
-* data export from the “Security Center” database for using in other programs
+После того, как модуль «Менеджер событий» запущен, можно приступить к работе с другими модулями. Заводить объекты в систему следует с помощью модуля «Менеджер объектов», а наблюдать за принимаемыми событиями и отрабатывать тревоги — используя модуль «Дежурный оператор».
 
-In the module “**System setting**” you can modify reference guides which are used for the description of objects: list of event templates, event classes and actions connected with them, object types and list of additional properties.
+## Пароль администратора
+Непосредственно после установки программного обеспечения «Центр охраны» в списке операторов присутствует только один оператор – «Администратор». Пароль оператора «Администратор» по умолчанию – **222222**.
 
-The graphic object plan including the distribution of sensors as well as schemes of approaches to an object can be created or modified using “**Maps of Objects**” module. 
+## Импорт данных 
 
-### First startup
+В программном обеспечении «Центр охраны» реализована функция импорта информации об объектах из баз данных следующих программ:
 
-To proceed to work you should start the “Event Manager” module and set up event sources – the special module components which serve to receive events from equipment of a central station.
-Event sources setting is performed in the “Event Sources” window. To get access to this module you should select item “Event Sources...” from the “Event Manager” module menu (right-click the icon in the system field of the taskbar).
+* «Андромеда» версий 2.0 — 2.76
+* «Центавр»
+* «PCN6»
+* «GuardNet»
+* «Страж»
+* «CSM32»
+* «Неман»
+* «Мираж»
+* «Импорт из XML»
 
-If the “Security Center” is installed for familiarization purposes then to create events from objects you can use “Emulate events...” from menu of the “Event Manager”.
 
-After the “Event Manager” has been started you can proceed to work with other modules. You should enter objects into the system using the “Object Manager” and monitor events being received and respond to alarms using the “Duty Operator”.
+Если до «Центра охраны» использовалось программное обеспечение из списка, приведенного выше, то для комфортного перехода на применение «Центра охраны» можно выполнить импорт описаний объектов из базы данных этих программ.
 
-### Data import
+Если предполагается импорт данных из программного обеспечения «Андромеда» версий 2.0 — 2.76 или «Андромеда Либерти», то при установке «Центра охраны» нужно указать необходимость установки BDE — именно эта подсистема используется для доступа к данным этих программ.
 
-The “Andromeda Security Center” contains the function to perform import of information about objects from databases of the following programs:
-
-* Andromeda, versions 2.0 - 2.76
-* Andromeda Liberty
-* Guardian
-* CSM32
-
-If prior to the “Security Center” any software from above mentioned list was used, then for comfortable changeover to using the “Security Center” you can import object descriptions from a database of these programs.
-
-If it is intended to import data from the “Andromeda”, versions 2.0 - 2.76, or the “Andromeda Liberty” software then during installation of the “Security Center” you should 	specify the necessity to install BDE as this very subsystem is used to access to these programs data.
-
-Data import is performed using Database Wizard module. In case of importing data of the “Andromeda”, versions 2.0 - 2.76, or the “Andromeda Liberty” software all files from database folder will be required. When there is backup copy in ZIP format you need to extract files from the archive in any folder on a computer hard drive.
+Импорт данных осуществляется с помощью модуля «Мастер базы данных». В случае импорта данных программного обеспечения «Андромеда» версий 2.0 — 2.76 или «Андромеда Либерти», для его выполнения потребуются все файлы из папки базы данных. При наличии резервной копии базы данных в формате ZIP, необходимо извлечь файлы из архива в любую папку на жестком диске компьютера.
 

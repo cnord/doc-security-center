@@ -1,44 +1,52 @@
-## Introduction
+# Введение
 
-The “Security Center” software is designed to run under control of Microsoft Windows XP/Vista/7 operations systems. The server part of the “Security Center” software is recommended to run under control of Microsoft Windows Server 2003/2008 operational systems. It is necessary to note the following features of the "Security Center" software:
+Программное обеспечение «Центр охраны» разработано научно-технической и коммерческой фирмой «Си-Норд» для работы в составе комплексной системы передачи извещений «Андромеда». Программное обеспечение «Центр охраны» предназначено для эксплуатации под управлением операционных систем Microsoft Windows (7 / 10). Серверную часть программного обеспечения «Центр охраны» рекомендуется эксплуатировать под управлением операционной системы Microsoft Windows Server 2016.
 
-* It consists of independent functional parts (modules) each one of which is designed to fulfill specific task. This on the one hand, permits to protect each module against possible failure of any other to the utmost level and, on the other hand, allows each module to be installed in a separate computer in a network.
-* It is oriented to work in a network which supports TCP/IP protocol. Thus any changes made in the system on any network computer are immediately applied to all software modules working in this network. 
-* Operator rights are determined in relation to particular action in specific software module. Thus, the levels of operator access to both entire program and its separate components are implemented. For example, operator access both to entire Object Manager module and to the function of object security schedule editing only can be limited.
+Необходимо отметить следующие особенности программного обеспечения «Центр охраны»:
 
-Receiving equipment of a central station makes possible to pick up and process events from control panels (hubs, object blocks) having built-in communicators (digital message transfer units – specialized modems). Depending on the control panel type, its functional and service capabilities, particular information about object status can be received from this panel. Most of control panels can transmit wide range of information. For example, these can be user data who performed arming or disarming; place (zone number) of alarm or failure (open or short-circuit); partial arming with indication of disarmed zones, etc. Due to this a feature duty operator of the complex has the most comprehensive information both about object status (armed, disarmed, alarm, etc.) and about equipment technical condition (battery discharged, missing 220V, telephone line failure, etc.)
+* Программное обеспечение «Центр охраны» состоит из независимых функциональных частей (модулей), каждая из которых предназначена для решения конкретной задачи. Это, с одной стороны, позволяет максимально защитить каждый модуль от возможного сбоя другого, а с другой стороны позволяет устанавливать каждый модуль на отдельном компьютере сети.
 
-### Hardware system requirements
+* Программное обеспечение «Центр охраны» ориентировано на работу в сети, поддерживающей протокол TCP/IP. Таким образом, изменения, произведенные в системе на любом компьютере сети, немедленно применяются ко всем модулям программного обеспечения, работающим в этой сети.
 
-* Minimum configuration: Intel® Pentium IV 2.4 GHz processor, RAM 2 Gb, 17” SVGA monitor, audio card, USB port for electronic security key installation. 
-* Recommended configuration: Intel® Core i5 2.4 GHz processor, RAM 4Gb, 19” SVGA monitor, audio and network card for software operating in network, USB port for electronic security key installation.
+* Права оператора в программном обеспечении «Центр охраны» определяются по отношению к конкретному действию в конкретном модуле программного обеспечения. Таким образом, реализуются уровни доступа операторов как к программе целиком, так и к отдельным ее составляющим. Например, можно ограничить доступ оператора как ко всему модулю «Менеджер объектов», так и только к функции редактирования расписания охраны объекта.
 
-### Operational system requirements
+Приемное оборудование центральной станции позволяет принимать и обрабатывать события с контрольных панелей (концентраторов, объектовых блоков), имеющих встроенные коммуникаторы (блоки передачи цифровых сообщений — специализированные модемы). В зависимости от типа контрольной панели, ее функциональных и сервисных возможностей, от нее можно получать ту или иную информацию о состоянии объекта. Большинство контрольных панелей могут передавать широкий спектр информации. Например, данные о пользователе, выполнившем взятие или снятие с охраны; место (номер зоны) тревоги или неисправности (обрыв, замыкание); частичное взятие с указанием неохраняемых зон и многое другое. Благодаря этому, дежурный оператор комплекса имеет самую полную информацию как о состоянии объекта (поставлен на охрану, снят с охраны, тревога и т.д.), так и о техническом состоянии оборудования (разряжен аккумулятор, отсутствует 220В, неисправна телефонная линия и т.д.).
 
-The following operational systems are supported:
+## Аппаратные требования к системе
+
+Минимальная конфигурация: Процессор Intel Core i5, RAM 4Gb, 17\" SVGA монитор, звуковая карта, USB-порт для установки электронного ключа защиты.
+
+Рекомендуемая конфигурация: Процессор Intel Core i7, RAM 8Gb, 19\" SVGA монитор, звуковая карта и сетевая карта для эксплуатации программного обеспечения в сети, USB-порт для установки электронного ключа защиты.
+
+## Требования к операционной системе
+
+Поддерживаются следующие операционные системы:
 
 * Microsoft Windows XP
 * Microsoft Windows Vista
 * Microsoft Windows 7
+* Microsoft Windows 8
 * Microsoft Windows Server 2003
 * Microsoft Windows Server 2008
+* Microsoft Windows Server 2012
+* Microsoft Windows Server 2016
 
-The “Security Center” software, version 3.4 is designed to be operated both with 32-bit versions and with 64-bit versions of mentioned operational systems.
-Before the installation of the “Security Center” it is recommended to update operational system with the last of service packs offered by “Microsoft” company.
+Программное обеспечение «Центр охраны» версии 5 предназначено для эксплуатации как на 32-битных, так и на 64-битных версиях перечисленных операционных систем.
 
-### Electronic security key
+Перед установкой «Центра охраны» рекомендуется проверить, что для операционной системы установлен последний из пакетов обновления, предлагаемых компанией «Microsoft».
 
-The “Security Center” software is protected against illegal copying by an electronic security key. Prior to use the “Security Center” you should connect an electronic key to USB port of a computer and perform its driver installation.
+## Электронный ключ защиты
+Программное обеспечение «Центр охраны» защищено от нелегального копирования электронным ключом защиты. Перед использованием «Центра охраны» необходимо подключить электронный ключ к USB-порту компьютера и выполнить установку его драйвера.
 
-### Distribution kit
+## Комплект поставки
+Программное обеспечение «Центр охраны» поставляется в следующем комплекте:
 
-The “Security Center” software is delivered in the following kit:
+* Компакт диск, содержащий:
 
-* CD containing: 
-	* Distributive of the “Security Center” full version, intended for installation the “Security Center” on a new computer where this software has not been installed previously.
-	* Distributive of the “Security Center” Service Pack, intended for upgrading already installed the “Security Center” software (or “Andromeda 2.8” software) to the “Security Center” version 3.3. 
-	* Distributive of electronic security key drivers.
+	* Дистрибутив полной версии «Центра охраны», предназначенный для установки «Центра охраны» на новый компьютер, где программное обеспечение ранее не было установлено.
 
-* The electronic security key installed in USB port of a computer.
+	* Дистрибутив пакета обновления «Центра охраны», предназначенный для обновления уже установленного программного обеспечения «Центр охраны» (или программного обеспечения «Андромеда 2.8») до «Центра охраны» версии 5.
 
+	* Дистрибутив драйверов электронного ключа защиты.
 
+* Электронный ключ защиты, устанавливаемый в USB-порт компьютера.
