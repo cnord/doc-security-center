@@ -60,17 +60,18 @@ $if(url)$
 \usepackage{url}
 $endif$
 
-$if(graphics)$
-\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
+\usepackage{wrapfig}
+
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
 % are scaled down if they would overflow the margins.
 \makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-\else\Gin@nat@width\fi}
+	\def\maxwidth
+		{\ifdim\Gin@nat@width>\linewidth\linewidth
+		\else\Gin@nat@width\fi}
 \makeatother
-\let\Oldincludegraphics\includegraphics
-$endif$
+	\let\Oldincludegraphics\includegraphics
 
 \usepackage[unicode=true,
             bookmarks=true,
@@ -120,7 +121,7 @@ $endfor$
 \begin{document}
 \input{title-manual.tex}
 
-\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+%\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
 
 $for(include-before)$
 $include-before$
