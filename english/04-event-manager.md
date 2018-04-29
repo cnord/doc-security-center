@@ -1,171 +1,951 @@
-## Event Manager
+# Менеджер событий
 
-The “Event Manager” module is designed to receive events from receiving equipment of a central station as well as directly from certain types of field equipment, e.g. via GPRS and Ethernet communication channels.
+Модуль «Менеджер событий» предназначен для приема извещений от приемного оборудования центральной станции, а также напрямую от некоторых видов объектового оборудования, например, по каналам связи GSM (CSD/GPRS) и Ethernet.
 
-The result of processing the received events by “Event Manager” module consists in events which form the basis of the “Security Center” operation.
+Результатом обработки принятых извещений модулем «Менеджер событий» являются события, которые и составляют основу работы программного обеспечения «Центр охраны».
 
-In the “Event Manager” the automated event processing takes place: event chains control, sending SMS messages and transmitting events to other systems.
+В «Менеджере событий» происходит автоматизированная обработка событий: контроль цепочек событий, отправка SMS-сообщений и передача событий в другие системы.
+Кроме того, «Менеджер событий» является связующим звеном для всех остальных модулей «Центра охраны»: он должен быть запущен первым, так как именно с его помощью модули обмениваются информацией о новых событиях, действиях операторов и других изменениях, произошедших при работе модулей.
 
-The “Event Manager” is the interlink for all other modules of the “Security Center”: it should be started the first as it is the one via which other modules exchange information about new events, actions of operators and other changes which have taken place during module.
-After module starting, in the system field of Windows task bar the icon appears which informs about the module operation. When any event is received the icon color changes, and if you move the cursor onto the icon the information about last event time and total number of events from module starting appears.
+После запуска модуля в системной области панели задач Windows появляется иконка, информирующая о работе модуля. При приеме событий цвет иконки меняется, а при наведении на нее курсора мыши появляется информация о времени последнего события и общем количестве событий с момента запуска модуля.
 
-Right-click on module icon results in the menu displaying. 
+Нажатие правой кнопки мыши на иконке модуля приводит к появлению выпадающего меню. 
 
-### Module settings
+![Выпадающее меню модуля «Менеджер событий»][id-04-01]
 
-You can get access to settings if you select “Setting...” item in the module menu.
-The “**Frequency of security schedule alarms**” parameter sets the interval of system events with ZZXB and ZZXC codes generating. System events with these codes are generated when the daily object security schedule is violated and long-term object security is violated respectively. Setting of security schedule as well as setting of long-term security of object is performed individually for each object in the “Object Manager” module.
+## Настройки модуля
 
-The “**Interval of repeated events filtration**” parameter sets the interval within which the second and succeeding equal events received via different communication channels will be considered being repeated. The repeated events are processed in the “Security Center” modules in a special way. For instance in the “Duty Operator” module, they are not displayed in the general list of received events. But they can be included in the display of events from the object tab. In addition, the repeated events are not included in event reports unless such necessity is specified intentionally. Recommended value for this parameter is 60 seconds.
+Доступ к настройкам можно получить, если выбрать пункт «Настройка...» в выпадающем меню модуля.
 
-“**Test events filtration**” can be turned off using homonymous parameter. When filtration is turned on the test events are processed in the same manner as the repeated events: they are not displayed in the “Duty Operator” module and in the event reports. 
+Для того, чтобы получить доступ к окну «Настройка» и сохранить изменения, произведенные в нем, пользователь должен обладать разрешением «Изменять настройки» для модуля «Менеджер событий».
 
-It is essential to understand that the repeated and test events constitute 75 to 95 percents of total number of events received by the “Security Center”. Consequently repeated and test events filtering mechanism permits to release the "Security Center” operators from necessity to process useless information. For the same reason events filtration positively influence the performance of the “Security Center” modules. It is not recommended to turn off repeated and test events filtration without strong reasons. 
+### Общие
 
-#### Backup
+![Окно «Настройка», вкладка «Общие»][id-04-02]
 
-The “Backup” tab of the “Event Manager” module settings window is intended for management of backup tasks. 
+Параметр «Периодичность тревог расписания охраны» задает интервал генерации системных событий с кодами ZZXB и ZZXC. Системные события с этими кодами создаются при нарушении расписания ежедневной охраны объекта и нарушении длительной охраны объекта соответственно. Настройка расписания охраны, как и настройка длительной охраны объекта, осуществляется индивидуально для каждого объекта в модуле «Менеджер объектов».
 
-There are two different types of the “Security Center” database backup copies: operative and full. 
+Параметр «Интервал фильтрации повторных событий» задает интервал, в течении которого второе и последующие одинаковые события, полученные по разным каналам связи, будут считаться повторными. Повторные события обрабатываются в модулях «Центра охраны» специальным образом. Так, в модуле «Дежурный оператор» они не отображаются в общем списке принятых событий. При этом можно включить их отображение на вкладке событий от объекта. Кроме того, повторные события не включаются в отчеты, если специально не указана такая необходимость. Рекомендуемое значение для этого параметра — 60 секунд.
 
-* Full database copy contains all information being stored in the database at the moment of copying including received events, operator actions and sent SMS messages for all time of software running.
-* Data amount in the operative copy is much less: in this copy the events, operator actions and SMS messages for the last month only are stored.
+### Резервное копирование
 
-In general, it is recommended to use operative copying for backup tasks. Full backup is recommended to be executed manually or using tasks of Windows scheduler.
+![Окно «Настройка», вкладка «Резервное копирование»][id-04-03]
 
-For each backup task several destination folders can be specified: after backup copy of data has been created it will be copied in each of these folders. In this process the number of the “Security Center” database backup copy files in each destination folder will be supervised. If during backup copy creation it is determined that the number of backup copy files is greater than specified by the "Number of files in the destination folder” parameter then the oldest file of backup copy is deleted.
+Вкладка «Резервное копирование» окна настроек модуля «Менеджер событий» предназначена для управления заданиями резервного копирования. 
 
-In addition to the backup interval, which sets the frequency of executing the backup task you can set the start time for a task executing. In such manner you can arrange a backing up once a day or start a periodic backing up each day at the same time.
+С помощью кнопки «Добавить...» можно создать новое задание резервного копирования, а кнопки «Изменить...» и «Удалить» предназначены для изменения параметров существующего задания или его удаления.
 
-More detailed information about backing up can be found in the respective section of description of Database Wizard module one of the purposes of which is creation of the “Security Center” database backup copies.
+При создании нового задания резервного копирования или изменении существующего параметры задания можно определить в окне «Задание резервного копирования». 
 
-### Event sources
+![Окно «Задание резервного копирования»][id-04-04]
 
-The main purpose of the “Event manager” module is to receive events from receiving equipment of a central station as well as directly from certain types of field equipment, e.g. via GPRS and Ethernet communication channels. Variety of methods and protocols for annotations transmission is supported using special components of the “Event Manager” module which are called sources of events.
+Параметр «Название задания» позволяет указать для задания резервного копирования название для того, чтобы отличать одно задание от другого в списке.
 
-You can get access to event sources settings by selection of the “Event sources..." item in the module menu.
+С помощью параметра «Папка назначения» можно определить одну и несколько папок, в которые будет скопирована резервная копия базы данных после того, как она будет создана. При этом будет контролироваться _количество файлов резервной копии_ базы данных «Центра охраны» в каждой папке назначения. Если при создании резервной копии будет обнаружено, что количество файлов резервных копий больше, чем задано параметром «Количество файлов в папке назначения», то самый старый по времени файл резервной копии будет удален.
 
-The “Security Center” software, version 3.3, contains the following sources of events:
+Различаются два _типа резервных копий_ базы данных «Центра охраны»: оперативная и полная. 
 
-#### Event source from PimaGuard
+* _Полная_ копия базы данных содержит всю информацию, хранящуюся в базе данных на момент копирования, включая полученные события, действия операторов и отправленные SMS-сообщения за все время эксплуатации программного обеспечения.
 
-It is designed to receive events via serial port or Ethernet from “Mcard for MS-DOS”, “Pima NetSoft” and “PimaGuard for Windows” software in the “Andromeda” protocol.
+* Объем данных в _оперативной_ копии значительно меньше: в ней сохраняются события, действия операторов и SMS-сообщения только за последний месяц.
 
-It is the most advanced source for receiving events from a central station receiving equipment from Pima company. In case when support of the latest capabilities of a central station receiving equipment, as well as protocols and events transmission channels is required this very event source should be used.
+В общем случае, для заданий резервного копирования рекомендуется использовать оперативные копии. Что же касается полных резервных копий базы данных, то их рекомендуется делать вручную или с помощью заданий планировщика Windows. Подробнее о создании резервных копий базы данных с помощью планировщика Windows можно почитать в разделе «Мастер базы данных».
 
-When source from PimaGuard is used in the mode of receiving events via Ethernet, we recommend to use separate instance of event source for each instance of transmitting software.
+Параметр «Интервал повторения» задает интервал повторения выполнения задания резервного копирования. 
 
-#### Event source via TCP/IP
+Поставив отметку рядом с параметром «Время начала выполнения» и указав время, можно настроить запуск задания резервного копирования в одно и то же время. При этом, если значение параметра «Интервал повторения» равно нулю, то задание будет выполняться раз в сутки. А если для параметра «Интервал повторения» задано ненулевое значение, то периодическое резервное копирование будет запускаться каждый день в одно и то же время.
 
-It is designed to receive events via network supporting TCP/IP protocol form the following equipment manufactured by C-Nord company:
+Резервные копии базы данных программного обеспечения «Центр охраны» создаются с помощью модуля «Мастер базы данных», в том числе и те, которые создаются заданиями резервного копирования. Подробнее о том, как создавать резервные копии базы данных и выполнять восстановление базы данных из резервной копии можно узнать из раздела настоящего руководства, посвященного модулю «Мастер базы данных».
 
-* GSM transmitters: TP-100GSM and TP-100GSM II – via GPRS channel
-* panic button “Button” – via GPRS channel
-* “Cepheus” extender – via Ethernet channel
+## Источники событий
 
-When this event source is used usually dedicated IP address in the Internet is required. Additionally, it is recommended to connect different types of equipment to different instances of event source, and when the “Cepheus” extender is connected the best variant is to use a separate instance of event source for each extender.
+Основное назначение модуля «Менеджер событий» заключается в том, что он осуществляет прием извещений от приемного оборудования центральной станции, а также напрямую от некоторых видов объектового оборудования, например, по каналам связи GPRS и Ethernet. Разнообразие способов и протоколов передачи извещений поддерживается с помощью специальных компонентов модуля «Менеджер событий», которые называются «источниками событий».
 
-#### Event source via GSM
+Доступ к настройкам источников событий можно получить, если выбрать пункт «Источники событий...» в меню модуля, которое появляется при щелчке правой кнопкой мыши на иконке модуля в системной области панели задач.
 
-It is designed to receive events via SMS and CSD channels of GSM from the following equipment:
-* panic button “PT-300” manufactured by GemTek company – via SMS channel
-* panic button the “Button” manufactured by “C-Nord” company – via CSD channel
-* It is necessary to note that to use source of events via GSM you should connect to the computer SonyEricsson GT-47, Siemens MC35 GSM modem or a modem compatible with them with respect to command system.
+Для того, чтобы получить доступ к окну «Источники событий» и сохранить изменения, произведенные в нем, пользователь должен обладать разрешением «Изменять настройки» для модуля «Менеджер событий».
 
-#### Event source from Sur-Gard
+![Окно «Источники событий»][id-04-05]
 
-It is designed to receive events through serial port from receiving equipment of Sur-Gard central stations manufactured by DSC company up to System III including. 
+Нажав на кнопку «Добавить...» можно выбрать нужный источник событий из списка установленных в системе.
 
-As data transmission format used by Sur-Gard central stations is actually a standard, this event source can be used to receive events from equipment and software from wide variety of manufacturers: “Ritm”, “Proxima”, Jablotron and others. 
+![Окно «Добавить источник событий»][id-04-06]
 
-#### Event source from RC4000
+А с помощью кнопки "Свойства..." можно изменить настройки выбранного источника событий.
 
-It is designed to receive events through serial port from RC4000 central surveillance unit manufactured by Visonic company. 
+### Общие настройки источников событий
 
-If you are using RC4000 unit together with CSM32 software and want to change over to the “Security Center” software, you should know that there is possibility to perform automatic data import from CSM32 software. More detailed information about this function can be found in the “Database Wizard’ module using which data import is performed.
+![Окно свойств источника событий, вкладка «Общие»][id-04-07]
 
-#### Multiprotocol event source
+С помощью параметра «Описание источника событий» можно указать название и важные параметры источника событий, для того, чтобы видеть их в списке используемых источников событий.
 
-It is designed to receive events through serial port from SilentKnight 9500 central surveillance unit (manufactured by Honeywell company) and RCI4000/RCI5000/DTRCI5000 units (manufactured by KP Electronics company). Additionally this event source supports data receiving in some other commonly used protocols, e.g. in Ademco 685 protocol.
+Параметр «Внутренний номер источника» необходим для идентификации его как «Центром охраны», так и пользователем. Во-первых, номер источника событий используется для определения того, от какого источника получено то или иное событие. Во-вторых, когда источник событий что-то сообщает пользователю, создаваемое для этого событие будет иметь такой же номер объекта, как и внутренний номер источника. 
+Настоятельно рекомендуется создавать в «Центре охраны» объекты, номера которых соответствуют внутренним номерам источников событий — это позволит контролировать возникновение ошибок, возникающих при работе источников, а также получать служебную информацию об их работе.
 
-### Settings of event sources
+Параметр «Контрольное время источника событий» позволяет автоматически отслеживать факт приема событий источником и информировать оператора о проблемах, возникших при приеме. В случае, если по какой-то причине за заданный этим параметром интервал источником событий не будет принято ни одного события, будет создано системное событие с кодом «ZZXH» и номером объекта, соответствующим внутреннему номеру источника событий.
 
-If event source is designed to receive data via serial port you should choose the port to which a central station equipment is connected and specify its parameters (speed, parity, number of data bits, etc).
+С помощью параметра «Сдвиг номеров объектов» можно задать целое положительное слагаемое, которое автоматически будет добавляться к номеру объекта для каждого события, принятого источником событий. 
+Сдвиг номеров объектов рекомендуется использовать в том случае, если к одному экземпляру программного обеспечения «Центр охраны» нужно подключить несколько пультов централизованного наблюдения, в том числе — разных пультов. Задавая для разных источников событий разные сдвиги номеров объектов, можно избежать проблемы с наложением одинаковых номеров разных объектов, работающих на разные пульты.
 
-If event source is designed to receive data via network supporting TCP/IP protocol then it will be necessary to specify network interface and port at which the source will wait for reception of incoming connections as source parameters.
+Например, к «Центру охраны» подключено два пульта Lonta-202. Диапазоны номеров объектов, которые могут быть подключены к пультам, одинаковы — от 1 до 600. Но если задать для одного источника событий сдвиг номеров объектов равный 1000, а для другого — 2000, то внутри «Центра охраны» мы будем работать с объектами 1001-1600 для одного пульта и 2001-2600 — для другого.
 
-The “Internal Number” of event source is needed for its identification both by the “Security Center” and by user. First, number of event source is used to determine from which source a particular event has been received. Secondly, in case when an event source informs a user about anything the event created by it for this purpose will have the same object number as internal number of component. 
+«Сдвиг номера канала» - это параметр, задающий целое положительное слагаемое, которое автоматически будет добавляться к номеру канала приема. 
+Если задано нулевое значение сдвига номера канала, то для событий, принятых источником событий будет использоваться номер канала, передаваемый приемным оборудованием центральной станции или первый номер канала, если оборудование номер канала не передает.
+Задавая для разных источников событий разные сдвиги номеров каналов, можно различать источники событий (и подключенные к ним пульты) для принятых событий.
+Сдвиг номера канала особенно актуален при использовании нескольких одинаковых источников событий, так как типы и номера каналов связи, используемые этими источниками, наверняка будут совпадать. 
 
-We strongly recommend to create in the “Security Center” the objects with numbers that match to the internal numbers of event sources being used. This will permit to control origin of errors occurring during event sources operation and also to obtain service information about operation of sources.
+Включение или выключение источника событий осуществляется с помощью параметра «Источник событий включен». Необходимо отметить, что если источник событий выключен, то все используемые им ресурсы освобождаются.
 
-The “Event Source control time” permits to automatically track the fact of events reception by source and inform an operator about the problems risen during reception. In case when by any reason the event source has received no events within the interval specified by this parameter the system event with “ZZXH” code and object number corresponding to the internal number of event source is created.
+### Источник событий от PimaGuard и Sentinel
 
-Using the “Shift of object numbers” positive integer summand can be set which will be added to object number for each event received by event source. 
+«Источник событий от PimaGuard и Sentinel» предназначен для приема событий по последовательному порту или сети Ethernet от программного обеспечения из следующего списка:
 
-The “Shift of object numbers” is recommended to use in case when several central surveillance units (including different units) is to be connected to one instance of the “Security Center”. By specifying different shifts of object numbers for different event sources you can avoid the problem with overlapping the same numbers of different objects working for different units.
-For example, two Lonta-202 units are connected to the “Security Center”. The ranges of object numbers which can be connected to units are the same - 1 to 600. But if you set the shift of object numbers for one event source equal to 1000 and for the other - 2000, then within the “Security Center” we will work with 1001-1600 objects for one unit and with 2001-2600 objects for the other.
+- «Mcard для MS-DOS»;
+- «Pima NetSoft» (передатчики «GSM-200» и коммуникаторы «Net4Pro»);
+- «Pima IP Receiver» (контрольные панели «AlarmView» «Guiardian»);
+- «PimaGuard для Windows» (протокол «Andromeda»).
 
-The “Shift of channel numbers” is the parameter that sets positive integer summand which will be automatically added to receive channel number. 
+Это наиболее современный источник для приема событий от приемного оборудования центральной станции производства фирмы Pima, включающий в себя все возможности «Источника событий от CMS-420», который больше не поставляется в составе «Центра охраны». Если необходима поддержка новейших возможностей приемного оборудования центральной станции, а также полного спектра протоколов и каналов передачи извещений, реализуемых приемным оборудованием производства фирмы «Pima», необходимо использовать именно «Источник событий от PimaGuard и Sentinel».
 
-If zero value of channel number shift is set then for events received by event source the channel number will be used which is transmitted by receiving equipment of a central station or the first channel number if the equipment does not transmit channel number.
-By setting different shifts of channel numbers for different event sources you can recognize event sources (and units connected to them) for received events.
+![Окно свойств источника событий от PimaGuard и Sentinel, вкладка «Подключение», способ подключения «Последовательный порт»][id-04-08]
 
-The “Shift of channel number” is of special interest when several identical event sources are used because types and numbers of communication channels used by these sources will surely coincide.
+Параметр «Способ подключения» определяет способ, с помощью которого приемное оборудование подключается к «Центру охраны»: по последовательному порту или по сети, поддерживающей протокол TCP/IP.
 
-The “Type of receiving channel” and the “Number of receiving channel” permits to clearly specify the parameters corresponding them by value in case when they can’t be uniquely identified. For example, The “Event source via TCP/IP” can receive events both from TP-100GSM transmitters via GPRS channel and from “Cepheus” extenders via Ethernet channel. Event source cannot identify communication channel which is used during transmission. Therefore when setting an event source it is necessary to specify clearly the type of communication channel which is used during transmission (GPRS if the source is intended to receive events from TP-100GSM or Ethernet if the source is receiving data from “Cepheus”. Additionally, if several such event sources are used then to differ which source has received the event it is necessary to specify different numbers of receiving channels for them.
+Если подключение выполняется по последовательному порту, то с помощью параметра «Номер порта» можно выбрать последовательный порт, к которому подключено приемное оборудование центральной станции, а с помощью параметра «Скорость подключения» можно настроить скорость, на которой будет происходить обмен.
 
-The “Reinititilazation Interval” parameter permits to force reinitialization of equipment (e.g. GSM modem) connected to event source.
+![Окно свойств источника событий от PimaGuard и Sentinel, вкладка «Подключение», способ подключения «Сервер TCP/IP»][id-04-09]
 
-Using the “Exchange Registration” function the data exchange protocol between event source and receiving equipment of central station or control panel can be saved on hard disk. This information can be necessary during causation of exchange problems. We do not recommend to switch on the exchange registration independently without request from technical support service of Research-and-engineering and profit corporation C-Nord company.
+При подключении приемного оборудования по сети Ethernet необходимо помнить, что «Источник событий от PimaGuard и Sentinel» всегда выступает в роли сервера TCP/IP, то есть ожидает входящих подключений.
+Если в компьютер установлено несколько сетевых адаптеров, либо один адаптер использует несколько IP-адресов, то с помощью параметра «Адрес интерфейса» можно указать IP-адрес, на котором источник событий должен ожидать входящих подключений. 
+Параметр «Номер порта» предназначен для того, чтобы указать порт, к которому будет выполнять подключение приемное оборудование центральной станции.
 
-### Event handlers
+При использовании источника от PimaGuard в режиме приема событий по сети Ethernet, рекомендуется использовать отдельный экземпляр источника событий для каждого экземпляра передающего программного обеспечения.
 
-After the “Event Manager” has received event from the central surveillance unit or control panel it performs its decoding and description according to event template preset for the object from which the event has been received. The event received as a result event decoding can be automatically processed in the “Event Manager” module using special module components which are called event handlers.
+### Источник событий по TCP/IP
 
-In the set with the “Security Center”, version 3.3, software the following event handlers are delivered:
+«Источник событий по TCP/IP» предназначен для приема событий по сети, поддерживающей протокол TCP/IP, от следующего оборудования производства фирмы «Си-Норд»:
 
-#### Event Control 
+* GSM-передатчики «ТР-100 GSM» и «ТР-100 GSM II» — по каналу GPRS
 
-This handler performs a control of a periodic reception of an event of the specified class and generation of a system event in case of its absence.
-The handler can be used to fulfill the following tasks:
+* кнопка тревожной сигнализации «Кнопка» — по каналу GPRS
 
-* “Guard Control”. The task of guard control often consists in a simple control of periodic receiving the specified event. In this process notwithstanding that the sequence of event reception is not checked it is possible to carry out security guards control even on a complicate route via selection of event reception intervals.
-* “Control of Automatic Tests”. Contrary to an object control time implying arrival of any event via any communication channel, a periodic arrival of a specific event can be controlled and also a communication channel via which this event should be received can be specified.
+* ретранслятор «Цефей» — по каналу Ethernet
 
-#### Control of Events Chain
+При использовании этого источника событий для пульта централизованного наблюдения, как правило, требуется выделенный IP-адрес в сети Интернет. Кроме того, рекомендуется разные типы оборудования подключать к разным экземплярам источника событий, а при подключении ретранслятора «Цефей» лучше всего использовать отдельный экземпляр источника событий для каждого ретранслятора.
 
-This handler is intended to monitor time sequence (chain) of received events and generation of system messages in case of its violation.
+![Окно свойств источника событий по TCP/IP, вкладка «Приемник событий»][id-04-10]
 
-The handler is designed to fulfill such tasks as:
+«Источник событий по TCP/IP» всегда выступает в роли сервера TCP/IP, то есть ожидает входящих подключений.
+Если в компьютер установлено несколько сетевых адаптеров, либо один адаптер использует несколько IP-адресов, то с помощью параметра «Адрес интерфейса» можно указать IP-адрес, на котором источник событий должен ожидать входящих подключений. 
+Параметр «Номер порта» предназначен для того, чтобы указать порт, к которому будет ожидаться подключение.
 
-* “Control of Paired Events”. For instance, the control of 220V restore or other faults at site. Using the “Events Chain Control” handler short-term faults can be distinguished from fatal ones, for instance, the objects can be identified where electric power is missing too long.
-* “Guard Control”. Use of this handler permits to control a guard’s movement along a route with regard to correct  sequence of walk.
+С помощью параметра «Тип канала приема» можно явно указать тип канала связи, который используется при передаче сообщений от объектового оборудования.  
+Например, «Источник событий по сети TCP/IP» может осуществлять прием событий как от передатчиков ТР-100 GSM по каналу GPRS, так и от ретрансляторов «Цефей» по каналу Ethernet. Идентифицировать канал связи, который используется при передаче, источник событий не может. Поэтому при настройке этого источника событий необходимо явно указать тип канала связи, который используется при передаче: GPRS, если источник предназначен для приема событий от ТР-100GSM, и Ethernet, если источник принимает данные от «Цефея». 
 
-#### Entering through Alarm
+Параметр «Номер канала приема» предназначен для того, чтобы задать номер, который будет использоваться для идентификации канала, по которому принято событие. Значение этого параметра особенно полезно в том случае, если используется несколько источников событий по TCP/IP: для того, чтобы различать каким из источников принято событие, необходимо задать для них разные номера каналов приема.
 
-The “Entering through Alarm” handler permits to suspend alarm event processing by the “Event Manager” module and wait for removal from guard which can be received immediately after an alarm.
+### Источник событий от программного обеспечения «GuardBox»
 
-Purpose of this event handler is to release a duty operator from necessity to respond to obviously false alarms which happen while removing objects from guard.
+«Источник событий от программного обеспечения «GuardBox» предназначен для приема событий по последовательному порту от программного обеспечения «GuardBox».
 
-This handler should be applied to such objects where guarding tactics excluding entrance delay is used. Use of this handler is also justified for all objects where personnel error while taking off from guarding is possible.
+Использование этого источника событий гарантирует передачу событий от приемного оборудования центральной станции. Кроме того, он обеспечивает целый ряд других функций, например, синхронизацию времени с компьютером центральной станции.
 
-#### SMS Transmitter
+![Окно свойств источника событий от ПО «GuardBox», вкладка «GuardBox»][id-04-11]
 
-This handler permits to arrange transmission of information about received messages to a mobile phone as SMS messages.
+С помощью параметра «Порт» можно выбрать последовательный порт, к которому подключен компьютер, на котором запущено программное обеспечение «GuardBox», а с помощью параметра «Скорость подключения» можно настроить скорость, на которой будет происходить обмен.
 
-To send SMS messages the handler can use GSM modem which should be connected to a computer or direct connection to SMS server of cellular operator via TCP/IP network.
+Параметр «Проверять функционирование «Центра охраны» предназначен для включения или выключения контроля за работой «Центра охраны» со стороны программного обеспечения «GuardBox». 
+Суть контроля заключается в подключении по сети к модулю «Менеджер событий» и формировании запросов о функционировании модулей «Менеджер событий» и «Дежурный оператор». 
+Информация о результатах выполненной проверки передается в программное обеспечение «GuardBox». В том случае, если проверка завершится с ошибкой, то программное обеспечение «GuardBox» сообщает об этом визуально и с помощью звукового сигнала.
 
-Using SMS Extender handler optional service can be rendered to guarding enterprise clients, e.g. informing responsible persons about events of object putting under and taking off from guarding.
+### Источник событий по GSM
 
-Additionally, using this handler alarms can be transmitted directly to guard’s mobile phone in parallel to a duty operator work.
+«Источник событий по GSM» предназначен для приема событий по SMS и CSD-каналам GSM от следующего оборудования:
 
-Use of this handle can also significantly simplify commissioning of equipment on connected objects. If you allocate a personal object number to an engineer which number should be used during testing equipment on the object, and switch on SMS-forwarding for events received from this object to the engineer’s mobile phone then the engineer will be able to set up equipment without assistance of unit’s duty operators.
+* GSM-передатчики «ТР-100 GSM II» и «ТР-100 GSM III» — по каналу CSD
 
-#### Pandora Net
+* кнопка тревожной сигнализации «Кнопка» производства фирмы «Си-Норд» — по каналу CSD
 
-The main task of the “Pandora net” handler is to arrange information exchange between independent instances of the “Security Center” software. Events, operator actions and object descriptions can be transmitted from one “Security Center” to another.
+* кнопка тревожной сигнализации «PT-300» производства фирмы GemTek — по каналу SMS
 
-Any channel supporting TCP/IP protocol can be used as data communications channel. 
-There is possibility to describe in details the amount of information which will be transmitted. You can specify numbers and number intervals of objects from which events will be transmitted, specify event classes to be transmitted, select operator actions to be transmitted. Mutual data transmission (cross-transmission) is possible.
+Необходимо отметить, что для использования источника событий по GSM нужно подключить к компьютеру GSM-модем SonyEricsson GT-47, Siemens MC35, либо совместимый с ними по системе команд.
 
-Primarily the event handler is used for creating distributed monitoring systems when several central surveillance units are integrated and it is necessary to collect operative information in the certain control center.
+![Окно свойств источника событий по GSM, вкладка «Устройство»][id-04-12]
+
+Параметр "Тип модема" определяет тип GSM-модема, подключенного к источнику событий.
+
+С помощью параметра «Порт» можно выбрать последовательный порт, к которому подключен GSM-модем, а с помощью параметра «Скорость» можно настроить скорость, на которой будет происходить обмен.
+
+Параметр «Интервал переинициализации» позволяет принудительно выполнять переинициализацию подключенного к источнику событий GSM-модема с заданным интервалом.
+
+Поставив отметку напротив параметра «Протоколировать обмен» можно включить сохранение на жесткий диск протокола обмена источника событий с GSM-модемом. 
+Эта информация бывает нужной при выяснении причин возникновения проблем при подключении к GSM-модему или отправке SMS-сообщений через него. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+![Окно свойств источника событий по GSM, вкладка «SIM-карта»][id-04-13]
+
+С помощью параметра «Номер телефона» можно указать телефонный номер SIM-карты, установленной в GSM-модеме. Этот параметр необходим для формирования команд на кнопки «PT-300», отправляемых по SMS.
+
+Параметр «Адрес SMS-центра» позволяет задать телефонный номер SMS-центра оператора сотовой связи, SIM-карта которого установлена в GSM-модеме. Некоторые операторы связи требуют, чтобы этот параметр был установлен для того, чтобы функция отправки SMS-сообщений работала корректно. Телефонный номер, который используется в качестве значения параметра «Адрес SMS-центра» должен быть указан в полном, международном формате. Символ «+» при указании этого номера использоваться не должен.
+
+Если SIM-карта, установленная в GSM-модеме, защищена персональным идентификационным кодом, то его можно задать в качестве значения параметра «PIN-код». Необходимо отметить, что использование SIM-карт, защищенных PIN-кодом настоятельно не рекомендуется, во избежании проблем, связанных с утратой установленных кодов.
+
+### Источник событий от Sur-Gard
+
+Предназначен для приема событий по последовательному порту от приемного оборудования центральных станций Sur-Gard производства фирмы DSC вплоть до System III включительно. 
+Поскольку формат передачи данных, используемый центральными станциями Sur-Gard, фактически является стандартом, этот источник событий может использоваться для приема событий от оборудования и программного обеспечения самых разных производителей: «Ритм», «Проксима», Jablotron и других. 
+
+![Окно свойств источника событий от Sur-Gard, вкладка «Устройство»][id-04-14]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключено приемное оборудование центральной станции, а с помощью параметра «Скорость подключения» можно настроить скорость, на которой будет происходить обмен. Количество бит данных в передаваемых байтах можно указать с помощью параметра «Биты данных», контроль четности при передаче задается параметром «Четность», для определения количества стоповых битов служит параметр «Стоповые биты».
+
+Если при обмене по последовательному порту используется аппаратный контроль потока данных, то необходимо поставить отметку напротив параметра «Аппаратный контроль потока данных (CTS/RTS)».
+
+![Окно свойств источника событий от Sur-Gard, вкладка «Дополнительно»][id-04-15]
+
+На вкладке «Дополнительно» можно указать типы каналов связи, которые используются приемным оборудованием центральной связи при получении сигналов от объектового оборудования.
+
+### Источник событий от LONTA-202
+
+«Источник событий от LONTA-202» предназначен для приема событий по последовательному порту от пультов централизованного наблюдения Lonta PRO, Lonta Optima и LONTA-202 производства фирмы «Альтоника». 
+
+Необходимо отметить, что если вы используете программное обеспечение «Страж» вместе с любым пультом производства фирмы «Альтоника» и хотите перейти на программное обеспечение «Центр охраны», то вам нужно знать о возможности выполнить автоматический импорт данных из программного обеспечения «Страж». Подробнее об этой функции можно узнать из описания модуля «Мастер базы данных», с помощью которого и осуществляется импорт данных.
+
+![Окно свойств источника событий от LONTA-202, вкладка «LONTA-202»][id-04-16]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключен пульт централизованного наблюдения, а с помощью параметра «Скорость» можно настроить скорость, на которой будет происходить обмен.
+
+### Источник событий от RS-200
+
+«Источник событий от RS-200» предназначен для приема событий от пульта централизованного наблюдения RS-200 производства фирмы «Альтоника». Необходимо отметить, что источник событий поддерживает весь спектр оборудования, передающего сигналы на пульт RS-200.
+
+![Окно свойств источника событий от RS-200, вкладка «RS-200»][id-04-17]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключен пульт централизованного наблюдения, а с помощью параметра «Скорость» можно настроить скорость, на которой будет происходить обмен.
+
+Сдвиг номеров объектов» это целое положительное слагаемое, которое автоматически будет добавляться к номеру объекта для каждого события, принятого источником событий. 
+
+### Источник событий от RC 4000
+
+«Источник событий от RC 4000» предназначен для приема событий по последовательному порту от пульта централизованного наблюдения «RC 4000» производства фирмы «Visonic». 
+
+Если вы используете пульт «RC 4000» вместе с программным обеспечением «CSM32» и хотите перейти на программное обеспечение «Центр охраны», то вам нужно знать, что есть возможность выполнить автоматический импорт данных из программного обеспечения «CSM32«». Подробнее об этой функции можно узнать из описания модуля «Мастер базы данных», с помощью которого и осуществляется импорт данных.
+
+![Окно свойств источника событий от RC 4000, вкладка «RC 4000»][id-04-22]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключен пульт, а с помощью параметра «Скорость» можно настроить скорость, на которой будет происходить обмен.
+
+Если при обмене по последовательному порту используется аппаратный контроль потока данных, то необходимо поставить отметку напротив параметра «Аппаратный контроль потока данных (CTS/RTS)».
+
+Поставив отметку напротив параметра «Протоколировать обмен» можно сохранить на жесткий диск протокол обмена источника событий с пультом централизованного наблюдения. Эта информация бывает нужной при выяснении причин возникновения проблем при получении событий от пульта. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+В разделе «Типы каналов RC 4000» можно указать типы каналов связи, которые используются пультом при получении сигналов от объектового оборудования.
+
+### Источник событий Мультипротокол
+
+«Источник событий Мультипротокол» предназначен для приема событий по последовательному порту от следующих пультов централизованного наблюдения 
+
+* Silent Knight 9500 (Honeywell)
+
+* RCI4000/RCI5000/DTRCI5000 (KP Electronics)
+
+* Блиц (радиоканал) (ПКС)
+
+* AES-Intellinet (радиоканал)
+ 
+Кроме того, этот источник событий поддерживает прием данных в некоторых других распространенных протоколах, например, в протоколе Ademco 685.
+
+![Окно свойств источника событий Мультипротокол, вкладка «Устройство приема»][id-04-23]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключено приемное оборудование центральной станции, а с помощью параметра «Скорость подключения» можно настроить скорость, на которой будет происходить обмен. Количество бит данных в передаваемых байтах можно указать с помощью параметра «Биты данных», контроль четности при передаче задается параметром «Четность», для определения количества стоповых битов служит параметр «Стоповые биты».
+
+Если при обмене по последовательному порту используется аппаратный контроль потока данных, то необходимо поставить отметку напротив параметра «Аппаратный контроль потока данных (CTS/RTS)».
+
+## Обработчики событий
+
+После того, как модуль «Менеджер событий» примет извещение от пульта централизованного наблюдения или контрольной панели, он выполняет его расшифровку и описание в соответствии с шаблоном событий, заданным для объекта, от которого получено извещение. Полученное в результате расшифровки извещения событие может быть автоматически обработано в модуле «Менеджер событий» с помощью специальных компонентов модуля, которые называются обработчиками событий.
+
+Доступ к настройкам источников событий можно получить, если выбрать пункт «Обработчики событий...» в меню модуля, которое появляется при щелчке правой кнопкой мыши на иконке модуля в системной области панели задач.
+
+Для того, чтобы получить доступ к окну «Обработчики событий», пользователь должен обладать разрешением «Просматривать обработчики событий» для модуля «Менеджер событий».
+
+Для того, чтобы сохранять изменения, сделанные в окне «Обработчики событий», пользователь должен обладать разрешением «Редактировать обработчики событий» для модуля «Менеджер событий».
+
+![Окно «Обработчики событий»][id-04-24]
+
+Область «Поиск» окна «Обработчики событий» предназначена для осуществления поиска группы или обработчика событий в списке. Если нажать на кнопку «Начать», то поиск будет выполнен с самого начала списка. Если же нажать на кнопку «Продолжить», то поиск начнется с текущего, выделенного элемента в списке обработчиков.
+
+В верхней части области «Группы обработчиков» окна «Обработчики событий» располагается панель управления, с помощью кнопок, которые расположены на ней осуществляется управление обработчиками событий «Центра охраны».
+
+Нажатием на кнопку «Отображать скрытые группы обработчиков» можно разрешить отображение в списке обработчиков, помеченных как скрытые. 
+Для того, чтобы включать отображение скрытых групп обработчиков событий пользователь должен обладать разрешением «Просматривать скрытые обработчики событий» для модуля «Менеджер событий».
+Необходимо отметить, что разрешение «Редактировать обработчики событий» распространяется только на те обработчики событий, которые пользователь может просматривать. Таким образом, можно предоставить пользователю вносить изменения в обработчики «Ретранслятор SMS» и скрыть от него другие, критичные для работы «Центра охраны» обработчики событий, такие, как «Сеть Пандоры» или «Вход через тревогу».
+
+С помощью кнопок «Переместить вверх по списку» и «Переместить вниз по списку» можно изменить порядок следования обработчиков в списке отображения. Этот порядок бывает важен, так как каждое событие передается в обработчики событий по очереди - в том порядке, в котором обработчики отображаются в списке. 
+Например, если обработчик «Контроль цепочки событий» настроен таким образом, чтобы контролировать получения события «Сброс тревоги» вслед за событием «Тревога», то он должен быть в списке раньше обработчика «Вход через тревогу», так как последний может изменить класс принятого события.
+
+Кнопка «Создать группу» предназначена для добавления новой группы обработчиков событий в список. А кнопка «Создать обработчик» позволяет добавить новый обработчик в группу.
+Никаких ограничений на количество групп обработчиков в списке или количество обработчиков в группе нет, их можно создавать столько, сколько необходимо.
+Группа обработчиков событий определяет алгоритм, в соответствии с которым будет выполняться обработка событий. Кроме того, в настройках группы определяются ресурсы, которые будут использоваться при выполнении обработки. Например, в группе обработчиков событий «Ретранслятор SMS» указывается устройство, с помощью которого будет выполняться отправка SMS-сообщений, и это устройство будет использоваться для отправки сообщений всеми обработчиками в группе.
+Что же касается обработчиков в группе, то они определяют настройки выполняемой обработки событий по отношению к конкретным объектам. При этом настройки разных обработчиков не зависят друг от друга. Например,  события с одного и того же объекта могут обрабатываться разными обработчиками одной группы. 
+Объединение обработчиков в группу также полезно в тех случаях, когда обработчики событий нужно скрыть или отключить: группа скрывается вместе обработчиками, которые в нее входят, а если группа обработчиков событий выключена, то входящие в нее обработчики функционировать не будут, даже если сами они включены.
+
+С помощью кнопки «Вставить копию выделенного элемента» можно скопировать текущий, выбранный в списке элемент. Если это обработчик событий, то в ту же группу обработчиков событий будет вставлена его копия, за исключением того, что новый обработчик будет выключен. Если же в списке выбрана группа обработчиков, то в список будет вставлена копия группы. При этом состояние обработчиков группы сохранится, а вот сама новая группа обработчиков событий будет выключена.
+
+Нажав на кнопку «Свойства» можно выполнить настройку группы обработчиков событий или отдельного обработчика.
+
+Кнопка «Удалить выделенный элемент» позволяет удалить из списка выбранную группу обработчиков событий или отдельный обработчик в группе. Будьте внимательны, при удалении группы обработчиков событий будут удалены все входящие в нее обработчики событий. 
+В связи с тем, что удаление обработчиков событий сопровождается очисткой базы данных от их настроек, удаление некоторых групп обработчиков событий может занимать продолжительное время.
+
+Список обработчиков событий поддерживает несколько операций, которые можно выполнить с помощью мыши. Так, например, можно менять порядок элементов в списке, а также перемещать обработчики событий из одной группы в другую.
+
+### Общие настройки групп обработчиков событий
+
+![Окно «Параметры группы обработчиков», вкладка «Общие»][id-04-25]
+
+В качестве значения для параметра «Название группы» можно указать строку, которая будет отображаться в списке обработчиков в окне «Обработчики событий». В название группы обработчиков событий рекомендуется включать ключевую информацию, характеризующую группу, позволяющую отличить одну группу от другой, например - параметры ресурсов, используемых группой. 
+
+Параметр «Описание группы» предназначен для хранения развернутой, подробной информации о группе обработчиков событий.  
+
+Параметр «Внутренний номер» необходим для идентификации группы обработчиков событий как «Центром охраны», так и пользователем. В том случае, когда группа что-то сообщает пользователю, создаваемое для этого событие будет иметь такой же номер объекта, как и внутренний номер группы. 
+Настоятельно рекомендуется создавать в «Центре охраны» объекты, номера которых соответствуют внутренним номерам групп обработчиков событий — это позволит контролировать возникновение ошибок, возникающих при работе обработчиков, а также получать служебную информацию об их работе. 
+В качестве шаблона событий для объектов, номера которых соответствуют внутренним номерам групп обработчиков событий рекомендуется использовать шаблон «Обработчики событий».
+
+При выполнении поиска в окне «Обработчики событий» поисковый запрос просматривает значение параметров «Название группы», «Описание группы» и «Внутренний номер».
+
+Включение или выключение группы обработчиков событий осуществляется с помощью параметра «Группа включена». Необходимо отметить, что если группа обработчиков событий выключена, то все используемые ею ресурсы освобождаются и обработка событий группой прекращается. При этом обработчики, входящие в группу, могут быть включены - их состояние на обработку событий выключенной группой не влияет.
+
+Если установить для группы обработчиков параметр «Скрытая группа», то можно скрыть эту группу обработчиков из списка в окне «Обработчики событий» для тех пользователей, у которых нет разрешения просматривать скрытые группы обработчиков событий.
+
+С помощью параметра «Не обрабатывать события от отключенных объектов» можно выключить обработку событий от объектов, которые отключены. Это функция может быть полезна практически для всех обработчиков, так как позволяет автоматически исключать из обработки отключенные объекты. Отключение объекта выполняется в модуле «Менеджер объектов» на вкладке «Охрана». Подробнее об отключении объектов можно почитать в разделе настоящего руководства, посвященном модулю «Менеджер объектов».
+
+### Общие настройки обработчиков событий
+
+![Окно «Параметры обработчика», вкладка «Общие»][id-04-26]
+
+В качестве значения для параметра «Название обработчика» можно указать строку, которая будет отображаться в списке обработчиков в окне «Обработчики событий». В название обработчика событий рекомендуется включать ключевую информацию, которая его характеризует и позволяет отличить один обработчик от другого, например - номер объекта, события от которого обрабатываются обработчиком. 
+
+Параметр «Описание обработчика» предназначен для хранения развернутой, подробной информации об обработчике событий.  
+
+Параметр «Внутренний номер» необходим для идентификации обработчика событий как «Центром охраны», так и пользователем. В том случае, когда обработчик что-то сообщает пользователю, создаваемое для этого событие будет иметь такой же номер объекта, как и внутренний номер обработчика. 
+
+Включение или выключение обработчика событий осуществляется с помощью параметра «Обработчик включен». Необходимо отметить, что для работы обработчика событий необходимо, чтобы был включен и обработчик, и группа обработчиков событий, в которую он включен.
+
+#### Объекты
+
+![Окно «Параметры обработчика», вкладка «Объекты»][id-04-27]
+
+На вкладке «Объекты» указать номера и интервалы номеров объектов, события от которых будут обрабатываться. 
+Для того, чтобы добавить номер или интервал номеров объектов в список обрабатываемых, нужно ввести его в поле ввода в правой части окна и нажать на кнопку «Добавить». При вводе номеров объектов допускается  перечисление нескольких номеров или номеров и интервалов номеров через запятую, например: «100, 102, 104, 106-100, 200-299».
+Для того, чтобы удалить номер или интервал номеров объектов из списка обрабатываемых, нужно выбрать строку со значением, которое нужно удалить, в списке, расположенном в левой части окна и нажать на кнопку «Удалить».
+
+#### Каналы
+
+![Окно «Параметры обработчика», вкладка «Каналы»][id-04-28]
+
+Вкладка «Каналы» предназначена для того, чтобы указать типы каналов связи, по которым должны быть приняты события, которые будут обрабатываться. Для того, чтобы разрешить обработку событий, принятых по тому или иному каналу связи, нужно поставить отметку рядом с названием канала.
+
+Параметр «Интервал фильтрации каналов» предназначен для исключения из обработки одинаковых событий, полученных по разным каналам связи. Если значение этого параметра больше нуля, то в обработано будет только первое полученное событие, все остальные, полученные в течение указанного интервала, будут проигнорированы. Например, если при передаче сообщений с объекта используются два канала связи - радио и телефон и значение параметра «Интервал фильтрации каналов» равно 1 минуте, то будет обработано сообщение, полученное по радио, а сообщение, полученное по телефону, будет проигнорировано (если оно придет в течении одной минуты).
+Параметр «Интервал фильтрации каналов» рекомендуется использовать для обработчиков событий «Ретранслятор SMS».
+
+#### Расписание
+
+![Окно «Параметры обработчика», вкладка «Расписание»][id-04-29]
+
+Если обработчик событий необходимо настроить таким образом, чтобы обработка событий выполнялась только в заданное время, то на вкладке «Расписание» можно задать расписание работы обработчика.
+
+Нажатием на кнопку «Добавить» можно добавить интервал работы обработчика событий в список. Для каждого интервала необходимо указать день недели, к которому он относится, а также время начала и завершения его действия.
+
+Кнопка «Удалить» предназначена для удаления интервала работы обработчика событий из списка.
+
+С помощью параметра «Использовать расписание» можно включить или выключить использования расписания обработчиком. Если использование расписания обработчиком событий выключено, то он работает постоянно. Если же использование расписание включено, но нет ни одного интервала для работы, то обработчик событий никогда не включится.
+
+### Контроль события
+
+Данный обработчик осуществляет контроль периодического получения события заданного класса и генерацию системного события в случае его отсутствия. 
+
+Обработчик может применяться для решения следующих задач:
+
+* «Контроль охранника». Задача контроля охранника зачастую сводится к простому контролю периодического получения заданного события. При этом, несмотря на то, что последовательность приема событий не контролируется, можно осуществлять контроль охранников даже на сложном маршруте за счет подбора интервалов получения событий.
+
+* «Контроль автоматических тестов». В отличие от контрольного времени объекта, подразумевающего приход любого события с объекта по любому каналу связи, можно контролировать периодический приход конкретного события, причем указать канал связи, по которому должно быть принято это событие.
+
+Настройки группы обработчиков событий «Контроль события» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+Настройки обработчика событий «Контроль событий» также во многом совпадают с рассмотренными выше общими настройками обработчиков событий, за исключением вкладки «Контроль события».
+
+![Окно «Параметры обработчика (Контроль события)», вкладка «Класс события»][id-04-30]
+
+*Обработчик событий, настроенный так, как показано на рисунке, будет контролировать приход класса события «Контроль связи» каждые 30 минут. Допустимым для получения следующего события будет считаться период от 25 до 34 минут после получения предыдущего события.*
+
+Параметр «Класс события» задает класс события, получение которого контролирует обработчик событий.
+
+С помощью параметра «Номер зоны» можно ограничить список событий, контролируемых обработчиком. Если значение этого параметра не задано или равно нулю, то обработчик контролирует получение любых событий, класс которых соответствует значению параметра «Класс события». Если же в качестве значения параметра «Номер зоны» задано значение зоны, то будут контролироваться только те события, которые номер зоны для которых соответствует заданному.
+
+Параметр «Интервал» определяет интервал, в течении которого обработчик событий должен получать контролируемые события. 
+
+Параметр «Системный код» определяет код системного события, которое будет создано в том случае, если очередное событие не будет получено обработчиком. 
+При создании системного события используется канал связи «Система» и номер объекта, от которого не получено контролируемое событие. 
+Расшифровка системного события будет выполнена по шаблону событий, заданному для объекта, по которому создано событие.
+
+Параметры «Отклонение влево» и «Отклонение вправо» предназначены для настройки точного контроля интервала получения контролируемых событий. 
+Если значение параметра «Отклонение влево» не равно нулю, то засчитано как полученное будет только то событие, которое будет принято не ранее, чем значение интервала минус отклонение влево. Так если контролируется приход события каждые 30 минут и отклонение влево равно 5 минутам, то засчитываться как принятое будет только то событие, которое будет получено не ранее, чем через 25 минут после предыдущего.
+Если значение параметра «Отклонение вправо» не равно нулю, то засчитано как полученное будет и то событие, которое будет получено позже, чем значение интервала плюс отклонение вправо, но не больше. Например, если контролируется приход события каждые 30 минут и отклонение вправо равно 5 минутам, то событие, принятое через 34 минуты после предыдущего, будет засчитано как полученное.
+
+Если параметр «Сдвигать начало отсчета интервала» установлен, то отсчет нового интервала ожидания события будет начат от момента получения предыдущего события. Если же параметр не установлен, то отсчет интервала связан с моментом включения обработчика.
+Если события, контролируемые обработчиком, создаются человеком, то рекомендуется устанавливать параметр «Сдвигать начало отсчета интервала», чтобы обработчик событий игнорировал неточности и отклонения, связанные с присутствием человеческого фактора. Если же производится контроль событий, создаваемых оборудованием, то параметр «Сдвигать начало отсчета интервала» можно не устанавливать.
+
+Настройка допустимых отклонений и сдвига начала отсчета интервала чаще всего нужно для задач, схожих с задачей «Контроль охранника»: есть интервал, в течении которого выполняется обход помещения, есть допустимые отклонения. Нажатие на кнопку контроля раньше времени игнорируются, можно запоздать с нажатием на некоторое время. При этом новый интервал будет отсчитываться именно от того момента, когда охранних подтвердил завершение предыдущего.
+
+### Контроль цепочки событий
+
+Этот обработчик предназначен для контроля временной последовательности (цепочки) принимаемых событий и генерацию системных сообщений в случае ее нарушения.
+Обработчик предназначен для решения таких задач, как:
+
+* «Контроль парных событий». Например, контроль восстановления 220В или других неисправностей на объекте. Используя обработчик «Контроль цепочки событий» можно автоматически отличать кратковременные неисправности от фатальных, например, выявлять объекты, на которых электропитание отсутствует слишком долго.
+
+* «Контроль охранника». Применение этого обработчика позволяет контролировать движение охранника по маршруту с учетом правильной последовательности обхода.
+
+Настройки группы обработчиков событий «Контроль события» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+Настройки обработчика событий «Контроль событий» также во многом совпадают с рассмотренными выше общими настройками обработчиков событий, за исключением вкладки «Цепочка классов».
+
+![Окно «Параметры обработчика (Контроль цепочки событий)», вкладка «Цепочка классов»][id-04-31]
+
+*Обработчик событий, настроенный так, как показано на рисунке, ожидает получения события с классом «Отсутствие 220В». Если в течении 5 часов (300 минут) после его получения от объекта не будет получено событие с классом «Восстановление 220В», то обработчик создаст системное событие с кодом «ZZBB». Настроенный таким образом обработчик позволяет предупреждать персонал станции мониторинга о длительном отключении электропитания на объекте.*
+
+На вкладке «Цепочка классов» отображается последовательность классов событий, получение которой контролируется обработчиком, причем обработчик событий ожидает события именно в том порядке, в котором они представлены в списке.
+
+В отличии от обработчика событий «Контроль события», который запускает интервал ожидания контролируемого события сразу после включения, обработчик событий «Контроль цепочки событий» активизируется только после получения первого события в цепочке. Факт получение первого события в цепочке обработчиком никак не контролируется.
+
+С помощью кнопки «Добавить класс события в цепочку» можно добавить новый класс события в конец контролируемой цепочки событий.
+
+Нажав на кнопку «Свойства класса события» можно просмотреть и изменить значения параметров выбранного в списке класса событий.
+
+Кнопка «Удалить» предназначена для удаления класса событий из цепочки.
+
+Для просмотра и изменения свойств класса события предназначено окно «Свойства класса события»:
+
+![Окно «Свойства класса события - Контроль цепочки событий»][id-04-32]
+
+Параметр «Имя класса» задает класс события, получение которого контролирует обработчик событий.
+
+С помощью параметра «Номер зоны» можно ограничить список событий, контролируемых обработчиком. Если значение этого параметра не задано или равно нулю, то обработчик контролирует получение любых событий, класс которых соответствует значению параметра «Класс события». Если же в качестве значения параметра «Номер зоны» задано значение зоны, то будут контролироваться только те события, которые номер зоны для которых соответствует заданному.
+
+Параметр «Интервал» определяет интервал, в течении которого обработчик событий должен получать контролируемые события. 
+
+Параметр «Системный код» определяет код системного события, которое будет создано в том случае, если контролируемое событие не будет получено обработчиком. Необходимо отметить, что можно задать отдельный код системного события для каждого класса событий в цепочке. Это позволяет информировать оператора о деталях нарушения и предложить ему разные алгоритмы отработки ситуации.
+При создании системного события используется канал связи «Система» и номер объекта, от которого не получено контролируемое событие. 
+Расшифровка системного события будет выполнена по шаблону событий, заданному для объекта, по которому создано событие.
+
+Параметры «Отклонение влево» и «Отклонение вправо» предназначены для настройки точного контроля интервала получения контролируемых событий. 
+Если значение параметра «Отклонение влево» не равно нулю, то засчитано как полученное будет только то событие, которое будет принято не ранее, чем значение интервала минус отклонение влево. Так если контролируется приход события через 30 минут и отклонение влево равно 5 минутам, то засчитываться как принятое будет только то событие, которое будет получено не ранее, чем через 25 минут после предыдущего.
+Если значение параметра «Отклонение вправо» не равно нулю, то засчитано как полученное будет и то событие, которое будет получено позже, чем значение интервала плюс отклонение вправо, но не больше. Например, если контролируется приход события через 30 минут и отклонение вправо равно 5 минутам, то событие, принятое через 34 минуты после предыдущего, будет засчитано как полученное.
+
+Если параметр «Сдвигать начало отсчета интервала» установлен, то отсчет нового интервала ожидания события будет начат от момента получения предыдущего события. Если же параметр не установлен, то отсчет интервала связан с моментом включения обработчика.
+Если события, контролируемые обработчиком, создаются человеком, то рекомендуется устанавливать параметр «Сдвигать начало отсчета интервала», чтобы обработчик событий игнорировал неточности и отклонения, связанные с присутствием человеческого фактора. Если же производится контроль событий, создаваемых оборудованием, то параметр «Сдвигать начало отсчета интервала» можно не устанавливать.
+
+Так же, как код системного события, значения параметров допустимых отклонений и сдвига начала отсчета интервала могут быть указаны независимо для каждого класса в цепочке.
+
+Настройка допустимых отклонений и сдвига начала отсчета интервала чаще всего нужно для задач, схожих с задачей «Контроль охранника»: есть интервал, в течении которого выполняется обход помещения, есть допустимые отклонения. Нажатие на кнопку контроля раньше времени игнорируются, можно запоздать с нажатием на некоторое время. При этом новый интервал будет отсчитываться именно от того момента, когда охранник подтвердил завершение предыдущего.
+
+#### Контроль связи с передатчиком ТР-100 GSM III
+
+Обработчик событий «Контроль цепочки событий» может использоваться для для контроля связи с передатчиками «ТР-100 GSM III».
+
+При подключении передатчика «ТР-100 GSM III» к источнику событий создается системное событие с кодом «ZZWE», которое, по умолчанию, описано с помощью класса событий «Связь установлена». При отключении передатчика создается системное событие с кодом «ZZWF», при описании которого используется класс событий «Связь потеряна».
+
+Таким образом, есть вся необходимая информация для контроля канала связи: если связь с передатчиком потеряна и не восстановлена в течении заданного промежутка времени, то нужно просто получить информацию об этом.
+
+![Окно «Настройка обработчика событий «Контроль цепочки событий» для контроля связи с передатчиком ТР-100 GSM III»][id-04-56]
+
+*Обработчик событий, который настроен так, как показано на рисунке, создаст событие с кодом «ZZXA5» (класс события – «Тревога связи», описание события – «Нет событий по GPRS»), если связь с передатчиком не будет восстановлена в течении 5 минут после того, как она будет потеряна.*
+
+### Вход через тревогу
+
+Обработчик событий «Вход через тревогу» позволяет приостановить обработку тревожного события модулем «Менеджер событий» и подождать снятия с охраны, которое может быть получено непосредственно после тревоги.
+
+Назначение этого обработчика событий — избавить дежурного оператора от необходимости реагировать на заведомо ложные тревоги, происходящие при снятии объектов с охраны.
+
+Данный обработчик должен применяться для тех объектов, где используется тактика охраны, исключающая задержку на вход. Кроме того, использование этого обработчика оправдано для всех объектов, где возможна ошибка персонала при выполнении снятия с охраны.
+
+Настройки группы обработчиков событий «Вход через тревогу» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+Настройки обработчика событий «Вход через тревогу» также во многом совпадают с рассмотренными ранее общими настройками обработчиков событий, за исключением вкладки «Цепочка классов».
+
+![Окно «Параметры обработчика (Вход через тревогу)»][id-04-33]
+
+*Если обработчик события будет настроен так, как показано на рисунке, то при получении события с классом «Тревога» по первой зоне он активизируется и заменит класс для полученного события на «Задержанная тревога». Если в течение 45 секунд после этого не будет получено событие с классом «Снятие с охраны», то событие с классом «Тревога» будет заново создано обработчиком и передано на обработку оператором. Если же событие с классом «Снятие с охраны» будет получено, то обработчик прекратит работу до получения следующего события с классом «Тревога».*
+
+Параметр «Класс тревожного события» задает класс события, обработку которого оператором и «Центром охраны» приостановить. 
+
+С помощью параметра «Номер зоны» можно определить обрабатываемое событие с точностью до зоны: если значение этого параметра не задано или равно нулю, то в обработку будет принято любое событие, класс которого совпадает со значением параметра «Класс тревожного события». Если же для параметра «Номер зоны» задано значение зоны, то в обработку попадет только событие, номер зоны для которого соответствует заданному.
+
+Для события, принятого в обработку, выполняется замена класса события. Значение параметра «Класс события-замены» определяет, какой класс будет у события, после его обработки. 
+
+После того, как обработчик событий «Вход через тревогу» получит тревожное событие и заменит для него класс, он запускает отсчет интервала ожидания события, класс которого задается значением параметра «Класс события «Снятие с охраны». 
+Если событие с таким классом не будет получено в течении интервала, заданного значением параметра «Интервал», то обработчик создаст системное событие, у которого код, класс, номер зоны и описание будут скопированы из события, обработка которого была приостановлена. Отличаться будут только дата и время получения события - они будут соответствовать времени события обработчиком, а также канал приема события - в качестве значения этого параметра события будет установлено «Система».
+
+### Ретранслятор SMS
+
+Обработчик «Ретранслятор SMS» позволяет организовать передачу информации о принятых событиях на мобильный телефон в виде SMS-сообщений.
+
+С помощью обработчика «Ретранслятор SMS» можно оказывать дополнительную услугу клиентам охранного предприятия, например, информируя ответственных лиц о взятиях и снятиях объекта.
+Кроме того, с помощью этого обработчика можно передавать тревоги непосредственно на мобильный телефон ГБР параллельно работе дежурного оператора.
+
+Также использование этого обработчика может существенно облегчить пусконаладку оборудования на подключаемых объектах. Если инженеру выделить персональный номер объекта, который он должен использовать при проверке работы оборудования на объекте, и включить SMS-ретрансляцию событий, полученных с этого объекта на его мобильный телефон, то это позволит ему выполнять настройку оборудования, не прибегая к помощи дежурных операторов пульта.
+
+#### Параметры группы
+
+Настройки группы обработчиков событий «Ретранслятор SMS» на вкладке «Общие» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+#### Устройство для отправки SMS-сообщений
+
+Обработчик событий может отправлять SMS-сообщения с помощью одного из устройств, подключаемых непосредственно к компьютеру, на котором он функционирует:
+
+* GSM-модемы «iRZ TU31»
+
+* GSM-терминалы на базе GSM-модема «Siemens MC35» или совместимых с ним
+
+* GSM-модем «SonyEricsson GM-22»
+
+* GSM-модем «SonyEricsson GR-47»
+
+* Мобильные телефоны «Nokia»
+
+Для отправки SMS-сообщений используются специальные драйверы устройств, которые называются «трансиверы». Для каждого поддерживаемого устройства есть соответствующий трансивер, который предназначен для подключения к нему.
+
+Кроме работы с аппаратными устройствами, обработчик может подключиться для отправки SMS-сообщений к программному обеспечению «Феникс» или напрямую к SMS-серверу оператора сотовой связи по протоколу SMPP. Для каждого из этих способов отправки SMS-сообщений также есть соответствующие трансиверы.
+
+Настройки на вкладке «Устройство» позволяют определить способ, с помощью которого будет выполнятся отправка SMS-сообщений, а также необходимые параметры.
+
+##### GSM-модем
+
+![Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через модем MC35»][id-04-34]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключен GSM-модем, с помощью которого будут отправляться SMS-сообщения, а с помощью параметра «Скорость» можно настроить скорость, на которой будет происходить обмен по последовательному порту.
+
+Если SIM-карта, установленная в GSM-модеме защищена персональным идентификационным кодом, то его можно задать в качестве значения параметра «PIN-код». Необходимо отметить, что использование SIM-карт, защищенных PIN-кодом настоятельно не рекомендуется, во избежание проблем, связанных с утратой установленных кодов.
+
+Параметр «Адрес SMS-центра» позволяет задать телефонный номер SMS-центра оператора сотовой связи, SIM-карта которого установлена в GSM-модеме. Некоторые операторы связи требуют, чтобы этот параметр был установлен для того, чтобы функция отправки SMS-сообщений работала корректно. Телефонный номер, который используется в качестве значения параметра «Адрес SMS-центра» должен быть указан в полном, международном формате. Символ «+» при указании этого номера использоваться не должен.
+
+Если поставлена отметка напротив параметра «Протоколировать обмен с модемом», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий с GSM-модемом. Эта информация бывает нужной при выяснении причин возникновения проблем при подключении к GSM-модему или отправке SMS-сообщений через него. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+Параметры трансиверов, предназначенных для подключения к модемам «SonyEricsson GM-22» и «SonyEricsson GR-47» полностью аналогичны параметрам, используемым для настройки модема «Siemens MC35».
+
+Необходимо отметить, что несколько групп обработчиков событий «Ретранслятор SMS» могут использовать один и тот же GSM-модем для отправки SMS-сообщений. Таким образом, при определении необходимого количества GSM-модемов, нужно руководствоваться только пропускной способностью используемого устройства. Для модема «SonyEricsson GR-47» можно ориентироваться на цифру 5-7 SMS-сообщений в минуту, а для модема «Siemens MC35» это значение составляет 10-12 SMS-сообщений в минуту.
+
+##### Программное обеспечение «Феникс»
+
+Программное обеспечение «Феникс» разработано ООО НТКФ «Си-Норд» и предназначено для организации пула каналов приема и передачи SMS-сообщений. Оно поставляется в составе программного обеспечения «Андромеда МС» и программного обеспечения «Андромеда Персона». 
+Подключение к программному обеспечению «Феникс» осуществляется по сети, реализующей протокол TCP/IP, при этом экземпляр программного обеспечения «Феникс» всегда выступает в качестве TCP/IP-сервера, ожидающего подключения.
+Особенностью программного обеспечения «Феникс» является возможность резервирования каналов, по которым выполняется отправка SMS-сообщений, поэтому параметры трансивера, предназначенного для отправки SMS-сообщений через программное обеспечение «Феникс» разбиты на две одинаковых группы. Одна группа параметров предназначена для настройки основного канала передачи SMS-сообщений, а вторая – для резервного.
+
+![Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через ПО «Феникс»][id-04-35]
+
+Параметр «Адрес» предназначен для указания NetBIOS-имени компьютера, на котором выполняется экземпляр программного обеспечения «Феникс», через который необходимо выполнять отправку SMS-сообщений. Вместо NetBIOS-имени компьютера допускается указание его IP-адреса. С помощью параметра «Порт» можно указать порт, к которому необходимо выполнять подключение.
+
+Если поставлена отметка напротив параметра «Протоколировать работу», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий с программным обеспечением «Феникс». 
+Эта информация бывает нужной при выяснении причин возникновения проблем при подключении к программному обеспечению «Феникс» или отправке SMS-сообщений через него. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+##### Телефоны «Nokia»
+
+«Трансивер SMS через телефоны «Nokia» предназначен для отправки SMS-сообщений с помощью некоторых моделей мобильных телефонов производства компании «Nokia».
+
+Поддерживаемые модели телефонов: 1100, 1220, 1260, 1261, 2100, 2270, 2275, 2280, 2285, 2300, 2600, 2650, 3100, 3105, 3108, 3200, 3205, 3210, 3220, 3300, 3310, 3320, 3330, 3350, 3360, 3390, 3395, 3410, 3510, 3510i, 3520, 3530, 3560, 3570, 3585, 3585i, 3586, 3586i, 3587i, 3588i, 3589i, 3590, 3595, 3610, 5100, 5110, 5130, 5140, 5190, 5210, 5510, 6100, 6108, 6110, 6130, 6150, 6190, 6200, 6210, 6220, 6225, 6230, 6250, 6310, 6310i, 6320, 6340, 6340i, 6360, 6370, 6385, 6500, 6510, 6560, 6585, 6590, 6610, 6610i, 6650, 6651, 6800, 6810, 6820, 7110, 7160, 7190, 7200, 7210, 7250, 7250i, 7260, 7600, 8210, 8250, 8290, 8310, 8390, 8810, 8850, 8855, 8890, 8910, 8910i.
+
+Поддерживаемые способы подключений мобильных телефонов к компьютеру:
+
+- DAU-9P-совместимый кабель (режим FBUS) 
+
+- Кабель DLR-3 (DLR-3P) (для моделей 6210, 6250, 6310, 6310i, 7110, 7190) 
+
+- Инфракрасный порт 
+
+- Bluetooth (для моделей 6310i с версией прошивки 5.50 и выше, 8910i) 
+
+- Кабель DKU-5 
+
+![Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через телефоны «Nokia»][id-04-36]
+
+С помощью параметра «Последовательный порт» можно выбрать последовательный порт, к которому подключен мобильный телефон «Nokia», с помощью которого будут отправляться SMS-сообщения, а с помощью параметра «Способ подключения» можно указать способ, с помощью которого этот телефон подключен к компьютеру.
+
+Параметр «Адрес SMS-центра» позволяет задать телефонный номер SMS-центра оператора сотовой связи, SIM-карта которого установлена в GSM-модеме. Некоторые операторы связи требуют, чтобы этот параметр был установлен для того, чтобы функция отправки SMS-сообщений работала корректно. Телефонный номер, который используется в качестве значения параметра «Адрес SMS-центра» должен быть указан в полном, международном формате. Символ «+» при указании этого номера использоваться не должен.
+
+Если поставлена отметка напротив параметра «Протоколировать работу», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий с телефоном «Nokia». 
+Эта информация бывает нужной при выяснении причин возникновения проблем при подключении к телефону «Nokia» или отправке SMS-сообщений через него. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+##### Протокол SMPP через TCP/IP
+
+«Трансивер SMS (протокол SMPP через TCP/IP)» осуществляет передачу SMS-сообщений с помощью подключения к SMS-серверу оператора мобильной связи (SMSC) по протоколу SMPP версии 3.4. Подключение осуществляется по сети, поддерживающей протокол TCP/IP.
+
+На вкладке «SMSC» задаются параметры, необходимые для подключения трансивера к SMS-серверу оператора мобильной связи.
+
+![Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS (протокол SMPP через TCP/IP)», вкладка «SMSC»][id-04-37]
+
+Параметр «Адрес SMSC» позволяет задать IP-адрес или DNS-имя компьютера SMS-сервера оператора мобильной связи, к которому производится подключение, а с помощью параметра «Порт SMSC» можно указать порт TCP/IP, к которому нужно  подключаться.
+
+Параметры «Система (system_id)» и «Пароль» являются реквизитами, идентифицирующими систему (абонента), выполняющую подключение к SMS-серверу. Эти реквизиты предоставляются оператором мобильной связи при оформлении договора на организацию подключения к своему SMS-серверу. 
+
+Если поставлена отметка напротив параметра «Протоколировать обмен с SMSC», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий с SMS-сервером оператора мобильной связи. 
+Эта информация бывает нужной при выяснении причин возникновения проблем при подключении к SMS-серверу оператора мобильной связи или отправке SMS-сообщений через него. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+На вкладке «SMPP» задаются параметры, специфичные для протокола SMPP. Изменять эти параметры рекомендуется только в том случае, если оператор мобильной связи определил для них особенные значения при оформлении договора на организацию подключения к своему SMS-серверу.
+
+![Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS (протокол SMPP через TCP/IP)», вкладка «SMPP»][id-04-38]
+
+Названия всех параметров, которые можно изменить на вкладке «SMPP» соответствуют полям в PDU SUBMIT_SM. Подробное описание параметров и их формата можно найти в спецификации на протокол SMPP.
+
+#### Параметры обработчика
+
+Настройки обработчика событий «Ретранслятор SMS» во многом совпадают с рассмотренными выше общими настройками обработчиков событий, за исключением вкладок «Классы событий» и «Параметры сообщений».
+
+#### Вкладка «Классы событий» 
+
+На вкладке «Классы событий» отображается список классов событий, при получении которых обработчик будет формировать SMS-сообщение на отправку. 
+
+![Окно «Параметры обработчика (Параметры передачи)», вкладка «Классы событий»][id-04-39]
+
+Для каждого класса класса в списке можно указать номер раздела, а также номер шлейфа или пользователя - эти параметры позволяют точнее определить события, при получении которых должны формироваться SMS-сообщения.
+
+Если значение в колонке «Раздел» не задано или равно нулю, то обрабатываются любые события, класс которых соответствует заданному в колонке «Класс». Если же в колонке «Раздел» задано не нулевое значение, то SMS-сообщения  будут сформированы только для тех событий, номер раздела для которых соответствует заданному.
+
+Аналогичное правило распространяется и на значение в колонке «Ш/П», предназначенной для указания номера шлейфа или пользователя, которые послужили причиной возникновения события. 
+
+С помощью кнопки «Добавить класс события» можно добавить новый класс события в список обрабатываемых классов событий.
+
+Кнопка «Удалить» предназначена для удаления класса событий из списка обрабатываемых.
+
+#### Вкладка «Параметры сообщений»
+
+На вкладке «Параметры сообщений» задаются параметры, определяющие получателя, а также формат и содержание формируемых обработчиком SMS-сообщений.
+
+![Окно «Параметры обработчика (Параметры передачи)», вкладка «Параметры сообщений»][id-04-40]
+
+С помощью параметра «Номер телефона» можно задать номер телефона получателя SMS-сообщения. При задании значения для этого параметра рекомендуется указывать номер телефона в международном формате, включая символ «+» в начале номера.
+
+Параметр «Кодировка» предназначен для выбора кодировки, которая будет использоваться при формировании SMS-сообщений. Если в качестве значения для этого параметра будет указано «UCS2 (Кириллица)», то присутствующие в SMS-сообщения символы кириллицы будут сохранены без изменений. Если же в качестве значения для этого параметра будет указано «Транслит», то символы кириллицы в SMS-сообщении будут подвергнуты транслитерации, то есть заменены на соответствующие им по звучанию символы латиницы. 
+
+Необходимо отметить, что значение параметра «Кодировка» напрямую связано с максимальной длиной SMS-сообщения, которое может быть сформировано обработчиком событий: SMS-сообщение в кодировке «UCS2» может содержать не более 70 символов, в то время как максимальная длина сообщения в кодировке «Транслит» составляет 140 символов.
+
+Максимальное время, в течении которого SMS-сообщение ожидает доставки получателю задается параметром «Интервал действительности». Важно понимать, что этот интервал всегда отсчитывается с момента формирования SMS-сообщения обработчиком. Кроме того, он не зависит от того, где именно SMS-сообщение ожидает доставки абоненту: в очереди на отправку внутри обработчика событий или на сервере оператора мобильной связи: как только интервал действительности SMS-сообщения истечет, попытки его отправки будут прекращены.
+
+Параметр «Формат сообщений» позволяет задать шаблон, в соответствии с которым будут формироваться SMS-сообщения, отправляемые обработчиком. Значение, соответствующие полям принятого события, таким, как название класса события или номер объекта, можно подставить в SMS-сообщения с помощью специальных макросов - если при обработке строки формата сообщения будет найден макрос, то он будет заменен на значение соответствующего ему поля события. 
+
+Список макросов, поддерживаемых обработчиком событий:
+
+- %date% - дата приема события;
+
+- %time% - время приема события;
+
+- %number% - номер объекта;
+
+- %name% - название объекта;
+
+- %address% - адрес объекта;
+
+- %phone% - номера телефонов объекта;
+
+- %channel% - название канала, по которому принято событие;
+
+- %code% - код события;
+
+- %class% - название класса события;
+
+- %zoneuser% - номер шлейфа или пользователя, которые послужили причиной создания события;
+
+- %description% - описание события.
+
+При нажатию на кнопку «Переменные» появляется меню, в котором можно выбрать содержимое макроса, который будет добавлен в значение параметра «Формат сообщений». Таким образом, можно не вспоминать правильное написание нужного макроса, а просто выбирать его в списке и добавлять в строку формата.
+
+### Перезакрытие объектов {#event-manager-reclosig}
+
+Обработчик «Перезакрытие объектов» предназначен для информирования посредством SMS-сообщений ответственных по объекту лиц о перезакрытии объекта. С помощью данного обработчика ответственные оповещаются о необходимости перезакрытия объекта и об отказе ответственных от перезакрытия.
+
+При необходимости перезакрытия объекта обработчик событий отправляет SMS-сообщение всем ответственным по объекту лицам, для которых в модуле «Менеджер объектов» настроено оповещение о необходимости перезакрытия. SMS-сообщение создается в формате, заданном на вкладке «Параметры сообщений» окна «Параметры обработчика». По умолчанию в сообщении о необходимости перезакрытия объекта указывается номер, название и адрес объекта.
+	
+При отказе ответственного от перезакрытия обработчик событий отправляет SMS-сообщение всем ответственным по объекту, для которых в модуле «Менеджер объектов» настроено оповещение об отказе от перезакрытия. SMS-сообщение создается в формате, заданном на вкладке «Параметры сообщений» окна «Параметры обработчика». По умолчанию в сообщении об отказе от перезакрытия объекта указываются фамилия и инициалы ответственного, а также номер, название и адрес объекта.
+
+#### Параметры группы
+
+Настройки группы обработчиков событий «Перезакрытие объектов» на вкладке «Общие» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+#### Устройство для отправки SMS-сообщений
+
+##### GSM-модем
+
+Обработчик событий может отправлять SMS-сообщения с помощью GSM-терминала на базе GSM-модема «Siemens MC35» (или совместимых с ним). Модем должен быть подключен непосредственно к компьютеру, на котором функционирует обработчик событий.
+
+Подробная информация об отправке SMS-сообщений с помощью GSM-модема приведена в главе, посвященной обработчику событий «Ретранслятор SMS».
+
+##### Протокол SMPP через TCP/IP
+
+Для отправки SMS-сообщений может быть использовано подключение к SMS-серверу по протоколу SMPP (TCP/IP).
+
+Подробная информация об отправке SMS-сообщений по протоколу SMPP приведена в главе, посвященной обработчику событий «Ретранслятор SMS».
+
+#### Параметры обработчика
+
+Настройки обработчика событий «Перезакрытие объектов» во многом совпадают с рассмотренными выше общими настройками обработчиков событий, за исключением вкладки «Параметры сообщений».
+
+##### Вкладка «Параметры сообщений»
+
+Вкладка «Параметры сообщений» обработчика «Перезакрытие объектов» аналогична  одноименной вкладке обработчика «Ретранслятор SMS»: здесь также задаются параметры, определяющие формат и содержание формируемых обработчиком SMS-сообщений. Однако для обработчика событий «Перезакрытие объектов» такой параметр, как «Номер телефона», не указывается. В качестве номера телефона, на который должно быть отправлено SMS-сообщение, используется номер мобильного телефона ответственного лица.
+
+!["Перезакрытие объектов, окно «Параметры обработчика (Параметры передачи)», вкладка «Параметры сообщений»"][id-04-49]
+
+Подробная информация об остальных параметрах сообщений приведена в главе, посвященной обработчику событий «Ретранслятор SMS».
+
+### Сеть Пандоры
+
+Основная задача обработчика событий «Сеть Пандоры» - организация обмена информацией между независимыми экземплярами программного обеспечения «Центр охраны». От одного «Центра охраны» в другой могут быть переданы события, действия операторов и описания объектов.
+
+В качестве канала передачи информации можно использовать любой канал, поддерживающий протокол TCP/IP. 
+
+В настройках обработчика событий предусмотрена возможность точно описать объем информации, который будет передаваться. Например, можно указать номера и интервалы номеров объектов, события от которых будут переданы, указать классы событий, необходимые к передаче, выбрать действия операторов, которые нужно передавать. Возможна взаимная (встречная) передача информации.
+
+В первую очередь обработчик событий применяется при создании распределенных систем мониторинга — когда несколько пультов централизованного наблюдения объединяются и необходимо собрать оперативную информацию в некотором едином диспетчерском центре.
+
+#### Параметры группы
+
+В настройках группы обработчиков событий «Сеть Пандоры» можно указать параметры установки соединения и передачи информации, а также настройки, которые применяются при обработке принятой информации.
+
+Настройки группы обработчиков событий «Сеть Пандоры» на вкладке «Общие» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше.
+
+##### Вкладка «Номера объектов»
+
+На вкладке «Номера объектов» можно указать список объектов, информация по которым будет приниматься группой обработчиков, а также значения сдвига номеров объектов.
+
+![Окно «Параметры группы (Сеть Пандоры)», вкладка «Номера объектов»][id-04-41]
+
+Область «Объекты - прием» предназначена для указания номеров и интервалов номеров объектов, информация по которым будет принята обработчиком событий. 
+
+Для того, чтобы добавить номер или интервал номеров объектов в список принимаемых, нужно ввести его в поле ввода в правой части области и нажать на кнопку «Добавить». Для того, чтобы удалить номер или интервал номеров объектов из списка принимаемых, нужно выбрать строку со значением, которое нужно удалить, в списке, расположенном в левой части области и нажать на кнопку «Удалить».
+
+При вводе номеров объектов допускается перечисление нескольких номеров или номеров и интервалов номеров через запятую, например: «100, 102, 104, 106-100, 200-299». 
+
+Необходимо понимать, что под «информацией по объектам» понимается любая информация, передаваемая обработчиком «Сеть Пандоры»: события, карточки объектов, действия операторов по тревогам. Таким образом, если предполагается, что обработчик событий «Сеть Пандоры» будет принимать информацию, то в области «Объекты - прием» обязательно должны быть указаны номера объектов информация по которым должна приниматься.
+
+Параметр «Сдвиг при передаче» задает значение слагаемого, которое будет добавлено к номеру объекта, перед отправкой информации по объекту. 
+
+Параметр «Сдвиг при передаче» задает значение слагаемого, которое будет добавлено к номеру объекта, после приема информации по объекту. 
+
+Для параметров «Сдвиг при передаче» и «Сдвиг при приеме» в могут быть указаны отрицательные значения.
+
+Использование сдвига номеров объектов особенно полезно в том случае, если с помощью обработчика событий «Сеть Пандоры» подключаются к единому центру обработки несколько пультов централизованного наблюдения, имеющие одинаковые номера охраняемых объектов. В этом случае для каждого пульта необходимо выбрать собственный сдвиг номеров, например - 10000, 20000, 30000 и таким образом избежать конфликта.
+
+##### Вкладка «Соединение»
+
+На вкладке «Соединение» указываются параметры организации соединения между экземплярами обработчиков «Сеть Пандоры». 
+
+Так как в качестве канала связи обработчик «Сеть Пандоры» использует сеть, реализующую протокол TCP/IP, то для установки соединения между двумя экземплярами обработчика один из них должен выступать в роли сервера, а второй - в роли клиента.
+
+Роль, в которой будет выступать обработчик при организации соединения, задается параметром «Режим организации соединения».
+
+![Окно «Параметры группы (Сеть Пандоры)», вкладка «Соединение», режим «Сервер»][id-04-42]
+
+Если обработчик событий выступает в роли сервера, и в компьютер установлено несколько сетевых адаптеров, либо один адаптер использует несколько IP-адресов, то с помощью параметра «Адрес интерфейса» можно указать IP-адрес, на котором обработчик событий должен ожидать входящее подключение. Параметр «Номер порта» предназначен для того, чтобы указать порт, к которому будет ожидаться подключение.
+
+![Окно «Параметры группы (Сеть Пандоры)», вкладка «Соединение», режим «Клиент»][id-04-43]
+
+Если обработчик событий выступает в роли клиента, то для него необходимо указать адрес и порт сервера, к которому необходимо выполнять подключение.
+
+Необходимо отметить, что для обработчик событий «Сеть Пандоры», выступающего в роли клиента, можно указать несколько адресов сервера: в том случае, если не удается установить связь с первым адресом в списке, то обработчик сделает попытку подключиться к следующему и так далее.
+
+Для того, чтобы добавить адрес и порт сервера в список, необходимо указать их в качестве значений для параметров «Адрес сервера» и «Порт», после чего нажать на кнопку «Добавить». 
+
+Для того, чтобы удалить сервер, необходимо выбрать его в списке серверов и нажать на кнопку «Удалить».
+
+Для того, чтобы контролировать наличие соединения при отсутствии информации на передачу, обработчик «Сеть Пандоры» может формировать тестовые посылки и контролировать их прием. При этом создает тестовые посылки обработчик, выступающий в роли сервера, а контролирует их прием обработчик, выступающий в роли клиента. 
+
+Параметр «Интервал активности» предназначен для управления периодом контроля соединения при отсутствии информации на передачу. В случае, если обработчик выступает в роли сервера, то этот параметр задает интервал, через которой обработчик сформирует тестовую посылку. Если же обработчик выступает в роли клиента, то параметр «Интервал активности» задает интервал, в течении которого от сервера должна быть получена любое, в том числе тестовая посылка. При отсутствии от сервера посылок в течении интервала, заданного параметром «Интервал активности», обработчик, выступающий в роли клиента закрывает соединение.
+
+При настройке обработчика событий «Сеть Пандоры» необходимо выбирать значение для параметра «Интервал активности» исходя из пропускной способности канала связи и стоимости его эксплуатации. В общем случае, для обработчика, выступающего в роли клиента, рекомендуется устанавливать значение параметра «Интервал активности» приблизительно в два с половиной раза больше, чем для обработчика, выступающего в роли сервера. Что же касается значения параметра «Интервал активности» для обработчика, выступающего в роли сервера, то рекомендуемое для него значение должно быть в интервале 30-300 секунд.
+
+При установке соединения по каналу связи обработчик событий «Сеть Пандоры» создает системное событие с кодом «ZZYC». При потере соединения создается системное событие с кодом «ZZYB». Если значение параметра «Тайм-аут восстановления связи» не равно нулю, то при продолжительном отсутствии соединения системные события кодом «ZZYB» будут создаваться с периодом, заданным значением этого параметра.
+
+##### Вкладка «Параметры»
+
+На вкладке «Параметры» задаются параметры предназначенные для управления приемом и передачей информаци по каналу связи.
+
+![Окно «Параметры группы (Сеть Пандоры)», вкладка «Параметры»][id-04-44]
+
+Если параметр «Включить режим совместимости с Пандорой» установлен, то обработчик событий будет использовать для обмена информацией устаревший протокол, совместимый с программный обеспечением «Пандора» и программным обеспечением «Андромеда - Удаленный оператор». Этот протокол обладает целым рядом недостатков, в частности, он не гарантирует доставки информации до получателя. Настоятельно не рекомендуется включать режим совместимости с «Пандорой» при организации канала связи между двумя обработчиками «Сеть Пандоры».
+
+С помощью параметра «Игнорировать принятые описания событий» можно управлять приемом описаний событий. Если значение этого параметра не установлено, то для принятых по каналу связи событий не выполняется декодирование: класс событий, номер раздела и шлейфа, а также описание сохраняются в том виде, в котором они получены. Если же значение этого параметра установлено, то из принятого события будут взяты только канал и код, после чего оно будет декодировано в соответствии с установленным для объекта шаблоном события так, как будто оно принято от локального источника событий.
+
+Параметр «Игнорировать принятые описания объектов» позволяет отключить прием по каналу связи и сохранение в базе данных карточек объектов. Если значение этого параметра установлено, то описания объектов, которые передаются вместе с событиями, а также их изменения на удаленном экземпляре «Центра охраны» игнорируются. Если значение этого параметра не установлено, то описания объектов, информация о которых передается по каналу связи, будут синхронизироваться.
+
+Если параметр «Включить режим совместимости с Пандорой» не установлен, то обработчик «Сеть Пандоры» гарантирует доставку информации до получателя. Достигается это с помощью подтверждений, который отправляются от получателя после того, как принятая им информация будет зарегистрирована в базе данных «Центра охраны». С помощью параметра «Интервал подтверждения доставки» можно указать время, в течении которого обработчик «Сеть Пандоры» ожидает подтверждения приема от получателя. Если за указанный интервал подтверждение получено не будет, то обработчик «Сеть Пандоры» выполнит отправку не подтвержденной информации еще раз. 
+
+Значение параметра «Интервал подтверждения доставки» зависит от пропускной способности канала связи используемого обработчиком «Сеть Пандоры» и производительности компьютеров, на которых запущен модуль «Менеджер событий». Например, если в качестве канала связи используется GPRS, то во избежание лавинообразного увеличения объема информации в очереди на передачу рекомендуется увеличивать значение параметра «Интервал подтверждения доставки» до 90 секунд.
+
+При отсутствии соединения обработчик «Сеть Пандоры» накапливает информацию в очереди на передачу, а после восстановления связи осуществляет передачу информации накопленной в очереди. Для того, чтобы управлять объемом и актуальностью данных, которые накапливаются в очереди на передачу, предназначен параметр «Интервал хранения не переданных данных». Если период хранения данных в очереди на передачу больше, чем значение данного параметра, то такие данные будут автоматически удалены из очереди на передачу. Кроме того, если пропускная способность канала связи ухудшилось и в очереди накопились данные, передать которые не представляется возможным, нажатием на кнопку «Очистить очередь на передачу» можно принудительно удалить всю информацию, накопленную в очереди на передачу в настоящий момент.
+
+Если поставлена отметка напротив параметра «Протоколировать обмен», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий по сети TCP/IP. Эта информация бывает нужной при выяснении причин возникновения проблем при установке соединения или доставке информации по каналу связи. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+#### Параметры обработчика
+
+Настройки обработчика событий «Сеть Пандоры» во многом совпадают с рассмотренными выше общими настройками обработчиков событий, за исключением вкладок «Классы событий» и «Действия и отмены».
+
+##### Вкладка «Классы событий»
+
+На вкладке «Классы событий» можно выбрать классы событий, которые будут передаваться обработчиком.
+
+![Окно «Параметры обработчика (Параметры передачи)», вкладка «Классы событий»][id-04-45]
+
+Поставив отметку рядом с классом события в списке можно отметить его, как необходимый к передаче. С помощью кнопки «Выделить все» можно отметить все классы событий в списке. С помощью кнопки «Снять выделение» можно снять отметку со всех классов в списке, выбранных для передачи в настоящий момент.
+
+##### Вкладка «Действия и отмены»
+
+На вкладке «Действия и отмены» можно выбрать действия оператора и отмены тревог, которые будут передаваться обработчиком. Важно отметить, что действия и отмены, передаваемые обработчиком, должны относится к тем тревогам, классы которых отмечены на вкладке «Классы событий».
+
+![Окно «Параметры обработчика (Параметры передачи)», вкладка «Действия и отмены»][id-04-46]
+
+Поставив отметку рядом с действием или отменой, можно пометить их, как необходимые к передаче.
+
+### Ретранслятор в Облако
+
+Этот обработчик событий предназначен для передачи информации о Центре охраны, объектах, полученных событиях, группах быстрого реагирования и действиях оператора, инженерах и их разрешениях, а также – о видеороутерах, установленных на объекте, в «Облако». «Облако» – это сервис, который позволяет предоставлять web-доступ к объектам и событиям для собственников, монтажных организаций, операторов и групп быстрого реагирования.
+
+С помощью обработчика «Ретранслятор в Облако» осуществляется работа таких дополнительных услуг как Call-центр, web-интерфейс партнера, Личный кабинет, удаленное управление оборудованием на объекте, приложение «Тревога в ГБР», ситуационная карта и некоторые другие. Более подробно все эти услуги описаны в разделе «Облачные сервисы».
+
+Работа данного обработчика важна для правильного функционирования всех облачных сервисов. поэтому возможности редактирования его очень ограничены. Группа обработчиков событий «Ретранслятор в Облако» и обработчик в ней создаются при первом запуске модуля «Менеджер событий» и включаются автоматически, если в окне «Связь с Облаком» указана необходимость использования облачных сервисов. 
+
+Удаление, копирование или создание еще одного обработчика «Ретранслятор в Облако» запрещено. Параметры подключения к «Облаку» необходимо изменять только в том случае, если используется «Частное Облако».
+
+#### Параметры обработчика
+
+##### Вкладка «Общие»
+
+Общие настройки группы обработчиков событий «Ретранслятор в Облако» полностью совпадают с общими настройками групп обработчиков событий, которые детально рассмотрены выше. При создании группы, ей автоматически устанавливается значение «Скрытая группа».
+
+![Окно «Параметры обработчика (Ретранслятор в «Облако»)», вкладка «Общие»][id-04-47]
+
+##### Вкладка «Канал»
+
+На вкладке «Канал» отображается адрес и порт сервера, по которым происходит подключение к «Облаку». Для подключения к «Облаку» нужно использовать следующие значения параметров: адрес сервера - disp.cnord.net, порт сервера - 1025. Значения этих параметров необходимо изменять только в том случае, если используется «Частное Облако».
+
+Если поставлена отметка напротив параметра «Протоколировать обмен», то на жесткий диск компьютера будет сохраняться протокол обмена обработчика событий. Эта информация бывает нужной при выяснении причин возникновения проблем при установке соединения или доставке информации. Не рекомендуется включать протоколирование обмена самостоятельно, без запроса из службы технической поддержки ООО НТКФ «Си-Норд».
+
+![Окно «Параметры обработчика (Ретранслятор в «Облако»)», вкладка «Канал»][id-04-48]
+
+Если пользователь хочет избежать передачи в «Облако» не нужной там информации, есть возможность выбора пользователем облачных сервисов, которые он будет использовать, а также обеспечить передачу в «Облако» только той информации, которая необходима для работы выбранных сервисов.
+
+Ограничить передачу информации в «Облако» можно выбрав пункт «Связь с Облаком» в Менеджере событий. 
+
+## Связь с Облаком
+
+При выборе пункта «Связь с Облаком» в выпадающем меню модуля «Менеджер событий» открывается одноименное окно. 
+
+В панели состояния окна отображается значок «Облако». Цвет значка меняется в зависимости от успешности соединения с Облаком и количества сообщений в очереди на передачу. Если соединение с Облаком установлено и количество сообщений в очереди на передачу не превышает 100, «Облако» будет зеленым. В обратном случае - красным. 
+
+Кроме того, статус соединения с Облаком выводится в строке «Связь с Облаком»,  а количество сообщений в очереди на передачу - в строке «Сообщений в очереди».
+
+В окне «Связь с Облаком» присутствует три вкладки: «Режим подключения», «Контактные данные» и «UID "Центра охраны"».
+
+### Режим подключения {#event-manager-cloud-connection-mode}
+
+На вкладке «Режим подключения» окна «Связь с Облаком» следует выбрать один из режимов подключения к Облаку. Выбор режима определяет облачные сервисы, которые будут использоваться, и данные, передаваемые в Облако.
+
+!["Окно «Связь с Облаком», вкладка «Режим подключения»"][id-04-52]
+
+Полная интеграция с Облаком позволяет использовать удаленный доступ к оборудованию на объекте, а также доступные облачные сервисы, например, «Тревога в ГБР». При этом все данные об объектах, события и действия операторов будут передаваться в «Облако».
+
+Подключение к Облаку можно использовать только для удаленного доступа к оборудованию на объекте. Данный режим подключения позволяет передавать в Облако только номера объектов, идентификаторы коммуникаторов и разрешения для инженеров на доступ к объектам. Другие Облачные сервисы будут отключены и информация по ним передаваться в «Облако» не будет.
+
+Также можно отказаться от использования всех облачных сервисов и запретить передачу каких-либо данных в Облако. Все услуги, связанные с использованием «Облака» будут недоступны. Обработчик событий «Ретранслятор в Облако» будет принудительно выключен и включение его невозможно. Доступ к регистрационной информации и UID Центра охраны будет невозможен. 
+
+Использовать облачные сервисы можно также в «Частном Облаке», выбрав соответствующее подключение. Это обеспечивает повышение уровня информационной безопасности за счет установки программного обеспечения непосредственно на серверах частного охранного предприятия. Указать адрес диспетчера «Частного Облака» можно для группы обработчиков «Ретранслятор в Облако» на вкладке «Канал» окна «Параметры группы».
+
+### Контактные данные
+
+Вкладка «Контактные данные» позволяет изменить данные, указанные при регистрации «Центра охраны» в Облаке. 
+
+На вкладке можно заполнить такие поля, как «Фамилия», «Имя», «Мобильный телефон», «Электронная почта», «Название организации», «Город» и «Адрес». Поля, отмеченные звездочкой, обязательны для заполнения. 
+
+После изменения данных следует нажать кнопку «Применить». При этом введенная информация будет передана в Облако.
+
+!["Окно «Связь с Облаком», вкладка «Контактные данные»"][id-04-53]
+
+### UID Центра охраны
+
+Узнать UID используемого «Центра охраны» можно на вкладке «UID "Центра охраны"». Здесь UID можно копировать, выделив его и кликнув по иконке «Копировать». Это удобно, например, для последующего использования UID при регистрации учетной записи партнера.
+
+!["Окно «Связь с Облаком», вкладка «UID Центра охраны»"][id-04-54]
+
+При необходимости повторной регистрации учетной записи партнера следует создать новый UID. Для этого нужно нажать на кнопку «Создать новый UID». С помощью нового UID можно добавить данный «Центр охраны» к другой учетной записи или создать новую учетную запись партнера. Создавать новый UID можно не чаще одного раза в сутки. 
+
+## О программе
+
+При выборе пункта «О программе...» в выпадающем меню модуля «Менеджер событий» открывается одноименное окно. В нем представлена информация о версии программного обеспечения «Центр охраны», а также информация о режиме его эксплуатации. «Центр охраны» может использоваться с ключом защиты, с временной лицензией или на условиях аренды.
+
+!["Окно «О программе»"][id-04-55]
+
+При использовании ключа защиты или лицензии в окне «О программе...» также указывается:
+
+- редакция «Центра охраны»;
+
+- максимальное количество объектов, разрешенное к использованию;
+
+- текущее количество объектов, обслуживаемых «Центром охраны».
+
+Если «Центр охраны» используется с ключом защиты, то в окне «О программе...» представлена также информация о ключе защиты.
+
+Если программное обеспечение используется с файлом лицензии, то здесь указывается информация о лицензии, а также дата завершения ее действия.
+
+
+
+[id-04-01]: img/EvMan-01.png "Выпадающее меню модуля «Менеджер событий»"
+[id-04-02]: img/EvMan-02.png "Окно «Настройка», вкладка «Общие»"
+[id-04-03]: img/EvMan-03-01.png "Окно «Настройка», вкладка «Резервное копирование»"
+[id-04-04]: img/EvMan-03-02.png "Окно «Задание резервного копирования»"
+[id-04-05]: img/EventSource-01.png "Окно «Источники событий»"
+[id-04-06]: img/EventSource-02.png "Окно «Добавить источник событий»"
+[id-04-07]: img/EventSource-03-01.png "Окно свойств источника событий, вкладка «Общие»"
+[id-04-08]: img/EventSource-03-02.png "Окно свойств источника событий от PimaGuard и Sentinel, вкладка «Подключение», способ подключения «Последовательный порт»"
+[id-04-09]: img/EventSource-03-03.png "Окно свойств источника событий от PimaGuard и Sentinel, вкладка «Подключение», способ подключения «Сервер TCP/IP»"
+[id-04-10]: img/EventSource-04-01.png "Окно свойств источника событий по TCP/IP, вкладка «Приемник событий»"
+[id-04-11]: img/EventSource-13-01.png "Окно свойств источника событий от ПО «GuardBox», вкладка «GuardBox»"
+[id-04-12]: img/EventSource-14-01.png "Окно свойств источника событий по GSM, вкладка «Устройство»"
+[id-04-13]: img/EventSource-14-02.png "Окно свойств источника событий по GSM, вкладка «SIM-карта»"
+[id-04-14]: img/EventSource-09-01.png "Окно свойств источника событий от Sur-Gard, вкладка «Устройство»"
+[id-04-15]: img/EventSource-09-02.png "Окно свойств источника событий от Sur-Gard, вкладка «Дополнительно»"
+[id-04-16]: img/EventSource-06-01.png "Окно свойств источника событий от LONTA-202, вкладка «LONTA-202»"
+[id-04-17]: img/EventSource-08-01.png "Окно свойств источника событий от RS-200, вкладка «RS-200»"
+[id-04-20]: img/EventSource-11-02.png "Окно свойств истоРегистрация «Центра охраны» в «Облаке»чника событий от ББЦС Euro, вкладка «Сдвиг номеров»"
+[id-04-22]: img/EventSource-07-01.png "Окно свойств источника событий от RC 4000, вкладка «RC 4000»"
+[id-04-23]: img/EventSource-05-01.png "Окно свойств источника событий Мультипротокол, вкладка «Устройство приема»"
+[id-04-24]: img/EventHandler-01.png "Окно «Обработчики событий»"
+[id-04-25]: img/EventHandler-02-01.png "Окно «Параметры группы обработчиков», вкладка «Общие»"
+[id-04-26]: img/Eventhandler-02-08.png "Окно «Параметры обработчика», вкладка «Общие»"
+[id-04-27]: img/Eventhandler-02-09.png "Окно «Параметры обработчика», вкладка «Объекты»"
+[id-04-28]: img/Eventhandler-02-11.png "Окно «Параметры обработчика», вкладка «Каналы»"
+[id-04-29]: img/Eventhandler-02-13.png "Окно «Параметры обработчика», вкладка «Расписание»"
+[id-04-30]: img/Eventhandler-04-01.png "Окно «Параметры обработчика (Контроль события)», вкладка «Класс события»"
+[id-04-31]: img/Eventhandler-05-01.png "Окно «Параметры обработчика (Контроль цепочки событий)», вкладка «Цепочка классов»"
+[id-04-32]: img/Eventhandler-05-02.png "Окно «Свойства класса события - Контроль цепочки событий»"
+[id-04-33]: img/Eventhandler-03-02.png "Окно «Параметры обработчика (Вход через тревогу)»"
+[id-04-34]: img/Eventhandler-02-02.png "Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через модем MC35»"
+[id-04-35]: img/Eventhandler-02-03.png "Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через ПО «Феникс»"
+[id-04-36]: img/Eventhandler-02-04.png "Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS через телефоны «Nokia»"
+[id-04-37]: img/Eventhandler-02-05.png "Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS (протокол SMPP через TCP/IP)», вкладка «SMSC»"
+[id-04-38]: img/Eventhandler-02-06.png "Окно «Параметры группы (Ретранслятор SMS)», вкладка «Устройство», параметры устройства «Трансивер SMS (протокол SMPP через TCP/IP)», вкладка «SMPP»"
+[id-04-39]: img/Eventhandler-02-10.png "Окно «Параметры обработчика (Параметры передачи)», вкладка «Классы событий»"
+[id-04-40]: img/Eventhandler-02-12.png "Окно «Параметры обработчика (Параметры передачи)», вкладка «Параметры сообщений»"
+[id-04-41]: img/Eventhandler-06-01.png "Окно «Параметры группы (Сеть Пандоры)», вкладка «Номера объектов»"
+[id-04-42]: img/Eventhandler-06-02.png "Окно «Параметры группы (Сеть Пандоры)», вкладка «Соединение», режим «Сервер»"
+[id-04-43]: img/Eventhandler-06-03.png "Окно «Параметры группы (Сеть Пандоры)», вкладка «Соединение», режим «Клиент»"
+[id-04-44]: img/Eventhandler-06-04.png "Окно «Параметры группы (Сеть Пандоры)», вкладка «Параметры»"
+[id-04-45]: img/Eventhandler-06-05.png "Окно «Параметры обработчика (Параметры передачи)», вкладка «Классы событий»"
+[id-04-46]: img/Eventhandler-06-06.png "Окно «Параметры обработчика (Параметры передачи)», вкладка «Действия и отмены»"
+[id-04-47]: img/Eventhandler-07-01.png "Окно «Параметры обработчика (Ретранслятор в «Облако»)», вкладка «Общие»"
+[id-04-48]: img/Eventhandler-07-02.png "Окно «Параметры обработчика (Ретранслятор в «Облако»)», вкладка «Канал»"
+[id-04-49]: img/Eventhandler-08-01.png "Перезакрытие объектов, окно «Параметры обработчика (Параметры передачи)», вкладка «Параметры сообщений»"
+
+[id-04-50]: img/EvMan-05.png "Окно «Регистрация «Центра охраны» в «Облаке»"
+[id-04-51]: img/EvMan-06.png "Окно завершения регистрации «Центра охраны» в «Облаке»"
+[id-04-52]: img/EvMan-07-CloudConnection.png "Окно «Связь с Облаком», вкладка «Режим подключения»"
+[id-04-53]: img/EvMan-07-CloudConnection-02.png "Окно «Связь с Облаком», вкладка «Контактные данные»"
+[id-04-54]: img/EvMan-07-CloudConnection-03.png "Окно «Связь с Облаком», вкладка «UID Центра охраны»"
+[id-04-55]: img/EvMan-08-AboutProgram.png "Окно «О программе»"
+[id-04-56]: img/EventHandler-05-03.png "Настройка обработчика событий «Контроль цепочки событий» для контроля связи с передатчиком ТР-100 GSM III"

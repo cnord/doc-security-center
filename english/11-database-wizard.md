@@ -1,175 +1,177 @@
-## Database Wizard
+# Мастер базы данных
 
-### Purpose
+Модуль «Мастер базы данных» предназначен для выполнения следующих операций:
 
-The “Database Wizard” is designed to fulfill the following operations:
+* проверка базы данных
+* работа с резервными копиями базы данных
+* импорт и экспорт данных
 
-* database verification
-* work with backup copies
-* data import and export
+После запуска модуля «Мастер базы данных» нужно выбрать операцию, которую необходимо выполнить:
 
-### Database verification
+![Стартовое окно модуля «Мастер базы данных»][id-11-01]
 
-Database verification procedure is recommended to be executed not more rarely than monthly. During database verification the rest modules can continue their operation. Upon completion of verification it is recommended to restart the “Duty Operator” module
+## Проверка базы данных
 
-### Database backup
+Операцию проверки базы данных рекомендуется выполнять не реже, чем раз в месяц. Процедуры, входящие в операцию проверки базы, не имеют никаких настроек и выполняются автоматически. 
 
-Database backup can only be executed on the computer where full installation of the “Security Center” was performed.
+При выполнении проверки базы данных работу остальных модулей можно не прекращать. После завершения проверки рекомендуется перезапустить модуль «Дежурный оператор».
 
-Backup procedure does not have critical impact on the operation of other “Security Center” modules However during backup execution certain lowering of entire system performance is possible: this should be taken into account when selecting time for the backup operations.
+## Резервное копирование
 
-When you create a database backup copy you should select the volume of information to be copied. 
+Резервное копирование базы данных можно выполнять только на том компьютере, на котором выполнялась полная установка «Центра охраны».
 
-* Full database copy contains all information being stored in the database at the moment of copying including received events, operator actions and sent SMS messages for all time of software running.
-* Data amount in the operating copy is much less: in this copy the events, operator actions and SMS messages for the last month only are stored.
+Процедура резервного копирования не оказывает критического влияния на работу других модулей «Центра охраны». Тем не менее, при выполнении резервного копирования базы данных, возможно некоторое снижение производительности компьютера в целом. Этот факт нужно принимать во внимание при выборе времени для выполнения резервного копирования.
 
-On the basis of volume of saved during backup information it is recommended to execute full backup not more rarely than monthly, and an operative backup – not more rarely than daily.
+При создании резервной копии базы данных необходимо задать значения для параметров, управляющих операцией резервного копирования.
 
-To store backup copies it is recommended to use one but better- several data mediums which are not physically connected with the disk subsystem of the computer where the “Security Center” database is stored. For example, it can be a separate hard drive, flesh drive or network resource. It should be noted that when adjusting backup you can specify several paths for backup copy saving.
+![Окно настройки операции резервного копирования][id-11-02]
 
-In order to improve the entire system reliability the “Security Center” performs automatic backup. Operating copies of database are saved in the `ANDROMEDA DATA\SYSBACKUP` folder, interval of automatic backup copies creation is 24 hours.
+Параметр «Папка назначения» задает папку на жестком диске компьютера или сетевом ресурсе, в которой будет размещена резервная копия базы данных.
 
-### Restore from backup
+Имя файла резервной копии можно задать с помощью одноименного параметра. Несмотря на то, что никаких ограничений на именование файла резервной копии не накладывается, необходимо помнить, что для восстановления базы данных «Центра охраны» из резервной копии с помощью графического  интерфейса модуля «Мастер базы данных» нужно, чтобы имя файла начиналось с латинским символов «AB».
 
-Database restore from the backup copy can be done only in the computer where the full installation of the “Security Center” software was executed. 
+Обратите внимание, что резервная копия базы данных программного обеспечения «Центр охраны» создаётся в виде архива формата «ZIP», в который может быть включено несколько файлов, содержащих данные резервной копии. В случае, если размер файла архива превышает 4Gb, будет создан многотомный архив, все файлы которого будут необходимы при восстановлении базы данных из резервной копии.
 
-Prior to proceeding to database restore from the backup copy it is necessary to stop the operation of all “Security Center” modules including the “Event Manager” module.
+Дополнительно к имени файла резервной копии и названия папки для ее размещения, необходимо указать тип резервной копии, которую нужно создать. Тип резервной копии определяет объем информации, которая будет включена в резервную копию. 
 
-Database version from which restore is executed does not have any significance: immediately after restore the “Database Wizard” will verify version of restored data and execute updating if necessary.
+При выполнении _полного копирования_ в резервную копию базы данных будет включена вся информация, хранящаяся в базе данных на момент копирования, включая полученные события, действия операторов и отправленные SMS-сообщения за все время эксплуатации программного обеспечения «Центр охраны».
 
-In order to prevent the generation of events about the absence of the control event immediately after the database restore from the backup copy you should specify when proceeding to restore the necessity to set current time for objects as time of the last event receiving.
+Если же выполнить _оперативное копирование_, то объем данных в резервной копии будет значительно меньше: в ней сохранятся события, действия операторов и SMS-сообщения только за последний месяц.
 
-Database restore is recommended to be executed in two steps: first to execute restore from the most resent full database copy and then – from the actual operating copy. Thus, in the first step entire existing history will be restored, and in the second step permanently changing information will be updated.
+Исходя из объема сохраняемой при резервном копировании информации, рекомендуется полное резервное копирование выполнять не реже, чем один раз в месяц, а оперативное резервное копирование — не реже одного раза в сутки.
 
-Upon completion both steps of the database restore from the backup copy it is recommended to verify the database. In this case you have to remember that database verification procedure does not disable other modules of the “Security Center”, therefore, this procedure can be executed after starting the “Event Manager” and “Duty Operator”.
+Для хранения резервных копий рекомендуется использовать не один, а несколько носителей информации, причем таких, которые физически не связаны с дисковой подсистемой компьютера, на котором хранится база данных «Центра охраны». Например, это может быть отдельный жесткий диск, флеш-накопитель или сетевой ресурс. 
 
-### Data Import
+Для того, чтобы увеличить надежность системы в целом, «Центр охраны» выполняет автоматическое резервное копирование. Оперативные копии базы данных сохраняются в папке «ANDROMEDA DATA\\SYSBACKUP», интервал создания автоматических резервных копий по умолчанию — 24 часа.
 
-The “Security Center” software supports data import from the following sources:
+## Восстановление из резервной копии
 
-* database of the “Andromeda” software, versions 2.0 - 2.76
-* database of the “Andromeda Liberty” software
-* database of the “Guardian” software
-* database of the “CSM32” software
+Восстановление базы данных из резервной копии можно выполнять только на том компьютере, на который выполнялась полная установка программного обеспечения «Центр охраны». 
 
-Data import can be done only in the computer where the full installation of the “Security Center” software was executed. 
+Перед тем, как приступить к восстановлению базы данных из резервной копии, необходимо остановить работу всех модулей «Центра охраны», включая модуль «Менеджер событий».
 
-Prior to proceeding to data import it is necessary to stop the operation of all “Security Center” modules including the “Event Manager” module.
+Версия базы данных, из которой производится восстановление, не имеет значения: сразу после восстановления модуль «Мастер базы данных» проверит версию восстановленных данных и, при необходимости, выполнит обновление.
 
-#### Import from “Andromeda”, versions 2.0 - 2.76 and “Andromeda Liberty”
+![Окно настроек операции восстановления из резервной копии][id-11-03]
 
-If it is intended to import data from the “Andromeda”, versions 2.0 - 2.76, or the “Andromeda Liberty” software then during installation of the “Security Center” you should specify the necessity to install BDE as this very subsystem is used to access to these programs data.
+Имя файла резервной копии, из которой необходимо восстановить базу данных, можно указать с помощью одноименного параметра. Если резервная копия базы данных была создана в многотомном архиве, то при восстановлении из такой копии требуются все файлы архива.
 
-When executing data import from database of the “Andromeda” not only the description of objects and associated information can be transferred but also received events and operator actions.
+Параметр «Установить для объектов текущее время как время приема последнего события» предназначен для того, чтобы сразу после восстановления базы данных из резервной копии не началась генерация событий об отсутствии контрольного события. Если при восстановлении базы данных из резервной копии установить этот флаг, то для для всех объектов в базе данных программного обеспечения «Центр охраны» отсчет контрольного времени начнется с момента завершения восстановления базы данных из резервной копии.
 
-If the database from which import is executed contains events for several years then import of events and operator actions can take rather long time. In this case it will be better to divide the procedure of import into two steps: first, import system information and events for the last month then start the “Event Manager” module and after having started to work with the “Security Center” import the rest events and operator actions. 
+Подробнее о назначении параметра «Контрольное время объекта» можно ознакомится в главе, описывающей модуль «Менеджер объектов», раздел «Контрольное время».  
 
-Events and actions are always imported for entire month notwithstanding that in import settings you can set data for the exact day.
+Восстановление базы данных рекомендуется производить в два этапа: сначала выполнить восстановление из самой свежей полной копии базы данных, а после этого — из актуальной оперативной копии. Таким образом, на первом этапе будет восстановлена вся имеющаяся история, а на втором этапе будет актуализирована постоянно изменяющаяся информация.
 
-When importing from the “Andromeda”, versions 2.0 - 2.76 function of objects numbers shift is available. The substance of function consists in that to numbers of objects information about which is transferred to the “Security Center” a summand specified during the import procedure setting will be added. 
+По завершению восстановления базы данных из резервной копии рекомендуется выполнить проверку базы данных. При этом необходимо помнить, что процедура проверки базы данных не блокирует работу других модулей «Центра охраны», поэтому ее можно выполнять после того, как будут запущены «Менеджер событий» и «Дежурный оператор».
 
-When the shift is used and the import procedure is divided into two steps then shift settings must be specified both in the first and in the second step though in the second step only events and operator actions are transferred.
+## Импорт данных
 
-The shift of object numbers can be useful if several databases are integrated in one, for example, when several units are integrated.
+Импорт данных можно выполнять только на том компьютере, на который выполнялась полная установка программного обеспечения «Центр охраны». 
 
-In order to prevent the generation of events about the absence of the control event immediately after the data import you should specify when adjusting import the necessity to set current time for objects as time of the last event receiving.
+Перед тем, как приступить к импорту данных, необходимо остановить работу всех модулей «Центра охраны», включая модуль «Менеджер событий».
 
-#### Import from “Strazh” software
+![Окно выбора источника данных для операции импорта][id-11-04]
 
-If you intend to import object descriptions from “Strazh” software, then a computer must have Microsoft Access 2003 or later installed in it for a period of import execution. 
+В Центре охраны, помимо других источников, возможно делать импорт из XML-файла.
 
-You may install the “Security Center” into computer with the “Strazh” software, execute import and transfer the “Security Center” data using the backup copy.
+### Импорт из XML-файла
 
-When importing from the “Strazh” software it is necessary to specify the folder in which the database files if this software are located. If to the “Strazh” software was connected the “Lonta-202” (“RS-202”) station, then import execution two file are required - the“Guard.mdb” and “SurGuard_code.mdb”. If only the “RS-200” station was used, then to execute import the “Guard.mdb” file is enough.
+С помощью импорта из XML-файла можно импортировать в «Центр охраны» базу объектов программного обеспечения «Кобра».
 
-In the settings of import operation from the “Strazh” software you can specify numbers or intervals of numbers of objects descriptions of which must be transferred to the “Security Center”. Thus, you can import descriptions of not all objects but only part of objects – only of required ones.
+![Окно настроек операции импорта из XML-файла][id-11-13]
 
-When executing import from the database of the “Strazh” software numbers of imported objects may be shifted. The substance of shift consists in that to numbers of objects information about which is transferred to the “Security Center” a summand specified during the import procedure setting will be added. 
+С помощью параметра «Имя XML-файла» необходимо выбрать файл базы данных, указав к нему путь.
 
-The same function is available in the setting event receive from the “RS-200” and “Lonta-202” units. Thus, by shifting object numbers you can arrange the “Security Center” software operation with several units from the same or different manufacturers.
+При выполнении импорта из XML-файла можно сдвинуть номера импортируемых объектов. Суть операции сдвига заключается в том, что к номерам объектов, информация о которых переносится в «Центр охраны», будет добавлено слагаемое, указанное при настройке процедуры импорта. Например, если в качестве значения параметра «Сдвиг номеров объектов» указано значение 10000, а номера объектов в XML-файле лежат в диапазоне 1 - 2000, то в базе данных «Центра охраны» эти объекты будут иметь номера в диапазон 10001 - 12000.
 
-When importing from the “Strazh” all features of description of objects used in this software are supported, including possibility to declare several objects as sections of one transmitter. 
+Подробнее о функции сдвига номеров объектов в источниках событий можно почитать в главе, посвященной модулю «Менеджер событий», в разделе «Источники событий».
 
-#### Import from “CSM32”
+## Экспорт данных
 
-If you intend to import the object descriptions from the “CSM32” software, then a computer must have Microsoft Access 2003 or later installed in it for a period of import execution. 
+Программное обеспечение «Центр охраны» поддерживает экспорт информации об объектах в текстовый файл с разделителем значений.
 
-You may install the “Security Center” into the computer with the “CSM32” software, execute import and transfer the “Security Center” data using the backup copy.
+![Окно выбора объектов и полей при настройке операции экспорта информации об объектах][id-11-09]
 
-When importing from the “CSM32” software path to the “Main.mdb” file must be specified where the “CSM32” software data are stored.
+При выполнении экспорта необходимо выбрать объекты и поля (столбцы), информация о которых будет записана в файл экспорта.
+Выбор объектов, информация о которых должна быть экспортирована, осуществляется установкой флага («галочки») в первой колонке строки с объектом.
+Выбор полей, информация из которых будет записана в файл экспорта, осуществляется путем включения или выключения их отображения. В файл экспорта будет включена информация только из тех полей (столбцов), которые отображаются в таблице.
 
-To transfer as full as possible the description of objects it is necessary when setting import from the “CSM32” to specify mapping of event classes used in the “CSM32” to event class types of the “Security Center”.
+![Окно настройки операции экспорта информации об объектах][id-11-10]
 
-### Data Export
+С помощью параметра «Имя файла экспорта» можно задать папку и имя файла, в который должен быть выполнен экспорт.
 
-The “Security Center” software supports the export of information about the objects to the text file with value separators.
+Параметр «Символ-разделитель» предназначен для выбора символа, который будет использоваться в качестве разделителя полей в одной строке файла экспорта. Необходимо помнить, что строковые значения полей в файле экспорта заключены в двойные кавычки, что исключает возможность неправильного распознавания символа-разделителя при открытии файла экспорта.
 
-When executing export it is necessary to select objects and fields (columns) the information about which will be written to the export file.
+## Параметры командной строки
 
-Also it is necessary to specify a name of file to which export will be executed as well as a symbol which will be used as the separator.
+Наряду с графическим интерфейсом пользователя модуль «Мастер базы данных» обладает возможностью управления с помощью параметров командной строки. 
 
-### Command Line Parameters
+Эта возможность может быть полезной в том случае, если в качестве планировщика заданий создания резервной копии базы данных или восстановления из резервной копии используется планировщик Windows, который обладает более развитыми возможностями, нежели планировщик, встроенный в модуль «Менеджер событий».
 
-Along with the graphic user interface the “Database Wizard” module has possibility of control using command line parameters. 
-
-This possibility can be useful in case when Windows scheduler with more developed capabilities than built in the “Event Manager” module scheduler is used as a task scheduler for the database backup copy creation or restore from the backup copy.
-
-#### Database backup
+### Создание резервной копии базы данных
 
 	AnDBWiz.exe 
 		/BACKUPDB 
-		/FOLDER:”Destination folder 1”;”Destination folder 2”
-		/TYPE:Type of backup copy
-		/BACKUPCOUNT:Number of files in destination folder
+		/FOLDER:<Папка назначения 1>;<Папка назначения 2> 
+		/TYPE:<Тип резервной копии> 
+		/BACKUPCOUNT:<Количество файлов в папке назначения>
 
 	/BACKUPDB
+	
+Данный параметр указывает, что модуль «Мастер базы данных» должен выполнить резервное копирование базы данных. Настройки процедуры резервного копирования задаются следующими за ним параметрами командной строки.
 
-This parameter shows that the “Database Wizard” module must execute database backing-up. Settings of backing-up procedure are defined by succeeding it the parameters of the command line.
+	/FOLDER:<Папка назначения 1>;<Папка назначения 2>
+	
+Одна или несколько папок, в которые будет помещена резервная копия базы данных. Должна быть указана, по крайней мере, одна папка. Названия папок должны быть заключены в кавычки. Если указывается несколько папок, то они должны быть разделены символом «точка с запятой». Допускается использование в названиях папок абсолютных путей.
 
-	/FOLDER:”Destination folder 1”;<”Destination folder 2”>
+	/TYPE:<Тип резервной копии>
 
-One or more folders to which the database backup copy will be placed. At least one folder must be specified. Names of folders must be is enclosed in the quotations. If more than one folder is specified they must be separated by “semicolon” character. Use of absolute paths in the folder names is allowable.
+Тип резервной копии, которую необходимо создать. Значение «0» для данного параметра соответствует необходимости создания оперативной резервной копии. Значение «1» означает, что нужно создать полную резервную копию базы данных. Параметр не является обязательным. Если значение параметра не задано, то будет создана оперативная резервная копия.
 
-	/TYPE:Type of backup copy
+	/BACKUPCOUNT:<Количество файлов в папке назначения>
 
-The type of the backup copy to be created.
-“0” value for this parameter corresponds to the need to create the operating backup copy. 
-“1” value means that the full backup copy of the database must be created.
-The parameter is not mandatory. If the parameter value is not set then the operating backup copy will be created.
+Данный параметр определяет максимально возможное количество файлов резервной копии базы данных в папке назначения. Если при создании резервной копии будет обнаружено, что количество файлов резервных копий такого же типа превышает максимально возможное, то самый старый по времени файл резервной копии будет удален. Параметр не является обязательным. Если значение параметра не задано, то в качестве значения для этого параметра будет использоваться значение 10.
 
-	/BACKUPCOUNT:Number of files in destination folder
-
-This parameter defines maximum allowable number of database backup copy files in the destination folder. If during the backup copy creation it is determined that the number of backup copy files of the same type exceeds the maximum allowable number then the oldest file of the backup copy is deleted .
-
-The parameter is not mandatory. If the parameter value is not set then 10 value is used for this parameter.
-
-#### Database restore from backup copy
+### Восстановление базы данных из резервной копии
 
 	AnDBWiz.exe 
 		/RESTOREDB 
-		/FOLDER:”Source folder” 
-		/TYPE:Type of backup copy
+		/FOLDER:<Исходная папка> 
+		/TYPE:<Тип резервной копии>
 
 	/RESTOREDB
 
-This parameter shows that the “Database Wizard” module must execute the database restore from the back-up copy. Settings of the database restore procedure are defined by succeeding them the parameters of the command line.
+Данный параметр указывает, что модуль «Мастер базы данных» должен выполнить восстановление базы данных из резервной копии. Настройки процедуры восстановления базы данных задаются следующими за ним параметрами командной строки.
 
-	/FOLDER:”Source folder”
+	/FOLDER:<Исходная папка>
 
-The folder which will be searched for the database backup copy and from which the restore will be done. If several backup copy files of the preset type is found in the specified folder then the restore is executed from the most newly created file.
+Папка, в которой будет произведен поиск резервной копии базы данных, из которой будет выполнено восстановление. Если в указанной папке будет обнаружено несколько файлов резервной копии заданного типа, то будет произведено восстановление из самого нового по времени создания файла.
 
-	/TYPE:Type of backup copy
+	/TYPE:<Тип резервной копии>
 
-The type of the backup copy from which the restore must be done. “0” value for this parameter corresponds to the need to recover from the operating backup copy. “1” value means that database must be recovered from the full backup copy. The parameter is not mandatory. If the parameter value is not set then restore will be executed from the operating backup copy.
+Тип резервной копии, из которой необходимо выполнить восстановление. Значение «0» для данного параметра соответствует необходимости восстановления из оперативной резервной копии. Значение «1» означает, что нужно восстановить базу данных из полной резервной копии. Параметр не является обязательным. Если значение параметра не задано, то будет выполнено восстановление из оперативной резервной копии.
 
-#### Example of Command Line Parameters Use
+### Пример использования параметров командной строки
 
 	AnDBWiz.exe 
 		/BACKUPDB 
-		/FOLDER:E:\Backup\Operational;\\Storage\Backup\Operational
+		/FOLDER:"E:\Backup Data\Operational";"\\Storage\Andromeda Backup\Operational" 
 		/BACKUPCOUNT:25
 
-Above mentioned set of the command line parameters means that the “Database Wizard” module must create the operating database copy and copy it to the folders `E:\Backup\Operational` and `\\Storage\Backup\Operational`. 
+Приведенный набор параметров командной строки означает, что модуль «Мастер базы данных» должен создать оперативную копию базы данных и скопировать ее в папки `E:\Backup Data\Operational` и `\\Storage\Andromeda Backup\Operational`. 
 
-When copying the backup copy to the destination folder the “Database Wizard” module must verify that total number of the operating backup copy files in the destination folder does not exceed 24, and if there are more files then the oldest by time of the creation backup copy file must be deleted.
+При копировании резервной копии в папку назначения модуль «Мастер базы данных» должен проверить, что общее количество файлов оперативной резервной копии в папке назначения не превышает 24, а если их больше, то самый старый по времени создания файл резервной копии должен быть удален.
 
+[id-11-01]: img/AnDBWiz-BR.png "Стартовое окно модуля «Мастер базы данных»"
+[id-11-02]: img/AnDBWiz-BR-Back-02.png "Окно настройки операции резервного копирования"
+[id-11-03]: img/AnDBWiz-BR-Rest-02.png "Окно настроек операции восстановления из резервной копии"
+[id-11-04]: img/AnDBWiz-EI-Imp-And-01.png "Окно выбора источника данных для операции импорта"
+[id-11-05]: img/AnDBWiz-EI-Imp-And-02.png "Окно настроек операции импорта из базы данных программного обеспечения «Андромеда»"
+[id-11-06]: img/AnDBWiz-EI-Imp-Str-02.png "Окно настроек операции импорта из базы данных программного обеспечения «Страж»"
+[id-11-07]: img/AnDBWiz-EI-Imp-Csm-02.png "Окно настроек операции импорта из базы данных программного обеспечения «CSM32»"
+[id-11-08]: img/AnDBWiz-EI-Imp-Csm-03.png "Окно настройки соответствия классов событий при импорте из базы данных программного обеспечения «CSM32»"
+[id-11-09]: img/AnDBWiz-EI-Exp-Csv-02.png "Окно выбора объектов и полей при настройке операции экспорта информации об объектах"
+[id-11-10]: img/AnDBWiz-EI-Exp-Csv-03.png "Окно настройки операции экспорта информации об объектах"
+[id-11-11]: img/AnDBWiz-EI-Imp-GN-02.png "Окно настроек операции импорта из базы данных программного обеспечения «GuardNet»"
+[id-11-12]: img/AnDBWiz-EI-Imp-Nmn-02.png "Окно настроек операции импорта из базы данных программного обеспечения «Неман»"
+[id-11-13]: img/AnDBWiz-EI-Imp-XML-02.png "Окно настроек операции импорта из XML-файла"

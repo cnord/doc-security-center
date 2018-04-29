@@ -1,22 +1,22 @@
-## Maps of Objects
+# Карты объектов
 
-Using the “Maps of Objects” module you can create graphic schemes describing an object: a ground map with possible approach lines to an object, object photos, floor plans and so on.
+С помощью модуля «Карты объектов» можно создавать графические схемы, описывающие объект: карта местности с отображением путей возможного подъезда к объекту, фотографии объекта, поэтажные планы и так далее.
 
-Once a plan of object rooms has been developed you can place security lines scheme on it.
-In alarm response mode you can access the function of viewing alarm loops on object maps in the “Duty Operator” module. 
+После того, как будет разработан план помещений объекта, можно разместить на нем схему рубежей охраны.
 
-“Maps of Objects” module does not contain built-in the graphic editor, thus we recommend you to create schemes using outside means. Ready-made images can be pasted in the map from the files of BMP or JPG format as a background picture. When you prepare background picture you should select its size and resolution with regard to possible printing the map of objects: no transformations are made, a background picture is printed according to its parameters.
+При отработке тревоги в модуле «Дежурный оператор» доступна функция просмотра тревожных шлейфов на картах объекта. 
 
-Once a background picture for the map has been selected it is possible to place zones (signalization loops) on it. For each zone you can select location and dimensions as well as method of its displaying in active and inactive state. 
+Встроенного графического редактора в модуле «Карты объектов» нет, поэтому создавать схемы рекомендуется с помощью сторонних средств. Готовые изображения могут быть вставлены в карту из файлов формата BMP или JPG в качестве фонового рисунка. При подготовке фонового рисунка нужно выбирать его размер и разрешающую способность с учетом возможной печати карты объектов: никаких преобразований не производится, фоновый рисунок печатается в соответствии со своими параметрами.
 
-After this you should associate the zone with a code of event which recording will mean the zone activation. Generally, an alarm code corresponding to the zone is selected as such code.
+После того, как для карты выбран фоновый рисунок, есть возможность разместить на нем зоны (шлейфы сигнализации). Для каждой зоны можно выбрать местоположение и размеры, а также способ ее отображения в активном и пассивном состоянии. 
+Вслед за этим с зоной нужно связать код события, регистрация которого будет означать переход зоны в активное состояние. Как правило, в качестве такого кода выбирается код тревоги, соответствующий зоне.
 
-When file of alarm object maps is opened from the “Duty Operator” module the active map is the map where the zone for which alarm has been received is located. Additionally, an alarm zone can change visually displaying alternatively in passive and active state.
+При открытии файла карт тревожного объекта из модуля «Дежурный оператор», активной будет карта, на которой размещена зона, по которой получена тревога. Кроме того, тревожная зона может меняться визуально — отображаясь поочередно в пассивном и активном состоянии.
 
-Also, you can specify associated file for the zone. When file of alarm object maps is opened associated file also opens by means provided in the operational system for its file type. 
+Для зоны также можно указать связанный файл. При открытии файла карт тревожного объекта, связанный файл также будет открыт средствами, предусмотренными в операционной системе для его типа файлов. 
+Например, если в качестве связанного файла указать документ, содержащий важную информацию об объекте, то этот документ будет открыт вместе с файлом карт.
 
-For example, if you specify a document containing important information about an object as associated file this document opens together with the map file.
+Если программное обеспечение «Центр охраны» эксплуатируется в сети, то сохранять файл карт объекта нужно в папку, доступную для чтения для всех пользователей сети. При этом нужно помнить, что даже если эта папка является локальной для того компьютера, на котором редактируются карты объектов, при сохранении нужно все равно использовать абсолютный путь к папке.
 
-If the “Security Center” software is running in network then a map file should be saved to folder readable for all network users. However you should remember that even if this folder is local for a computer where object maps are edited when you perform saving absolute path should be used.
+При сохранении нового файла карт объекта или при его сохранении с другим именем, поле «Карта объекта» — его значение можно просмотреть и изменить в модуле «Менеджер объектов» — обновляется автоматически.
 
-When a new object map file is saved or when it is saved under an alternative name the “Object Map” field –its value can be viewed and changed in the “Object Manager” module -  is automatically updated.
