@@ -2,11 +2,11 @@
 
 START=$(date +%s)
  
-pandoc --template template/template-install.latex -V lang=russian -o SC5-InstallationManual-Rus.pdf 01-introduction.md 02-installation.md
+pandoc --template template/template-install.latex -V lang=russian -o SC5-Installation-Rus.pdf 01-introduction.md 02-installation.md
  
 END=$(date +%s)
 DIFF=$(( $END - $START ))
-echo "Instalation manual tooks $DIFF seconds"
+echo "Instalation manual – $DIFF seconds"
 
 START=$(date +%s)
 
@@ -14,5 +14,5 @@ pandoc --template template/template-manual.latex -V lang=russian -o SC5-UserManu
 
 END=$(date +%s)
 DIFF=$(( $END - $START ))
-echo "User manual tooks $DIFF seconds"
+echo "User manual – $DIFF seconds"
 
