@@ -1,71 +1,71 @@
-# Приступая к работе
+# Getting Started
 
-## Редакции «Центра охраны»
+## Security Center Variants
 
-Редакции программного обеспечения «Центр охраны» отличаются максимально возможным количеством обслуживаемых объектов: 1000, 1500, 2000 и так далее.
+Variants of Security Center software differ in the maximum possible number of serviced sites: 1000, 1500, 2000, etc.
 
-Ограничений на использование источников событий нет, при этом источники событий от пультов централизованного наблюдения производства третьих фирм приобретаются отдельно.
+There are no restrictions on the use of event sources, and the event sources from third-party centralized monitoring panels shall be purchased separately.
 
-Стартовая редакция «Центра охраны» является бесплатной и позволяет осуществлять охрану до 1000 объектов.
+Starting variant of Security Center is free of charge and allows to guard up to 1000 sites.
 
-## Назначение модулей
+## Purpose of Modules
 
-Программное обеспечение «Центр охраны» состоит из модулей, каждый из которых предназначен для решения конкретных задач.
+Security Center software consists of modules, each of which is intended to solve specific problems.
 
-Модуль «**Менеджер событий**» служит для приема извещений от приемного оборудования центральной станции, а также напрямую от некоторых видов объектового оборудования, например, по каналам связи GPRS и Ethernet. 
+The "**Event Manager**" module is intended for receiving notifications from the receiving equipment of the central station, as well as directly from certain types of site equipment, for example, via GPRS and Ethernet communication channels. 
 
-Кроме того, именно в модуле «Менеджер событий» происходит автоматизированной обработка событий: контроль цепочек событий, отправка SMS-сообщений и передача событий в другие системы. 
-Необходимо отметить, что «Менеджер событий» является связующим звеном для всех остальных модулей «Центра охраны»: он должен быть запущен первым, так как именно с его помощью модули обмениваются информацией о новых событиях, действиях операторов и других изменениях, произошедших при работе модулей.
+Besides, it is in the "Event manager" module where events are automatically handled: event chains are monitored, SMS messages are sent and events are transmitted to other systems. 
+It shall be noted that the “Event Manager” is the link for all other modules of Security Center: it shall be launched first, because it is with its help that the modules exchange information about new events, operators’ actions and other changes that occurred during the module operation.
 
-С помощью модуля «**Менеджер объектов**» осуществляется создание новых объектов и изменение описания для существующих объектов.
+The "**Site Manager**" module is used for creation of new sites and changing description of the existing sites.
 
-Модуль «**Дежурный оператор**» используется оператором для обработки событий. Основные функции модуля — наблюдение за оперативным состоянием объектов, просмотр последних полученных событий, регистрация действий оператора по отработке тревог, полученных от объектов.
+The "**Duty Operator**" module is used by the operator to handle events. The main functions of the module are monitoring of the site operative state, viewing the latest received events, recording the operator's actions for handling of the alarm received from sites.
 
-Назначение модуля «**Карты объектов**» - создание схем подъезда к объекту, поэтажных планов и расположения рубежей охраны. Кроме того, модуль «Карты объектов» используется для отображения тревожных шлейфов объекта на поэтажном плане при отработке тревоги.
+The "**Site Maps**" module is intended for creation of schemes of access to the site, floor plans and location of the protection coverages. Besides, the "Site Maps" module is used to display the site alarm zones on the floor plan during alarm handling.
 
-Список операторов «Центра охраны», а также их прав в каждом из модулей устанавливаются в «**Менеджере персонала**». В этом же модуле можно изменить список групп реагирования, а также список компьютеров локальной сети, на которых эксплуатируются сетевые рабочие места «Центра охраны».
+The list of operators of Security Center, as well as their rights in each of the modules are set in the "**Personnel Manager**". In the same module, it is possible to change the list of guards, as well as the list of computers on the local network on which the network workstations of Security Center are operated.
 
-Модуль «**Мастер базы данных**» предназначен для выполнения следующих операций:
+The "**Database wizard**" module is intended for the following operations:
 
-* проверка базы данных и устранение ошибок
-* создание резервной копии базы данных
-* восстановление базы данных из резервной копии
-* импорт данных из базы данных программного обеспечения «Андромеда», программного обеспечения «Андромеда Либерти», программного обеспечения «Страж» и программного обеспечения «CSM32»
-* экспорт данных из базы данных «Центра охраны» для использования в других программах
+* database check and error recovery
+* database backup
+* database restoration from a backup
+* import of data from “Andromeda” software database, “Andromeda Liberty” software, “Strazh” software and “CSM32” software
+* export of data from Security Center database for use in other programs
 
-В модуле «**Настройка системы**» можно изменить справочники, которые используются при описании объектов: список шаблонов событий, классы событий и связанные с ними действия, типы объектов и список дополнительных характеристик.
+In the **System Setup** module, it is possible to change the directories that are used to describe the sites: list of event templates, event classes and associated actions, site types and list of additional characteristics.
 
-## Первый запуск
+## First Start
 
-Для того чтобы приступить к работе нужно запустить модуль «Менеджер событий» и настроить источники событий — специальные компоненты модуля, предназначенные для приема событий от оборудования центральной станции.
+To get started, it is necessary to start the "Event manager" module and configure the event sources - special module components, intended to receive events from the central station equipment.
 
-Настройка источников событий осуществляется в окне «Источники событий». Для доступа к нему нужно выбрать пункт «Источники событий...» в меню модуля «Менеджер событий» (щёлкнуть правой кнопкой мыши на иконке в системной области панели задач).
+The event sources are configured in the "Event sources" window. To access it, select "Event sources ..." item in the "Event manager" module (right-click on the icon in the system tray of the taskbar).
 
-Если «Центр охраны» установлен для ознакомительных целей, то для создания событий от объектов можно воспользоваться пунктом «Эмуляция событий...» в меню «Менеджера событий».
+If Security Center is installed just to get acquainted, then to create events from sites it is possible to use the "Emulation of events ..." item in the "Event Manager" menu.
 
-После того, как модуль «Менеджер событий» запущен, можно приступить к работе с другими модулями. Заводить объекты в систему следует с помощью модуля «Менеджер объектов», а наблюдать за принимаемыми событиями и отрабатывать тревоги — используя модуль «Дежурный оператор».
+After the "Event manager" module is started, it is possible to start working with other modules. Sites are entered into the system with the help of the "Site manager" module, and the received events are monitored and alarms are handled with the help of the "Duty operator" module.
 
-## Пароль администратора
-Непосредственно после установки программного обеспечения «Центр охраны» в списке операторов присутствует только один оператор – «Администратор». Пароль оператора «Администратор» по умолчанию – **222222**.
+## Admin Password
+Immediately after installation of the Security Center software, only one operator is present in the list of operators: “Administrator”. The password of the "Administrator" operator by default is **222222**.
 
-## Импорт данных 
+## Data Import 
 
-В программном обеспечении «Центр охраны» реализована функция импорта информации об объектах из баз данных следующих программ:
+The Security Center software implements the function of importing information about sites from databases of the following programs:
 
-* «Андромеда» версий 2.0 — 2.76
-* «Центавр»
+* «Andromeda» versions 2.0 — 2.76
+* «Tsentavr»
 * «PCN6»
 * «GuardNet»
-* «Страж»
+* «Strazh»
 * «CSM32»
-* «Неман»
-* «Мираж»
-* «Импорт из XML»
+* «Neman»
+* «Mirazh»
+* «Import from XML»
 
 
-Если до «Центра охраны» использовалось программное обеспечение из списка, приведенного выше, то для комфортного перехода на применение «Центра охраны» можно выполнить импорт описаний объектов из базы данных этих программ.
+If before Security Center installation the software from the list above was used, then for a comfortable transition to Security Center, it is possible to import the descriptions of sites from the database of these programs.
 
-Если предполагается импорт данных из программного обеспечения «Андромеда» версий 2.0 — 2.76 или «Андромеда Либерти», то при установке «Центра охраны» нужно указать необходимость установки BDE — именно эта подсистема используется для доступа к данным этих программ.
+If it is intended to import data from the “Andromeda” software version 2.0 - 2.76 or “Andromeda Liberty”, then when installing Security Center, it is necessary to specify the need to install BDE, the subsystem used to access the data of these programs.
 
-Импорт данных осуществляется с помощью модуля «Мастер базы данных». В случае импорта данных программного обеспечения «Андромеда» версий 2.0 — 2.76 или «Андромеда Либерти», для его выполнения потребуются все файлы из папки базы данных. При наличии резервной копии базы данных в формате ZIP, необходимо извлечь файлы из архива в любую папку на жестком диске компьютера.
+Data import is performed with the help of the "Database wizard" module. In the case of import from “Andromeda” software versions 2.0 - 2.76 or “Andromeda Liberty”, all files from the database folder will be required to run it. If there is a backup copy of the database in ZIP format, it is necessary to extract the files from the archive to any folder on the computer hard drive.
 

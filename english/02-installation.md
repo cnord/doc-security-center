@@ -1,135 +1,1 @@
-# Установка
-
-## Выбор операционной системы
-
-Программное обеспечение «Центр охраны» рекомендуется эксплуатировать под управлением операционной системы Microsoft Windows 7.
-
-Если предполагается использование программного обеспечения «Центр охраны» в сети, то установку серверной части программного обеспечения «Центр охраны» (полную установку) предпочтительно выполнять на компьютер с операционной системой Microsoft Windows Server 2008.
-
-В качестве файловой системы лучше всего использовать NTFS.
-
-Настоятельно рекомендуется обновить используемую операционную систему, установив последние предоставляемые компанией «Microsoft» пакеты обновления.
-
-## Конфигурация дисковой подсистемы компьютера
-
-Для обеспечения надежности хранения информации и повышения производительности системы в компьютер, на который будет производиться полная установка программного обеспечения «Центр охраны», рекомендуется устанавливать два жестких диска. При этом операционную систему и исполняемые файлы «Центра охраны» следует устанавливать на один жесткий диск, а каталог базы данных на другой. Если установка двух жестких дисков невозможна, рекомендуется разделить единственный жесткий диск на два раздела, разместив на одном из них операционную систему, а на другом — каталог базы данных «Центра охраны».
-
-Кроме того, вне зависимости от конфигурации дисковой подсистемы необходимо настроить процедуру резервного копирования базы данных программного обеспечения «Центр охраны» так, чтобы резервная копия создавалась на дополнительном жестком диске или сетевом ресурсе — физически другом устройстве хранения информации.
-
-## Дополнительные требования
-
-Перед установкой программного обеспечения «Центр охраны» необходимо убедиться, что на компьютер не установлено программное обеспечение «Андромеда Либерти» или программное обеспечение «Андромеда» версий младше, чем 2.8. Если какая-то из указанных программ установлена, перед установкой «Центра охраны» её необходимо удалить.
-
-Для установки «Центра охраны» необходимо, чтобы на компьютере был установлено программное обеспечение «Microsoft Internet Explorer» версии 8.0 или выше. Также рекомендуется наличие в системе следующих компонентов и программ:
-
-* Для операционных систем Microsoft Windows XP, Microsoft Windows Server 2003 и Microsoft Windows Server 2008:
-	* Windows Installer версии 4.5 или выше
-	* Microsoft .NET Framework версии 3.5 SP1 
-* Microsoft Data Access Components (MDAC) версии 2.8 или выше.
-
-Прежде чем приступить к установке «Центра охраны» необходимо убедиться, что выполнены все аппаратные требования и требования к операционной системе.
-
-> Если программное обеспечение «Центр охраны» предполагается использовать совместно с видеороутерами производства компании «Си-Норд», то на компьютер, где предполагается запускать модуль «Дежурный оператор» необходимо установить программное обеспечение Adobe Flash Player последней доступной версии, которое можно загрузить с [официального сайта компании Adobe](http://get.adobe.com/ru/flashplayer/otherversions/).
-
-## Программа установки
-
-Во время установки программного обеспечения «Центр охраны» нужно указать значения для нескольких параметров установки.
-
-Непосредственно после запуска программы установки нужно указать язык интерфейса пользователя программы установки.
-
-![Выбор языка программы установки][id-02-01]
-
-Вслед за этим потребуется выбрать язык интерфейса пользователя программного обеспечения «Центр охраны» из следующего списка: 
-
-* русский
-* английский
-* испанский
-
-![Выбор языка «Центра охраны»][id-02-02]
-
-Будьте внимательны: язык интерфейса пользователя «Центра охраны» нельзя изменить после установки. Если при выборе языка интерфейса пользователя будет сделана ошибка, то для того, чтобы её исправить, потребуется удалить программное обеспечение «Центр охраны» и установить его заново.
-
-Далее программа установки предложит указать каталог, в котором будут находиться исполняемые файлы «Центра охраны».
-
-![Выбор папки установки][id-02-03]
-
-После этого нужно будет выбрать тип рабочей станции, на которую выполняется установка:
-
-![Выбор типа установки][id-02-04]
-
-* __Полную установку__ нужно выбрать в том случае, если компьютер будет выполнять роль сервера: на нем будет храниться база данных программного обеспечения «Центр охраны», а кроме того будет осуществляться прием событий. 
-
-	Также полную установку нужно выбирать в том случае, если это единственный компьютер, на котором будет эксплуатироваться программное обеспечение «Центр охраны».
-	При выполнении полной установки на компьютер будет установлен Microsoft SQL Server и база данных «Центра охраны». Помимо этого, на компьютер будет установлен модуль «Менеджер событий», с помощью которого осуществляется прием и обработка извещений.
-
-* __Установку на сетевое рабочее место__ следует выбирать в том случае, если необходимо организовать рабочее место в локальной компьютерной сети. На сетевом рабочем месте оператору доступны практически все функции программы. Исключение составляют ряд служебных операций, таких как изменение настроек модуля «Менеджер событий» и управление процедурами резервного копирования.
-
-	При выполнении установки на сетевое рабочее место потребуется указать компьютер, на который предварительно была выполнена полная установка.
-
-### Полная установка
-
-При выполнении полной установки нужно будет указать каталог, в котором будет храниться база данных программного обеспечения «Центр охраны». 
-
-![Полная установка: выбор папки установки базы данных][id-02-05]
-
-Для увеличения производительности программного обеспечения «Центр охраны», файлы базы данных рекомендуется размещать на отдельном жестком диске или хотя бы на отдельном разделе жесткого диска. По умолчанию программа установки предлагает установить файлы базы данных на раздел диска отличный от системного. 
-
-![Полная установка: выбор необходимости установки BDE][id-02-06]
-
-Также потребуется указать необходимость установки BDE. Подсистема BDE («Borland Database Engine») использовалась программным обеспечением «Андромеда» версий 1.0 — 2.76, а также программным обеспечением «Андромеда Либерти» для организации доступа к базе данных. Программное обеспечение «Центр охраны» использует подсистему BDE только при импорте данных из баз данных перечисленных программ. Если импорт информации из баз данных программного обеспечения «Андромеда» версии 2.6 — 2.76 или «Андромеда Либерти» выполнять не потребуется, то подсистему BDE устанавливать не нужно.
-
-При полной установке на компьютере появится именованный экземпляр программного обеспечения Microsoft SQL Server 2005 Express Edition. Имя экземпляра (instance name) — «ANDROMEDA». Для выполнения полной установки необходимо, чтобы на компьютере не было экземпляра Microsoft SQL Server с таким именем. 
-
-Перед тем, как программа установки приступит к установке SQL Server 2005 и копированию файлов «Центра охраны» на компьютер, можно просмотреть ее настройки, чтобы убедиться в том, что все значения всех параметров заданы правильно.
-
-![Полная установка: перечень настроек программы установки][id-02-07]
-
-### Установка на сетевое рабочее место
-
-При установке программного обеспечения «Центр охраны» на сетевое рабочее место необходимо указать экземпляр программного обеспечения Microsoft SQL Server, который используется для хранения базы данных. 
-
-![Установка на сетевое рабочее место: выбор SQL-сервера][id-02-08]
-
-Экземпляр программного обеспечения Microsoft SQL Server устанавливается при выполнении полной установки «Центра охраны». Имя устанавливаемого экземпляра (instance name) — ANDROMEDA. Таким образом, необходимо выбрать в списке строку вида «`имя компьютера\ANDROMEDA`», где `имя компьютера` — это имя компьютера, на который была выполнена полная установка программного обеспечения «Центр охраны».
-
-Если программа установки не смогла обнаружить в локальной сети экземпляр программного обеспечения Microsoft SQL Server, который используется для хранения базы данных «Центр охраны», рекомендуется указать имя компьютера и название экземпляра вручную.
-
-Вслед за этим программе установки потребуется ввести имя или IP-адрес компьютера, на котором выполняется запуск модуля «Менеджер событий». В большинстве случаев, это тот самый компьютер, который используется в качестве сервера программного обеспечения «Центр охраны».
-
-![Установка на сетевое рабочее место: выбор компьютера с модулем «Менеджер событий»][id-02-09]
-
-Связь с модулем «Менеджер событий» необходима остальным модулям программного обеспечения «Центр охраны» для того, чтобы осуществлять обмен информацией и синхронизацию действий.
-
-Перед тем, как программа установки приступит к копированию файлов на компьютер, можно просмотреть ее настройки, чтобы убедиться в том, что все значения всех параметров заданы правильно.
-
-![Установка на сетевое рабочее место: перечень настроек программы установки][id-02-10]
-
-## Удаление «Центра охраны»
-
-Для удаления программного обеспечения «Центр охраны» с компьютера необходимо воспользоваться соответствующим пунктом панели управления Windows.
-
-## Проблемы при установке
-
-Если при установке программного обеспечения «Центр охраны» возникли проблемы, необходимо обратиться в службу технической поддержки ООО НТКФ «Си-Норд» по телефонам (812) 327-16-36, 8 (800) 200-60-80, факсу (812) 327-16-33 или электронной почте support@cnord.ru. 
-
-При обращении в службу технической поддержки необходимо указать устанавливаемую версию программного обеспечения «Центра охраны» и описание возникшей проблемы.
-
-Если обращение производится по электронной почте, то к письму рекомендуется приложить архив, содержащий файлы:
-
-* файл `C:\Andromeda_Install.log` — В этом файле содержится протокол работы программы установки «Центра охраны»
-* файлы из папки `C:\Andromeda Log` — В файлах, которые находятся в этой папке, содержатся протоколы работы модулей «Центра охраны»
-* файлы из папки `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` — В файлах, которые находятся в этой папке и ее подпапках, содержатся протоколы работы программы установки Microsoft SQL Server
-
-В перечисленных файлах не содержится персональных данных или конфиденциальной информации.
-
-
-[id-02-01]: img/Setup-Main-01.png "Выбор языка программы установки"
-[id-02-02]: img/Setup-Main-02.png "Выбор языка «Центра охраны»"
-[id-02-03]: img/Setup-Main-03.png "Выбор папки установки"
-[id-02-04]: img/Setup-Main-04.png "Выбор типа установки"
-[id-02-05]: img/Setup-Full-01.png "Полная установка: выбор папки установки базы данных"
-[id-02-06]: img/Setup-Full-02.png "Полная установка: выбор необходимости установки BDE"
-[id-02-07]: img/Setup-Full-03.png "Полная установка: перечень настроек программы установки"
-[id-02-08]: img/Setup-Network-01.png "Установка на сетевое рабочее место: выбор SQL-сервера"
-[id-02-09]: img/Setup-Network-02.png "Установка на сетевое рабочее место: выбор компьютера с модулем «Менеджер событий»"
-[id-02-10]: img/Setup-Network-03.png "Установка на сетевое рабочее место: перечень настроек программы установки"
+﻿# Installation## Selection of Operating SystemIt is recommended to run Security Center software on operating system Microsoft Windows 10.If you intend to use Security Center software in network, it is preferable to install the server part of Security Center software (full installation) on computer with operating system Microsoft Windows Server 2016.It is best to use NTFS as the file system.It is strongly recommended that you update the current operating system by installing the latest service packs provided by Microsoft.## Configuration of Computer Disk SubsystemTo ensure reliable storage of information and enhance the system performance, it is recommended to install two hard disks on the computer, on which Security Center software will befully installed. In this case, install the operating system and Security Center executable files on one hard disk and the database directory on the other. If it is impossible to install two hard disks, it is recommended to divide the single hard disk into two partitions and install the operating system on one of them, and the Security Center database on the other.Besides, regardless of the disk subsystem configuration, you shall configure backup for Security Center software database so that the backup copy is created on an additional hard disk or network resource, which is a physically different storage device.## Additional RequirementsBefore installing Security Center software, you need to make sure that the Andromeda Liberty software or the Andromeda software prior to version 2.8 is not installed on the computer. If one of these programs is detected, delete it before installing Security Center software.To install Security Center, you need to install Microsoft Internet Explorer 8.0 or higher. It is also recommended that the system has the following components and programs:\* For operating systems Microsoft Windows XP, Microsoft Windows Server 2003 and Microsoft Windows Server 2008:        \* Windows Installer 4.5 or later        \* Microsoft .NET Framework 3.5 SP1\* Microsoft Data Access Components (MDAC) 2.8 or higher.\* Microsoft .NET Framework 2.0Before installing Security Center, you need to make sure that all hardware requirements and operating system requirements are met.&gt; If it is planned to use Security Center with video routers by C.Nord company, then it is necessary to install the latest version of Adobe Flash Player on the computer where you want to run the module &quot;Duty operator&quot;, which can be uploaded from [the Adobe official website] (http://get.adobe.com/en/flashplayer/otherversions/).## InstallerWhen installing Security Center software, you need to specify values for several installation options.Immediately after the installer starts, you need to specify the installer user interface language.![Selecting installer language][id-02-01]After that, you will need to select the language of the Security Center user interface from the following list:\* Russian\* English![Selecting Security Center language][id-02-02]Be careful: Security Center user interface language cannot be changed after installation. If an error is made when selecting the user interface language, to correct it, you will need to remove the Security Center and reinstall it.Next, the installer will prompt you to specify the directory where the executable files of the Security Center will be located.![Selecting installation folder][id-02-03]After that, you will need to select the type of workstation on which you are installing:![Selecting installation type][id-02-04]\* Select \_\_Full installation\_\_ if the computer will act as a server: it will store Security Center database, and will receive events.        Also, select full installation if it is the only computer on which Security Center will be used.        In case of full installation, Microsoft SQL Server and Security Center database will be installed on the computer. Besides, &quot;Event manager&quot; module will be installed on the computer to receive and process notifications.\* Select installation on \_\_Network workstation\_\_ if it is necessary to organize a workplace in the local computer network. Almost all program functions are available to the operator on the network workstation. An exception is a number of service operations, such as changing settings of &quot;Event manager&quot; module and backup management.        When installing on a network workstation, you will need to specify the computer on which the full version was previously installed.### Full installationWhen installing the full version, you will need to specify the directory in which Security Center database will be stored.![Full installation: selecting database installation folder][id-02-05]To increase Security Center performance, it is recommended to place the database files on a separate hard disk or at least on a separate hard disk partition. By default, the installer prompts you to install the database files on a disk partition other than the system one.![Full installation: selecting BDE setup][id-02-06]You also need to specify the need of BDE setup. The BDE subsystem (&quot;Borland Database Engine&quot;) was used by the Andromeda 1.0 - 2.76, as well as Andromeda Liberty for the database access. BDE subsystem is used by Security Center only when importing data from the databases of the listed programs. If you do not need to import information from the databases of Andromeda 2.6 - 2.76 or Andromeda Liberty, it is not necessary to install the BDE subsystem.In case of full installation, a named instance of Microsoft SQL Server 2005 Express Edition will appear on the computer. The instance name is &quot;ANDROMEDA&quot;. To perform full installation, the computer shall not have an instance of Microsoft SQL Server with the same name.Before the installer begins installing SQL Server 2005 and copying the Security Center files to the computer, you can view its settings to make sure that all values for all parameters are set correctly.![Full installation: list of setup program settings][id-02-07]### Installation on network workstationWhen installing Security Center on a network workstation, you shall specify an instance of Microsoft SQL Server that is used to store the database.![Installation on network workstation: selecting SQL server][id-02-08]An instance of Microsoft SQL Server is installed when a full installation of Security Center is performed. The instance name is &quot;ANDROMEDA&quot;. Thus, you need to select a line of the form &quot;`computer name\ANDROMEDA`&quot; in the list, where `computer name` is the name of the computer to which the full installation of Security Center was performed.If the installer cannot find the instance of Microsoft SQL Server in the local network that is used to store Security Center database, it is recommended to specify the computer name and instance name manually.After this you need to enter the name or IP address of the computer on which &quot;Event manager&quot; module is started. In most cases, this is the same computer that is used as Security Center server.![Installation on network workstation: selecting computer with &quot;Event manager&quot; module][id-02-09]Communication with &quot;Event manager&quot; module is necessary for the remaining modules of Security Center to exchange information and synchronize actions.Before the installer begins copying the files to the computer, you can view its settings to make sure that all values for all parameters are set correctly.![Installation on network workstation: list of installer settings][id-02-10] ## Security Center RemovalTo uninstall Security Center, you shall use the corresponding item in the Windows Control Panel.## Installation ProblemsIf there are any problems with Security Center installation, contact the technical support service of C.Nord by phone (812) 327-16-36, 8 (800) 200-60-80, fax (812) 327-16-33 or e-mail support@cnord.ru.When contacting technical support, specify Security Center version that is being installed and describe the problem.In case of request by e-mail, it is recommended to attach the archive containing the following files:\* file `C:\Andromeda_Install.log` - This file contains the log of Security Center installer\* files from folder `C:\Andromeda Log` - The files contain the logs Security Center modules\* files from folder `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` - The files from this folder and its subfolders contain the logs of Microsoft SQL Server Setup installerThe listed files do not contain personal data or confidential information.[id-02-01]: img/Setup-Main-01.png &quot;Selecting installer language&quot;[id-02-02]: img/Setup-Main-02.png &quot;Selecting Security Center language&quot;[id-02-03]: img/Setup-Main-03.png &quot;Selecting installation folder&quot;[id-02-04]: img/Setup-Main-04.png &quot;Selecting installation type&quot;[id-02-05]: img/Setup-Full-01.png &quot;Full installation: selecting database installation folder&quot;[id-02-06]: img/Setup-Full-02.png &quot;Full installation: selecting BDE setup&quot;[id-02-07]: img/Setup-Full-03.png &quot;Full installation: list of setup program settings&quot;[id-02-08]: img/Setup-Network-01.png &quot;Installation on network workstation: selecting SQL server&quot;[id-02-09]: img/Setup-Network-02.png &quot;Installation on network workstation: selecting computer with &quot;Event manager&quot; module&quot;[id-02-10]: img/Setup-Network-03.png &quot;Installation on network workstation: list of installer settings&quot;

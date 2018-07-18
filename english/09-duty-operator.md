@@ -1,446 +1,446 @@
-# Дежурный оператор
+# Duty Operator
 
-Модуль «Дежурный оператор» предназначен для контроля оперативного состояния объектов, просмотра поступающих событий и регистрации действий оператора по отработке тревог.
+The "Duty operator" module is intended to monitor the operational status of the sites, view incoming events and record the operator's actions while handling alarms.
 
-Перед тем как начать работу в модуле «Дежурный оператор», необходимо удостовериться в том, что запущен модуль «Менеджер событий». Если в процессе работы модуля «Дежурный оператор» возникает ошибка соединения с модулем «Менеджер событий», появляется окно, сообщающее о данной ошибке.
+Before starting working in the "Duty operator" module, make sure that the "Event manager" module is running. If during the operation of the "Duty operator" module a connection error occurs with the "Event manager" module, a window with the error appears.
 
-![Сообщение об ошибке соединения с модулем «Менеджер событий»][id-09-00]
+![Message of connection error with “Event manager” module][id-09-00]
 
-Для того чтобы запустить модуль «Дежурный оператор», пользователь должен обладать разрешением «Входить в программу» для этого модуля.
+To launch the “Duty operator" module, the user shall have the “Enter into the program" permission for this module.
 
-Так же, как остальные модули «Центра охраны», модуль «Дежурный оператор» загружает только те объекты, использование которых разрешено на том компьютере, на котором он запущен. Задать интервалы номеров объектов, которые могут использоваться на конкретном сетевом рабочем месте можно в модуле «Менеджер персонала».
+Just like the rest of the Security Center modules, the "Duty operator" module downloads only those sites, the use of which is allowed on the computer on which it is running. It is possible to specify the intervals of site numbers that can be used on a particular network workplace in the "Personnel manager" module.
 
-## Главное окно модуля
+## Module Main Window
 
-![Главное окно модуля][id-09-01]
+![Module main window][id-09-01]
 
-Главное окно модуля «Дежурный оператор» разделено на две части. Верхняя часть предназначена для отображения объектов, нижняя - для отображения принятых событий.
+The main window of the "Duty operator" module is divided into two parts. The upper part is intended for displaying sites, the lower one for displaying the received events.
 
-## Панель быстрого доступа
+## Quick Access Toolbar
 
-На панели расположены кнопки, позволяющие получить доступ к наиболее востребованным функциям модуля «Дежурный оператор». Кроме названия функции, в скобках приведена клавиша или комбинация клавиш, позволяющая получить доступ к функции с клавиатуры.
+The toolbar contains buttons that allow to access the most requested functions of the "Duty operator" module. In addition to the name of the function, a key or a combination of keys is given in parentheses to access the function from the keyboard.
 
-![«Панель быстрого доступа»][id-09-05]
+!["Quick Access Toolbar”][id-09-05]
 
-При нажатии на кнопку «Настройка» откроется окно настроек модуля «Дежурный оператор». Для того, чтобы пользователь мог вносить изменения в настройки модуля, он должен обладать разрешением «Изменять настройки» для модуля «Дежурный оператор».
+Click on the "Settings" button to open the settings window of the "Duty operator" module. In order for the user to make changes to the module settings, he/she shall have the "Change settings" permission for the "Duty operator" module.
 
-С помощью кнопки «Оператор...» осуществляется смена оператора, зарегистрированного в модуле «Дежурный оператор». При нажатии на эту кнопку будет выведено окно регистрации оператора в модуле, при этом работа модуля «Дежурный оператор» прекращена не будет: будет продолжаться прием событий, а при получении тревоги, будет выведено окно отработки тревоги.
+Click on the "Operator..." button to change the operator registered in the "Duty operator" module. After the button is clicked, the operator registration window will be displayed in the module, the "Duty operator" module will not be stopped: the reception of events will continue, and when an alarm is received, the alarm handling window will be displayed.
 
-Кнопка «Карточка...» предназначена для доступа к окну «Карточка объекта». В окне будет отображена карточка текущего объекта. Текущим при этом будет считаться объект, выбранный в списке объектов, либо объект, событие которого выбрано в списке событий - в зависимости от того, в каком из окон находится фокус ввода.
+Click on the "Card..." button to access the "Site card" window. The window of the current site will be displayed. The current site will be the site selected in the site list, or the site which event is selected in the event list, depending on the focused window.
 
-При нажатии на кнопку «События» в окне событий станет активна вкладка «События с объекта» и в списке событий на этой вкладке будут отображены события с текущего объекта. Правила выбора текущего объекта будут такими же, как и при нажатии на кнопку «Карточка...».
+Click on the "Events" button to activate the "Events from site" tab in the event window and to display the events from the current site in the list of events on this tab. The rules for selecting the current site will be the same as when clicking on the "Card..." button.
 
-С помощью кнопки «Тревоги...» можно получить доступ к окну «Информация о тревогах». После того, как окно будет открыто, в него будет загружена карточка текущего объекта и журнал отработки последней по времени приема тревоги с этого объекта.
+Click on the "Alarms..." button to access the "Alarm information" window. After the window is opened, the card of the current site and the handling log of the last alarm from this site will be loaded into it.
 
-Кнопка «Отработка...» предназначена для открытия окна «Отработка тревоги». Кнопка активна, если оператор, запустивший модуль, наделен правом «Выполнять действия по тревоге» или «Отменять тревогу». Кроме того, кнопка доступна только в том случае, если текущим является тревожный объект.
+Click on the “Handling..." button to open the “Alarm handling" window. The button is active if the operator, who launched the module, has permission to “Handle alarms" or "Cancel alarm". Besides, the button is only available if the current site is an alarm site.
 
-## Объекты
+## Sites
 
-В верхней части окна «Состояние объектов» приведено общее количество объектов, загруженных модулем, количество объектов, которые в настоящий момент находятся под охраной, а также количество объектов, отработка тревоги по которым еще не завершена.
+At the top of the “Site status” window, the total number of sites loaded by the module, number of sites that are currently armed, and number of sites which alarm handling has not yet been completed, is given.
  
-![Окно «Состояние объектов», вкладка «Все объекты»][id-09-02-01]
+![“Site status” window, “All” tab][id-09-02-01]
 
-Охраняемые объекты отображаются в модуле «Дежурный оператор» в виде пиктограмм в окне «Состояние объектов». Цвет пиктограммы отображает текущее состояние объекта. Если он синий, то объект поставлен под охрану, зеленый — снят с охраны, серый — объект отключен. Если одна часть пиктограммы синего цвета, а другая - зеленого, объект взят на охрану частично. Красный круг или квадрат, означают, что по объекту есть тревога, отработка которой еще не завершена, при этом красный круг означает, что по этой тревоге еще не зарегистрировано ни одного действия. 
+Protected sites are displayed in the "Duty operator" module in the form of icons in the "Site status" window. The icon color displays the current status of the site. If it is blue, then the site is armed, green is disarmed, gray - the site is disabled. If one part of the icon is blue and the other is green, the site is partially armed. A red circle or square means that there is an alarm on the site, which has not yet been completed, while a red circle indicates that no action has been recorded for this alarm. 
 
-Необходимо помнить, что тревоги, полученные с отключенных объектов, отрабатываются системой автоматически, непосредственно при получении. События взятия и снятия, полученные от отключенных объектов, также не меняют их состояния. Таким образом, отключенный объект не может быть ни тревожным, ни взятым под охрану, ни снятым с нее. Он всегда отображается пиктограммой серого цвета.
+It shall be remembered that alarms received from disabled sites are handled by the system automatically, immediately after reception. The arming and disarming events received from disabled sites also do not change their status. Thus, the disabled site cannot be alarming, armed, or disarmed. It is always displayed with a gray icon.
 
-Пиктограммы объектов отображаются на вкладках, которые группируют объекты по основным состояниям. Назначение вкладок легко угадать по их названиям: 
-- на вкладке «Все» отображаются все объекты, использование которых разрешено на этом рабочем месте; 
+The site icons are displayed on tabs that group sites by basic states. The purpose of tabs is easy to guess by their names: 
+- the "All" tab displays all sites that are allowed to be used in this workplace; 
 
-- на вкладке «Тревожные» отображаются объекты, по которым есть неотработанные тревоги;
+- on the "Alarms" tab, the sites for which there are unhandled alarms are displayed;
 
-- на вкладке «Частично взятые» отображаются объекты, взятые под охрану частично - в этом случае охраняется не весь объект, а только его определенные зоны;
+- the “Partial armed" tab displays sites that were partially armed. In this case, not the whole site is protected, but only its particular zones;
 
-- на вкладка «Охраняемые» отображаются объекты, находящиеся в настоящий момент под охраной;
+- the “Armed" tab displays sites that are currently armed;
 
-- на вкладке «Не под охраной» отображаются объекты, которые в настоящий момент сняты с охраны, либо объекты, состояние которых не определено, так как от них никогда не было получено событий о взятии или снятии.
+- the “Disarmed" tab displays sites that are currently disarmed, or sites which status is not defined, because they have never sent any events about arming or disarming.
 
-Для того чтобы быстро найти объект по номеру, можно воспользоваться полем для поиска объекта, которое находится в правом верхнем углу окна «Состояние объектов». Поиск объекта осуществляется на той же вкладке, которая активна в настоящий момент и выполняется "на лету", по мере ввода цифр номера объекта в поле для поиска.
+To quickly find a site by number, use the field to search for a site in the upper right corner of the “Site status” window. Search for a site is carried out on the same tab that is currently active and is executed "on the fly", as the digits of the site number are entered in the search field.
 
-### Всплывающая подсказка {#duty-opertor-tooltip}
+### Tooltip {# duty-opertor-tooltip}
 
-При наведении курсора на объект в окне «Состояние объектов» появляется всплывающая подсказка, с помощью которой оператор «Центра охраны» может оперативно получить интересующую его информацию об объекте. Всплывающая подсказка содержит следующие сведения:
+When you hover over a site in the "Site status" window, a tooltip appears, with which the Security Center operator can quickly obtain the information about the required site. The tooltip contains the following information:
 
-- номер, название и адрес объекта;
+- number, name and address of the site;
 
-- состояние объекта или его разделов (взят под охрану или снят с охраны);
+- status of the site or its parts (armed or disarmed);
 
-- описание тревожной ситуации на объекте;
+- description of the alarm situation at the site;
 
-- информация о вызванных на объект группах быстрого реагирования. 
+- information about the guards called to the site. 
 
-### Состояние объекта
+### Site Status
 
-Всплывающая подсказка содержит информацию о состоянии объекта в том случае, если зарегистрировано хотя бы одно взятие объекта под охрану или его снятие с охраны.
+The tooltip contains information about the site status if at least one site is armed or disarmed.
 
-![Окно «Состояние объектов», всплывающая подсказка, «Состояние объекта»][id-09-02-01-01]
+![“Site status” window, tooltip, “Site status][id-09-02-01-01]
 
-В подсказке указывается время взятия или снятия объекта, если событие произошло в течение последних 24 часов, или дата, если событие произошло раньше. Цвет фона сообщает о текущем состоянии объекта: синий цвет - объект поставлен на охрану, зеленый — снят с охраны. Необходимо заметить, что при выбранном параметре «Отображать цвета статуса наоборот» цвета, отображающие состояние охраняемых объектов, инвертированы. Кроме того, всплывающая подсказка сообщает о пользователе, выполнившем взятие или снятие объекта.
+The tooltip indicates the time of the site arming or disarming if the event occurred within the last 24 hours, or the date if the event occurred earlier. The background color indicates the site current status: blue - the site is armed, green is disarmed. It shall be noted that when the "Show status color in reverse" parameter is selected, the colors that show the status of the protected sites are inverted. Besides, the tooltip informs about the user who completed the site arming or disarming.
 
-Если объект разбит на разделы, в подсказке представлена информация о состоянии каждого из разделов объекта. В этом случае всплывающая подсказка содержит следующие сведения: время последнего взятия раздела под охрану или его снятия с охраны, описание раздела, а также пользователь, выполнивший операцию. Последнее зарегистрированное событие отображается жирным шрифтом.
+If the site is divided into sections, the tooltip provides information about the status of each site part. In this case, the tooltip contains the following information: time of the last arming or disarming, part description, and the user who performed the operation. The last registered event is displayed in bold.
 
-### Тревога
+### Alarm
 
-Если на объекте зарегистрирована тревожная ситуация, всплывающая подсказка содержит информацию о тревоге. Если по объекту зарегистрировано несколько тревожных событий, в подсказке отображаются сведения о первой и последней зарегистрированной тревоге.
+If an alarm situation is registered at the site, the tooltip contains information about the alarm. If several alarm events are registered at the site, the tooltip displays information about the first and last registered alarm.
 
-![Окно «Состояние объектов», всплывающая подсказка, «Тревога»][id-09-02-01-02]
+![“Site status” window, tooltip, “Alarm”][id-09-02-01-02]
 
-В подсказке указывается время тревоги, если событие произошло в течение последних 24 часов, или дата, если событие произошло раньше. Красный цвет фона сообщает о тревожной ситуации на объекте. 
+The tooltip indicates the time of the alarm if the event occurred within the last 24 hours, or the date if the event occurred earlier. The red background indicates an alarm situation at the site. 
 
-Если объект разбит на разделы, тревожные разделы отмечены красным цветом.
+If the site is divided into parts, the alarm parts are red.
 
-### Группы быстрого реагирования
+### guards
 
-Всплывающая подсказка содержит информацию о ГБР в том случае, если ГБР вызвана на объект («ГБР в пути») или находится на объекте («ГБР на объекте»). Если вызов ГБР на объект отменен, информация о вызове не отображается.
+The tooltip contains information about the Guard, if the Guard is called to the site ("Guard en route") or is present at the site ("Guard on site"). If the Guard call to the site is canceled, the call information is not displayed.
 
-![Окно «Состояние объектов», всплывающая подсказка, «ГБР»][id-09-02-01-03]
+![“Site status” window, tooltip, “Guard”][id-09-02-01-03]
 
-В подсказке указывается время вызова ГБР или прибытия ГБР на объект, если событие произошло в течение последних 24 часов, или дата, если событие произошло раньше. 
+The tooltip indicates the time of the Guard call or arrival to the site, if the event occurred within the last 24 hours, or the date if the event occurred earlier. 
 
-### Контекстное меню
+### Context Menu
 
-При щелчке по пиктограмме объекта правой кнопкой мыши, отображается контекстное меню, с помощью которого можно получить быстрый доступ к той или иной информации об объекте.
+When you right-click on the site icon, a context menu is displayed, with which you can quickly access information about the site.
 
-![Окно «Состояние объектов», контекстное меню][id-09-02-02]
+![“Site status” window, context menu][id-09-02-02]
 
-Выбрав пункт меню «Карточка объекта...» можно получить доступ к окну, отображающему поля карточки выбранного объекта. Внешний вид окна и его описание представлены ниже, в разделе «Окно «Карточка объекта».
+Selecting the "Site card..." menu item to access the window displaying the card fields of the selected site. The window appearance and its description are presented below, in the section "Site Card” Window”.
 
-Пункт «Тревоги на объекте...» предназначен для доступа к окну, отображающую информацию о тревогах по объекту, отработка которых завершена. Кроме самих тревог в этом окне отображается журнал действий оператора по отработке тревоги. Подробнее об этом окне можно почитать ниже, в разделе «Окно «Тревоги».
+The "Alarms at the site..." item is intended for access to the window, displaying information about the alarms at the site, which handling is completed. In addition to the alarms themselves, this window displays the operator's alarm handling log. See more information about this window below, in section "Alarms" Window”.
 
-Если выбрать пункт меню «События на объекте», то в нижней части главного окна модуля «Дежурный оператор» станет активной вкладка «Объект», предназначенная для отображения событий по конкретному объекту и в нее будут загружены события с выбранного объекта.
+Select the "Events at the site" menu item, to activate the "Site" tab at the bottom of the main window of the "Duty operator" module. The tab is intended to display events for a particular site and events from the selected site will be loaded into it.
 
-С помощью пункта «Карта объекта...» можно открыть для просмотра файл карты (графического плана) объекта. Если в качестве карты объекта указан файл графического формата (BMP или JPG), то он будет открыт для просмотра в специальном окне модуля «Дежурный оператор». Если же карта объекта создана с помощью модуля «Карты объектов», то для ее просмотра будет открыт этот модуль.
+Use the “Map of the site..." item to open the map file (graphic plan) of the site. If a graphic format file (BMP or JPG) is specified as the site map, it will be opened for viewing in the special window of the "Duty operator" module. If the site map is created with the help of the "Site maps" module, this module will be opened for viewing it.
 
-Пункт «Отключить объект» контекстного меню позволяет временно отключить любой объект «Центра охраны», сохраняя в системе всю информацию об объекте. Данную возможность удобно использовать при проведении профилактики или ремонта оборудования, установленного на объекте.
+The "Disable site" item in the context menu allows to temporarily disable any Security Center site, saving all information about the site in the system. This feature is convenient during routine maintenance or repair of equipment installed at the site.
 
-Отключать объекты «Центра охраны» может оператор, наделенный одноименным правом. При выборе пункта «Отключить объект» появляется окно «Отключение объекта», в котором приведена информация о номере и названии объекта. В поле «Отключить на» данного окна нужно ввести время, в течение которого объект должен быть отключен. По прошествии этого времени объект включится самостоятельно. Вводить время необходимо в минутах, максимально допустимое значение - 180 минут. В поле «Причина отключения» необходимо указать причину временного отключения объекта. Данное поле обязательно для заполнения. Перед тем как кликнуть по кнопке «Отключить объект», следует ознакомиться с предупреждением, автоматически оповещающем о времени самостоятельного включения объекта (например, «Объект включится сам через 120 мин, сегодня в 22:16»).
+The Security Center sites can be disabled by the operator with the corresponding permission. Select the "Disable site" item to view the “Site disabling" window, which contains information about the site number and name. Enter the time during which the site shall be disabled in the “Disable for" field of this window. After this time, the site will be enabled automatically. Enter the time in minutes, the maximum allowed value is 180 minutes. Specify the reason for the site temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable site" button, study the warning that automatically alerts about the time when the site is disabled automatically (for example, "The site will be enabled automatically in 120 minutes, today at 22:16").
 
-![Окно «Состояние объектов», окно «Отключение объектов»][id-09-02-07]
+![“Site status” window, “Site disabling” window][id-09-02-07]
 
-Информация об отключении объекта, а именно: дата и время отключения объекта; оператор, выполнивший отключение; срок и причина отключения - отображается в журнале событий.
+The event log displays information about the site disabling, namely: date and time of the site disabling; operator who performed disabling; time and reason for disabling.
 
-Пункт «Включить объект» позволяет включить ранее отключенный объект «Центра охраны» до истечения времени, указанного при отключении.
+The "Enable site" item allows to enable the previously disabled Security Center site before the expiration of the time specified during disabling.
 
-![Окно «Состояние объектов», контекстное меню, пункт «Включить объект»][id-09-02-08]
+![“Site status” window, context menu, “Enable site” item][id-09-02-08]
 
-При выборе пункта «Включить объект» появляется окно «Включение объекта», в котором приведена информация о номере и названии объекта, а также указано время самостоятельного включения объекта. Для включения объекта необходимо кликнуть по кнопке «Включить объект» данного окна.
+Select the “Enable site" item to view the “Site enabling" window, which contains information about the site number and name and time of the site automatic disabling. To enable the site, click the "Enable site" button of this window.
 
-![Окно «Состояние объектов», окно «Включение объекта»][id-09-02-09]
+![“Site status” window, “Site enabling” window][id-09-02-09]
 
-Информация о включении объекта, а именно: дата и время включения объекта; способ включения (автоматически или вручную) - отображается в журнале событий. Если включение объекта выполнено вручную, для события указывается оператор, выполнивший данную операцию.
+The event log displays information about the site enabling, namely: date and time of the site enabling; enabling mode (automatic or manual). If the site is manually enabled, the operator who performed the operation is specified for the event.
 
-Пункт «Отключить каналы связи» позволяет временно отключить любой канал связи для объекта, сохраняя в системе всю информацию о канале. Данную возможность удобно использовать в случае неисправности оборудования, используемого для предоставления каналов связи.
+The "Disable channels" item in the context menu allows to temporarily disable any site channel, saving all information about the channel in the system. This function is convenient in case of a malfunction of the equipment used to for the communication channels.
 
-Отключить канал связи может оператор, наделенный правом «Отключать каналы связи для объекта». При выборе пункта «Отключить каналы связи» появляется окно «Отключение каналов связи объекта», в котором приведена информация о номере и названии объекта. В разделе «Отключаемые каналы связи» необходимо выбрать один или несколько каналов связи для отключения: Радио, Телефон, Система, Ethernet, GPRS, SMS и CSD. В поле «Отключить на» данного окна нужно ввести время, в течение которого каналы должны быть отключены. По прошествии этого времени каналы включатся самостоятельно. Вводить время необходимо в минутах, максимально допустимое значение - 180 минут. В поле «Причина отключения» необходимо указать причину временного отключения каналов. Данное поле обязательно для заполнения. Перед тем как кликнуть по кнопке «Отключить каналы», следует ознакомиться с предупреждением, автоматически оповещающем о времени самостоятельного включения каналов (например, «Канал включится сам через 120 мин, сегодня в 16:31»).
+The communication channel can be disabled by the operator, who has the right to "Disable channels for site". Select the "Disable channels" item to view the “Site channels disabling" window, which contains information about the site number and name. Select one or several communication channels for disabling in the "Channels that can be disabled” section: Radio, Phone, System, Ethernet, GPRS, SMS, and CSD. Enter the time during which the channels shall be disabled in the “Disable for" field of this window. After this time, the channels will be enabled automatically. Enter the time in minutes, the maximum allowed value is 180 minutes. Specify the reason for the channel temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable channels" button, study the warning that automatically alerts about the time when the channels are disabled automatically (for example, "The channel will be enabled automatically in 120 minutes, today at 16:31").
 
-![Окно «Состояние объектов», окно «Отключение каналов связи объекта»][id-09-02-10]
+![“Site status” window, “Site channels disabling” window][id-09-02-10]
 
-Информация об отключении канала связи, а именно: дата и время отключения канала связи; оператор, выполнивший отключение; наименование канала связи; срок и причина отключения - отображается в журнале событий.
+The event log displays information about the channel disabling, namely: date and time of the channel disabling; channel name; period and reason for disabling.
 
-Пункт «Включить каналы связи» позволяет включить ранее отключенные каналы связи до истечения времени, указанного при отключении.
+The "Enable channels" item allows to enable the previously disabled channels before the expiration of the time specified during disabling.
 
-![Окно «Состояние объектов», контекстное меню, пункт «Включить каналы связи»][id-09-02-11]
+![“Site status” window, context menu, “Site channels enabling” item][id-09-02-11]
 
-При выборе пункта «Включить каналы связи» появляется окно «Включение каналов связи объекта», в котором приведена информация о номере и названии объекта. В разделе «Отключаемые каналы связи» данного окна необходимо выбрать один или несколько каналов связи для включения и кликнуть по кнопке «Включить каналы».
+Select the “Enable channels" item to view the “Site channels enabling" window, which contains information about the site number and name. Select one or several communication channels for enabling in the “Channels that can be disabled” section and click on the “Enable channels” button:
 
-![Окно «Состояние объектов», окно «Включение каналов связи объекта»][id-09-02-12]
+![“Site status” window, “Site channels enabling” window][id-09-02-12]
 
-Информация о включении канала связи, а именно: дата и время включения канала связи; наименование канала связи; способ включения (автоматически или вручную) - отображается в журнале событий. Если включение канала связи выполнено вручную, для события указывается оператор, выполнивший данную операцию.
+The event log displays information about the channel enabling, namely: date and time of the channel enabling; enabling mode (automatic or manual). If the channel is manually enabled, the operator who performed the operation is specified for the event.
 
-Пункт «Вид» предназначен для изменения способа отображения списка объектов.
+The "View" item is intended to change the way the list of sites is displayed.
 
-![Окно «Состояние объектов», контекстное меню, пункт «Вид»][id-09-02-03]
+![“Site status” window, context menu, “View” item][id-09-02-03]
 
-Пункты «Крупные значки», «Мелкие значки», «Список» отличаются только размером пиктограммы объекта и способа прокрутки элементов в окне. Что же касается пункта «Таблица», то при его выборе в окне «Состояние объектов» будет отображаться список объектов, аналогичный по возможностям списку объектов, используемому в модуле «Менеджер объектов».
+“Large icons", "Small icons", "List" items differ only in the size of the site icon and the way items are scrolled in the window. As for the "Table" item, if it is selected in the "Site status" window, a list of sites similar to the list of sites used in the "Site manager" module will be displayed.
 
-![Окно «Состояние объектов», вкладка «Все объекты», вид «Таблица»][id-09-02-06]
+![“Site status” window, “All” tab, “Table” view][id-09-02-06]
 
-Подробное описание возможностей такого списка объектов приведено в главе, посвященной модулю «Менеджер объектов». Здесь лишь хочется заметить, что этот список объектов позволяет осуществлять поиск объекта по большинству значимых полей, а не только по номеру, а кроме того, при его использовании оператор может видеть нужные ему поля объекта не открывая для этого отдельное окно с карточкой объекта.
+A detailed description of functions of such list of sites is given in the chapter devoted to the "Site manager" module. It shall be noted here that this list of sites allows to search for a site using the majority of significant fields, and not only by number, and in addition, the operator can see the fields of the site necessary to him/her without opening a separate window with the site card.
 
-Пункт контекстного меню «Упорядочить значки» предназначен для изменения способа сортировки пиктограмм объектов при отображении.
+The “Arrange icons" context menu item is intended to change the way the icons of the sites are sorted when displayed.
 
-![Окно «Состояние объектов», контекстное меню, пункт «Упорядочить значки»][id-09-02-04]
+![“Site status” window, context menu, “Arrange icons” item][id-09-02-04]
 
-Если выбрана сортировка по номеру объекта, то пиктограммы объектов в списке будут отображены в порядке возрастания номеров объектов. Если же выбрана сортировка по статусу объекта, то при отображении в первую очередь будет приниматься во внимание состояние объекта. 
+If you select sorting by site number, the site icons in the list will be displayed in ascending order of the site numbers. If you select sorting by site status, the site status will be taken into account in the first instance. 
 
-В этом случае сначала будут отображаться объекты, по которым есть неотработанные тревоги, причем первыми в списке будут те объекты, отработка тревог по которым еще не начата. Вслед за тревожными объектами будут отображаться объекты, поставленные под охрану. Последними в списке будут отображаться снятые с охраны и отключенные объекты, а также объекты, состояние которых не определено.
+In this case, first, sites will be displayed for which there are undefined alarms, and the first ones in the list will be those sites which alarm handling has not yet begun. After the alarm sites, sites that are armed will be displayed. The most recently disarmed and disabled sites will be displayed in the list as last, as well as sites which state is not defined.
 
-Необходимо отметить, что пункт, выделенный в контекстном меню жирным шрифтом является пунктом по умолчанию и будет выполнятся при двойном щелчке по объекту левой кнопкой мыши. Если по выбранному объекту нет неотработанных тревог, то пунктом по умолчанию является пункт «Карточка объекта...». Если же выбран тревожный объект, то пунктом по умолчанию будет «Отработка тревоги...», после выбора которого открывается окно, предназначенное для отработки тревог по объекту:
+It shall be noted that the item highlighted in the context menu in bold is the default item and will be executed in case of double clicking on the site with the left mouse button. If there are no undefined alarms for the selected site, then the item "Site card..." is the default item. If the alarm site is selected, then the default item is "Alarm handling...", after it is selected a window intended for the site alarm handling is opened:
 
-![Окно «Состояние объектов», контекстное меню тревожного объекта][id-09-02-05]
+![“Site status” window, context menu, “Enable site” item][id-09-02-05]
 
-## События
+## Events
 
-В нижней части главного окна модуля «Дежурный оператор» отображаются принятые события и состояние групп быстрого реагирования. 
+At the bottom of the main window of the "Duty operator" module, the received events and the status of the guards are displayed. 
 
-События разделены на три категории, каждая из которой отображается на отдельной вкладке.
+Events are divided into three categories, each of which is displayed on a separate tab.
 
-### Все события с объектов
+### All
 
-![Окно «События», вкладка «Все события»][id-09-03-01]
+![“Events” window, “All” tab][id-09-03-01]
 
-На вкладке «Все» отображаются все значимые события, полученные от объектов, загруженных модулем «Дежурный оператора». Для того, чтобы пояснить, какие события считаются значимыми, необходимо упомянуть о том, что в программном обеспечении «Центр охраны» реализован механизм фильтрации тестовых и повторных событий, который позволяет освободить оператора «Центра охраны» от обработки информации, не имеющей для него значения. Управление механизмом фильтрации событий осуществляется с помощью настроек в модуле «Менеджер событий», а в главе, посвященной этому модулю можно подробнее познакомится с деталями работы этого механизма. Здесь же нужно сказать о том, что значимыми считаются события, которые не являются тестовыми или повторными и только они отображаются на вкладке «Все».
-Если дежурному оператору по каким-то причинам нужно просмотреть все события, полученные от конкретного объекта, то он может это сделать, воспользовавшись вкладкой «События с объекта», которая описана ниже.
+The "All" tab displays all the significant events received from the sites loaded by the "Duty operator" module. In order to clarify what events are considered significant, it shall be mentioned that a filtering mechanism for test and duplicate events, which allows the operator of the Security Center to be released from handling information that does not matter to him/her, has been implemented in the Security Center software. The event filtering mechanism is controlled with the settings in the "Event manager" module. See the chapter devoted to this module to get acquainted with the details of this mechanism. Here it shall be mentioned that events that the significant events are those, that are not test or repeated, and only they are displayed on the "All" tab.
+If the duty operator for some reason needs to see all events received from a particular site, then he/she can do it using the “Events from site” tab, which is described below.
 
-В колонках таблицы в окне «События» отображается следующая информация:
+The following information is displayed in the columns of the table of the "Events" window:
 
-* «Канал» - тип и номер канала, по которому принято событие. Значение этого параметра определяется источником событий, с помощью которого было принято событие. Подробнее о существующих источниках событий и их настройках можно почитать в главе, посвященной модулю «Менеджер событий», в разделе «Источники событий».
+* "Channel" - type and number of the channel via which the event is accepted. The value of this parameter is determined by the event source with which the event was received. See more information about existing sources of events and their settings in the chapter on the module in the section "Event sources".
 
-* «Дата», «Время» - дата и время приема события оборудованием станции мониторинга. Если в информации, передаваемой приемным оборудованием станции мониторинга, не содержится даты и времени приема события, то в этой колонке будут отображаться дата и время регистрации события в базе данных программного обеспечения «Центр охраны».
+* "Date", "Time" - date and time of the event reception by the monitoring station equipment. If the information transmitted by the receiving equipment of the monitoring station does not contain the date and time of the event reception, then this column will display the date and time of recording the event in the database of the Security Center software.
 
-* «Код», «Класс события», «Раздел», «Ш/П», «Описание» - параметры, полученные  в результате расшифровки полученного события в соответствии с описанием объекта. Подробнее о значении этих можно узнать в главах, посвященных модулям «Настройка системы» и «Менеджер объектов», в разделах, описывающих шаблоны событий.
+* "Code", "Event class", “Part", “Z/U", “Event description" are the parameters obtained as a result of decoding of the received event in accordance with the site description. See more details about the parameters in the chapters on the "System setup" and "Site manager" modules, in the sections that describe the event templates.
 
-* «Номер», «Название», «Адрес» - одноименные поля карточки объекта, от которого получено событие.
+* "Number", "Name", "Address" are the fields of the same name of the site card from which the event was received.
 
-События в списке можно отсортировать по любой из отображаемых колонок. Для того, чтобы это сделать, необходимо щелкнуть левой кнопкой мыши по нужной колонке.
+Events in the list can be sorted by any of the displayed columns. To do this, left-click on the necessary column.
 
-При щелчке по событию правой кнопкой мыши, отображается контекстное меню, с помощью которого можно получить быстрый доступ к той или иной информации об объекте. 
+When you right-click on the event, a context menu is displayed, with which you can quickly access information about the site. 
 
-![Окно «События», контекстное меню][id-09-03-05]
+!["Events" window, context menu][id-09-03-05]
 
-Назначение пунктов меню полностью аналогично таковому в контекстном меню, отображаемом при щелчке по пиктограмме объекта в окне «Состояние объектов».
+The purpose of the menu items is completely similar to that in the context menu displayed when clicking on the site icon in the "Site status" window.
 
-### Тревоги
+### Alarms
 
-![Окно «События», вкладка «Тревоги»][id-09-03-02]
+!["Events" window, “Alarms" tab][id-09-03-02]
 
-На вкладке «Тревоги» отображаются тревожные события, отработка которых еще не завершена. 
+The “Alarms” tab displays alarm events that have not yet been completed. 
 
-### События по объекту
+### Events at the Site
 
-![Окно «События», вкладка «События по объекту»][id-09-03-03]
+!["Events" window, "Events at the site" tab][id-09-03-03]
 
-На вкладке «События по объекту» отображается краткая информация по выбранному объекту, а также полученные от него события. 
+The “Events at the site” tab displays a summary of the selected site, as well as the events received from it. 
 
-Чтобы изменить объект, события по которому отображаются на вкладке «События по объекту» можно ввести его номер в поле «Сменить объект» и нажать на клавишу «Ввод» или на кнопку со стрелкой.
+To change a site, which events are displayed on the “Events at the site” tab, enter its number in the "Change site" field and press the "Enter" key or the arrow button.
 
-С помощью параметра «Показывать тесты» можно включить или выключить отображение отфильтрованных тестовых событий, полученных от объекта. Точно так же, с помощью параметра «Показывать дубли» можно включить или выключить отображение отфильтрованных повторных событий, полученных от объекта.
+Use the "Show tests" parameter to enable or disable display of filtered test events received from the site. Similarly, use the "Show duplicates" parameter to enable or disable display of filtered duplicate events received from the site.
 
-При щелчке по событию правой кнопкой мыши отображается контекстное меню, с помощью которого можно временно отключить событие.
+Right-click on the event to display the context menu, with which you can temporarily disable the event.
 
-Отключать события может оператор, наделенный правом «Отключать коды событий». При выборе пункта «Отключить событие» появляется одноименное окно с информацией о номере, названии и адресе объекта. Кроме того, здесь указаны: код события; класс события; номер раздела, в котором возникло событие; номер шлейфа, по которому возникло событие; описание события. 
+Events can be disabled by the operator with "Disable event codes” permission. If you select the "Disable event" option, a dialog box with information about the number, name and address of the site appears. Besides, the following is indicated: event code; event class; number of the part in which the event occurred; number of the zone in which the event occurred; description of the event. 
 
-![Окно «События», контекстное меню, пункт «Отключить событие»][id-09-03-03-01]
+!["Events" window, context menu, "Disable event" item][id-09-03-03-01]
 
-В поле «Отключить на» данного окна нужно ввести время, в течение которого событие должно быть отключено. По прошествии этого времени событие включится самостоятельно. Вводить время необходимо в минутах, максимально допустимое значение - 90 минут. В поле «Причина отключения» необходимо указать причину временного отключения события. Данное поле обязательно для заполнения. Перед тем как кликнуть по кнопке «Отключить событие», следует ознакомиться с предупреждением, автоматически оповещающем о времени самостоятельного включения события (например, «Событие включится через 45 мин, сегодня в 21:51»).
+Enter the time during which the event shall be disabled in the “Disable for" field of this window. After this time, the event will be enabled automatically. Enter the time in minutes, the maximum allowed value is 90 minutes. Specify the reason for the event temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable event" button, study the warning that automatically alerts about the time when the event is disabled automatically (for example, "The event will be enabled automatically in 45 minutes, today at 21:51").
 
-![Окно «События», окно «Отключить событие»][id-09-03-03-02]
+!["Events" window, "Disable event" window][d-09-03-03-02]
 
-Информация об отключении события, а именно: дата и время отключения события; код события; номер раздела и номер шлейфа; оператор, выполнивший отключение; срок и причина отключения - отображается в журнале событий.
+The event log displays information about the event disabling, namely: date and time of the event disabling; event code; part and zone numbers, period and reason for disabling.
 
-Пункт «Включить событие» контекстного меню позволяет включить ранее отключенное событие до истечения времени, указанного при отключении.
+The "Enable event" item in the context menu allows to enable a previously disabled event before the expiration of the period, specified for disabling.
 
-![Окно «События», контекстное меню, пункт «Включить событие»][id-09-03-03-03]
+!["Events" window, context menu, "Enable event” item][d-09-03-03-03]
 
-При выборе пункта «Включить событие» появляется одноименное окно с информацией о номере и названии объекта. Кроме того, здесь указаны: код события; класс события; номер раздела; номер шлейфа; описание события. В окне также сообщается время самостоятельного включения события. Для включения события необходимо кликнуть по кнопке «Включить событие» данного окна.
+If you select the “Enable event" item, a dialog box with information about the number and name of the site appears. Besides, the following is indicated: event code; event class; number of the part; number of the zone; description of the event. The window also indicates the time of the event automatic enabling. To enable the event, click on the "Enable event" button of this window.
 
-![Окно «События», окно «Включить событие»][id-09-03-03-04]
+!["Events" window, "Enable event" window][id-09-03-03-04]
 
-Информация о включении события, а именно: дата и время включения события; код события; номер раздела и номер шлейфа; способ включения (автоматически или вручную) - отображается в журнале событий. Если включение события выполнено вручную, для события указывается оператор, выполнивший данную операцию.
+The event log displays information about the event enabling, namely: date and time of the event enabling; event code; part and zone numbers; enabling mode (automatic or manual). If the event is manually enabled, the operator who performed the operation is specified for the event.
 
-### Состояние групп быстрого реагирования
+### Status of guards
 
-![Окно «События», вкладка «Группы быстрого реагирования»][id-09-03-04]
+!["Events" tab, “Guard" tab][id-09-03-04]
 
-На вкладке «Группы» отображаются группы быстрого реагирования, используемые «Центром охраны». Кроме общей информации о группах на вкладке отображается их текущее состояние («Свободна», «Едет на объект», «На объекте»), а также название объекта, на который вызвана группа, если она в настоящий момент занята.
+The “Guards" tab displays the guards used by the Security Center. In addition to the general information about the guards on the tab, their current status is displayed ("Free", “Travelling to the site", “At the site"), and the name of the site to which the guard is called, if it is currently occupied.
 
-## Отработка тревоги {#duty-opertor-process-alarm}
+## Alarm handling {#duty-opertor-process-alarm}
 
-Окно предназначено для отработки тревоги оператором, наделенным правом «Выполнять действия по тревоге». Под отработкой тревоги понимается регистрация действий, выполняемых оператором, в журнале действий по тревоге. Этот журнал ведется в модуле «Дежурный оператор», информацию из него можно распечатать в модуле «Менеджер отчетов».
+The window is intended to handle an alarm by the operator, who has “Handle alarm” permission. Alarm handling means recording the actions performed by the operator in the alarm log. This log is maintained in the "Duty operator" module, information from it can be printed in the "Report manager" module.
 
-При получении тревожного события окно «Отработка тревоги» открывается автоматически. Эту возможность можно отключить в настройках модуля «Дежурный оператор». При необходимости повторно открыть окно «Отработка тревоги» нужно выполнить двойной щелчок левой кнопкой мыши на тревожном объекте или тревожном событии, которое нужно отработать. 
+When the alarm event is received, the “Alarm handling” window opens automatically. This feature can be disabled in the settings of the "Duty operator" module. If you need to re-open the "Alarm handling" window, double-click on the alarm site or alarm event that you need to handle. 
 
-При отработке тревоги важно понимать, что если в процессе отработки тревоги с объекта будет получена еще одна тревога, то обе эти тревоги будут объединены в группу и дальше будут отрабатываться вместе. Точно так же вместе эти события будут отображаться и при просмотре отработанных тревог, и при создании отчетов по тревогам в модуле «Менеджер отчетов».
+When handling an alarm, it is important to understand that if another alarm is received from the site during the alarm process, both these alarms will be combined into a group and then they will be handled together. In the same way, these events will be displayed together when viewing handled alarms and when creating alarm reports in the "Report manager" module.
 
-![Окно «Отработка тревоги»][id-09-08-01]
+![“Alarm handling” window][id-09-08-01]
 
-В верхней части окна «Отработка тревоги» отображаются все тревоги по объекту, которые необходимо отработать. 
+At the top of the “Alarm handling” window, all site alarms, which shall be handled, are displayed. 
 
-В средней части окна расположена карточка объекта, на разных вкладках которой отображается информация об объекте. Назначение отображаемых полей объекта детально рассмотрено в главе, посвященной модулю «Менеджер объектов».
+In the middle part of the window there is a site card, on different tabs of which information about the site is displayed. The purpose of the displayed site fields is discussed in detail in the chapter devoted to the "Site manager" module.
 
-Ссылка «Видео на объекте...» позволяет оператору просмотреть видео, передаваемое видеокамерами, установленными на объекте. При переходе по ссылке открывается окно, в котором выводится живое видео со всех установленных на объекте камер, подключенных к видеороутеру.
+The link "Video at site’s place" allows the operator to view the video transmitted by the cameras installed on the site. When the link is clicked, a window opens, where live video is displayed from all cameras installed on the site connected to the video router.
 
-> Для просмотра видео с камер необходимо, чтобы на компьютере было  установлено программное обеспечение Adobe Flash Player последней доступной версии, которое можно загрузить с [официального сайта компании Adobe](http://get.adobe.com/ru/flashplayer/otherversions/).
+> To view video from the cameras, you shall have Adobe Flash Player installed on the computer with the latest available version that can be downloaded from the [official Adobe website] (http://get.adobe.com/flashplayer/otherversions/).
 
-Справа от карточки объекта представлен список действий, которые оператор может выполнить при отработке тревоги. В этот список включены те действия, которые закреплены за классами событий, которые необходимо отработать. Таким образом, для разных тревог оператор видит разные возможные действия, что позволяет помогать и управлять работой оператора.
+A list of actions, that the operator can perform during an alarm handling, is located to the right of the site card. This list includes the actions that are assigned to the classes of the events that shall be handled. Thus, for different alarms, the operator sees various possible actions, which allows to help and manage the operator's work.
 
-Первые десять действий в списке можно зарегистрировать, используя цифровые клавиши на клавиатуре, как клавиши быстрого доступа. При необходимости, вместо нажатия на одиночную цифровую клавишу можно нажимать ее в комбинацией с клавишей «Alt». Опция, с помощью которой можно включить или выключить использование клавиши «Alt» для быстрого доступа к действиям, находится в настройках программы.
+The first ten actions in the list can be registered using the numeric keys on the keyboard as shortcut keys. If necessary, instead of pressing a single number key, it is possible to press it in combination with the "Alt" key. The option with which it is possible to enable or disable the use of the "Alt" key for quick access to actions is in the program settings.
 
-Подробнее о том, как создавать возможные при отработке тревоги действия, а также о том, как закреплять действия за классами событий, можно почитать в главе, посвященной модулю «Настройка системы».
+See more information on how to create possible actions during alarm handling, as well as how to assign actions to event classes, in the chapter devoted to the "System setup" module.
 
-### Вызов группы
+### Call a Guard to the Site
 
-При регистрации действия с типом «Вызов группы» отображается окно, в котором оператор должен выбрать группу быстрого реагирования, которую он вызвал на объект.
+When registering an action with the "Call a guard” type, a window is displayed in which the operator shall select the guard that he/she called on the site.
 
-![Окно «Вызов группы на объект»][id-09-08-02]
+!["Call a guard to the site” window][id-09-08-02]
 
-Для того, чтобы зарегистрировать вызов группы, необходимо отметить ее в списке групп быстрого реагирования и нажать кнопку «ОК». 
-Отметить группу в списке можно двумя способами: щелкнув левой кнопкой мыши на значок отметки слева от названия группы, либо выполнив двойной щелчок левой кнопкой мыши в любом месте на строке, в которой отображаются название группы и ее старший.
+To register a guard call, check it in the list of guards and press the "OK" button. 
+It is possible to check a guard in the list in two ways: by left-clicking the check box to the left of the group name, or by double-clicking the left mouse button anywhere on the line, in which the guard name and its senior are displayed.
 
-В том случае, если оператор регистрирует прибытие группы на объект или отмену вызова группы, отображается такое же окно, но в списке будут отображены только те группы быстрого реагирования, которые были вызваны на объект.
+If the operator registers the guard's arrival to the site or the cancellation of the guard call, the same window is displayed, but only the guards that were called to the site will be displayed in the list.
 
-Изменить список групп быстрого реагирования можно в модуле «Менеджер персонала». Подробнее о том, как это сделать, можно почитать в главе, посвященной этому модулю.
+It is possible to change the list of guards in the "Personnel manager" module. See more information on how to do this in the chapter devoted to this module.
 
-### Комментарий оператора
+### Operator’s comment
 
-Если оператор регистрирует действие с типом «Комментарий оператора», то текст комментария он может ввести в специально предназначенном для этого окне.
+If the operator registers an action with the type “Operator’s comment", then the text of the comment can be entered in a special window.
 
-![Окно «Комментарий оператора»][id-09-08-03]
+![“Operator’s comment” window][id-09-08-03]
 
-Максимальная длина комментария оператора ограничена четырьмя тысячами символов. 
+The maximum length of the operator's comment is limited to four thousand characters. 
 
-Для того, чтобы завершить ввод комментария с клавиатуры, нужно нажать на кнопку «Ввод». А вот для того, чтобы при вводе комментария перейти на новую строку, нужно нажать комбинацию клавиш «Control» и «Ввод».
+To finish entering the comment from the keyboard, click on the "Enter" button. To enter a new line when entering a comment, press the key combination "Control” + "Enter".
 
-### Отмена тревоги
+### Alarm Cancellation
 
-Если отработка тревоги завершена и оператору нужно это зарегистрировать, то он должен нажать на кнопку «Отменить тревогу (F8)». Отменить тревогу может оператор «Центра охраны», наделенный соответствующим правом.
+If the alarm handling is completed and the operator shall register this, then he/she shall press the "Cancel the alarm (F8)" button. The alarm can be canceled by the Security Center operator with the corresponding permission.
 
-Выбрать краткий результат отработки тревоги, либо причину ее отмены, оператор может в окне «Отмена тревоги».
+The operator can select the brief result of the alarm handling or cause for canceling it in the “Alarm cancellation" window.
 
-![Окно «Отмена тревоги»][id-09-08-04]
+![“Alarm cancellation" window][id-09-08-04]
 
-Причины отмены тревоги, отображаемые в списке, закреплены за классами тревожных событий, по которым регистрируется отмена тревоги.
+Reasons for alarm cancellation, displayed in the list, are assigned to the alarm event classes, for which the alarm cancellation is registered.
 
-Также, как и в списке возможных действий, первые десять причин отмены тревоги можно выбрать с помощью цифровых клавиш или их комбинации с кнопкой «Alt».
+Also, as in the list of possible actions, the first ten reasons for alarm cancellation can be selected with the help of numeric keys or their combination with the "Alt" button.
 
-Для того, чтобы иметь возможность анализировать причины возникновения тревог и принимать решения, предназначенные для оптимизации работы персонала станции мониторинга, рекомендуется поддерживать список возможных отмен тревог в актуальном состоянии для каждого типа тревог. Кроме того, для достоверности анализа необходимо, чтобы оператор правильно регистрировал действительные причины отмены тревоги. Исключительно полезной для этого, особенно - на первых порах, является инструкция для оператора, в которой перечислены типовые тревоги и ситуации, которые к ним приводят, рекомендуемая схема отработки типовых тревог и явное указание причины отмены тревоги, которую должен зарегистрировать оператор в каждом случае.
+To analyze the causes of alarms and make decisions intended to optimize the work of the monitoring station personnel, it is recommended to maintain a list of possible cancellations of alarms in the current state for each type of alarm. Besides, for the reliability of the analysis, the operator shall correctly register the actual reasons for canceling alarms. An instruction for the operator, which includes typical alarms and situations that lead to them, recommended scheme for handling typical alarms and an explicit indication of the reason for canceling the alarm, which the operator shall register in each case, is extremely useful for the analysis reliability, especially at first.
 
-## Карточка объекта
+## Site Card
 
-Окно «Карточка объекта» предназначено для доступа к информации об объекте. Для того, чтобы открыть это, нужно выполнить двойной щелчок на пиктограмме объекта, который не является тревожным, либо нажать на пиктограмме любого объекта правую кнопку мыши и в появившемся меню выбрать пункт «Карточка объекта...».
+The "Site card" window is intended for access to information about the site. To open it, double-click on the icon of a site that is not alarming, or right-click on the icon of any site and select the "Site card...” item in the menu, that appears.
 
-Кроме того, карточку объекта можно открыть и из меню, которое появляется при щелчке правой кнопки мыши на любом событий от объекта. Двойной щелчок левой кнопкой мыши на любом событии, не являющемся тревожным, приведет к аналогичному результату.
+Besides, the site card can also be opened from the menu that appears when you right-click on any events from the site. Double-clicking the left mouse button on any event that is not alarming will result in a similar result.
 
-![Окно «Карточка объекта»][id-09-06]
+![“Site card” window][id-09-06]
 
-На вкладках окна «Карточка объекта» представлена вся информация об объекте, которая может потребоваться дежурному оператору. Детально назначение полей карточки объекта рассмотрено в главе, посвященной модулю «Менеджер объектов».
+All information about the site that the duty operator may need is displayed on the tabs of the "Site card" window.. The purpose of the displayed site fields is discussed in detail in the chapter devoted to the "Site manager" module.
 
-## Информация о тревогах
+## Information about Alarms
 
-Окно «Информация о тревогах» позволяет оператору просмотреть журнал отработки тревог, которые отменены.
+The “Information about alarms” window allows the operator to view the log of handling alarms, which were canceled.
 
-![Окно «Информация о тревогах»][id-09-09]
+![“Information about alarms” window][id-09-09]
 
-В верхней части окна находится переключатель режима отображения информации при переходе к следующей или предыдущей тревоге. Если выбран режим «Все тревоги», то при нажатии на кнопку «<< Предыдущая» или «Следующая >>» будет осуществлен к предыдущей или следующей в хронологическом порядке тревоге. Если же выбран режим «По объекту», то переход будет осуществляться к тревогам по тому объекту, который отображается в окне.
+Switch of information display mode when moving to the next or previous alarm is located in the upper part of the window. In the "All alarms" mode, if you press "<< Previous" or "Next >>" button, the program will switch to the previous or next alarm in chronological order. In the “Alarms for the site" mode, the program will switch to the alarms for the site that is displayed in the window.
 
-Ниже переключателя режима отображения информации расположен список тревог, для которых выведен журнал отработки. Подробнее о назначении полей в списке тревог можно почитать выше, в разделе, посвященном окну «Список событий».
+The list of alarms, for which the log is displayed, is located below the information display switch. See more information about assigning fields in the alarm list above, in the section on the “Event list” window.
 
-Вслед за списком, в средней части экрана, расположена карточка объекта. Детально назначение полей карточки объекта рассмотрено в главе, посвященной модулю «Менеджер объектов».
+The site card is displayed below the list, in the middle of the screen. The purpose of the displayed site fields is discussed in detail in the chapter devoted to the "Site manager" module.
 
-В нижней части экрана отображается список действий, зарегистрированных оператором при отработке тревоги. Список отображается в хронологическом порядке и включается в себя действия, зарегистрированные всеми операторами, принимавшими участие в отработке тревоги.
+The list of actions registered by the operator during alarm handling is displayed at the bottom of the screen. The list is displayed in chronological order and includes the actions registered by all operators who participated in the alarm handling.
 
-## Настройки модуля
+## Module Setup
 
-Доступ к настройкам модуля «Дежурный оператор» регулируется правами, которые можно задать в модуле «Менеджер персонала». Кроме того, что можно ограничить доступ оператора к настройкам модуля, можно еще и запретить оператору закрывать модуль «Дежурный оператор». Эти ограничения могут быть полезны не только для неопытных операторов, но и вообще для всех оперативных дежурных, так как случайное закрытие модуля или блокировка главного окна модуля окном настроек может негативно повлиять на процесс отработки тревоги.
+Access to the settings of the "Duty operator" module is regulated by rights that can be set in the "Personnel manager" module. Besides, that it is possible to limit an operator access to the module settings, it is also possible to prohibit the operator from closing the "Duty operator" module. These restrictions can be useful not only for inexperienced operators, but also for all duty operators, since accidentally closing the module or blocking the main window of the module with the settings window can negatively affect the process of alarm handling.
 
-### Общие
+### Common
 
-![Окно «Настройка», вкладка «Общие»][id-09-07-01]
+![“Setup" window, "Common" tab][id-09-07-01]
 
-Параметр «Пауза при старте» задает паузу, которую будет выдерживать модуль «Дежурный оператор» при запуске. Параметр может быть полезным, если ярлыки модулей «Менеджер событий» и «Дежурный оператор» размещены в папке «Автозагрузка» или иным способом загружаются автоматически при старте операционной системе. Для запуска модулю «Дежурный оператор» необходим работающий модуль «Менеджер событий», а для старта и полной инициализации последнего может потребоваться некоторое время. 
+The "Pause at the start" parameter sets a pause, during which the "Duty operator" module will be delayed at the start. The parameter can be useful, if the icons of the "Event manager" and "Duty operator" modules are located in the "Startup" folder or if they are downloaded automatically at the start of the operating system in another way. To start the "Duty operator" module, the running "Event manager" module is needed, and it may take some time to start and fully initialize the module. 
 
-Если значение для параметра «Прокрутка к новому событию» установлено, то при получении с объектов новых событий, список событий в окне «Все события» будет автоматически прокручиваться так, чтобы новое событие было видимым.
+If the value for the “Scrolling to the new event" parameter is set, then when you receive new events from sites, the list of events in the "All events" window will automatically scroll so that the new event is visible.
 
-Параметр «Отображать цвета статуса наоборот» позволяет инвертировать цвета пиктограмм, отображающие состояние охраняемых объектов. По умолчанию объект «Центра охраны», поставленный на охрану, отображается пиктограммой синего цвета, а объект, снятый с охраны, - зеленого. Если до работы с «Центром охраны» оператор использовал программное обеспечение для охраны и мониторинга объектов с настройками, обратными предложенным, он может применить данный параметр. В этом случае пиктограммы объектов будут отображаться цветами, обратными первоначальным: объект, поставленный на охрану, будет иметь зеленый цвет иконки, а объект, снятый с охраны, - синий. Для того чтобы изменение параметра «Отображать цвета статуса наоборот» вступило в силу, модуль «Дежурный оператор» необходимо перезагрузить.
+The “Conversely display status colors" parameter allows to invert the colors of the icons, representing the protected site status. By default, the Security Center site that is armed is blue and the disarmed site is green. If before the work with the Security Center the operator used the software for protection and monitoring of sites with the settings inverse to the proposed ones, he/she can apply this parameter. In this case, the site icons will be displayed in the colors inverted to the original ones: the armed site will be green, and the disarmed site will be blue. To apply the "Conversely display status colors" parameter, reload the "Duty operator" module.
 
-Регулировать общее количество событий, отображаемых в модуле «Дежурный оператор», можно с помощью параметра «Интервал отображения событий». Необходимо помнить, что чем больший интервал отображения событий задан, тем дольше будет выполняться инициализация модуля «Дежурный оператор» и тем больше будут требования этого модуля к ресурсам компьютера.
+It is possible to adjust the total number of events displayed in the "Duty operator" module using the “Date" parameter. It shall be remembered that the longer the interval of events is set, the longer the "Duty operator" module will be initialized and the more the requirements of this module will be to the resources of the computer.
 
-С помощью параметра «Интервал индикации приема событий» оператор может осуществлять постоянный мониторинг работы программного обеспечения, что необходимо для своевременного выявления его неисправности. Данный параметр обеспечивает надежный контроль работоспособности «Центра охраны», в том числе модуля «Дежурный оператор», по звуковой индикации приема событий. Для того чтобы оператор был уверен в стабильном функционировании системы, прием событий, не подлежащих фильтрации, сопровождается звуковым сигналом. Если в течение заданного параметром интервала времени приема неотфильтрованных событий нет, звуковым сигналом сопровождается прием отфильтрованного события. Данное событие отображается в строке последнего принятого события, однако информации о нем нет ни в общем списке принятых событий, ни в списке тревожных событий, ни в списке событий по объекту (для отображения в списке событий по объекту отфильтрованного события должен быть включен режим «Показывать дубли»). Кроме того, принятое отфильтрованное событие не отображается ни в карточке объекта, ни в окне отработки тревоги. Чтобы разрешить индикацию, необходимо задать для параметра «Интервал индикации приема событий» значение больше нуля. При нулевом значении данного параметра индикация приема событий отключается. По умолчанию интервал индикации равен 30 секундам.
+With the " Interval of event reception indication" parameter the operator can continuously monitor the software operation, which is necessary for the timely detection of its malfunction. This parameter provides reliable control of the Security Center operator, including the "Duty operator" module, with the help of the sound indication of event reception. In order for the operator to be confident in the stable functioning of the system, event reception not subject to filtration is accompanied by a sound signal. If there are no unfiltered events during the time interval set by the parameter, the sound signal is accompanied by the reception of the filtered event. This event is displayed in the line of the last received event, but there is no information about it in the general list of received events, either in the list of alarm events or in the list of events for the site (to display the filtered event in the list of events for site enable “Show duplicates” mode). Besides, the received filtered event is not displayed in the site card or in the alarm handling window. To enable the display, set the " Interval of event reception indication" parameter to a value greater than zero. If this parameter is set to zero, the event reception indication is disabled. The default display interval is 30 seconds.
 
-Максимальный срок отключения событий задается в минутах с помощью параметра «Максимальный интервал отключения тревог». По умолчанию время отключения событий не должно превышать 90 минут. 
+The maximum time for disabling events is set in minutes using the parameter "Maximum interval of alarms disabling". By default, time of event disabling shall not exceed 90 minutes. 
 
-Максимальный срок отключения объектов «Центра охраны» задается в минутах с помощью параметра «Максимальный интервал отключения объектов». По умолчанию время отключения объектов не должно превышать 180 минут.
+The maximum time for disabling the Security Center sites is set in minutes using the "Maximum interval of site disabling" parameter. By default, time of site disabling shall not exceed 180 minutes.
 
-### Отработка тревоги
+### Alarm Handling
 
-![Окно «Настройка», вкладка «Отработка тревоги»][id-09-07-02]
+![“Setup" window, “Alarm handling" tab][id-09-07-02]
 
-Если при получении нового тревожного события нужно, чтобы модуль «Дежурный оператор» привлек внимание оператора, необходимо установить значение для параметра «Активизация при тревоге».
+If, when receiving a new alarm event, it is necessary for the "Duty operator" module to attract the attention of the operator, it is necessary to set the value for the “Activation at alarm” parameter.
 
-В ситуации, когда в модуле «Дежурный оператор» есть тревога, для которой слишком долго не регистрируется никаких действий, может пригодиться параметр «Повторять звук тревоги с интервалом». Если для этого параметра задано ненулевое значение, то при отсутствии действий по тревоги в течении заданного времени, «Дежурный оператор» поведет себя так, словно эта тревога только что получена: заново воспроизведет звук тревоги и откроет окно отработки тревоги, если это разрешено параметром «Автоматическое открытие» для окна отработки тревоги.
+In a situation where there is an alarm in the "Duty operator" module, for which no actions are registered for too long, the parameter "Repeat the alarm sound at the interval of" may be useful. If this parameter is set to a non-zero value, then if there are no alarm actions during the specified time, the "Duty Operator" behaves as if this alarm had just been received: it will again play the alarm sound and open the alarm window if this is enabled by the "Automatic opening” parameter in the alarm handling window.
 
-Отмеченный галкой пункт «Автоматическое открытие» раздела «Окно Отработка тревоги» обеспечивает автоматическое открытие окна отработки тревоги при возникновении тревоги. Параметры «Автоматическое закрытие» и «Автоматический переход к следующей тревоге» определяют поведение окна отработки тревоги, в тот момент, когда отработка текущей тревоги завершена. Если задано значение первого параметра, то окно отработки тревоги будет закрыто. Если задано значение для второго параметра, то в окно отработки тревоги будет загружена следующая по времени получения тревога. Если заданы значения для обоих параметров, то сначала будет выполнена попытка загрузить следующую тревогу, а если ее нет, то окно отработки тревоги будет закрыто.
+The checked "Automatic opening" item of the "Alarm handling" window allows the alarm window to be opened automatically in case of alarm. The "Automatic closing" and "Automatic transfer to the next alarm" parameters determine the behavior of the alarm handling window, at the moment when the current alarm handling is completed. If the value of the first parameter is set, the alarm handling window will be closed. If a value for the second parameter is set, the next received alarm will be loaded into the alarm handling window. If values for both parameters are set, then the next alarm will be attempted first, and if it is not, the alarm handling window will be closed.
 
-### Горячие клавиши
+### Hot Keys
 
-![Окно «Настройка», вкладка «Горячие клавиши»][id-09-07-03]
+![“Setup” window, “Hot keys” tab][id-09-07-03]
 
-На вкладке «Горячие клавиши» можно задать комбинации клавиш на клавиатуре для быстрого доступа к основным функциям модуля «Дежурный оператор».
+Use the “Hot keys” tab to assign keyboard shortcuts for quick access to the main functions of the "Duty operator" module.
 
-Необходимо отметить, что горячие клавиши для действий и отмен назначаются автоматически, при формировании их списка. Но с помощью параметра «Не использовать Alt при действиях и отменах» можно отказаться от комбинации «Alt + цифра» для быстрой регистрации действий или отмен и использовать только цифры.
+It shall be noted that hot keys for actions and cancellations are assigned automatically, when their list is formed. But with the "Not to use Alt at actions and cancellations” parameter it is possible to prohibit the combination of "Alt + Digit" for fast registration of actions or cancellations and use only digits.
 
-Параметр «Добавить горячие клавиши в заголовки» позволяет отобразить назначенные для операций горячие клавиши в заголовках кнопок. 
+The "Add hot keys to titles" parameter allows to display the hot keys assigned to operations in the button titles. 
 
-### Набор номера
+### Dialing
 
-![Окно «Настройка», вкладка «Набор номера»][id-09-07-04]
+![“Setup" window, “Dialing" tab][id-09-07-04]
 
-Если к компьютеру подключен модем или любое устройство, поддерживающее управление набором номера по интерфейсу TAPI, то на вкладке «Набор номера» можно задать список устройств, которые модуль «Дежурный оператор» может использовать для набора номера.
+If there is a modem or any device that supports dialing via TAPI interface connected to the computer, it is possible to specify the list of devices that the "Duty operator" module can use to dial on the “Dialing” tab.
 
-Набор номера начинается щелчком левой кнопки мыши на любом номере телефона объекта, который отображается в карточке объекта.
+To start dialing, left-click on any phone number of the site that is displayed in the site card.
 
-Если набираемый номер занят, то модуль «Дежурный оператор» может набрать его повторно, если значение для параметра «Повторять набор, если линия занята» установлено.
+If the dialed number is busy, the "Duty operator" module can dial it again if the value for "Repeat dialing, if the line is busy" is set.
 
-### Андромеда Персона
+### Security Center - Persona
 
-![Окно «Настройка», вкладка «Андромеда Персона»][id-09-07-05]
+![“Setup" window, "Security center - Persona" tab][id-09-07-05]
 
-Программное обеспечение «Центр охраны» может использоваться совместно с программным обеспечением «Андромеда Персона». В частности, в «Персону» может быть загружен список объектов «Центра охраны», после чего они могут быть расставлены на карте местности.
+The Security Center software can be used in conjunction with the "Andromeda Persona” software. In particular, it is possible to download a list of sites of the Security Center to the “Persona", after which they can be placed on the terrain map.
 
-Кроме того, из «Центра охраны» в «Персону» могут передаваться изменения состояний объектов и групп быстрого реагирования, для того, чтобы «Персона» могла автоматически отображать тревожные объекты на карте, а также отображать состояние групп, которые вызваны на объекты.
+Besides, changes in the status of sites and guards can be transferred from the Security Center to “Persona” so that the “Persona” can automatically display alarm sites on the map and also display the status of guards that are called to sites.
 
-На вкладке «Андромеда Персона» можно включить интеграцию модуля «Дежурный оператор» с программным обеспечением «Андромеда Персона», а также разрешить автоматическое отображение тревожных объектов и состояние групп быстрого реагирования в «Персоне».
+On the "Andromeda Persona" tab, it is possible to enable the "Duty operator" module integration with the "Andromeda Persona" software, and also allow automatic display of alarm sites and the status of guards in the “Persona".
 
-[id-09-00]: img/ShiftOp-Main-00.png "Сообщение об ошибке соединения с модулем «Менеджер событий»"
-[id-09-01]: img/ShiftOp-Main-01.png "Главное окно модуля"
-[id-09-02-01]: img/ShiftOp-Main-State-01.png "Окно «Состояние объектов», вкладка «Все объекты»"
+[id-09-00]: img/ShiftOp-Main-00.png "Message of connection error with “Event manager” module"
+[id-09-01]: img/ShiftOp-Main-01.png "Module main window"
+[id-09-02-01]: img/ShiftOp-Main-State-01.png "“Site status” window, “All” tab”"
 
-[id-09-02-01-01]: img/ShiftOp-Main-Tooltip-01.png "Окно «Состояние объектов», всплывающая подсказка, «Состояние объекта»"
-[id-09-02-01-02]: img/ShiftOp-Main-Tooltip-02.png "Окно «Состояние объектов», всплывающая подсказка, «Тревога»"
-[id-09-02-01-03]: img/ShiftOp-Main-Tooltip-03.png "Окно «Состояние объектов», всплывающая подсказка, «ГБР»"
+[id-09-02-01-01]: img/ShiftOp-Main-Tooltip-01.png "“Site status” window, tooltip, “Site status"
+[id-09-02-01-02]: img/ShiftOp-Main-Tooltip-02.png "“Site status” window, tooltip, “Alarm”"
+[id-09-02-01-03]: img/ShiftOp-Main-Tooltip-03.png "“Site status” window, tooltip, “Guard”"
 
-[id-09-02-02]: img/ShiftOp-Main-State-02.png "Окно «Состояние объектов», контекстное меню"
-[id-09-02-03]: img/ShiftOp-Main-State-03.png "Окно «Состояние объектов», контекстное меню, пункт «Вид»"
-[id-09-02-04]: img/ShiftOp-Main-State-04.png "Окно «Состояние объектов», контекстное меню, пункт «Упорядочить значки»"
-[id-09-02-05]: img/ShiftOp-Main-State-05.png "Окно «Состояние объектов», контекстное меню тревожного объекта"
-[id-09-02-06]: img/ShiftOp-Main-State-06.png "Окно «Состояние объектов», вкладка «Все объекты», вид «Таблица»"
-[id-09-02-07]: img/ShiftOp-Main-State-07.png "Окно «Состояние объектов», окно «Отключение объектов»"
-[id-09-02-08]: img/ShiftOp-Main-State-08.png "Окно «Состояние объектов», контекстное меню, пункт «Включить объект»"
-[id-09-02-09]: img/ShiftOp-Main-State-09.png "Окно «Состояние объектов», окно «Включение объекта»"
-[id-09-02-10]: img/ShiftOp-Main-State-10.png "Окно «Состояние объектов», окно «Отключение каналов связи объекта»"
-[id-09-02-11]: img/ShiftOp-Main-State-11.png "Окно «Состояние объектов», контекстное меню, пункт «Включить каналы связи»"
-[id-09-02-12]: img/ShiftOp-Main-State-12.png "Окно «Состояние объектов», окно «Включение каналов связи объекта»"
+[id-09-02-02]: img/ShiftOp-Main-State-02.png "“Site status” window, context menu"
+[id-09-02-03]: img/ShiftOp-Main-State-03.png "“Site status” window, context menu, “View” item"
+[id-09-02-04]: img/ShiftOp-Main-State-04.png "“Site status” window, context menu, “Arrange icons” item"
+[id-09-02-05]: img/ShiftOp-Main-State-05.png "“Site status” window, context menu, “Enable site” item"
+[id-09-02-06]: img/ShiftOp-Main-State-06.png "“Site status” window, “All” tab, “Table” view"
+[id-09-02-07]: img/ShiftOp-Main-State-07.png "“Site status” window, “Site disabling” window"
+[id-09-02-08]: img/ShiftOp-Main-State-08.png "“Site status” window, context menu, “Enable site” item"
+[id-09-02-09]: img/ShiftOp-Main-State-09.png "“Site status” window, “Site enabling” window"
+[id-09-02-10]: img/ShiftOp-Main-State-10.png "“Site status” window, “Site channels disabling” window"
+[id-09-02-11]: img/ShiftOp-Main-State-11.png "“Site status” window, context menu, “Site channels enabling” item"
+[id-09-02-12]: img/ShiftOp-Main-State-12.png "“Site status” window, “Site channels enabling” window"
 
-[id-09-03-01]: img/ShiftOp-Main-Event-01.png "Окно «События», вкладка «Все события»"
-[id-09-03-02]: img/ShiftOp-Main-Event-02.png "Окно «События», вкладка «Тревоги»"
+[id-09-03-01]: img/ShiftOp-Main-Event-01.png "“Events” window, “All” tab"
+[id-09-03-02]: img/ShiftOp-Main-Event-02.png ""Events" window, “Alarms" tab"
 
-[id-09-03-03]: img/ShiftOp-Main-Event-03.png "Окно «События», вкладка «События по объекту»"
-[id-09-03-03-01]: img/ShiftOp-Main-Event-03-01.png "Окно «События», контекстное меню, пункт «Отключить событие»"
-[id-09-03-03-02]: img/ShiftOp-Main-Event-03-02.png "Окно «События», окно «Отключить событие»"
-[id-09-03-03-03]: img/ShiftOp-Main-Event-03-03.png "Окно «События», контекстное меню, пункт «Включить событие»"
-[id-09-03-03-04]: img/ShiftOp-Main-Event-03-04.png "Окно «События», окно «Включить событие»"
+[id-09-03-03]: img/ShiftOp-Main-Event-03.png ""Events" window, "Events at the site" tab"
+[id-09-03-03-01]: img/ShiftOp-Main-Event-03-01.png ""Events" window, context menu, "Disable event" item"
+[id-09-03-03-02]: img/ShiftOp-Main-Event-03-02.png ""Events" window, “Disable event” window"
+[id-09-03-03-03]: img/ShiftOp-Main-Event-03-03.png ""Events" window, context menu, “Enable event" item"
+[id-09-03-03-04]: img/ShiftOp-Main-Event-03-04.png ""Events" window, "Enable event" window"
 
-[id-09-03-04]: img/ShiftOp-Main-Event-04.png "Окно «События», вкладка «Группы быстрого реагирования»"
-[id-09-03-05]: img/ShiftOp-Main-Event-05.png "Окно «События», контекстное меню"
-[id-09-03-06]: img/ShiftOp-Main-Event-06.png "Окно «События», контекстное меню тревожного объекта"
+[id-09-03-04]: img/ShiftOp-Main-Event-04.png ""Events" tab, “Guard" tab"
+[id-09-03-05]: img/ShiftOp-Main-Event-05.png ""Events" window, context menu"
+[id-09-03-06]: img/ShiftOp-Main-Event-06.png "Events" window, context menu of alarm site"
 
-[id-09-04]: img/ShiftOp-Main-LastEvent.png "Строка последнего принятого события"
+[id-09-04]: img/ShiftOp-Main-LastEvent.png “Line of last received event"
 
-[id-09-05]: img/ShiftOp-Main-Toolbar-01.png "Панель быстрого доступа"
+[id-09-05]: img/ShiftOp-Main-Toolbar-01.png "Quick Access Toolbar"
 
-[id-09-06]: img/ShiftOp-ObjectCard-01.png "Окно «Карточка объекта»"
+[id-09-06]: img/ShiftOp-ObjectCard-01.png "“Site card” window"
 
-[id-09-07-01]: img/ShiftOp-Settings-01.png "Окно «Настройка», вкладка «Общие»"
-[id-09-07-02]: img/ShiftOp-Settings-02.png "Окно «Настройка», вкладка «Отработка тревоги»"
-[id-09-07-03]: img/ShiftOp-Settings-03.png "Окно «Настройка», вкладка «Горячие клавиши»"
-[id-09-07-04]: img/ShiftOp-Settings-04.png "Окно «Настройка», вкладка «Набор номера»"
-[id-09-07-05]: img/ShiftOp-Settings-05.png "Окно «Настройка», вкладка «Андромеда Персона»"
+[id-09-07-01]: img/ShiftOp-Settings-01.png "“Setup" window, "Common" tab"
+[id-09-07-02]: img/ShiftOp-Settings-02.png "“Setup" window, “Alarm handling" tab"
+[id-09-07-03]: img/ShiftOp-Settings-03.png "“Setup” window, “Hot keys” tab"
+[id-09-07-04]: img/ShiftOp-Settings-04.png "“Setup" window, “Dialing" tab"
+[id-09-07-05]: img/ShiftOp-Settings-05.png "“Setup" window, "Security center - Persona" tab"
 
-[id-09-08-01]: img/ShiftOp-Alarm-01.png "Окно «Отработка тревоги»"
-[id-09-08-02]: img/ShiftOp-Alarm-02.png "Окно «Вызов группы на объект»"
-[id-09-08-03]: img/ShiftOp-Alarm-03.png "Окно «Комментарий оператора»"
-[id-09-08-04]: img/ShiftOp-Alarm-04.png "Окно «Отмена тревоги»"
+[id-09-08-01]: img/ShiftOp-Alarm-01.png "“Alarm handling” window"
+[id-09-08-02]: img/ShiftOp-Alarm-02.png ""Call a guard to the site” window"
+[id-09-08-03]: img/ShiftOp-Alarm-03.png "“Operator’s comment” window"
+[id-09-08-04]: img/ShiftOp-Alarm-04.png "“Alarm cancellation" window"
 
-[id-09-09]: img/ShiftOp-AlarmInfo-01.png "Окно «Информация о тревогах»"
+[id-09-09]: img/ShiftOp-AlarmInfo-01.png "“Information about alarms” window"
 
-[id-09-10]: img/ShiftOp-Browse-01.png "Окно «Выбрать объект»"
+[id-09-10]: img/ShiftOp-Browse-01.png “”Select site” window"

@@ -1,239 +1,239 @@
-# Менеджер персонала
+# Personnel Manager
 
-В модуле «Менеджер персонала» можно управлять списком операторов и их прав — в модулях «Центра охраны», группами быстрого реагирования, которые используются в «Центре охраны», а также списком компьютеров локальной сети, на которых разрешена эксплуатация сетевых рабочих мест «Центра охраны».
+In the "Personnel manager" module, it is possible to edit the list of operators and their rights - in the Security Center modules, guards, that are used in the Security Center, as well as the list of computers on the local network, on which the Security Center network workplaces are allowed.
 
-## Операторы
+## Operators
 
-![Вкладка «Операторы»][id-07-01]
+![”Operators” tab][id-07-01]
 
-Вкладка «Операторы» предназначена для изменения списка операторов программного обеспечения и их прав в модулях «Центра охраны».
+The "Operators" tab is intended for editing the list of software operators and their rights in the Security Center modules.
 
-Для того, чтобы сохранить изменения, произведенные на этой вкладке, у пользователя должно быть разрешение «Редактировать группы» для модуля «Менеджер персонала».
+To save the changes made on this tab, the user shall have the "Edit Groups" permission for the “Personnel manager" module.
 
-Права оператора индивидуальны для каждого модуля «Центра охраны». От наличия того или иного права зависит список операций, которые можно выполнять в модуле.
+Operator rights are individual for each Security Center module. Availability of this or that right determines the list of operations that can be performed in the module.
 
-Перед тем, как определять права оператора в модуле, необходимо разрешить оператору вход в этот модуль.
+Before determining the operator's rights in the module, allow the operator to enter this module.
 
-При создании нового оператора можно задать ему такие же права, как и одному из существующих. Для этого, перед созданием нового оператора, нужно в списке операторов выбрать пользователя, чьи права нужно скопировать.
+When creating a new operator, it is possible to assign him/her the same rights as one of the existing ones. To do this, before creating a new operator, in the list of operators select the user, whose rights shall be copied.
 
-![Выбор списка прав для нового оператора][id-07-02]
+![Selecting list of rights for new operator][id-07-02]
 
-В модуле «Менеджер персонала» запрещено редактирование имени и прав того оператора, который вошел в модуль, а также оператора «Администратор». 
+It is forbidden to edit the name and rights of the operator, who entered the module, as well as "Administrator” in the module "Personnel Manager”. 
 
-Для текущего оператора модуля «Менеджер персонала» и оператора «Администратор» разрешено только изменение пароля.
+For the current operator of the "Personnel manager" module and the "Administrator", only password changing is allowed.
 
-### Права оператора в модуле «Менеджер событий»
+### Operator’s Rights in “Event Manager” Module
 
-![Права оператора в модуле «Менеджер событий»][id-07-03]
+![Operator’s rights in the “Event manager” module][id-07-03]
 
-* «Выходить из программы» — разрешение на завершение работы модуля «Менеджер событий». 
+* “Exit from the program" - permission to shut down the "Event manager" module. 
 
-* «Изменять настройки» — разрешение вносить изменения в настройки модуля «Менеджер событий». 
+* "Change settings" - permission to make changes to the settings of the "Event manager" module. 
 
-* «Просматривать обработчики событий» — разрешение просматривать (но не изменять) настройки обработчиков событий. Это же разрешение распространяется и на модуль «Обработчики событий». 
+* "View event handlers" - permission to view (but not to change) the settings of event handlers. This permission also applies to the "Event handlers" module. 
 
-* «Просматривать скрытые обработчики событий» — разрешение просматривать (но не изменять) настройки _скрытых_ обработчиков событий. Это же разрешение распространяется и на модуль «Обработчики событий». 
+* "View hidden event handlers" - permission to view (but not to change) the settings of _hidden_ event handlers. This permission also applies to the "Event handlers" module. 
 
-* «Редактировать обработчики событий» — разрешение вносить изменения в настройки тех обработчиков событий, которые разрешено просматривать. Это же разрешение распространяется и на модуль «Обработчики событий».
+* "Edit event handlers" - permission to make changes to the settings of those event handlers that are allowed to view. This permission also applies to the "Event handlers" module.
 
-### Права оператора в модуле «Дежурный оператор»
+### Operator’s Rights in “Duty Operator” Module
 
-![Права оператора в модуле «Дежурный оператор»][id-07-04]
+![Operator’s rights in the "Duty operator" module][id-07-04]
 
-* «Входить в программу» — разрешение на вход в модуль «Дежурный оператор». Если оператор должен отрабатывать тревоги, то у него должно быть это разрешение.
+* “Enter into the program" - permission to enter the "Duty operator" module. If the operator has to handle the alarms, then he/she shall have this permission.
 
-* «Выходить из программы» — разрешение на завершение работы модуля «Дежурный оператор». Запрет на завершение работы модуля «Дежурный оператор» может быть полезен для неопытных операторов, как предупреждение выхода из модуля по ошибке.  
+* "Exit from the program" - permission to close the "Duty operator" module. Ban on closing of the "Duty operator" module can be useful for inexperienced operators, as a warning about exiting the module by mistake.  
 
-* «Изменять настройки» — разрешение на внесение изменений в настройки модуля «Дежурный оператор». Не рекомендуется предоставлять это разрешение оперативным дежурным, тем более, что настройки модуля «Дежурный оператор» связаны с компьютером, на котором выполняется модуль, а не с оператором, который запустил программу. Таким образом, администратор может выполнить все необходимые настройки модуля на компьютере и любой оператор, запустивший модуль «Дежурный оператор» будет работать с этими настройками.
+* "Change settings" - permission to make changes to the settings of the "Duty operator" module. It is not recommended to grant this permission to the duty operators, especially since the settings of the "Duty operator" module are associated with the computer on which the module is being executed, and not with the operator who launched the program. Thus, the administrator can perform all the necessary settings of the module on the computer and any operator, who launched the "Duty operator" module, will work with these settings.
 
-* «Выполнять действия по тревоге» — разрешение на отработку тревоги. Оператор «Центра охраны», обладающий данным правом, может вызвать окно «Отработка тревоги» и выполнить все возможные по отработке тревоги действия. Для отмены тревоги оператор также должен быть наделен правом «Отменять тревогу».
+* “Handle alarms" - permission to handle an alarm. The Security Center operator with this right can call the “Alarm handling" window and perform all possible actions to handle the alarm. To cancel the alarm, the operator shall also have the right to "Cancel alarm".
 
-* «Отменять тревогу» — разрешение на отмену тревоги. Оператор «Центра охраны», обладающий данным правом, может вызвать окно «Отработка тревоги» и отменить тревогу. Для выполнения действий по тревоге оператор также должен быть наделен правом «Выполнять действия по тревоге».
+* "Cancel alarm" - permission to cancel alarm. The Security Center operator with this right can call the “Alarm handling” window and cancel the alarm. To handle an alarm, the operator shall also have the right to “Handle alarms".
 
-* «Отключать коды событий» — разрешение на отключение событий. Оператор «Центра охраны», обладающий данным правом, может вызвать окно «Отключить событие» и выполнить отключение события, указав время, в течение которого событие должно быть отключено, и причину отключения.
+* "Disable event codes" - permission to disable events. The Security Center operator with this right can call the "Disable event" window and disable the event, specifying the time during which the event shall be disabled and the reason for disabling.
 
-* «Отключать объекты» — разрешение на отключение объектов. Оператор «Центра охраны», обладающий данным правом, может вызвать окно «Отключение объекта» и выполнить отключение объекта, указав время, в течение которого объект должен быть отключен, и причину отключения.
+* "Disable sites" - permission to disable sites. The Security Center operator with this right can call the “Site disabling" window and disable the site, specifying the time during which the site shall be disabled and the reason for disabling.
 
-* «Отключать каналы связи для объекта» — разрешение на отключение каналов связи для объекта. Оператор «Центра охраны», обладающий данным правом, может вызвать окно «Отключение каналов связи объекта» и выполнить отключение одного или нескольких каналов связи, указав время, в течение которого каналы связи должны быть отключены, и причину отключения.
+* "Disable channels for site" - permission to disable communication channels for the site. The Security Center operator with this right can call the window “Site channels disabling" and disable one or several communication channels, specifying the time during which the communication channels shall be disabled, and the reason for disabling.
 
-* «Удаленное взятие / снятие объектов» — разрешение на удаленное взятие объектов под охрану, а также снятие их с охраны. Оператор «Центра охраны», обладающий данным правом, может выполнить взятие объекта под охрану или снятие с охраны в том случае, если на объекте установлено оборудование с типом передатчика «ТР-100 GSM III». 
+* "Remote arm site/remote disarm site" - permission for remote arming/disarming of sites. The Security Center operator with this right can arm/disarm the site, if the equipment with the type of the transmitter "TR-100 GSM III" is installed on the site. 
 
-### Права оператора в модуле «Менеджер объектов»
+### Operator’s Rights in "Site Manager" Module
 
-![Права оператора в модуле «Менеджер объектов»][id-07-05]
+![Operator’s rights in the "Site manager" module][id-07-05]
 
-* «Входить в программу» — разрешение на вход в модуль «Менеджер объектов». Если оператор должен иметь возможность просмотра карточек объектов и внесения в них изменений, то у него должно быть это разрешение.
+* “Enter into the program" - permission to enter the "Site manager" module. If the operator shall be able to view and edit site cards, then he/she shall have this permission.
 
-* «Редактировать объекты» — разрешение на внесение изменений в карточки объектов. Данное разрешение распространяется на большинство полей карточки объекта, за исключением тех полей, на внесение изменений в которые требуется иметь дополнительные разрешения, описанные ниже. С помощью дополнительных разрешений можно защитить важные или редко изменяемые поля карточки от случайных изменений.
+* "Edit sites" - permission to edit site cards. This permission applies to most fields of the site card, with the exception of those fields for which changes additional permissions described below are required. With the help of additional permissions it is possible to protect important or rarely changed card fields from accidental changes.
 
-* «Изменять шаблон событий» — разрешение на изменение шаблона событий объекта. Шаблон событий определяет, как именно будут расшифрованы сообщения, полученные от объектового оборудования: какие сообщения должны считаться тревожными, какие — взятиями и т.д. Какой именно шаблон событий должен использоваться для объекта зависит от оборудования, установленного на объекте, а также от каналов связи, по которым передаются сообщения с объекта. Для большинства современных объектовых приборов подойдет и рекомендуется к использованию шаблон событий «Радио (EPAF), DTMF, GPRS», который входит в комплект поставки «Центра охраны».
+* “Change template" - permission to change the site event template. The event template determines how messages received from the site equipment will be decoded: which messages shall be considered alarm ones, which messages shall be considered as armings, etc. Which particular event template shall be used for a site depends on the equipment installed on the site, as well as on the communication channels via which messages from the site are transmitted. For most modern site devices, the event template "Radio (EPAF), DTMF, GPRS", which is included in the Security Center package, is suitable and recommended for use.
 
-* «Редактировать шаблон событий» — разрешение на изменение описаний событий, входящих в установленный для объекта шаблон событий. Необходимо отметить, что внесенные изменения коснутся только того объекта, для которого выполняются изменения и никак не затронут сам шаблон событий. Настоятельно не рекомендуется вносить изменения в шаблон событий объекта без веской причины.
+* "Edit template" - permission to edit descriptions of events included in the event template set for the site. It shall be noted that the changes will be applied only to the site for which changes are made and the event template itself won’t be affected in any way. It is strongly recommended not to make changes to the site event template without a valid reason.
 
-* «Редактировать расписание» — разрешение на изменение параметров расписание охраны объекта. Если для объекта задано расписание охраны и включен его контроль, то при нарушении расписания «Центр охраны» создаст соответствующие системные события (тревоги).
+* "Edit schedule" - permission to edit the parameters of the site arm schedule. If the arm schedule is set for the site and its monitoring is enabled, then, if the schedule is violated, the Security Center will create the appropriate system events (alarms).
 
-* «Редактировать длительную охрану» — разрешение на изменение параметров длительной охраны объекта. Если для объекта включена режим длительной охраны, то при попытке снять объект с охраны «Центр охраны» создаст системное событие (тревогу).
+* "Edit long-term arm" - permission to edit the parameters of long-term arm of the site. If the long-term arm is enabled for the site, then when you try to disarm the site, the Security Center will create a system event (alarm).
 
-* «Редактировать изображения объекта» - разрешение на изменение изображений объекта. Данные изображения используются в приложении "Тревога в ГБР" для предоставления более полной информации об объекте.
+* “Change site images" - permission to change the site images. Image data are used in the "Alarm to Guard" application to provide more complete information about the site.
 
-* «Восстанавливать удаленные объекты» - разрешение на восстановление удаленных объектов.
+* "Restore deleted sites" - permission to restore deleted sites.
 
-* «Размещать объект на карте» - разрешение на изменение местоположения объекта на карте.
+* “Locate site on map" - permission to change the location of the site on the map.
 
-* «Редактировать дополнительные характеристики» — разрешение на изменение значений дополнительных характеристик объекта. В дополнительных характеристиках объекта может храниться важная информация.
+* "Edit additional characteristics" - permission to change the values of additional characteristics of the site. Important information can be indicated in the additional characteristics of the site.
 
-* «Редактировать отключение» — разрешение на изменение параметров отключения объекта. Для отключенных объектов «Центр охраны» выполняет автоматическую отмену тревог, не привлекая к ним внимания дежурного оператора.
+* "Edit disabling" - permission to change the disabling parameters of the site. For disabled sites, Security Center performs automatic cancellation of alarms, without notification of the duty operator about them.
 
-* «Разрешать инженерам доступ к объектам» - разрешение на предоставление инженерам удаленного доступа к объектам.
+* “Grant site access to engineer" - permission to grant remote access to sites to engineers.
 
-* «Изменять информацию о видеороутерах» - разрешение на изменение информации о видеороутерах. Данное разрешение позволяет добавлять и удалять видеороутеры, к которым подключены камеры, установленные на объекте.
+* "Change information about videorouters" - permission to change information about video routers. This permission allows to add and remove video routers, to which the cameras on the site are connected.
 
-* «Редактировать шаблоны расписания охраны» - разрешение на редактирование шаблонов расписания охраны. С помощью данного разрешения можно создавать, редактировать и удалять шаблоны на основе выбранного расписания охраны.
+* "Edit arm schedule templates" - permission to edit arm schedule templates. With this permission, it is possible to create, edit and delete templates based on the selected arm schedule.
 
-### Права оператора в модуле «Менеджер отчетов»
+### Operator’s Rights in “Report Manager” Module
 
-![Права оператора в модуле «Менеджер отчетов»][id-07-06]
+![Operator’s rights in the "Report manager" module][id-07-06]
 
-* «Входить в программу» — разрешение на вход в модуль «Менеджер отчетов». Если оператор должен иметь возможность создавать отчеты, то у него должно быть это разрешение.
+* “Enter into the program" - permission to enter the "Report manager" module. If the operator shall be able to create reports, then he/she shall have this permission.
 
-* «Создавать отчеты по событиям» — разрешение на создание отчетов по принятым событиям. При создании этих отчетов оператор имеет доступ к списку объектов, а также к списку классов событий. В создаваемых отчетах содержится информация о принятых событиях за заданный период, событиях с неописанных объектов и отправленных SMS-сообщениях.
+* "Generate reports by events" - permission to create reports on the received events. When creating these reports, the operator has access to the list of sites, as well as to the list of event classes. The generated reports contain information about the events that were received during a given period, events from undescribed sites, and sent SMS messages.
 
-* «Создавать отчеты по тревогам» — разрешение на создание отчетов по тревогам. При создании этих отчетов оператор имеет доступ к списку объектов, а также к спискам классов событий и действий оператора. В создаваемых отчетах содержится информация о принятых событиях, действиях операторов по отработке тревог и выездах групп. Кроме того, часть отчетов по тревогам предоставляют информацию, на основании которой можно выделить проблемные объекты и выполнить анализ причин возникновения тревог.
+* "Generate reports by alarms" - permission to create report on alarms. When creating these reports, the operator has access to the list of sites, as well as to the list of event classes and operator’s actions. The generated reports contain information about the received events, operator’s actions for handling alarms and guard responses. Besides, some of the alarm reports provide information on the basis of which it is possible to identify problematic sites and analyze the causes of the alarms.
 
-* «Создавать отчеты по времени охраны» — разрешение на создание отчетов по тревогам. При создании этих отчетов оператор имеет доступ к списку объектов, а также к спискам классов событий. В создаваемых отчетах содержится информация о времени, в течении которого объекты должны были охраняться в соответствии с их расписанием охраны, а также времени, в течении которого объекты охранялись в действительности.
+* "Generate reports by arm time" - permission to create alarm reports. When creating these reports, the operator has access to the list of sites, as well as to the list of event classes. The created reports contain information about the time during which the sites were to be protected in accordance with their arm schedule, as well as the time during which the sites were actually armed.
 
-* «Создавать отчеты по группам» — разрешение на создание отчетов по группам быстрого реагирования. При создании этих отчетов оператор имеет доступ к списку объектов, а также к спискам классов событий и групп быстрого реагирования. В создаваемых отчетах содержится информация о принятых событиях, действиях операторов по отработке тревог и выездах групп. 
+* "Create reports by guards" - permission to create reports on guards. When creating these reports, the operator has access to a list of sites, as well as to lists of event classes and guards. The generated reports contain information about the received events, operator’s actions for handling alarms and guard responses. 
 
-* «Создавать отчеты по объектам» — разрешение на создание отчетов по объектам. При создании этих отчетов оператор имеет доступ к списку объектов. В создаваемых отчетах может содержаться вся информация, имеющаяся в карточках объектов.
+* "Generate reports by sites" - permission to create reports by sites. When creating these reports, the operator has access to the list of sites. The created reports can contain all the information available in the site cards.
 
-* «Редактировать шаблоны отчетов» — разрешение на создание новых и изменение существующих форм, на основании которых создаются отчеты в модуле «Менеджер отчетов». Настоятельно не рекомендуется предоставлять это разрешение операторам, а также вносить изменения в шаблоны отчетов, не создав предварительно резервную копию изменяемых данных.
+* "Edit report templates" - permission to create new and edit existing forms, on the basis of which reports in the "Report manager" module can be created. It is strongly recommended not to grant this permission to operators, and also to make changes to report templates without backing up the modified data.
 
-### Права оператора в модуле «Карты объектов»
+### Operator’s Rights in “Site Maps” Module
 
-![Права оператора в модуле «Карты объектов»][id-07-07]
+![Operator’s rights in the “Site maps” module][id-07-07]
 
-* «Входить в программу» — разрешение на вход в модуль «Карты объектов». Если оператор должен иметь возможность просматривать или редактировать карты объектов, в том числе — просматривать карты объектов при отработке тревоги, то у него должно быть это разрешение.
+* “Enter into the program" - permission to enter the "Site maps" module. If the operator shall be able to view or edit site maps, including - to view the maps of sites when handling an alarm, then he/she shall have this permission.
 
-* «Редактировать карты объектов» — разрешение на создание новых и внесение изменений в существующие карты объектов.
+* "Edit site maps" - permission to create new and edit the existing site maps.
 
-### Права оператора в модуле «Настройка системы»
+### Operator’s Rights in “System Setup” Module
 
-![Права оператора в модуле «Настройка системы»][id-07-08]
+![Operator’s rights in the “System setup” module][id-07-08]
 
-* «Входить в программу» — разрешение на вход в модуль «Настройка системы». Если оператор должен иметь возможность просматривать или изменять настройки системных справочников «Центра охраны», то у него должно быть это разрешение.
+* “Enter into the program" - permission to enter the "System setup" module. If the operator shall be able to view or change the settings of the system directories of the Security Center, then he/she shall have this permission.
 
-* «Редактировать шаблоны событий» — разрешение на создание новых и изменение существующих шаблонов событий. Шаблон событий определяет, как именно будут расшифрованы сообщения, полученные от объектового оборудования: какие сообщения должны считаться тревожными, какие — взятиями и т.д. Изменения, которые вносятся в описание событий шаблона в модуле «Настройка системы» коснутся всех объектов, которые используют редактируемый шаблон событий. Настоятельно не рекомендуется вносить изменения в шаблон событий объекта без веской причины.
+* "Edit event templates" - permission to create new and edit the existing event templates. The event template determines how messages received from the site equipment will be decoded: which messages shall be considered alarm ones, which messages shall be considered as armings, etc. Changes that are made to the description of the template events in the "System setup" module will affect all sites that use the edited event template. It is strongly recommended not to make changes to the site event template without a valid reason.
 
-* «Редактировать типы объектов» — разрешение на создание новых и изменение существующих типов объектов. Типы являются механизмом для группировки и фильтрации объектов в списке. Если изменить, например, переименовать тип объекта в модуле «Настройка системы», то это изменение затронет все объекты, для которых установлен изменившийся тип.
+* "Edit site types" - permission to create new and edit the existing site types. Types are the mechanism for grouping and filtering sites in the list. If you change, for example, rename a site type in the “System setup” module, this change will affect all sites for which the changed type is set.
 
-* «Редактировать классы событий» — разрешение на создание новых и изменение существующих классов событий. Класс событий является ключевой сущностью для всех процессов программного обеспечения «Центр охраны», связанных с обработкой принятых событий. Внесение изменений в классы событий необходимо производить продуманно и с большим вниманием.
+* "Edit event classes" - permission to create new and edit the existing event classes. The event class is a key entity for all processes of the Security Center software related to the handling of the received events. Introduction of changes to event classes shall be done carefully and with great attention.
 
-* «Редактировать действия операторов» — разрешение на создание новых и внесение изменений в существующие действия операторов, выполняемые при обработке тревог. Для того, чтобы создавать и изменять сценарии обработки тревог, пользователь должен обладать этим разрешением.
+* "Edit actions" - permission to create new and edit the existing operator’s actions, performed during alarm handling. To create and edit alarm handling scripts, the user shall have this permission.
 
-* «Редактировать отмены тревог» — разрешение на создание новых и внесение изменений в существующие причины отмены тревог. Для того, чтобы создавать и изменять сценарии обработки тревог, пользователь должен обладать этим разрешением.
+* "Edit alarm cancellation" - permission to create new and edit the existing causes for canceling alarms. To create and edit alarm handling scripts, the user shall have this permission.
 
-* «Редактировать поля объектов» — разрешение на внесение изменений в полей объектов (дополнительных характеристик). Дополнительные характеристики объектов полезны в том случае, если необходимо в карточку объекта внести информацию, для которой не предусмотрено специального поля, а в примечания ее вносить нецелесообразно. Это разрешение может быть необходимо тем пользователям «Центра охраны», чьей задачей является ведение базы данных карточек объектов.
+* "Edit site fields" - permission to edit the site fields (additional characteristics). Additional characteristics of the sites are useful in the event, when it is necessary to add information to the site card for which there is no special field, and it is not advisable to enter it into notes. This permission may be necessary for those users of the Security Center, whose task is to maintain the database of the site cards.
 
-### Права оператора в модуле «Конфигуратор ключей Норд-LAN»
+### Operator’s Rights in "Nord-LAN Key Configurator" Module
 
-![Права оператора в модуле «Конфигуратор ключей Норд-LAN»][id-07-09]
+![Operator’s rights in the "Nord-LAN key Configurator" module][id-07-09]
 
-* «Входить в программу» — разрешение на запуск модуля «Конфигуратор ключей Норд-LAN». 
+* “Enter into the program" - permission to launch the "Nord-LAN keys Configurator” module. 
 
-* «Редактировать привязку ключей» — разрешение на изменение списка ключей, позволяющих взять под охрану или снять с охраны конкретный объект.
+* "Edit key mapping" - permission to change the list of keys that allow you arm or disarm a specific site.
 
-* «Редактировать список ключей» — разрешение на внесение изменений в общий список ключей Touch-memory, предназначенных для взятия под охрану и снятие с охраны объектов, оборудованных объектовыми приборами «Норд-LAN».
+* "Edit list of keys" - permission to edit the general list of keys Touch-memory, intended for arming and disarming sites equipped with site devices "Nord-LAN".
 
-### Права оператора в модуле «Менеджер персонала»
+### Operator’s Rights in "Personnel Manager" Module
 
-![Права оператора в модуле «Менеджер персонала»][id-07-10]
+![Operator’s rights in the "Personnel manager" module][id-07-10]
 
-* «Входить в программу» — разрешение на запуск модуля «Менеджер персонала».
+* "Enter into the program" - permission to launch the "Personnel manager" module.
 
-* «Редактировать операторов» — разрешение на создание реквизитов для новых операторов, а также изменение пароля и прав существующих операторов. Пользователь, обладающий этим разрешением, не имеет возможности изменить свои собственные права в модулях «Центра охраны», а также права оператора «Администратор».
+* "Edit operators" - permission to indicate details for new operators, as well as to change the password and rights of the existing operators. A user with this permission cannot change his/her own rights in the Security Center modules, as well as the rights of the "Administrator".
  
-* «Редактировать группы» — разрешение на изменение списка групп быстрого реагирования. Группы быстрого реагирования используются при отработке тревог — при регистрации действий, связанных с группой, оператор выбирает из этого списка ту группу, по отношению к которой регистрируется действие.
+* "Edit guards" - permission to change the list of guards. Guards are used for alarm handling - when registering activities related to a guard, the operator selects the guard, in relation to which the action is registered, from the list.
  
-* «Редактировать компьютеры» — разрешение на изменение списка компьютеров, на которых могут запускаться модули «Центра охраны».
+* "Edit computers" - permission to edit the list of computers on which the Security Center modules can be launched.
 
-* «Редактировать инженеров» - разрешение на изменение списка инженеров для последующего предоставления им удаленного доступа к объектам.
+* "Edit engineers" - permission to edit the list of engineers for granting them remote access to sites.
  
-## Группы быстрого реагирования
+## guards
 
-![Вкладка «Группы быстрого реагирования»][id-07-11]
+![“Guards” tab][id-07-11]
 
-На вкладке «Группы быстрого реагирования» можно изменить список групп, которые используются в программном обеспечении «Центр охраны». 
+On the "Guards" tab it is possible to edit the list of guards that are used in the Security Center software. 
 
-Для того, чтобы сохранить изменения, произведенные на этой вкладке, у пользователя должно быть разрешение «Редактировать группы» для модуля «Менеджер персонала».
+To save the changes made on this tab, the user shall have the "Edit Groups" permission for the “Personnel manager" module.
 
-## Компьютеры
+## Computers
 
-![Вкладка «Компьютеры»][id-07-12]
+![“Computers” tab][id-07-12]
 
-Вкладка «Компьютеры» предназначена для управления списком компьютеров, на которых разрешена эксплуатация сетевых рабочих мест программного обеспечения «Центр охраны», и списком доступных на этих компьютерах объектов.
+The "Computers" tab is intended to manage the list of computers on which the network workplaces of the Security Center software are allowed, and to manage the list of sites available on these computers.
 
-Для того, чтобы сохранить изменения, произведенные на этой вкладке, у пользователя должно быть разрешение «Редактировать компьютеры» для модуля «Менеджер персонала».
+To save the changes made on this tab, the user shall have the "Edit computers" permission for the “Personnel manager" module.
 
-### Разрешать запуск модулей «Центра охраны» только на компьютерах из списка
+### Allow to rum Security Center modules on computers from list only
 
-Если эта опция выключена, то модули «Центра охраны» могут запускаться на любом компьютере сети. При этом, если компьютер, на котором выполняется запуск модулей «Центра охраны» не входит в список, то он будет добавлен туда автоматически. 
+If this option is disabled, the Security Center modules can be run on any computer on the network. In this case, if the computer on which the Security Center modules are launched is not included in the list, it will be added there automatically. 
 
-Если же включено ограничение, разрешающее эксплуатировать сетевые рабочие места «Центра охраны» только на тех компьютерах, которые включены в список, то попытка выполнить запуск любого модуля «Центра охраны» на компьютере, которого нет в списке, будет отклонена. При этом добавлять компьютеры в список нужно вручную.
+If the restriction that allows the network workstations of the Security Center to be used only on those computers, that are included in the list, is included, then the attempt to launch any module of the Security Center on a computer that is not on the list will be rejected. Computers shall be added to the list manually.
 
-### Объекты, назначенные для компьютера
+### Sites specified for computer
 
-Если это необходимо, то для каждого компьютера можно определить список номеров объектов, которые разрешено загружать модулям «Центра охраны», которые запускаются на этом компьютере.
+If necessary, for each computer it is possible to define a list of site numbers that are allowed to be downloaded by the Security Center modules, that are launched on this computer.
 
-Эта функция полезна в том случае, если при работе дежурных операторов используется схема разделения объектов между сетевыми рабочими местами. Например, на одном компьютере оператор работает с объектами с первого номера по трехсотый, на следующем — с триста первого номера по шестисотый и так далее.
+This function is useful, when the duty operators use the scheme of dividing sites between network workplaces. For example, on one computer, the operator works with sites from the first number to the third hundredth, on the next - from the three hundred first number to the six hundredth and so on.
 
-## Инженеры {#personnel-manager-engineer}
+## Engineers {# personnel-manager-engineer}
 
-![Вкладка «Инженеры»][id-07-13]
+!”Engineers” tab][id-07-13]
 
-Вкладка «Инженеры» предназначена для управления списком инженеров, которым могут быть предоставлены разрешения на доступ к удаленному управлению объектами.
+The “Engineers” tab is used to manage the list of engineers that can be granted permissions to access remote site management.
 
-![Добавление инженера][id-07-14] 
+![Add engineer][id-07-14] 
 
-Управлять списком инженеров может пользователь, обладающий правом «Редактировать инженеров».
+The list of engineers can be edited by the user who has the right to "Edit engineers".
 
-Для добавления инженера в список необходимо нажать кнопку «Создать». При этом откроется окно «Добавление инженера», в котором следует заполнить следующие поля:
+To add an engineer to the list, click the “New..." button. This opens the "Add engineer" window, in which the following fields shall be filled:
 
-* «Фамилия» - фамилия инженера. Фамилию и имя инженера следует вводить русскими или латинскими буквами;
+* "Surname" is the engineer surname. The surname and the name of the engineer shall be entered in Russian or Latin letters;
 
-* «Имя» - имя инженера;
+* "Name" - the engineer name;
 
-* «Телефон» - номер мобильного телефона в международном формате;
+* "Phone" - mobile phone number in international format;
 
-* «Электронная почта» - адрес электронной почты инженера.
+* "Email" - the email address of the engineer.
 
-После ввода данных следует нажать кнопку «Добавить» для добавления инженера. При этом в списке инженеров будут отображены фамилия, имя и адрес электронной почты созданного инженера. Для отмены изменений можно нажать кнопку «Отмена». 
+After entering the data, click the “Add” button to add the engineer. At the same time, the surname, name and email of the created engineer will be displayed in the list of engineers. To cancel the changes, click the "Cancel" button. 
 
-После создания учетной записи инженера на адрес его электронной почты будет выслано письмо. Инженер должен подтвердить электронный адрес для завершения регистрации в Облаке, пройдя по указанной в письме ссылке, а затем создать и подтвердить пароль для доступа к web-интерфейсу удаленного программирования объектов.
+After creating the engineer account, a letter will be sent to his/her email address. The engineer shall confirm the e-mail address to complete the registration in the Cloud by following the link in the letter, and then create and confirm the password for accessing the web interface for remote site programming.
 
-Для изменения информации об инженере необходимо выбрать его в списке и нажать «Изменить». При этом откроется окно «Редактирование инженера». Изменение электронной почты инженера после создания его учетной записи в системе невозможно.
+To change information about the engineer, select him/her in the list and click “Change". This opens the “Edit engineer" window. Changing the engineer email after creating an account in the system is impossible.
 
-Для удаления инженера следует выделить его в списке и нажать «Удалить», после чего подтвердить удаление в появившемся окне.
+To remove the engineer, select him/her in the list and click "Delete", after that confirm the deletion in the new window.
 
-Сохранить изменения в списке инженеров можно, нажав кнопку «Сохранить». В обратном случае следует кликнуть по кнопке «Отмена».
+Save changes in the list of engineers by clicking the "Save" button. Otherwise, click on the "Cancel" button.
 
-Информация о предоставленных инженеру разрешениях на доступ к объектам отображается в списке «Разрешения инженера». При выборе инженера в списке приводится информация о номере объекта, его названии, а также дате и времени начала и окончания разрешения на доступ к нему.
+Information about the permissions granted to the engineer for access to sites is displayed in the list of “Permissions for engineer". When selecting an engineer, the list contains information about the site number, its name, and date and time of the beginning and ending of the permission to access it.
 
-Для отмены разрешения, выданного инженеру на доступ к какому-либо объекту, необходимо выделить разрешение в списке и нажать кнопку «Удалить разрешение».
+To cancel the permission granted to the engineer for access to a site, select the permission in the list and click the “Delete permission" button.
 
 
-[id-07-01]: img/empman-01.png "Вкладка «Операторы»"
-[id-07-02]: img/empman-01-00.png "Выбор списка прав для нового оператора"
-[id-07-03]: img/empman-01-01.png "Права оператора в модуле «Менеджер событий»"
-[id-07-04]: img/empman-01-02.png "Права оператора в модуле «Дежурный оператор»"
-[id-07-05]: img/empman-01-03.png "Права оператора в модуле «Менеджер объектов»"
-[id-07-06]: img/empman-01-04.png "Права оператора в модуле «Менеджер отчетов»"
-[id-07-07]: img/empman-01-05.png "Права оператора в модуле «Карты объектов»"
-[id-07-08]: img/empman-01-06.png "Права оператора в модуле «Настройка системы»"
-[id-07-09]: img/empman-01-07.png "Права оператора в модуле «Конфигуратор ключей Норд-LAN»"
-[id-07-10]: img/empman-01-08.png "Права оператора в модуле «Менеджер персонала»"
-[id-07-11]: img/empman-02.png "Вкладка «Группы быстрого реагирования»"
-[id-07-12]: img/empman-03.png "Вкладка «Компьютеры»"
-[id-07-13]: img/empman-04.png "Вкладка «Инженеры»"
-[id-07-14]: img/empman-04-00.png "Добавление инженера"
-[id-07-15]: img/empman-05.png "Вкладка «Администраторы ЛК»"
-[id-07-16]: img/empman-05-00.png "Добавление администратора ЛК"
+[id-07-01]: img/empman-01.png ”Operators” tab
+[id-07-02]: img/empman-01-00.png “Selecting list of rights for new operator"
+[id-07-03]: img/empman-01-01.png "Operator’s rights in the “Event manager” module"
+[id-07-04]: img/empman-01-02.png "Operator’s rights in the "Duty operator" module"
+[id-07-05]: img/empman-01-03.png "Operator’s rights in the "Site manager" module"
+[id-07-06]: img/empman-01-04.png "Operator’s rights in the "Report manager" module"
+[id-07-07]: img/empman-01-05.png "Operator’s rights in the “Site maps” module"
+[id-07-08]: img/empman-01-06.png "Operator’s rights in the “System setup” module"
+[id-07-09]: img/empman-01-07.png "Operator’s rights in the "Nord-LAN key Configurator" module"
+[id-07-10]: img/empman-01-08.png "Operator’s rights in the "Personnel manager" module"
+[id-07-11]: img/empman-02.png "Guards” tab"
+[id-07-12]: img/empman-03.png "“Computers” tab"
+[id-07-13]: img/empman-04.png "”Engineers” tab"
+[id-07-14]: img/empman-04-00.png "Add engineer"
+[id-07-15]: img/empman-05.png “”Administrators of personal account” tab"
+[id-07-16]: img/empman-05-00.png “Add administrator of personal account"

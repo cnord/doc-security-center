@@ -1,155 +1,155 @@
-# Менеджер отчетов
+# Report Manager
 
-Модуль «Менеджер отчетов» предназначен для создания отчетов о работе объектов, «Центра охраны» и персонала охранного предприятия.
+The "Report manager" module is intended to create reports on the operation of sites, Security Center and security company personnel.
 
-В модуль «Менеджер отчетов» встроен генератор форм отчетов, с помощью которого можно видоизменять существующие отчеты или создавать новые.
+A report form generator is built in the "Report manager” module, with which it is possible to modify the existing reports or create new ones.
 
-## Отчеты по событиям
+## Event Reports
 
-При создании отчетов по событиям необходимо помнить об алгоритмах фильтрации, которые используются при регистрации событий. Подробнее о фильтрации событий рассказано в разделе, посвященном модулю «Менеджер событий», здесь же хочется отметить, что при необходимости можно включить отфильтрованные события в создаваемые отчеты.
+When creating event reports, remember about the filtering algorithms that are used when registering events. See more information about filtering events in the section on the "Event manager" module, here it shall be noted that if necessary, it is possible to include the filtered events in the generated reports.
 
-Все отчеты по событиям, если специально не оговорено обратное, создаются с учетом выбранных объектов и классов событий. Благодаря этому отчеты могут создаваться для решения разных задач, в том числе и специфичных для конкретного охранного предприятия.
+Unless otherwise specified, all event reports , are created taking into account the selected sites and event classes. Due to this, reports can be created for solving various tasks, including those specific for a particular security company.
 
-Первые три отчета по событиям («01 — Сортировка по времени», «02 — Сортировка по объектам» и «03 — С группировкой по объектам») предназначены для просмотра полученных от объектов событий в разных представлениях. Необходимо отметить, что если для объекта созданы разделы, имеющие собственные объектовые номера, то события с этих разделов отображаются в отчетах по событиям. При этом объектовый номер раздела указывается в скобках после номера объекта.
+The first three event reports ("01 - Sort by time", "02 - Sort by sites" and "03 - Grouping by sites") are intended for viewing the events received from sites in different views. It shall be noted that if parts with their own site numbers are created for a site, the events from these parts are displayed in the event reports. In this case the site number of the part is indicated in parentheses after the site number.
 
-### События с неописанных объектов
+### Events from Undescribed Sites
 
-Отчет «04 — С неописанных объектов» предназначен для просмотра событий, которые «Центру охраны» не удалось связать ни с одним из существующих объектов. Так же, как и модуль «События с неописанных объектов», этот отчет предназначен для выявления ошибок, сделанных при программировании объектового оборудования, либо при описании объектов в «Центре охраны». Для этого отчета — по понятным причинам — выбранные при его создании объекты и классы событий значения не имеют.
+The report "04 - From undescribed sites" is intended for viewing events that the Security Center failed to associate with any of the existing sites. Like the "Events from undescribed sites” module, this report is intended to identify errors made during programming of site equipment, or when describing sites in the Security Center. For obvious reasons, the sites and event classes selected during its creation do not matter for this report.
 
-### Объекты без событий
+### Sites without Events
 
-Назначение отчета «05 — Список объектов без событий» — двояко. Проще всего с его помощью получить перечень объектов, от которых за заданный промежуток времени не было получено ни одного события. Для этого нужно выбрать в списке объектов все объекты, а в списке классов событий — все классы событий. 
+The purpose of the report "05 - List of sites without events" is twofold. It used to get a list of sites from which no events were received within a given period of time in the simplest way. To do this, select all sites from the list of sites, and in the list of event classes select all event classes. 
 
-Задача поинтереснее — найти, к примеру, все объекты типа «Банк», от которых за последний месяц не было ни одной неисправности. Для этого нужно выбрать все объекты нужного типа и классы событий, имеющие тип «Неисправность». В созданном по таким параметрам отчете будут содержаться только искомые объекты.
+Another more interesting task, for which the report can be used, is to find, for example, all sites of the "Bank" type, from which there have not been any faults during the last month. To do this, select all sites of the desired type and event classes that have the “Fault” type. The report created on the basis of such parameters will contain only the desired sites.
 
-### Отклонение времени
+### Time Deviation
 
-С помощью отчета «06 — По отклонению времени» можно проконтролировать правильность программирования интервала автоматического теста на объекте и правильность заполнения поля «Контрольное время» в карточке объекта. При создании отчета рассчитывается средний временной интервал между событиями с объекта, после чего он сравнивается с контрольным временем объекта. 
+Using the report "06 - By time deviation” to check the correct programming of the interval of the automatic test on the site and correct filling of the "Control time" field in the site card. When creating the report, the average time interval between events from the site is calculated, after which it is compared with the target time of the site. 
 
-Если разность значений больше, чем заданный при создании отчета порог, то такой объект будет выделен в списке. В зависимости от алгоритмов, которые используются контрольными панелями для расчета времени создания следующего автоматического теста, при создании отчета можно исключить все события, тип класса которых не «Тест».
+If the difference of values is greater than the threshold specified at the time of report creation, then such site will be highlighted in the list. Depending on the algorithms used by the control panels to calculate time for creation of the next automatic test, it is possible to exclude all events which class type is not "Test" when creating the report.
 
-### Статистика по классам
+### Statistics by Class
 
-Отчет «07 — Статистика» нужен для того, чтобы посчитать количество событий заданных классов, которые были получены от объекта за период. В первую очередь отчет полезен для выявления объектов с неисправностями разного рода. Например, если при создании отчета выбрать класс событий «Неисправность 220В», то можно подсчитать, сколько раз за заданный период на объекте были проблемы с электропитанием. Для того, чтобы включить в отчет только те объекты, на которые действительно нужно обратить внимание, при создании отчета можно задать минимальное количество событий каждого из заданных классов, которое должно быть получено, чтобы объект был включен в отчет.
+The report "07 - Statistics" is needed to calculate the number of events of the given classes that were received from the site over a period. First of all, the report is useful for identifying sites with faults of various kinds. For example, if you select the event class “AC Fault" when creating the report, you can calculate how many times over the given period the site had power supply problems. To include only those sites that you really need to pay attention to in the report, when creating a report, it is possible to set the minimum number of events for each of the specified classes that shall be received for the site to be included in the report.
 
-Необходимо отметить, что для эффективного использования этого отчета пользователь должен создать отдельные классы для тех событий, наблюдение за которыми представляет для него интерес.
+It shall be noted that for the effective use of this report, the user shall create separate classes for those events, which are of interest to him/her.
 
-### Отправленные SMS
+### Sent SMS
 
-Отчеты, которые принадлежат группе «08 — Отправленные SMS» — «12 — SMS, группировка по объектам», предназначены для контроля работы обработчика событий «Ретранслятор SMS». С помощью этих отчетов можно получить информацию о SMS-сообщениях, которые были созданы при обработке событий по объектам, а также о времени доставки этих SMS-сообщений получателю.
+Reports that belong to the group "08 - Sent SMS" - "12 - SMS, grouping by sites" are intended for monitoring the operation of the event handler "SMS message repeater". Use these reports to get information about SMS messages that were created when handling events by sites, as well as the time of delivery of these SMS messages to the recipient.
 
-### Статистика по каналам
+### Statistics by Channels
 
-В зависимости от настроек, с которыми будет создаваться отчет «13 — По каналам связи», с его помощью можно решать несколько задач. Во-первых, можно оценить, какие каналы связи задействует объект и в каком объеме, подсчитав, сколько событий получено от него по каждому из каналов связи. Во-вторых, можно оценить загрузку отдельного канала связи, подсчитав количество событий, полученных по нему со всех выбранных объектов.
+Depending on the settings with which the report "13 - Via communication channels" will be created, it can be used to solve several tasks. First, it is possible to estimate which communication channels are used by the site and to what extent, after calculating how many events are received from it on each of the communication channels. Second, it is possible to estimate the load of a separate communication channel by counting the number of events received from it from all selected sites.
 
-### Статистика по состоянию
+### Statistics by Status
 
-С помощью отчета «14 — Состояние объекта» можно подсчитать количество и продолжительность ситуаций, когда объект находился в некотором состоянии. 
-Каждое состояние объекта в рамках данного отчета характеризуется двумя событиями: первое событие сигнализирует о том, что объект перешел в известное состояние, при получении второго события считается, что объект из этого состояние вышел. Хорошими примерами состояний объекта являются неисправность питания или канала связи.
+Use the report "14 - Site status” to calculate the number and duration of situations when the site has a certain status. 
+Each status of a site within this report is characterized by two events: the first event signals that the site has passed to a known state, when the second event is received, it is considered that the site is not already in this state. Good examples of site status are power or communication channel failures.
 
-К примеру, при нарушении электропитания на объекте будет создано событие, регистрирующие факт неисправности, а после того, как неисправность устранена, будет создано событие о восстановлении электропитания. Если необходимо подсчитать сколько раз объект находился в состоянии «нарушено электропитание», а кроме того — какова суммарная продолжительность его нахождения в этом состоянии, то при создании этого отчета нужно указать классы событий, соответствующие неисправности и восстановлению электропитания.
+For example, if there is a power failure at the site, an event will be created that records failure, and after the failure is eliminated, an event about power supply restoration will be created. If it is necessary to calculate how many times the site was in a "power failure” state, and in addition - what is the total duration of this state, then when creating this report, specify the event classes corresponding to the failure and restoration of the power supply.
 
-Состояния, представляющие интерес для пользователей «Центра охраны» могут быть самыми разными. Для того, чтобы этот отчет мог активно применяться при работе с «Центром охраны», нужно создать отдельные классы для тех событий, которые регистрируют начало и завершение нахождения объекта в интересующем пользователя состоянии.
+The states of interest to users of the Security Center can be very different. In order for this report to be actively used when working with the Security Center, it is necessary to create separate classes for those events that register the beginning and completion of state, which of interest to the user.
 
-## Отчеты по тревогам
+## Alarm Reports
 
-Все тревожные события, зарегистрированные «Центром охраны», требуют обязательной отработки оператором. Если по объекту регистрируется тревожное событие в тот момент, когда по этому же объекту есть другое неотработанное событие, то такие события объединяются в группу и дальше отрабатываются вместе. Отработка тревог осуществляется в модуле «Дежурные оператор». При отработке тревоги оператор регистрирует в «Центре охраны» действия, которые он выполнил при отработке тревоги. По завершению отработки оператор отменяет тревогу, регистрируя время и результат отработки.
+All alarm events registered by the Security Center require mandatory handling by the operator. If an alarm event is registered for the site at the moment when there is another unhandled event on the same site, then such events are combined into a group and further handled together. The alarms are handled in the "Duty operator" module. When handling an alarm, the operator registers the actions that he/she performed during the alarm handling in the Security Center. After the handling, the operator cancels the alarm by registering the handling time and result.
 
-Большинство отчетов по тревогам при создании позволяют уточнить, нужно ли включать данные по тревогам, по которым не было вызовов групп быстрого реагирования. Это связано с тем, что такие тревоги многими охранными предприятиями считаются технологическими, либо ложными. Поэтому в некоторых отчетах их быть не должно, а в некоторых, наоборот, должны быть только такие тревоги.
+During creation, most alarm reports allow to specify whether to include data on the alarms for which there were no calls from the guards. This is due to the fact that such alarms are considered temporary or false by many security companies. Therefore, in some reports there shall not be such alarms, and in some, on the contrary, there shall only be such alarms.
 
-При создании отчетов по тревогам необходимо выбрать объекты и классы тревожных событий, которые должны быть включены в отчет. Если при создании отчета важно выбрать только те тревоги, по которым были зарегистрированы определенные действия, то можно явно указать действия операторов, которые нужны.
+When creating alarm reports, select sites and alarm event classes to be included in the report. If, when creating a report, it is important to select only those alarms for which certain actions were registered, it is possible to explicitly specify the actions of the operators that are required.
 
-### Стандартный отчет и отчет по оператору
+### Standard Report and Report by Operator
 
-Отчет «01 — По оператору» предназначен для просмотра тревог, в отработке которых принимал участие конкретный оператор. А с помощью отчета «02 — Стандартный» можно просмотреть все зарегистрированные тревоги и действия по ним. Дополнительно, при создании этого отчета можно вывести только те тревоги, по которым не было вызовов групп.
+The report "01 - By operator" is intended for viewing alarms, which were handled by a certain operator. And with the help of the report "02 - Standard" it is possible to see all registered alarms and actions for them. Additionally, when creating this report, it is possible to display only those alarms for which there were no guard calls.
 
-### Статистика по отменам тревог
+### Statistics by Alarm Cancellations
 
-При создании отчета «03 — По количеству отмен» можно указать минимальное количество отмен, которое должно быть зарегистрировано за период. Если при этом выбрать какую-то конкретную отмену, например, «Неисправность оборудования», и указать, что таких отмен должно быть не менее 5, то можно получить отчет, в который будут включены все объекты, тревоги по которым не менее 5 раз отменялись с указанием причины «Неисправность оборудования».
+When creating the report "03 - By number of cancellations", it is possible to specify the minimum number of cancellations that shall be registered over a period. If you select any specific cancellation, for example, “Equipment fault", and specify that there shall be at least 5 such cancellations, you can get a report that will include all sites which alarms have been canceled at least 5 times since indicating the cause of "Equipment fault".
 
-Отчет «03а — Статистика по отменам» предназначен для подсчета количества выбранных отмен, зарегистрированных за заданный период. С его помощью можно посмотреть, какие причины отмены тревог регистрируются чаще других и насколько. Например, можно увидеть какую долю занимают тревоги, которые были отменены, как ложные.
-Кроме подсчета общего количества отмен по всем выбранным объектам, отчет позволяет детализировать отмены по объектам, для того, чтобы видеть на каких именно объектах возникало больше ложных тревог или тревог, на которых были вызовы групп.
+The report "03a - Statistics by cancellations" is intended for calculating the number of selected cancellations registered over a given period. With its help, it is possible to see what causes of alarm cancellation are registered more often than others and how much. For example, it is possible to see what percentage of the alarms that were canceled are false.
+In addition to counting the total number of cancellations for all selected sites, the report allows to detail site cancellations in order to see on which particular sites there were more false alarms or alarms on which there were guard calls.
 
-С помощью отчета «03b — Сводный по отменам» можно увидеть еще один вариант детализации отмен по объектам. Отчет удобнее просматривать, чем предыдущий, но есть ограничение — в него может быть включено не более четырех отмен. Так же, как и предыдущий, этот отчет позволяет узнать, какие объекты выделяются в общем списке причинами возникающих на них тревог.
+With the help of the report "03b - Summary by cancellations", it is possible to see one more option for detailing site cancellations. It is more convenient to view the report than the previous one, but there is a limit - it can include no more than four cancellations. Just like the previous one, this report allows to know which sites are highlighted in the common list by the causes of the alarms that occur on them.
 
-Отчет «03с — Сводный по отмене с комментарием» позволяет выбрать одну причину отмены тревоги, подсчитать количество тревог, при отмене которых была указана эта причина, а кроме того — вывести все комментарии, которые зарегистрировали операторы при отработке этих тревог. Если алгоритм отработки тревог операторами требует внесения комментариев при регистрации ситуаций, сопровождающих отработку, то этот отчет будет очень полезен при анализе причин возникновения тревог, а также проблем, которые возникают при их отработке.
+The report "03c - Summary by cancellations with comment" allows to select one cause for canceling an alarm, to calculate the number of alarms, during which cancellation the cause was indicated, and besides - to display all the comments that the operators registered when during handling of these alarms. If the algorithm for handling alarms by operators requires comments when registering situations accompanying handling, this report will be very useful in analyzing the causes of alarms, as well as the problems that arise when they are handled.
 
-Последний из сводных отчетов по отменам тревог, «05 — Отмены по дням» позволяет выбрать одну причину отмены тревоги и подсчитать, сколько раз эта причина использовалась в каждый из дней выбранного периода. Дополнительно к этому отчет позволяет выбрать одну дополнительную характеристику объекта, которая также будет включена в отчет. 
+The last of the summary alarms cancellation reports, "05 - Cancellations by day" allows to select one cause for canceling an alarm and calculate how many times this cause was used on each day over the selected period. Besides, the report allows to select one additional characteristic of the site, which will also be included in the report. 
 
-Предположим, что с помощью предыдущих отчетов выяснилось, что по объекту за месяц было много ложных тревог. С помощью отчета «05 — Отмены по дням» можно выяснить, как распределялись эти тревоги по дням месяца: происходили они каждый день или в чьи-то конкретные смены. 
+Suppose that with the help of previous reports it was discovered that there were a lot of false alarms for the site during a month. Using the report "05 - Cancellations by day" it is possible to find out how these alarms were distributed by the days of the month: they occurred every day or during someone's specific shifts. 
 
-### Тревоги и события
+### Alarms and Events
 
-Отчет «04 — С событиями» представляет собой комбинацию двух отчетов — отчета по событиям и отчета по тревогам. При создании этого отчета можно выбрать не только классы событий с типом «Тревога», но и другие. При этом именно события с типом класса «Тревога» и действия, которые зарегистрированы при их отработке, определяют, какие объекты будут включены в отчет. События же с другими типами классов будут включены в отчет после того, как будет создан стандартный отчет по тревогам.
+The report "04 - With events" is a combination of two reports - event report and alarm report. When creating this report, it is possible to select not only event classes with the "Alarm" type, but also others. In this case, it is the events with the type of the "Alarm" class and the actions that were registered during their handling, that determine which sites will be included in the report. Events with other types of classes will be included in the report after the standard alarm report is created.
 
-События, которые были получены до и после тревоги могут быть полезны при выяснении причин возникновения тревоги, поэтому чаще всего этот отчет используется именно для этого.
+Events that were received before and after an alarm can be useful in finding out the causes for the occurrence of an alarm, so this report is most often used for this purpose.
 
-## Отчеты по времени охраны
+## Reports by Arm Time
 
-Назначение этой группы отчетов — предоставить информацию о времени, в течении которого объект находился под охраной, либо уточнить, находился ли объект под охраной в заданное время.
+The purpose of this group of reports is to provide information about the time during which the site was armed, or to specify whether the site was armed at a specified time.
 
-### Время охраны
+### Arm Time
 
-Отчет «01 — С суммой времени» позволяет посуточно просмотреть взятия и снятия объекта за период, время, в течении которого объект находился под охраной, а также время, которое объект должен был охраняться в соответствии с расписанием охраны.
+The report "01 - With the amount of time" allows to see the daily site arming and disarming over a period, the time during which the site armed, and also the time during which the site had to be armed in accordance with arm schedule.
 
-При выводе взятий и снятий объекта выполняется принудительная фильтрация этих событий: если несколько взятий получено подряд, то в отчет будет включено только первое из них. Если же несколько снятий идут подряд, то в отчет будет включено только последнее снятие.
+When displaying the site arming and disarming, these events are mandatory filtered: if several armings are received one by one, only the first one will be included in the report. If several disarmings are received one by one, only the last disarming will be included in the report.
 
-Время, которое объект должен был находиться под охраной по расписанию, не зависит от того, включен ли для объекта контроль расписания охраны. Таким образом, даже если расписание охраны объекта не контролируется, оно все равно может использоваться для сравнения предполагаемого и действительного времени нахождения объекта под охраной.
+The time, over which the site was supposed to be armed according to the schedule, does not depend on whether the monitoring of the arm schedule is included for the site. Thus, even if the site arm schedule is not monitored, it can still be used to compare the estimated and actual period of the site arming.
 
-С помощью отчета «02 — Кратко» можно получить просто сумму времени, в течении которого объект находился под охранной за заданный период. Этот отчет может быть полезен в тех случаях, когда оплата за услуги охраны зависит от времени, в течении которого объект находился под охраной.
+With the help of the report "02 - Briefly" it is possible to get simply the amount of the time during which the site was armed over a given period. This report can be useful in cases when payment for security services depends on the time during which the site was armed.
 
-### Состояние охраны
+### Arm Status
 
-Нередко возникают ситуации, когда нужно выяснить, в каком состоянии находился тот или иной объект в конкретный день и время. Для решения такой задачи предназначен отчет «03 — Состояние охраны». При создании отчета нужно выбрать интересующие дату, время и состояние охраны объекта. 
+Often there are situations when it is necessary to find out in which state the site was on a particular day and time. To solve this problem, the report "03 - Arm Status" is used. When creating a report, select the date, time and arm status of the required site. 
 
-## Отчеты по группам быстрого реагирования
+## Reports by guards
 
-Анализ работы групп быстрого реагирования позволяет оценить качество оказываемых услуг охраны и добросовестность экипажей. Кроме того, связав вызовы групп с объектами, можно выделить объекты, на которые группы реагирования вызываются чаще, чем на остальные и сделать в отношении этих объектов какие-то организационные выводы.
+The analysis of the guard operation allows to assess the quality of the security services provided and reliability of guards. Besides, by linking guard calls to sites, it is possible to highlight the sites to which the guards are called more often than to the rest and make some organizational conclusions with respect to these sites.
 
-Отчет по группам быстрого реагирования напоминают отчеты по тревогам, только они ориентированы на специфику, связанную с работой групп — подсчет времени прибытия, среднее время прибытия, количество вызовов и так далее.
+The report on the guards resembles alarm reports, except that they are focused on the specifics associated with the work of guards – counting the arrival time, average time of arrival, number of calls, etc.
 
-Для того, чтобы отчеты по тревогам и группам быстрого реагирования были по настоящему полезны, процедура отработки тревог должна быть связана с действиями и причинами отмены тревог, которые регистрируют операторы. Во-первых, нужно выделить типовые ситуации, которые служат причиной возникновения тревог. Во-вторых, для отработки этих ситуаций нужно создать действия и отмены тревог. В-третьих, нужно обучить оператора выявлять типовые ситуации, действовать в соответствии с разработанным для них регламентом и регистрировать именно те действия и отмены, которые соответствуют возникшей ситуации.
+In order for alarm reports and reports by guards to be truly useful, the alarm handling procedure shall be linked to the actions and causes for canceling the alarms that are registered by operators. First, it is necessary to identify the typical situations that are the cause of alarms. Second, to handle these situations, it is necessary to create actions and alarm cancellations. Third, it is necessary to train the operator to identify typical situations, to act in accordance with the rules developed for them and to register exactly those actions and cancellations that correspond to a certain situation.
 
-### Работа групп
+### Guard Performance
 
-Отчет «01 — Работа групп» предназначен для вывода всех тревог за период, по которым регистрировались вызовы выбранных групп реагирования. 
+The report "01 - Guard Performance" is intended for displaying all alarms over the period for which calls of selected guards were registered. 
 
-### Статистика выездов
+### Statistics of Responses
 
-Следующий отчет, «02 — Статистика выездов», отображает основную статистику, связанную с работой групп за период: общее количество вызовов группы, количество вызовов, которые были отменены, время, которое группа провела на вызовах, а также среднее время прибытия группы. Отчет может быть полезен для оценки загруженности группы, а также для выявления наиболее и наименее загруженных групп быстрого реагирования.
+The next report, "02 - Statistics of responses", shows the main statistics related to the performance of guards over a period: total number of group calls, number of calls that were canceled, time which the guard spent on calls, and average arrival time of the guard. The report can be useful for estimating the workload of a guard, as well as for identifying the most and least loaded guards.
 
-### Среднее количество вызовов
+### Average Number of Calls
 
-С помощью отчета «03 — Среднее количество вызовов» можно подсчитать общее количество вызовов групп быстрого реагирования на объекты, а также среднее количество вызовов групп на объект в месяц. Этот отчет используется для выявления объектов, на которые группы вызываются чаще всего.
+Use the report "03 - Average number of calls” to calculate the total number of calls for guards to sites, as well as the average number of guard calls to site per month. This report is used to identify the sites to which the guards are called most often.
 
-### Время реагирования
+### Response Time
 
-Назначение отчета «04 — Время реагирования» — оценка времени, которое проходит от момента получения тревоги до вызова группы быстрого реагирования и ее прибытия на объект. При создании отчета можно указать максимально допустимые значения этих интервалов, чтобы в отчет были включены только те тревоги, где эти значения были превышены.
+The purpose of the report is "04 - Response time" is to estimate the time that elapses from the time the alarm is received to the call of the guard and its arrival at the site. When creating a report, it is possible to specify the maximum allowed values for these intervals, so that only those alarms are included in the report, where these values were exceeded.
 
-### Статистика по отменам
+### Statistics by Cancellations
 
-Так же, как и аналогичный отчет по тревогам, отчет «05 — Статистика по отменам» позволяет подсчитать количество зарегистрированных причин отмен тревоги за период, но только в отношении выбранных групп реагирования. С помощью этого отчета можно оценить, какое количество тревог, на которые была вызвана группа, были ложными и почему.
+Just like the similar alarm report, the report "05 - Statistics by cancellations" allows to calculate the number of registered causes of alarm cancellation over a period, but only for the selected guards. With the help of this report, it is possible to estimate how many of the alarms to which the guard was called were false and why.
 
-## Отчеты по объектам
+## Site Reports
 
-Набор отчетов по объектам предназначен для создания твердой копии для основных данных «Центра охраны»: объектов, операторов, шаблонов событий и обработчиков событий.
+A set of site reports is intended to create a hard copy for the main data of the Security Center: sites, operators, event templates and event handlers.
 
-### Объекты
+### Sites
 
-Отчеты «01 — Список объектов», «02 — Минимальная карточка», «03 — Короткая карточка» и «04 — Полная карточка» предназначены для просмотра и печати информации об объектах в разных представлениях и разном объеме.
+The reports "01 - List of sites", "02 - Minimal card", "03 - Short card" and "04 - Full card" are intended for viewing and printing information about sites in different views and in different volumes.
 
-Отчет «06 — Контрольное время» позволяет вывести объекты, контрольное время которых находится в заданных при создании отчета границах. Отчет может быть полезен при ранжировании объектов, если контрольное время для объекта выставляется в соответствии с его важностью.
+The report "06 - Control time" allows to display sites which control time is within the limits defined during the report creation. The report can be useful when ranking sites, if the control time for the site is set according to its importance.
 
-### Операторы
+### Operators
 
-С помощью отчета «05 — Операторы» можно распечатать список пользователей программного обеспечения «Центр охраны» и их прав в модулях.
+Use the report"05 - Operators” to print a list of users of the Security Center software and their rights in the modules.
 
-### Шаблоны событий
+### Event Templates
 
-Разнообразную информацию об использовании шаблонов событий можно получить с помощью отчета «07 — Список шаблонов событий». В зависимости от параметров, которые были заданы при создании отчета, можно узнать, какие шаблоны используются для объектов, а какие — нет. Для тех шаблонов, которые используются, можно подсчитать количество объектов, которые их используют.
+A variety of information about using event templates can be obtained using the report "07 - List of event templates". Depending on the parameters that were specified when creating the report, it is possible to find out which templates are used for sites, and which ones are not. For those templates that are used, it is possible to count the number of sites that use them.
 
-Если дополнительно к списку шаблонов событий необходимо получить описания событий, которые включены в тот или иной шаблон, то для этого можно воспользоваться отчетом «08 — Коды шаблонов событий». 
+If in addition to the list of event templates it is possible to get descriptions of events that are included in a particular template, then use the report "08 - Event template codes". 
 
-### Обработчики событий
+### Event Handlers
 
-Отчет «09 — Ретрансляторы SMS» предназначен для просмотра и печати информации о настройках обработчиков событий «Ретрансляторы SMS». С его помощью можно получить информацию обо всех обработчиках, которые используются для выбранных объектов, или только о тех из них, для которых указан конкретный номер получателя.
+The report "09 - SMS message repeaters" is intended for viewing and printing information about the settings of the event handlers “SMS message repeaters”. It is used to get information about all handlers that are used for the selected sites, or only those that have a specific recipient number.

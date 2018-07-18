@@ -1,13 +1,13 @@
-# Техническая поддержка
+# Technical Support
 
-Если при эксплуатации программного обеспечения «Центр охраны» возникли проблемы или пожелания по его улучшению, мы просим обращаться с ними в службу технической поддержки ООО НТКФ «Си-Норд» по телефонам (812) 327-16-36, 8 (800) 200-60-80, факсу (812) 327-16-33 или электронной почте support@cnord.ru. 
+If problems arise during the operation of the Security Center software, or if you want to improve it, contact the technical support service of C.Nord by phone (812) 327-16-36, 8 (800) 200-60-80, fax (812) 327-16-33 or e-mail support@cnord.ru. 
 
-При обращении в службу технической поддержки с проблемой, необходимо указать эксплуатируемую версию программного обеспечения «Центр охраны» и описание возникшей неисправности.
+When contacting technical support about a problem, specify Security Center version that is being installed and describe the problem.
 
-Если обращение производится по электронной почте, то к письму рекомендуется приложить архив, содержащий файлы:
+In case of request by e-mail, it is recommended to attach the archive containing the following files:
 
-* файл `C:\Andromeda_Install.log` — В этом файле содержится протокол работы программы установки «Центра охраны»
-* файлы из папки `C:\Andromeda Log` — В файлах, которые находятся в этой папке, содержатся протоколы работы модулей «Центра охраны»
-* файлы из папки `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` — В файлах, которые находятся в этой папке и ее подпапках, содержатся протоколы работы программы установки Microsoft SQL Server
+* file `C:\Andromeda_Install.log` - This file contains the log of Security Center installer
+* files from folder `C:\Andromeda Log` - The files contain the logs Security Center modules
+* files from folder `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` - The files from this folder and its subfolders contain the logs of Microsoft SQL Server Setup installer
 
-В перечисленных файлах не содержится персональных данных или конфиденциальной информации.
+The listed files do not contain personal data or confidential information.

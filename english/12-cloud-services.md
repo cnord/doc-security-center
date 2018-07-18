@@ -1,232 +1,232 @@
-# Облачные сервисы {#cloud-services}
+# Cloud Services {#cloud-services}
 
-Облако - это инфраструктурный программно-аппаратный комплекс. Оно предоставляет сервисы для улучшения качества предлагаемых частным охранным предприятием услуг.
+The cloud is an infrastructure software and hardware complex. It provides services to improve the quality of services offered by the private security company.
 
-Облачным сервисом также является «Тревога в ГБР». Данное приложение обеспечивает быстрое взаимодействие между оператором «Центра охраны» и сотрудниками ГБР. Кроме того, оно позволяет ГБР получить необходимую информацию об объекте и его состоянии.
+“Alarm to Guard” is also a cloud service. This application provides fast interaction between the Security Center operator and Guard employees. Besides, it allows the Guard to get the necessary information about the site and its status.
 
-Помимо данных сервисов, доступны различные web-интерфейсы. Например, с помощью «Интерфейса партнера» частное охранное предприятие может управлять услугами Облака. Здесь можно настроить один из облачных сервисов, например,  «Тревога в ГБР».
+In addition to these services, various web-interfaces are available. For example, with the help of the "Partner interface" a private security company can manage the Cloud services. It is possible to configure one of the cloud services, for example, "Alarm to Guard."
 
-«Интерфейс инженера» отображает доступный для управления объект и обеспечивает возможность удаленного управления оборудованием на нем.
+The "Engineer Interface" displays a site available for control and provides the ability to remotely control the equipment on it.
 
-Пользователь «Центра охраны» может выбрать один из режимов работы с облачными сервисами в зависимости от степени интеграции с Облаком. Полная интеграция позволяет использовать все облачные сервисы. Частичная - только сервис, предоставляющий удаленный доступ к оборудованию на объекте. Запрещая передачу каких-либо данных в Облако, пользователь отказывается от использования всех облачных сервисов.
+The Security Center user can select one of the modes of operation with cloud services, depending on the degree of integration with the Cloud. Full integration allows to use all cloud services. Partial means only a service that provides remote access to equipment on a site. By prohibiting transfer of any data to the Cloud, the user refuses to use all cloud services.
 
 
-### Получение информации о состоянии объекта
+### Getting Information about Site Status
 
-Предоставляемая «Call-центром» услуга «Получение информации о состоянии объекта» позволяет проверить состояние охраняемого объекта. Данная услуга подключается в административной панели учетной записи партнера.
+The service “Get information about site status" provided by the "Call Center" allows to check the status of the protected site. This service can be enabled in the administrator panel of the partner account.
 
-Удостовериться в том, что объект находится в ожидаемом состоянии, необходимо по разным причинам. В частности, объект может быть не взят под охрану из-за неисправности охранного оборудования или по причине нарушения канала связи. При использовании GPRS или GSM связи на SIM-карте могут закончиться деньги.
+It is necessary to make sure that the site is in the expected state for various reasons. In particular, the site may not be armed due to a malfunction of the security equipment or due to a communication channel failure. When using GPRS or GSM connection, the SIM card money may run out.
 
-Для проверки состояния объекта клиент ЧОП должен позвонить на специальный номер предприятия. После этого он может самостоятельно выбрать услугу «Получение информации о состоянии объекта» с помощью голосового меню, ввести номер объекта и при необходимости ПИН-код. Клиент ЧОП может узнать ПИН-код в «Личном кабинете» партнера, а оператор «Центра охраны» - в «Менеджере объектов» на вкладке «Ответственные лица». 
+To check the site status, the client of the private security company shall call the special company number. After that, he/she can independently select the service “Get information about site status" using the voice menu, enter the site number and, if necessary, a PIN code. The client of the private security company can get the PIN code in the "Personal account" of the partner, and the Security Center operator - in the "Site manager" on the "Responsible persons" tab. 
 
-![Выбор услуг при звонке в «Call-центр»][id-13-02]
+![Selection of services when calling to "Call Center”][id-13-02]
 
-ПИН-код следует запрашивать в целях повышения уровня безопасности для сохранения конфиденциальной информации о состоянии объекта. Включить запрос ПИН-кода для звонков о состоянии охраняемого объекта можно в панели управления учетной записи партнера.
+The PIN code shall be requested to increase the level of security for maintaining confidential information about the site status. It is possible to enable the PIN request for calls about the status of the protected site in the control panel of the partner account.
 
-Благодаря облачному сервису «Call-центр» количество звонков, переводимых на оператора, снижается. Это особенно важно в часы пик, когда сотрудники предприятий приходят или уходят с работы, снимая или ставя объект на охрану соответственно. Автоматическая обработка звонков для подтверждения снятия и взятия под охрану позволяет операторам «Центра охраны» заниматься своей основной обязанностью, а именно - отработкой тревог.
+Due to the cloud service "Call Center" the number of calls transferred to the operator is reduced. This is especially important during peak hours, when employees of enterprises come or go from work, arming or disarming sites, respectively. Automatic handling of calls to confirm arming and disarming allows the Security Center operators to performs their primary duties, namely, handling alarms.
 
-### Проверка КТС
+### Panic Button Check
 
-Тревожная кнопка устанавливается в ювелирных салонах, ломбардах, банках, кафе, аптеках и во многих других предприятиях. При этом частное охранное предприятие составляет договор, в котором прописывается периодичность обязательной проверки тревожной кнопки клиентом ЧОП: например, один раз в день. 
+The panic button is installed in jewelry salons, pawnshops, banks, cafes, pharmacies and many other enterprises. In this case, the private security company makes a contract, which specifies the frequency of the mandatory check of the panic button by the client of the private security service: for example, once a day. 
 
-Проверить тревожную кнопку на работоспособность позволяет предоставляемая сервисом «Call-центр» услуга «Проверка КТС». Данная услуга подключается в административной панели учетной записи партнера.
+The “Panic button check” service provided by the "Call Center” can be used to check the panic button serviceability. This service can be enabled in the administrator panel of the partner account.
 
-Для проверки тревожной кнопки клиент ЧОП должен позвонить на специальный номер предприятия. После этого он может самостоятельно выбрать услугу «Контроль тревожной кнопки» с помощью голосового меню, ввести номер объекта и ПИН-код. Клиент ЧОП может узнать ПИН-код в «Личном кабинете» партнера, а оператор «Центра охраны» - в «Менеджере объектов» на вкладке «Ответственные лица».
+To check the panic button, the client shall call the special number of the company. After that, he/she can independently select the service "Panic button check" using the voice menu, enter the site number and PIN. The client of the private security company can get the PIN code in the "Personal account" of the partner, and the Security Center operator - in the "Site manager" on the "Responsible persons" tab.
 
-После этого клиент должен нажать тревожную кнопку. Если она работает, в «Центре охраны» возникает тревога, которая автоматически отменяется по причине «Тест». При этом «Call-центр» сообщает клиенту об исправности тревожной кнопки, а в журнале событий регистрируется совершение проверки тревожной сигнализации.
+After that, the client shall press the panic button. If it works, an alarm signal is sent to the Security Center, which is automatically canceled due to the "Test” cause. In this case, the "Call Center" informs the client about the serviceability of the panic button, and the alarm log is recorded in the event log.
 
-## Web-интерфейс партнера
+## Partner’s Web-Interface
 
-Воспользоваться административной панелью для настройки облачных сервисов частное охранное предприятие может после регистрации в Облаке учетной записи партнера. 
+The private security company can use the administrator panel to configure the cloud services after registering partner account in the Cloud. 
 
-### Регистрация учетной записи партнера
+### Partner Account Registration
 
-Для регистрации партнера в Облаке следует открыть в браузере веб-страницу по адресу https://cloud.cnord.net. На странице приведена краткая справочная информация по облачным услугам, которые могут быть настроены в административной панели. 
+To register a partner in the Cloud, open web page at https://cloud.cnord.net. The page contains a brief background on cloud services that can be configured in the administrator panel. 
 
-![Веб-интерфейс партнера][id-13-04]
+![Partner web-interface][id-13-04]
 
-Для создания учетной записи необходимо выбрать вкладку «Регистрация партнера». В поле «Электронная почта» нужно ввести адрес электронной почты партнера, а в поле «UID "Центра охраны"» - уникальный идентифицирующий номер установленного «Центра охраны».
+To create an account, select the "Partner Registration" tab. Enter the partner's email address in the field "E-mail", and unique identifying number of the installed Security Center in the "UID" field of the Security Center.
 
-![Регистрация партнера][id-13-05]
+![Partner registration][id-13-05]
 
-Узнать UID «Центра охраны» можно, запустив «Менеджер событий». После этого необходимо вызвать выпадающее меню, кликнув на появившейся в системной области панели задач Windows иконке модуля. Здесь следует выбрать пункт меню «Связь с облаком...». 
+Start the "Event Manager” to get the UID of the Security Center. After that, open the drop-down menu by clicking on the icon of the module that appeared in the system tray of the Windows task bar. Select the “Connection to the cloud...” menu item. 
 
-![Связь с облаком][id-13-06]
+![Connection to the cloud][id-13-06]
 
-При этом откроется одноименное окно, содержащее вкладку «UID "Центра охраны"». На ней можно копировать UID Центра охраны для последующей вставки номера в поле браузера. Для этого нужно кликнуть по иконке «Копировать» напротив поля «UID».
+The window of the same name opens with the "UID" tab of the Security Center. Copy the Security Center UID for the subsequent insertion of the number in the browser field. To do this, click on the "Copy" icon near the "UID" field.
 
-![Копирование UID][id-13-07]
+![UID copying][id-13-07]
 
-После ввода необходимых данных на странице регистрации учетной записи партнера следует нажать кнопку «Зарегистрироваться». 
+After entering the necessary information on the registration page of the partner account, click the "Register" button. 
 
-На указанную при регистрации электронную почту будет отправлено письмо. Для завершения регистрации следует подтвердить адрес электронной почты, пройдя по ссылке, приведенной в письме. 
+A letter will be sent to the e-mail specified at registration. To complete the registration, confirm the e-mail address by following the link in the letter. 
 
-При первой авторизации на сайте появится форма, которую следует заполнить. Здесь следует проверить и при необходимости изменить контактную информацию, указанную при регистрации «Центра охраны». А именно: имя и фамилию, а также мобильный телефон партнера; наименование, город и адрес организации. Кроме того, здесь предлагается создать и подтвердить пароль для входа в аккаунт партнера.
+During the first authorization, a form will appear on the site, which shall be filled in. Check and, if necessary, change the contact information specified when registering the Security Center. Namely: name and surname, as well as the partner's mobile phone; name, city and address of the organization. Besides, it is proposed to create and confirm a password to enter the partner's account.
 
-### Повторная регистрация учетной записи партнера
+### Partner Account Re-Registration
 
-Если требуется создать новую учетную запись партнера взамен существующей, можно пройти повторную регистрацию. Например, этим можно воспользоваться при потере регистрационных данных партнера. Также повторную регистрацию можно осуществить для обеспечения защиты данных при увольнении администратора аккаунта.
+If it is necessary to create a new partner account instead of an existing one, it is possible to re-register. For example, use this function if you lose your the partner registration information. Also, it is possible to re-register to ensure data protection when the administrator of the account is dismissed.
 
-Для повторной регистрации необходимо создать новый UID. Это можно сделать в окне «Связь с облаком...» на вкладке «UID "Центра охраны"». Таким образом, в данном окне можно не только узнать информацию об UID «Центра охраны», но и создать новый UID. 
+To re-register, create a new UID. This can be done in the window “Connection to the cloud..." on the "UID" tab of the Security Center. Thus, in this window it is possible not only to get information about the UID of the Security Center, but also create a new UID. 
 
-![Создание нового UID][id-13-08]
+![Creating a new UID][id-13-08]
 
-Для этого следует нажать на кнопку «Создать новый UID». Центр охраны будет автоматически удален из панели управления учетной записи партнера. С помощью нового UID можно добавить данный «Центр охраны» к другой учетной записи или создать новую учетную запись партнера.  
+To do this, click on the "Create a new UID” button. The Security Center will be automatically deleted from the partner account control panel. Use the new UID to add this Security Center to another account or create a new partner account.  
 
-Создавать новый UID можно не чаще одного раза в сутки. При использовании услуги «Call-центр» после смены UID «Центра охраны» следует также изменить UID в телефонном роутере.
+It is allowed to create a new UID no more than once a day. When using the Call Center service after changing the UID of the Security Center, also change the UID in the telephone router.
 
-Важно: смена UID возможна при выполненном подключении к Облаку и открытых для компьютера, на котором запущен модуль «Менеджер объектов», портах 80 и 443 протокола TCP.
+Important: UID change is possible when the connection to the Cloud is made and when TCP ports 80 and 443 are opened for the computer on which the "Site manager" module is running.
 
-### Вход в аккаунт партнера
+### Login to Partner Account
 
-Для входа в аккаунт уже зарегистрированного партнера на веб-странице https://cloud.cnord.ru/ нужно выбрать вкладку «Войти». Здесь необходимо ввести адрес электронной почты в поле «Электронная почта» и пароль, указанный после регистрации партнера, в поле «Пароль».
+To log in to an account of an already registered partner on the https://cloud.cnord.ru/ web- page, select the “Log in" tab. Shall enter the e-mail address in the "E-mail" field and the password specified after the partner registration in the "Password" field.
 
-![Вход в аккаунт партнера][id-13-09]
+![Login to partner account][id-13-09]
 
-Для выхода из аккаунта следует кликнуть по ссылке «Выйти», расположенной на панели в верхней части окна.
+To exit the account, click on the “Log out" link located in the panel at the top of the window.
 
-### Управление «Центрами охраны»
+### Management of Security Centers
 
-В панели управления партнёра присутствует информация о «Центре охраны», указанная при регистрации «Центра охраны» в Облаке. При необходимости можно добавить новый Центр охраны, нажав кнопку «Добавить "Центр охраны"». При этом откроется одноименная форма, в которой нужно ввести UID зарегистрированного в Облаке «Центра охраны» и нажать кнопку «Добавить». 
+The partner control panel contains information about the Security Center, specified when registering the Security Center in the Cloud. If necessary, it is possible to add a new Security Center by clicking the "Add Security Center" button. In this case, the form of the same name opens, in which you need to enter the UID of the Security Center registered in the Cloud and click the "Add" button. 
 
-Если UID принадлежит к еще не привязанному к партнеру «Центру охраны», то он будет закреплен за данным партнером. В обратном случае рекомендуется сменить UID установленного «Центра охраны».
+If the UID belongs to the Security Center, not yet associated with the partner, then it will be assigned to this partner. In the opposite case, it is recommended to change the UID of the installed Security Center.
 
-Для удаления «Центра охраны» нужно кликнуть по иконке «Корзина» напротив центра охраны и подтвердить удаление.
+To delete the Security Center, click on the "Cart" icon near the security center and confirm the deletion.
 
-### Настройка облачных сервисов {#cloud-services-settings}
+### Setting up Cloud Services {#cloud-services-settings}
 
-В административной панели приведена информация о добавленных «Центрах охраны». А именно: наименование и адрес организации, а также электронная почта и телефон администратора «Центра охраны». 
+The administrator panel provides information about the added Security Centers. Namely: name and address of the organization, as well as e-mail and telephone number of the Security Center administrator. 
 
-![Административная панель учетной записи партнера][id-13-10]
+![Administrator panel of the partner account][id-13-10]
 
-Для каждого «Центра охраны» можно настроить услугу «Call-центр». Прежде всего следует подключить телефонный роутер. Пройдя по соответствующей ссылке, можно прочитать инструкцию по его подключению. Для заявки на приобретение телефонного роутера следует воспользоваться одноименной ссылкой. 
+For each Security Center it is possible to configure the "Call Center" service. First, connect a telephone router. Click on the corresponding link to read the instruction on its connection. To leave an order to purchase a telephone router, use the same link. 
 
-Если телефонный роутер подключен, в секции «Call-центр» можно вызвать окно «Настройка Call-центра». Окно предназначено для выбора услуг «Call-центра»: подтверждение снятий или взятий под охрану (без запроса ПИН-кода или только по запросу ПИН-кода), проверка КТС (с запросом ПИН-кода). Кроме того, здесь можно загрузить файл приветствия в формате WAV, либо установить стандартное приветствие. Размер файла для загрузки не должен превышать 10 Мб.
+If the telephone router is connected, open the "Call Center setup" window in the "Call Center" section. The window is intended for selecting the services of the "Call Center": confirmation of disarming or arming (without requesting a PIN code or only upon requesting a PIN code), panic button check (upon requesting a PIN code). Besides, it is possible to download a welcome file in WAV format, or set a standard greeting. The download file size shall not exceed 10 MB.
 
-![Настройка услуги "Call-центр" в учетной записи партнера][id-13-11]
+![Setting the "Call Center" service in the partner account][id-13-11]
 
-На электронную почту администратора партнера можно отправить статистику использования услуги «Call-центр». Статистика генерируется в формате Microsoft Excel за определенный период: текущие или предыдущие сутки, текущая или прошедшая неделя, текущий или предыдущий месяц. В статистике приводится количество звонков и средняя продолжительность всех звонков, звонков проверки состояния, проверки КТС, звонков с переключением на операторов, а также средняя продолжительность сброшенных звонков.
+Send statistics on the usage of the Call Center service to the e-mail of the partner's administrator. The statistics is generated in Microsoft Excel format over a certain period: current or previous day, current or past week, current or previous month. The statistics shows the number of calls and the average duration of all calls, status test calls, panic button checks, calls with switching to operators, and the average duration of hanged up calls.
 
-В секции «Тревога в ГБР» можно узнать и при необходимости изменить пароли доступа к одноименному мобильному приложению.
+To know and, if necessary, change passwords to the mobile application go to "Alarm to Guard” section.
 
-![Пароли доступа к приложению "Тревога в ГБР"][id-13-12]
+![Passwords to the "Alarm to Guard" application][id-13-12]
 
-Кроме того, в панели управления можно настроить «Личный кабинет». Для этого следует указать такие данные, как название частного охранного предприятия, ссылка на сайт, телефон технической поддержки и электронная почта технической поддержки. Эта информация будет отображаться в личном кабинете клиентов.
+Besides, it is possible to configure the "Personal account” in the control panel. To do this, fill in the name of a private security company, link to the site, telephone number for technical support, and technical support email. This information will be displayed in the client account.
 
-![Настройка услуги "Личный кабинет" в учетной записи партнера][id-13-13]
+![Setting up the "Personal account" service in the partner account][id-13-13]
 
-В секции «Ситуационная карта» приведены три ссылки на ситуационные карты. Ссылки удобно копировать для последующей передачи разным ответственным лицам с помощью специальной функции «Копировать в буфер». Таким образом, для перехода по ссылке авторизация не требуется. 
+Three links to situational maps are given in “Situational map” section. Links can be conveniently copied for later transmission to different responsible persons using the special function "Copy to clipboard". Therefore, it is no necessary to log in to go to the link. 
 
-![Настройка услуги "Ситуационная карта" в учетной записи партнера][id-13-14]
+![Setting up the “Situational chart” service in the partner account][id-13-14]
 
-Поле «Комментарий» к каждой ссылке предназначен для задания необходимой информации: например, здесь можно указать, кто использует данную ссылку для доступа к ситуационной карте. 
+The "Comment" field for each link is intended for specifying the necessary information: for example, it is possible to specify who uses this link to access the situational map. 
 
-Если необходимо запретить какому-либо ответственному лицу доступ к карте по выданной ссылке, ссылку можно обновить. В этом случае при переходе по устаревшей ссылке карта будет недоступна, а если ссылка уже была открыта в браузере, данные перестанут обновляться.
+If it is necessary to block any responsible person to access the map by the link, the link can be updated. In this case, in case of clicking on the outdated link, the map will be unavailable, and if the link has already been opened in the browser, the data will no longer be updated.
 
-## Панель инженера
+## Engineering Panel
 
-Приложение «Панель инженера» предназначено для удаленной настройки оборудования, установленного на объекте, а также для обновления версии программного обеспечения приборов.
+The “Engineering panel" application is intended for remote configuration of equipment installed on the site, as well as for updating the software version of the devices.
 
-Для того, чтобы инженер мог удаленно изменить настройки, на объекте должен быть установлен один из следующих приборов:
+In order for the engineer to remotely change the settings, one of the following devices shall be installed on the site:
 
-* «Норд GSM» или «Норд GSM (WRL)»
-* «Сержант GSM»
-* «Союз GSM (OEM) или «Союз GSM (BOX)»
-* Передатчик «ТР-100 GSM III», подключенный к контрольной панели производства фирмы «Си-Норд» или «PIMA Electronic Systems Ltd.»
+* "Nord GSM" or "Nord GSM (WRL)"
+* “Serzhant GSM"
+* “Soyuz GSM (OEM) or "Soyuz GSM (BOX) "
+* Transmitter "TR-100 GSM III", connected to the control panel produced by C.Nord or PIMA Electronic Systems Ltd.
 
-Для того, чтобы инженер мог получить доступ к сервису, для него должна быть создана учетная запись. 
+In order for an engineer to access the service, an account shall be created for him/her. 
 
-Создать учетную запись инженера можно на вкладке «Инженеры» модуля «Менеджер персонала». При создании учетной записи на электронный адрес инженера высылается письмо. Инженер должен пройти по указанной в письме ссылке и на открывшейся при этом странице создать и подтвердить пароль для доступа к «Панели инженера». После ввода данных необходимо нажать кнопку «Зарегистрироваться» для завершения регистрации в Облаке.
+It is possible to create engineer account on the “Engineers” tab of the “Personnel manager” module. When creating an account, an email is sent to the engineer's email address. The engineer shall click on the link in the letter and create and confirm the password for accessing the “Engineering panel" on the page that opens. After entering the data, it is necessary to click the "Register" button to complete the registration in the Cloud.
 
-Для того, чтобы оператор «Центра охраны» мог создать учетную запись для инженера или изменить её настройки, ему должно быть предоставлено разрешение на редактирование инженеров.
+In order for the Security Center operator to create an account for the engineer or change its settings, he/she shall be given permission to edit the engineers.
 
-После успешной регистрации на странице отобразится ссылка для перехода на главную страницу «Панели инженера». На данной странице под заголовком «Доступные объекты» будут приведены ссылки на интерфейсы удаленного программирования объектов, доступ к которым разрешен инженеру. В каждой ссылке указан номер объекта и разрешенное время доступа к объекту (например, «Объект №314, доступ к объекту разрешен с 15:55 25.08.2013 до 16:55 25.08.2013»).
+After successful registration, a link will be displayed on the page to the main page of the “Engineering panel”. On this page, links to remote programming interfaces of sites will be given in "Available sites", access to which is allowed to the engineer. Each link specifies the site number and the allowed access time to the site (for example, "Site No. 314, access to the site is allowed from 15:55 25.08.2013 till 16:55 25.08.2013").
 
-![Панель инженера][id-13-15]
+![Engineering panel][id-13-15]
 
-Разрешить инженеру доступ к объектам может пользователь Центра охраны, наделенный соответствующим правом, с помощью вкладки «Обслуживание» модуля «Менеджер объектов». 
+The Security Center user, who has the corresponding permission, can grant the engineer access to sites using the "Maintenance" tab of the "Site manager" module. 
 
-Пройти по какой-либо из указанных в web-интерфейсе ссылке инженер может только в то время, которое разрешено ему для доступа к объекту. При этом он попадает на страницу «Удаленная клавиатура». Здесь представлен интерфейс web-клавиатуры, которая идентична установленной на объекте. Таким образом, интерфейс удаленного программирования реализует поведение реальной клавиатуры, подключенной к прибору. Информация о том, как кнопки дублируются на клавиатуре, приведена в web-интерфейсе справа от клавиатуры. 
+The engineer can go to any of the links specified in the web interface only at the time that is allowed to him/her to access the site. At the same time, he/she enters the "Remote keyboard" page. The page contains the interface of the web-keyboard, which is identical to the one installed on the site. Thus, the remote programming interface implements the behavior of the real keyboard connected to the device. Information on how the buttons are duplicated on the keyboard is shown in the web interface to the right of the keyboard. 
 
-![Web-клавиатура][id-13-16]
+![Web keyboard][id-13-16]
 
-Следует отметить, что при возникновении неполадок во время работы с web-клавиатурой, выводится текст ошибки и выполняется переход на главную страницу интерфейса, содержащую список объектов. Например, если web-клавиатура не используется более пяти минут, сеанс связи с объектом завершается. При этом выводится сообщение вида: «Истек период ожидания действий по конфигурированию прибора. Для обеспечения безопасности сеанс связи с объектом №314 завершен».
+It shall be noted that if an error occurs while working with the web keyboard, the error text is displayed and the interface goes to the main page with a list of sites. For example, if the web keyboard is not used for more than five minutes, the communication session with the site is completed. At the same time, the following message is displayed: "The waiting period for actions to configure the device has expired. To ensure security, the communication session with site No. 314 is completed”.
 
-Если по какой-либо причине нарушено соединение с объектом, клавиатура на объекте выключается. При этом текст ошибки будет следующим: «Истек период ожидания ответа от прибора. Для обеспечения безопасности сеанс связи с объектом №314 завершен».
+If the connection to the site is lost for any reason, the keypad on the site is disabled. In this case, the error text is as follows: "The waiting period for the response from the device has expired. To ensure security, the communication session with site No. 314 is completed”.
 
-Если при открытии web-клавиатуры или ее использовании обнаруживается, что объект поставлен под охрану, выводится сообщение вида: «Объект №314 в настоящий момент взят под охрану. Для того чтобы получить доступ к web-клавиатуре объекта, необходимо снять его с охраны».
+If when the web keyboard is opened or used it turns out that the site is armed, the following message is displayed: "Site No. 314 is currently armed. To access the web keyboard disarm the site”.
 
-При завершении работы с web-интерфейсом инженера можно выйти из системы, кликнув по ссылке «Выйти», расположенной на главной панели страницы.
+After the work is finished, the engineer shall exit the system by clicking on the "Exit" link located on the main panel of the page.
 
-Для последующего входа в web-интерфейс следует пройти по ссылке https://keyboard.cnord.net/ и ввести адрес электронной почты и пароль, созданный при регистрации. После этого необходимо нажать кнопку «Войти». Для восстановления пароля следует воспользоваться ссылкой «Забыли пароль?». В появившемся окне необходимо ввести адрес электронной почты и нажать кнопку «Восстановить пароль». При этом на указанный адрес будет выслано письмо, содержащее ссылку для восстановления пароля.
+To log in to the web-interface, go to https://keyboard.cnord.net/ and enter the e-mail address and password created at registration. After that, click the "Login" button. To recover a password, click on the link "Forgot your password?". In the appeared window it is necessary to enter the e-mail address and press the button “Restore password". At the same time, a letter containing a link for password restoration will be sent to the specified address.
 
-## Личный кабинет
+## Personal Account
 
-Облачный сервис «Личный кабинет» позволяет клиентам частного охранного предприятия получать информацию о своих объектах. 
+The "Personal account" Cloud service allows clients of a private security company to receive information about their sites. 
 
-Доступ к «Личному кабинету» предоставляется зарегистрированному в Облаке пользователю, имеющему учетную запись администратора «Личного кабинета». 
+Access to “Personal account” is provided to a user registered in the Cloud who has an account of the Administrator of the “Personal account”. 
 
-Создание учетной записи администратора возможно на вкладке «Администраторы ЛК» модуля «Менеджер персонала». Здесь же можно отправить администратору приглашение для регистрации в Облаке. При этом на мобильный номер администратора будет отправлено SMS-сообщение, содержащее веб-ссылку на страницу для регистрации в «Личном кабинете» (https://my.cnord.net/) и специальный код для регистрации.
+It is possible to create an administrator account on the "Administrators of personal account" tab of the "Personnel manager" module. Here it is possible to send an invitation to register in the Cloud to an administrator. At the same time, an SMS message will be sent to the mobile number of the administrator, containing a link to the page for registration in the Personal Account (https://my.cnord.net/) and a special code for registration.
 
-![Веб-интерфейс «Личный кабинет»][id-13-17]
+!["Personal account” web interface][id-13-17]
 
-Пройдя по указанной в SMS-сообщении ссылке, следует выбрать вкладку «Регистрация». При регистрации необходимо указать адрес электронной почты, создать и подтвердить пароль, а также ввести код, указанный в SMS-сообщении. После ввода данных следует нажать кнопку «Зарегистрироваться».
+Click on the link specified in the SMS message and select the "Registration" tab. When registering, specify the email address, create and confirm a password, and enter the code specified in the SMS message. After entering the data, click on the "Register" button.
 
-![Регистрация в «Личном кабинете»][id-13-18]
+![Registration in the "Personal account”][id-13-18]
 
-На указанный адрес почты будет отправлено письмо, содержащее ссылку для подтверждения регистрации. После перехода по ссылке регистрация будет завершена.
+A letter containing a link to confirm registration will be sent to the specified mail address. After clicking on the link, registration will be completed.
 
-Для входа в «Личный кабинет» следует открыть веб-страницу по адресу https://my.cnord.net/ и открыть вкладку «Войти». Здесь необходимо ввести указанные при регистрации адрес электронной почты и пароль и нажать «Войти».
+To enter the "Personal account", open the web page at https://my.cnord.net/ and open the "Login" tab. Here it is necessary to enter the e-mail address and password specified during registration and click "Login".
 
-![Вход в «Личный кабинет»][id-13-19]
+![”Login to the “Personal account”][id-13-19]
 
-В заголовке «Личного кабинета» отображается название выбранного для работы объекта. Если администратор «Личного кабинета» имеет доступ к нескольким объектам, выбрать тот или иной объект для работы в «Личном кабинете» можно с помощью кнопки выбора объекта.
+The "Personal account" title displays the name of the selected site. If the administrator of the "Personal account" has access to several sites, it is possible to select a site to work in the “Personal account" using the site selection button.
 
-Предоставить администратору «Личного кабинета» доступ к тому или иному объекту «Центра охраны» можно на вкладке «Личный кабинет» модуля «Менеджер объектов».
+It is possible to give the administrator of the "Personal account" access to a particular site of the Security Center on the "Personal account" tab of the "Site manager" module.
 
-На вкладке «Информация по объекту» веб-интерфейса «Личный кабинет» приводится информация, указанная в карточке объекта. В поле «Объект» отображается номер и тип объекта, в поле «Сигнализация» - типы установленной сигнализации. Адрес и комментарий для ГБР, а также телефоны объекта указаны в полях «Адрес», «Телефон 1» и «Телефон 2». В поле «Комментарий» приводится комментарий для оператора. Если объект размещен на карте, здесь также представлена карта с указанием месторасположения объекта.
+The "Site information" tab of the "Personal account" web interface contains the information, specified in the site card. The "Site" field displays the number and type of the site, the "Alarm" field - the types of the installed alarm. The address and commentary for the Guard, as well as site telephone numbers are indicated in the fields "Address", "Phone 1" and "Phone 2". The “Comment” field contains a comment for the operator. If the site is located on the map, here is also a map showing the location of the site.
 
-![Информация об объекте в «Личном кабинете»][id-13-20]
+![Information about the site in the "Personal account”][id-13-20]
 
-Вкладка «Отчет о снятиях и взятиях под охрану» содержит сведения о снятиях и взятиях объекта под охрану за выбранный период. Отчет может быть построен за неделю, за текущий месяц, а также за предыдущий месяц. В отчете указывается дата и время события, его тип, а также Ф.И.О. пользователя, выполнившего снятие или взятие под охрану, или номер пользователя.
+The "Report on arming and disarming" tab contains information on the arming and disarming of the site over the selected period. The report can be generated for a week, current month, and also the previous month. The report contains the date and time of the event, its type, and also name, surname of the user who performed arming or disarming, or the user number.
 
-![Отчет о снятиях и взятиях под охрану в «Личном кабинете»][id-13-21]
+![Report on arming and disarming in the "Personal account”][id-13-21]
 
-Вкладка «Call-центр» отображается в «Личном кабинете», когда подключен и настроен Телефонный роутер. На вкладке «Call-центр» представлена памятка по работе с данным сервисом. Если на объекте установлена КТС и подключена услуга «Call-центра» по ее проверке или при проверке состояния объектов запрашивается пин-код, на вкладке указаны также пин-коды ответственных лиц.
+The "Call Center" tab is displayed in the “Personal account" when the telephone router is connected and configured. A memo for working with this service can be found on the "Call Center" tab. If a panic button is installed on the site and the "Call Center" service is activated to check it, or if a PIN code is requested when checking the status of sites, the PIN codes of responsible persons are also indicated on the tab.
 
-![«Call-центр» в «Личном кабинете»][id-13-22]
+!["Call Center" in "Personal account”][id-13-22]
 
-Если на объекте установлен видеороутер, «Личный кабинет» содержит вкладку «Видеонаблюдение». На вкладке отображается потоковое видео с установленных на объекте видеокамер, подключенных к видеороутеру.
+If a video router is installed on the site, the "Personal account" contains the "Video surveillance" tab. The tab displays streaming video from the cameras installed on the site and connected to the video router.
 
-![Видеонаблюдение в «Личном кабинете»][id-13-23]
+![Video surveillance in "Personal account”][id-13-23]
 
-Использовать облачный сервис «Личный кабинет» можно и на мобильных устройствах с помощью приложения «MyAlarm». Ссылки на скачивание находятся на странице входа в «Личный кабинет» по адресу https://my.cnord.net/.
+It is also possible to use the "Personal account" cloud service on mobile devices using the "MyAlarm" application. Download links can be found on the login page of the "Personal Account" at https://my.cnord.net/.
 
-[id-13-01]: img/CldSrvcs-01-RouterConnection.png "Подключение Телефонного роутера"
-[id-13-02]: img/CldSrvcs-02-CallCenterServices.png "Выбор услуг при звонке в «Call-центр»"
-[id-13-03]: img/CldSrvcs-03-SituationalMap.png "Ситуационная карта"
-[id-13-03-00]: img/CldSrvcs-03-SituationalMap-00.png "Ситуационная карта: кластер"
-[id-13-03-01]: img/CldSrvcs-03-SituationalMap-01.png "Ситуационная карта: объект"
-[id-13-03-02]: img/CldSrvcs-03-SituationalMap-02.png "Ситуационная карта: тревожный объект"
-[id-13-03-03]: img/CldSrvcs-03-SituationalMap-03.png "Ситуационная карта: свободная ГБР"
-[id-13-03-04]: img/CldSrvcs-03-SituationalMap-04.png "Ситуационная карта: ГБР на реагировании"
-[id-13-04]: img/CldSrvcs-04-WebSite.png "Веб-интерфейс партнера"
-[id-13-05]: img/CldSrvcs-05-Registration.png "Регистрация партнера"
-[id-13-06]: img/CldSrvcs-06-CloudConnection.png "Связь с облаком"
-[id-13-07]: img/CldSrvcs-07-UIDCopying.png "Копирование UID"
-[id-13-08]: img/CldSrvcs-08-NewUID.png "Создание нового UID"
-[id-13-09]: img/CldSrvcs-09-Login.png "Вход в аккаунт партнера"
-[id-13-10]: img/CldSrvcs-10-AdminPanel.png "Административная панель учетной записи партнера"
-[id-13-11]: img/CldSrvcs-11-CallCenter.png "Настройка услуги «Call-центр» в учетной записи партнера"
-[id-13-12]: img/CldSrvcs-12-AlarmPassword.png "Пароли доступа к приложению «Тревога в ГБР»"
-[id-13-13]: img/CldSrvcs-13-PrivateOffice.png "Настройка услуги «Личный кабинет» в учетной записи партнера"
-[id-13-14]: img/CldSrvcs-14-SituationalMapLink.png "Настройка услуги «Ситуационная карта» в учетной записи партнера"
-[id-13-15]: img/CldSrvcs-15-EngineerWebSite.png "Веб-интерфейс инженера"
-[id-13-16]: img/CldSrvcs-16-EngineerWebSite-02.png "Веб-клавиатура"
-[id-13-17]: img/CldSrvcs-17-PersonalAccount.png "Веб-интерфейс «Личный кабинет»"
-[id-13-18]: img/CldSrvcs-18-PersonalAccount-01.png "Регистрация в «Личном кабинете»"
-[id-13-19]: img/CldSrvcs-19-PersonalAccount-02.png "Вход в «Личный кабинет»"
-[id-13-20]: img/CldSrvcs-20-PersonalAccount-03.png "Информация об объекте в «Личном кабинете»"
-[id-13-21]: img/CldSrvcs-21-PersonalAccount-04.png "Отчет о снятиях и взятиях под охрану в «Личном кабинете»"
-[id-13-22]: img/CldSrvcs-22-PersonalAccount-05.png "«Call-центр» в «Личном кабинете»"
-[id-13-23]: img/CldSrvcs-23-PersonalAccount-06.png "Видеонаблюдение в «Личном кабинете»"
+[id-13-01]: img/CldSrvcs-01-RouterConnection.png “Telephone router connection"
+[id-13-02]: img/CldSrvcs-02-CallCenterServices.png "Selection of services when calling to "Call Center”"
+[id-13-03]: img/CldSrvcs-03-SituationalMap.png “Situational map"
+[id-13-03-00]: img/CldSrvcs-03-SituationalMap-00.png "Situational map: cluster"
+[id-13-03-01]: img/CldSrvcs-03-SituationalMap-01.png "Situational map: site"
+[id-13-03-02]: img/CldSrvcs-03-SituationalMap-02.png "Situational map: alarm site"
+[id-13-03-03]: img/CldSrvcs-03-SituationalMap-03.png "Situational map: free Guard"
+[id-13-03-04]: img/CldSrvcs-03-SituationalMap-04.png "Situational map: Guard is on response"
+[id-13-04]: img/CldSrvcs-04-WebSite.png "Partner web-interface"
+[id-13-05]: img/CldSrvcs-05-Registration.png "Partner registration"
+[id-13-06]: img/CldSrvcs-06-CloudConnection.png "Connection to the cloud"
+[id-13-07]: img/CldSrvcs-07-UIDCopying.png "UID copying"
+[id-13-08]: img/CldSrvcs-08-NewUID.png "Creating a new UID"
+[id-13-09]: img/CldSrvcs-09-Login.png "Login to partner account"
+[id-13-10]: img/CldSrvcs-10-AdminPanel.png "Administrator panel of the partner account"
+[id-13-11]: img/CldSrvcs-11-CallCenter.png "Setting the "Call Center" service in the partner account"
+[id-13-12]: img/CldSrvcs-12-AlarmPassword.png "Passwords to the "Alarm to Guard" application"
+[id-13-13]: img/CldSrvcs-13-PrivateOffice.png "Setting up the "Personal account" service in the partner account"
+[id-13-14]: img/CldSrvcs-14-SituationalMapLink.png "Setting up the “Situational chart” service in the partner account"
+[id-13-15]: img/CldSrvcs-15-EngineerWebSite.png "Engineering panel"
+[id-13-16]: img/CldSrvcs-16-EngineerWebSite-02.png "Web keyboard"
+[id-13-17]: img/CldSrvcs-17-PersonalAccount.png ""Personal account” web interface"
+[id-13-18]: img/CldSrvcs-18-PersonalAccount-01.png "Registration in the "Personal account”"
+[id-13-19]: img/CldSrvcs-19-PersonalAccount-02.png "”Login to the “Personal account”"
+[id-13-20]: img/CldSrvcs-20-PersonalAccount-03.png "Information about the site in the "Personal account"
+[id-13-21]: img/CldSrvcs-21-PersonalAccount-04.png "Report on arming and disarming in the "Personal account"
+[id-13-22]: img/CldSrvcs-22-PersonalAccount-05.png ""Call Center" in "Personal account”"
+[id-13-23]: img/CldSrvcs-23-PersonalAccount-06.png "Video surveillance in "Personal account”"
