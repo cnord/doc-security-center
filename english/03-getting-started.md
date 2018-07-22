@@ -15,7 +15,7 @@ Security Center software consists of modules, each of which is intended to solve
 The "**Event Manager**" module is intended for receiving notifications from the receiving equipment of the central station, as well as directly from certain types of site equipment, for example, via GPRS and Ethernet communication channels. 
 
 Besides, it is in the "Event manager" module where events are automatically handled: event chains are monitored, SMS messages are sent and events are transmitted to other systems. 
-It shall be noted that the “Event Manager” is the link for all other modules of Security Center: it shall be launched first, because it is with its help that the modules exchange information about new events, operators’ actions and other changes that occurred during the module operation.
+It shall be noted that the "Event Manager" is the link for all other modules of Security Center: it shall be launched first, because it is with its help that the modules exchange information about new events, operators’ actions and other changes that occurred during the module operation.
 
 The "**Site Manager**" module is used for creation of new sites and changing description of the existing sites.
 
@@ -30,7 +30,7 @@ The "**Database wizard**" module is intended for the following operations:
 * database check and error recovery
 * database backup
 * database restoration from a backup
-* import of data from “Andromeda” software database, “Andromeda Liberty” software, “Strazh” software and “CSM32” software
+* import of data from "Andromeda" software database, "Andromeda Liberty" software, "Strazh" software and "CSM32" software
 * export of data from Security Center database for use in other programs
 
 In the **System Setup** module, it is possible to change the directories that are used to describe the sites: list of event templates, event classes and associated actions, site types and list of additional characteristics.
@@ -46,7 +46,7 @@ If Security Center is installed just to get acquainted, then to create events fr
 After the "Event manager" module is started, it is possible to start working with other modules. Sites are entered into the system with the help of the "Site manager" module, and the received events are monitored and alarms are handled with the help of the "Duty operator" module.
 
 ## Admin Password
-Immediately after installation of the Security Center software, only one operator is present in the list of operators: “Administrator”. The password of the "Administrator" operator by default is **222222**.
+Immediately after installation of the Security Center software, only one operator is present in the list of operators: "Administrator". The password of the "Administrator" operator by default is **222222**.
 
 ## Data Import 
 
@@ -65,7 +65,7 @@ The Security Center software implements the function of importing information ab
 
 If before Security Center installation the software from the list above was used, then for a comfortable transition to Security Center, it is possible to import the descriptions of sites from the database of these programs.
 
-If it is intended to import data from the “Andromeda” software version 2.0 - 2.76 or “Andromeda Liberty”, then when installing Security Center, it is necessary to specify the need to install BDE, the subsystem used to access the data of these programs.
+If it is intended to import data from the "Andromeda" software version 2.0 - 2.76 or "Andromeda Liberty", then when installing Security Center, it is necessary to specify the need to install BDE, the subsystem used to access the data of these programs.
 
-Data import is performed with the help of the "Database wizard" module. In the case of import from “Andromeda” software versions 2.0 - 2.76 or “Andromeda Liberty”, all files from the database folder will be required to run it. If there is a backup copy of the database in ZIP format, it is necessary to extract the files from the archive to any folder on the computer hard drive.
+Data import is performed with the help of the "Database wizard" module. In the case of import from "Andromeda" software versions 2.0 - 2.76 or "Andromeda Liberty", all files from the database folder will be required to run it. If there is a backup copy of the database in ZIP format, it is necessary to extract the files from the archive to any folder on the computer hard drive.
 

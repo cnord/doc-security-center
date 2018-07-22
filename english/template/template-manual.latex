@@ -1,9 +1,12 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$]{$documentclass$}
+\PassOptionsToPackage{russian,english,spanish}{babel}
+
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$]{$documentclass$}
+
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 
+\usepackage[english]{babel} % правила переноса
 \usepackage[utf8]{inputenc} 
-\usepackage[russian]{babel} % правила переноса
 \usepackage{cmap} % чтобы работал поиск по PDF
 \pdfcompresslevel=9 % сжимать PDF
 

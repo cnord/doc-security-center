@@ -2,7 +2,7 @@
 
 The "Report manager" module is intended to create reports on the operation of sites, Security Center and security company personnel.
 
-A report form generator is built in the "Report manager” module, with which it is possible to modify the existing reports or create new ones.
+A report form generator is built in the "Report manager" module, with which it is possible to modify the existing reports or create new ones.
 
 ## Event Reports
 
@@ -14,23 +14,23 @@ The first three event reports ("01 - Sort by time", "02 - Sort by sites" and "03
 
 ### Events from Undescribed Sites
 
-The report "04 - From undescribed sites" is intended for viewing events that the Security Center failed to associate with any of the existing sites. Like the "Events from undescribed sites” module, this report is intended to identify errors made during programming of site equipment, or when describing sites in the Security Center. For obvious reasons, the sites and event classes selected during its creation do not matter for this report.
+The report "04 - From undescribed sites" is intended for viewing events that the Security Center failed to associate with any of the existing sites. Like the "Events from undescribed sites" module, this report is intended to identify errors made during programming of site equipment, or when describing sites in the Security Center. For obvious reasons, the sites and event classes selected during its creation do not matter for this report.
 
 ### Sites without Events
 
 The purpose of the report "05 - List of sites without events" is twofold. It used to get a list of sites from which no events were received within a given period of time in the simplest way. To do this, select all sites from the list of sites, and in the list of event classes select all event classes. 
 
-Another more interesting task, for which the report can be used, is to find, for example, all sites of the "Bank" type, from which there have not been any faults during the last month. To do this, select all sites of the desired type and event classes that have the “Fault” type. The report created on the basis of such parameters will contain only the desired sites.
+Another more interesting task, for which the report can be used, is to find, for example, all sites of the "Bank" type, from which there have not been any faults during the last month. To do this, select all sites of the desired type and event classes that have the "Fault" type. The report created on the basis of such parameters will contain only the desired sites.
 
 ### Time Deviation
 
-Using the report "06 - By time deviation” to check the correct programming of the interval of the automatic test on the site and correct filling of the "Control time" field in the site card. When creating the report, the average time interval between events from the site is calculated, after which it is compared with the target time of the site. 
+Using the report "06 - By time deviation" to check the correct programming of the interval of the automatic test on the site and correct filling of the "Control time" field in the site card. When creating the report, the average time interval between events from the site is calculated, after which it is compared with the target time of the site. 
 
 If the difference of values is greater than the threshold specified at the time of report creation, then such site will be highlighted in the list. Depending on the algorithms used by the control panels to calculate time for creation of the next automatic test, it is possible to exclude all events which class type is not "Test" when creating the report.
 
 ### Statistics by Class
 
-The report "07 - Statistics" is needed to calculate the number of events of the given classes that were received from the site over a period. First of all, the report is useful for identifying sites with faults of various kinds. For example, if you select the event class “AC Fault" when creating the report, you can calculate how many times over the given period the site had power supply problems. To include only those sites that you really need to pay attention to in the report, when creating a report, it is possible to set the minimum number of events for each of the specified classes that shall be received for the site to be included in the report.
+The report "07 - Statistics" is needed to calculate the number of events of the given classes that were received from the site over a period. First of all, the report is useful for identifying sites with faults of various kinds. For example, if you select the event class "AC Fault" when creating the report, you can calculate how many times over the given period the site had power supply problems. To include only those sites that you really need to pay attention to in the report, when creating a report, it is possible to set the minimum number of events for each of the specified classes that shall be received for the site to be included in the report.
 
 It shall be noted that for the effective use of this report, the user shall create separate classes for those events, which are of interest to him/her.
 
@@ -44,10 +44,10 @@ Depending on the settings with which the report "13 - Via communication channels
 
 ### Statistics by Status
 
-Use the report "14 - Site status” to calculate the number and duration of situations when the site has a certain status. 
+Use the report "14 - Site status" to calculate the number and duration of situations when the site has a certain status. 
 Each status of a site within this report is characterized by two events: the first event signals that the site has passed to a known state, when the second event is received, it is considered that the site is not already in this state. Good examples of site status are power or communication channel failures.
 
-For example, if there is a power failure at the site, an event will be created that records failure, and after the failure is eliminated, an event about power supply restoration will be created. If it is necessary to calculate how many times the site was in a "power failure” state, and in addition - what is the total duration of this state, then when creating this report, specify the event classes corresponding to the failure and restoration of the power supply.
+For example, if there is a power failure at the site, an event will be created that records failure, and after the failure is eliminated, an event about power supply restoration will be created. If it is necessary to calculate how many times the site was in a "power failure" state, and in addition - what is the total duration of this state, then when creating this report, specify the event classes corresponding to the failure and restoration of the power supply.
 
 The states of interest to users of the Security Center can be very different. In order for this report to be actively used when working with the Security Center, it is necessary to create separate classes for those events that register the beginning and completion of state, which of interest to the user.
 
@@ -65,7 +65,7 @@ The report "01 - By operator" is intended for viewing alarms, which were handled
 
 ### Statistics by Alarm Cancellations
 
-When creating the report "03 - By number of cancellations", it is possible to specify the minimum number of cancellations that shall be registered over a period. If you select any specific cancellation, for example, “Equipment fault", and specify that there shall be at least 5 such cancellations, you can get a report that will include all sites which alarms have been canceled at least 5 times since indicating the cause of "Equipment fault".
+When creating the report "03 - By number of cancellations", it is possible to specify the minimum number of cancellations that shall be registered over a period. If you select any specific cancellation, for example, "Equipment fault", and specify that there shall be at least 5 such cancellations, you can get a report that will include all sites which alarms have been canceled at least 5 times since indicating the cause of "Equipment fault".
 
 The report "03a - Statistics by cancellations" is intended for calculating the number of selected cancellations registered over a given period. With its help, it is possible to see what causes of alarm cancellation are registered more often than others and how much. For example, it is possible to see what percentage of the alarms that were canceled are false.
 In addition to counting the total number of cancellations for all selected sites, the report allows to detail site cancellations in order to see on which particular sites there were more false alarms or alarms on which there were guard calls.
@@ -120,7 +120,7 @@ The next report, "02 - Statistics of responses", shows the main statistics relat
 
 ### Average Number of Calls
 
-Use the report "03 - Average number of calls” to calculate the total number of calls for guards to sites, as well as the average number of guard calls to site per month. This report is used to identify the sites to which the guards are called most often.
+Use the report "03 - Average number of calls" to calculate the total number of calls for guards to sites, as well as the average number of guard calls to site per month. This report is used to identify the sites to which the guards are called most often.
 
 ### Response Time
 
@@ -142,7 +142,7 @@ The report "06 - Control time" allows to display sites which control time is wit
 
 ### Operators
 
-Use the report"05 - Operators” to print a list of users of the Security Center software and their rights in the modules.
+Use the report"05 - Operators" to print a list of users of the Security Center software and their rights in the modules.
 
 ### Event Templates
 
@@ -152,4 +152,4 @@ If in addition to the list of event templates it is possible to get descriptions
 
 ### Event Handlers
 
-The report "09 - SMS message repeaters" is intended for viewing and printing information about the settings of the event handlers “SMS message repeaters”. It is used to get information about all handlers that are used for the selected sites, or only those that have a specific recipient number.
+The report "09 - SMS message repeaters" is intended for viewing and printing information about the settings of the event handlers "SMS message repeaters". It is used to get information about all handlers that are used for the selected sites, or only those that have a specific recipient number.

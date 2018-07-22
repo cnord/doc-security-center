@@ -1,6 +1,6 @@
 # Technical Support
 
-If problems arise during the operation of the Security Center software, or if you want to improve it, contact the technical support service of C.Nord by phone (812) 327-16-36, 8 (800) 200-60-80, fax (812) 327-16-33 or e-mail support@cnord.ru. 
+If problems arise during the operation of the Security Center software, or if you want to improve it, contact the technical support service of C.Nord by e-mail support@cnord.ru. 
 
 When contacting technical support about a problem, specify Security Center version that is being installed and describe the problem.
 

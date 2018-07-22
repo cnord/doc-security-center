@@ -28,7 +28,7 @@ When creating a database backup, set the values for the parameters that control 
 
 The Destination folder option specifies the folder on the hard disk of the computer or network resource in which the database backup will be saved.
 
-The backup file name can be specified using the parameter of the same name. Despite the fact that there are no restrictions on naming the backup file, it is necessary to remember that to restore the Security Center database from the backup using the GUI of the "Database wizard" module, the file name shall begin with the Latin characters "AB”.
+The backup file name can be specified using the parameter of the same name. Despite the fact that there are no restrictions on naming the backup file, it is necessary to remember that to restore the Security Center database from the backup using the GUI of the "Database wizard" module, the file name shall begin with the Latin characters "AB".
 
 Note that the backup copy of the Security Center software database is created in the form of a ZIP archive, in which several files containing backup data can be included. If the archive file size exceeds 4Gb, a multi-volume archive will be created, all files of which will be needed for restoration the database from the backup.
 
@@ -48,7 +48,7 @@ To increase the system reliability as a whole, the Security Center performs auto
 
 Restoring the database from a backup can only be performed on the computer on which the complete installation of the Security Center software was performed. 
 
-Before restoring the database from a backup, stop all modules of the Security Center, including the “Event manager” module.
+Before restoring the database from a backup, stop all modules of the Security Center, including the "Event manager" module.
 
 The version of the database from which the restore is performed does not matter: immediately after the restore, the "Database wizard" module will check the version of the recovered data and, if necessary, perform the update.
 
@@ -82,7 +82,7 @@ By importing from an XML file, it is possible to import a site database of Cobra
 
 Use the "XML filename" parameter to select the database file by specifying the path to it.
 
-When importing from an XML file, it is possible to move the numbers of the imported sites. The shift is performed because summand, specified during import setup, is added to the site numbers, information about which is transferred to the Security Center. For example, if the value of the “Shifting site numbers" parameter is set to 10000, and the site numbers in the XML file are within the range from 1 to 2000, then in the Security Center database, these sites will have numbers within the range from 10001 to 12000.
+When importing from an XML file, it is possible to move the numbers of the imported sites. The shift is performed because summand, specified during import setup, is added to the site numbers, information about which is transferred to the Security Center. For example, if the value of the "Shifting site numbers" parameter is set to 10000, and the site numbers in the XML file are within the range from 1 to 2000, then in the Security Center database, these sites will have numbers within the range from 10001 to 12000.
 
 See more information about the function of shifting site numbers in event sources in the chapter on the "Event manager" module in the section "Event sources".
 
@@ -100,13 +100,13 @@ Select fields, information from which will be written to the export file, by ena
 
 Use the "File name" parameter to specify the folder and name of the export file.
 
-Use the “Separator symbol" parameter to select the character that will be used as a field separator in one line of the export file. It shall be remembered that the line field values in the export file are enclosed in double quotes, which excludes the possibility of incorrect recognition of the separator when opening the export file.
+Use the "Separator symbol" parameter to select the character that will be used as a field separator in one line of the export file. It shall be remembered that the line field values in the export file are enclosed in double quotes, which excludes the possibility of incorrect recognition of the separator when opening the export file.
 
 ## Command Line Options
 
 Along with the graphical user interface, the "Database wizard" module can be used for control with the command line. 
 
-This feature can be useful if the Windows Scheduler, which has more advanced capabilities than the scheduler built into the “Event manager” module, is used as the task scheduler for backing up a database or restoring from a backup.
+This feature can be useful if the Windows Scheduler, which has more advanced capabilities than the scheduler built into the "Event manager" module, is used as the task scheduler for backing up a database or restoring from a backup.
 
 ### Database Backup
 
@@ -114,11 +114,11 @@ This feature can be useful if the Windows Scheduler, which has more advanced cap
 		/BACKUPDB 
 		/FOLDER: <Destination folder 1>; <Destination folder 2> 
 		/TYPE:<Backup type> 
-		/ BACKUPCOUNT: <Number of files in the destination folder>
+		/BACKUPCOUNT: <Number of files in the destination folder>
 
 	/BACKUPDB
 	
-This parameter specifies that the “Database wizard” module shall perform a database backup. The backup procedure settings are set by the command line parameters following it.
+This parameter specifies that the "Database wizard" module shall perform a database backup. The backup procedure settings are set by the command line parameters following it.
 
 	/FOLDER: <Destination folder 1>; <Destination folder 2>
 	
@@ -126,9 +126,9 @@ One or several folders to which the database backup will be saved. At least one 
 
 	/TYPE:<Backup Type>
 
-The type of backup to be created. If this parameter is set to “0”, it indicates fast backup. If this parameter is set to “1”, it indicates full backup. The parameter is optional. If the parameter value is not set, fast backup will be created.
+The type of backup to be created. If this parameter is set to "0", it indicates fast backup. If this parameter is set to "1", it indicates full backup. The parameter is optional. If the parameter value is not set, fast backup will be created.
 
-	/ BACKUPCOUNT: <Number of files in the destination folder>
+	/BACKUPCOUNT: <Number of files in the destination folder>
 
 This parameter specifies the maximum number of database backup files in the destination folder. If you find that the number of backup files of the same type exceeds the maximum possible number when creating a backup, the oldest backup file will be deleted. The parameter is optional. If the parameter value is not specified, the value for this parameter will be 10.
 
@@ -136,12 +136,12 @@ This parameter specifies the maximum number of database backup files in the dest
 
 	AnDBWiz.exe 
 		/RESTOREDB 
-		/ FOLDER: <Source folder> 
+		/FOLDER: <Source folder> 
 		/TYPE:<Backup type>
 
 	/RESTOREDB
 
-This parameter specifies that the “Database wizard” module shall restore the database from a backup. The database restoration settings are set by the command line parameters following it.
+This parameter specifies that the "Database wizard" module shall restore the database from a backup. The database restoration settings are set by the command line parameters following it.
 
 	/ FOLDER: <Source folder>
 
@@ -149,7 +149,7 @@ The folder to which the backup of the database will be restored. If several back
 
 	/TYPE: <Backup Type>
 
-The type of backup from which the database shall be restored. If this parameter is set to “0”, it indicates fast backup restoration. If this parameter is set to “1”, it indicates full backup restoration. The parameter is optional. If the value of the parameter is not set, then the restoration from the fast backup will be performed.
+The type of backup from which the database shall be restored. If this parameter is set to "0", it indicates fast backup restoration. If this parameter is set to "1", it indicates full backup restoration. The parameter is optional. If the value of the parameter is not set, then the restoration from the fast backup will be performed.
 
 ### Example of Using Command Line Parameters
 
@@ -160,18 +160,18 @@ The type of backup from which the database shall be restored. If this parameter 
 
 The above mentioned set of command-line parameters means that the "Database wizard" module shall create a fast copy of the database and copy it to the folders `E:\Backup Data\Operational` and `\\Storage\Andromeda Backup\Operational`. 
 
-When copying a backup to the destination folder, the “Database wizard” module shall check that the total number of online backup files in the destination folder does not exceed 24, and if there are more, the oldest backup file shall be deleted.
+When copying a backup to the destination folder, the "Database wizard" module shall check that the total number of online backup files in the destination folder does not exceed 24, and if there are more, the oldest backup file shall be deleted.
 
 [id-11-01]: img/AnDBWiz-BR.png "Start window of the "Database wizard" module"
 [id-11-02]: img/AnDBWiz-BR-Back-02.png "Backup settings window"
 [id-11-03]: img/AnDBWiz-BR-Rest-02.png "Configuration window for restore from a backup"
 [id-11-04]: img/AnDBWiz-EI-Imp-And-01.png "Window for selecting data source for import operation"
 [id-11-05]: img/AnDBWiz-EI-Imp-And-02.png "Window for setting up import from Andromeda database"
-[id-11-06]: img/AnDBWiz-EI-Imp-Str-02.png "Window for setting up import from “Strazh” database"
+[id-11-06]: img/AnDBWiz-EI-Imp-Str-02.png "Window for setting up import from "Strazh" database"
 [id-11-07]: img/AnDBWiz-EI-Imp-Csm-02.png "Window for setting up import from CSM32 database"
-[id-11-08]: img/AnDBWiz-EI-Imp-Csm-03.png “Window for mapping event classes during import from CSM32 database"
+[id-11-08]: img/AnDBWiz-EI-Imp-Csm-03.png "Window for mapping event classes during import from CSM32 database"
 [id-11-09]: img/AnDBWiz-EI-Exp-Csv-02.png "Window for selecting sites and fields when setting up site information export"
 [id-11-10]: img/AnDBWiz-EI-Exp-Csv-03.png "Window for setting exporting information about sites"
 [id-11-11]: img/AnDBWiz-EI-Imp-GN-02.png "Window for setting up import from GuardNet database"
-[id-11-12]: img/AnDBWiz-EI-Imp-Nmn-02.png "Window for setting up import from Neman database”
+[id-11-12]: img/AnDBWiz-EI-Imp-Nmn-02.png "Window for setting up import from Neman database"
 [id-11-13]: img/AnDBWiz-EI-Imp-XML-02.png "Window for setting import from XML file"
