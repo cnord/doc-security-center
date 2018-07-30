@@ -1,21 +1,29 @@
-\PassOptionsToPackage{russian,english,spanish}{babel}
-
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$]{$documentclass$}
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 
-\usepackage[english]{babel} % правила переноса
-\usepackage[utf8]{inputenc} 
+\usepackage[russian]{babel} 
+\usepackage[utf8x]{inputenc} 
 \usepackage{cmap} % чтобы работал поиск по PDF
 \pdfcompresslevel=9 % сжимать PDF
 
-\usepackage{geometry}
-\geometry{top=2cm} %поле сверху
-\geometry{bottom=2.5cm} %поле снизу
-\geometry{left=2.5cm} %поле справа
-\geometry{right=2cm} %поле слева
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{ltablex} 
+\usepackage{colortbl}
 
+\usepackage{multicol} %чтобы оформлять текст в колонки 
+
+\usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{caption}
+\captionsetup{font=it}
+  
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{plainnat}
@@ -63,8 +71,24 @@ $if(url)$
 \usepackage{url}
 $endif$
 
+% imgcapt – обертка, которая позволяет вставлять картинки с заголовком,
+% причем картинки жмутся в 0.75 своего размера, либо ширины страницы
+\usepackage{calc}
 \usepackage{graphicx, subfigure}
 \usepackage{wrapfig}
+
+\newlength{\imgwidth}
+
+\newcommand\imgcapt[2]{   
+ \begin{minipage}{\linewidth}
+  \begin{center}
+   \settowidth{\imgwidth}{\includegraphics{#1}}
+   \setlength{\imgwidth}{\minof{.75\imgwidth}{.75\textwidth}}
+   \includegraphics[width=\imgwidth]{#1}
+   \captionof{figure}{#2}
+  \end{center}
+ \end{minipage}
+}
 
 % We will generate all images so they have a width \maxwidth. This means
 % that they will get their normal width if they fit onto the page, but
@@ -74,7 +98,34 @@ $endif$
 		{\ifdim\Gin@nat@width>\linewidth\linewidth
 		\else\Gin@nat@width\fi}
 \makeatother
-	\let\Oldincludegraphics\includegraphics
+  \let\Oldincludegraphics\includegraphics
+  
+% Меняем размер шрифтов для заголовков на 5 уровней
+% Command             10pt    11pt    12pt
+% \tiny               5       6       6
+% \scriptsize         7       8       8
+% \footnotesize       8       9       10
+% \small              9       10      10.95
+% \normalsize         10      10.95   12
+% \large              12      12      14.4
+% \Large              14.4    14.4    17.28
+% \LARGE              17.28   17.28   20.74
+% \huge               20.74   20.74   24.88
+% \Huge               24.88   24.88   24.88
+
+\usepackage{titlesec}
+
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\normalsize\bfseries}
+\titleformat*{\subparagraph}{\small\bfseries}
+
+% для заголовков уровней 4 и 5 добавляет строку между заголовком и текстом
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 
 \usepackage[unicode=true,
             bookmarks=true,
@@ -99,10 +150,7 @@ $endif$
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 
-$if(numbersections)$
-$else$
-\setcounter{secnumdepth}{2}
-$endif$
+\setcounter{secnumdepth}{3}
 
 $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
@@ -122,15 +170,13 @@ $header-includes$
 $endfor$
 
 \begin{document}
-\input{title-manual.tex}
-
-%\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+\input{$title-source$}
 
 $for(include-before)$
 $include-before$
 $endfor$
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{3}
 \tableofcontents
 
 \newpage
