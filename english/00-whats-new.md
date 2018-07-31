@@ -38,11 +38,11 @@ In the chapter about the ["Duty operator"] module (#duty-opertor-process-alarm),
 
 ## Cloud Services
 
-Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "Cloud Services" (#cloud-services).
+Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services)".
 
 ### Call Center
 
-["Call center"] service (#cloud-services-call-center) allows the client of a private security company to obtain information about the current status of the site (under protection/removed from protection) and to check the panic button. Both services are provided in automatic mode, which allows to reduce the load on the Security Center operator.
+"[Call center](#cloud-services-call-center)" service allows the client of a private security company to obtain information about the current status of the site (under protection/removed from protection) and to check the panic button. Both services are provided in automatic mode, which allows to reduce the load on the Security Center operator.
 
 "Call Center" service is set in the [partner interface](#cloud-services-settings) in the "Cloud". Also here it is possible to get statistics of the service usage. 
 

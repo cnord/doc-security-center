@@ -10,6 +10,7 @@ The "Engineer Interface" displays a site available for control and provides the 
 
 The Security Center user can select one of the modes of operation with cloud services, depending on the degree of integration with the Cloud. Full integration allows to use all cloud services. Partial means only a service that provides remote access to equipment on a site. By prohibiting transfer of any data to the Cloud, the user refuses to use all cloud services.
 
+## Call center
 
 ### Getting Information about Site Status
 
@@ -17,7 +18,7 @@ The service "Get information about site status" provided by the "Call Center" al
 
 It is necessary to make sure that the site is in the expected state for various reasons. In particular, the site may not be armed due to a malfunction of the security equipment or due to a communication channel failure. When using GPRS or GSM connection, the SIM card money may run out.
 
-To check the site status, the client of the private security company shall call the special company number. After that, he/she can independently select the service "Get information about site status" using the voice menu, enter the site number and, if necessary, a PIN code. The client of the private security company can get the PIN code in the "Personal account" of the partner, and the Security Center operator - in the "Site manager" on the "Responsible persons" tab. 
+To check the site status, the client of the private security company shall call the special company number. After that, he/she can independently select the service "Get information about site status" using the voice menu, enter the site number and, if necessary, a PIN code. The client of the private security company can get the PIN code in the "Personal account" of the partner, and the Security Center operator - in the "Site manager" on the "Responsible persons" tab.
 
 ![Selection of services when calling to "Call Center"][id-13-02]
 
@@ -25,7 +26,7 @@ The PIN code shall be requested to increase the level of security for maintainin
 
 Due to the cloud service "Call Center" the number of calls transferred to the operator is reduced. This is especially important during peak hours, when employees of enterprises come or go from work, arming or disarming sites, respectively. Automatic handling of calls to confirm arming and disarming allows the Security Center operators to performs their primary duties, namely, handling alarms.
 
-### Panic Button Check
+### Panic button check
 
 The panic button is installed in jewelry salons, pawnshops, banks, cafes, pharmacies and many other enterprises. In this case, the private security company makes a contract, which specifies the frequency of the mandatory check of the panic button by the client of the private security service: for example, once a day. 
 
