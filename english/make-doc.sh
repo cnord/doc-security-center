@@ -6,7 +6,7 @@ pandoc --template template/template.latex -V title-source=title-install.tex -o S
  
 END=$(date +%s)
 DIFF=$(( $END - $START ))
-echo "Instalation manual – $DIFF seconds"
+echo "English instalation manual – $DIFF seconds"
 
 START=$(date +%s)
 
@@ -14,5 +14,5 @@ pandoc --template template/template.latex -V title-source=title-manual.tex -o SC
 
 END=$(date +%s)
 DIFF=$(( $END - $START ))
-echo "User manual – $DIFF seconds"
+echo "English user manual – $DIFF seconds"
 

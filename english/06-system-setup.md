@@ -14,14 +14,14 @@ In the Security Center software, the created events are divided into several typ
 * Restore
 * Exception
 * Test
-* Other 
+* Other
 * Alarm reset
 
 The event type determines the handling. For example, events of the "Alarm" type require obligatory operator’s actions, called alarm handling. Besides, alarms, which handling is not started or completed, change the current status of sites. When handling events that have the "Arming" or "Disarming" type, the site status also changes.
 
 The list of event types is predefined and cannot be changed by the user. Event classes are intended to group the events and manage them. The event class defines its type, in this case it is possible to create several classes with the "Alarm" type and define individual action lists and cancellations for each alarm.
 
-!["Event classes" tab][id-06-01]
+\imgcapt{img/syssetup-03.png}{"Event classes" tab}
 
 Use the "Event classes" tab to change the list of used event classes. 
 
@@ -37,9 +37,9 @@ Since event classes define appearance, sound and alarm script, the Security Cent
 
 #### Replacing Event Class
 If the Security Center has been in operation for a long time, then there is a possibility that the list of event classes is littered. For example, it contains duplicate classes or information about classes that are no longer used. However, it is impossible to remove these classes, because there are events that are described by these classes. To cope with this problem, it is possible to replace duplicates or unused event classes with their current analogs.
-To replace the obsolete event class with the one currently in use, use the "Replace..." button. 
+To replace the obsolete event class with the one currently in use, use the "Replace..." button.
 
-!["Replace event class" window][id-06-02]
+\imgcapt{img/syssetup-03-01.png}{"Replace event class" window}
 
 In the window that appears, select the event class that will be used instead of the replaced one, and also specify the need to delete the event class that is being replaced.
 
@@ -51,7 +51,7 @@ An event template is a list of events that can be received when decoding notific
 
 The event template is an integral characteristic of the site. It is possible to specify the event template that shall be used for the site in the "Site manager" module.
 
-!["Event templates" tab][id-06-03]
+\imgcapt{img/syssetup-01.png}{"Event templates" tab}
 
 Use the "Event templates" tab to change the list of templates used by the Security Center. Besides, it is possible to change the description of the events in the template.
 
@@ -61,16 +61,15 @@ Changes that are made to the description of the template events on the System se
 
 It is impossible to delete the event template used in site description. If the template that the user wants to delete is used as an event template for a site, the attempt to delete will be completed with an error.
 
-#### Replacing Event Template
+### Replacing Event Template
 
 It shall be noted that the quality of the event templates supplied with the Security Center is constantly improving, that is why when describing sites it is recommended to use the latest versions of the event templates.
-To replace the obsolete template for sites with another, more relevant, use the function of replacing event templates. 
-To replace the obsolete event template with the one currently in use, use the "Replace..." button. 
+To replace the obsolete template for sites with another, more relevant, use the function of replacing event templates.
+To replace the obsolete event template with the one currently in use, use the "Replace..." button.
 
-!["Event template replacing" window][id-06-04]
+\imgcapt{img/syssetup-01-01.png}{"Event template replacing" window}
 
 In the window that appears, select an event template that shall be used instead of the replaced one, and also specify the need to delete the obsolete event template.
-
 
 #### Event Editing
 
@@ -78,7 +77,7 @@ If you change the template events, changes to the database are saved immediately
 
 When creating a new event or changing an existing event, it is possible to specify all event attributes in the "Edit event" window.
 
-!["Edit event" window][id-06-05]
+\imgcapt{img/syssetup-01-02.png}{"Edit event" window}
 
 * "Receive channel type" - when decoding an event, it is important which channel was used when it was received by the Security Center. For example, the same event code can be decoded in different ways, for events received via radio and phone. If the event code is defined for both specific communication channels and for "Any" communication channel, the decoding for the "Any" communication channel is applied only if the decoding for a specific communication channel is not found. 
 
@@ -88,9 +87,9 @@ When creating a new event or changing an existing event, it is possible to speci
 
 * "Part number" is an attribute that can be used to further identify the event during decoding. If the protocol of exchange with the site device contains the number of the part to which the event relates, then the event will be identified not only by the code and the receiving channel, but also by the part number. Besides, the part number is used when generating the event description automatically: if the part number is not a zero, and the event description contains the macro `%part%`, then instead of the macro, the description of the site part corresponding to the part number received from the site will be inserted.
 
-* "Zone/User" is an attribute that can be used depending on how the informative format (protocol) is used to transmit information from the control panel to the Security Center. 
+* "Zone/User" is an attribute that can be used depending on how the informative format (protocol) is used to transmit information from the control panel to the Security Center.
 
-> Let’s suppose that the panel, when transmitting to the station, uses the ContactID protocol, which, among other things, sends the number of the tripped zone or the number of the user who performed the site disarming. In this case, the Security Center ignores the zone or user number specified in the event description and always uses the value received from the panel: the zone number, which was sent from the panel, will be used to decode the event. 
+> Let’s suppose that the panel, when transmitting to the station, uses the ContactID protocol, which, among other things, sends the number of the tripped zone or the number of the user who performed the site disarming. In this case, the Security Center ignores the zone or user number specified in the event description and always uses the value received from the panel: the zone number, which was sent from the panel, will be used to decode the event.
 
 > Now let’s consider the situation when the panel, when transmitting to the station, uses the EPAF protocol, in which only the site number and event code are transmitted. The zone or user numbers are not explicitly transmitted, but the relationship between the event code and zone or user number is known. In this case, the zone or user number is specified in the event template - according to the event code, and it is the value specified in the template that will be used to form the event description.
 
@@ -98,13 +97,12 @@ When creating a new event or changing an existing event, it is possible to speci
 
 * "Event description" is an arbitrary text string describing the event. 
 	
-> When describing events, it is recommended to use the macros `%user%` and `%zone%`. If a macro is found in the description of the event during its decoding, a value corresponding to the name of the zone (macro `%zone%`) or the name of the responsible person (macro `%user%`) will be inserted in the description. In this case, the zone or user number will be taken from the event itself. 
-	
+> When describing events, it is recommended to use the macros `%user%` and `%zone%`. If a macro is found in the description of the event during its decoding, a value corresponding to the name of the zone (macro `%zone%`) or the name of the responsible person (macro `%user%`) will be inserted in the description. In this case, the zone or user number will be taken from the event itself.
 > Information about zones and responsible persons on the site is very important. It is possible to enter this information for the site in the "Site manager" module.
 
 ## Actions {#system-setup-actions}
 
-!["Actions" tab][id-06-06]
+\imgcapt{img/syssetup-04.png}{"Actions" tab}
 
 The "Actions" tab is intended for changing the list of actions that an operator can register during alarm handling.
 
@@ -132,7 +130,7 @@ Action of any type can be made mandatory for execution during alarm handling. To
 
 ## Alarm Cancellations
 
-!["Alarm cancellation" tab][id-06-07]
+\imgcapt{img/syssetup-05.png}{"Alarm cancellation" tab}
 
 Use the "Alarm cancellation" tab to edit the list of reasons recorded when canceling alarms.
 
@@ -145,7 +143,7 @@ To use these reports, it is necessary to maintain a list of cancellations of ala
 
 ## Site Types
 
-!["Site types" tab][id-06-08]
+\imgcapt{img/syssetup-02.png}{"Site types" tab}
 
 The "Site types" tab is used to manage the list of site types. 
 
@@ -155,7 +153,7 @@ The site type is a mandatory property of a site. The site type is used for the c
 
 ## Site fields
 
-!["Site fields" tab][id-06-09]
+\imgcapt{img/syssetup-06.png}{"Site fields" tab}
 
 Use the "Site fields" tab to change the list of additional fields that will be available when filling the site card.
 
@@ -166,13 +164,3 @@ When creating a list of fields, it is possible to set their sequence when they a
 If the values of a field are a list of previously known values, then it is possible to fill this list by specifying the appropriate type for the field. In this case, the list of values does not limit the ability to specify a value for the site field manually, if necessary.
 
 There are two fields in the list of site fields, for which it is recommended to change only the list of possible values. These fields are "*Customer part equipment" and "*Customer zone equipment". As their names suggest, they are intended so that it was more convenient to fill in the values for the "Equipment" field when editing parts and zones of sites in the "Site manager" module.
-
-[id-06-01]: img/syssetup-03.png ""Event classes" tab"
-[id-06-02]: img/syssetup-03-01.png ""Replace event class" window"
-[id-06-03]: img/syssetup-01.png ""Event templates" tab"
-[id-06-04]: img/syssetup-01-01.png ""Event template replacing" window"
-[id-06-05]: img/syssetup-01-02.png ""Edit event" window"
-[id-06-06]: img/syssetup-04.png ""Actions" tab"
-[id-06-07]: img/syssetup-05.png ""Alarm cancellation" tab"
-[id-06-08]: img/syssetup-02.png ""Site types" tab"
-[id-06-09]: img/syssetup-06.png ""Site fields" tab"

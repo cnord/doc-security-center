@@ -34,7 +34,7 @@ To install Security Center, you need to install Microsoft Internet Explorer 8.0 
 
 Before installing Security Center, you need to make sure that all hardware requirements and operating system requirements are met.
 
-> If it is planned to use Security Center with video routers by C.Nord company, then it is necessary to install the latest version of Adobe Flash Player on the computer where you want to run the module "Duty operator", which can be uploaded from [the Adobe official website](http://get.adobe.com/en/flashplayer/otherversions/).
+> If it is planned to use Security Center with video routers by C.Nord company, then it is necessary to install the latest version of Adobe Flash Player on the computer where you want to run the module "Duty operator", which can be uploaded from [the Adobe official website](https://get.adobe.com/flashplayer/).
 
 ## Installer
 
