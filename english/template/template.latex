@@ -3,7 +3,7 @@
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 
-\usepackage[russian]{babel} 
+\usepackage[english]{babel} 
 \usepackage[utf8x]{inputenc} 
 \usepackage{cmap} % чтобы работал поиск по PDF
 \pdfcompresslevel=9 % сжимать PDF

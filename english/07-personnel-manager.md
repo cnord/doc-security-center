@@ -4,7 +4,7 @@ In the "Personnel manager" module, it is possible to edit the list of operators 
 
 ## Operators
 
-![Operators tab][id-07-01]
+\imgcapt{img/empman-01.png}{Operators tab}
 
 The "Operators" tab is intended for editing the list of software operators and their rights in the Security Center modules.
 
@@ -16,7 +16,7 @@ Before determining the operator's rights in the module, allow the operator to en
 
 When creating a new operator, it is possible to assign him/her the same rights as one of the existing ones. To do this, before creating a new operator, in the list of operators select the user, whose rights shall be copied.
 
-![Selecting list of rights for new operator][id-07-02]
+\imgcapt{img/empman-01-00.png}{Selecting list of rights for new operator}
 
 It is forbidden to edit the name and rights of the operator, who entered the module, as well as "Administrator" in the module "Personnel Manager". 
 
@@ -24,7 +24,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Event Manager" Module
 
-![Operator’s rights in the "Event manager" module][id-07-03]
+\imgcapt{img/empman-01-01.png}{Operator’s rights in the "Event manager" module}
 
 * "Exit from the program" - permission to shut down the "Event manager" module. 
 
@@ -38,7 +38,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Duty Operator" Module
 
-![Operator’s rights in the "Duty operator" module][id-07-04]
+\imgcapt{img/empman-01-02.png}{Operator’s rights in the "Duty operator" module}
 
 * "Enter into the program" - permission to enter the "Duty operator" module. If the operator has to handle the alarms, then he/she shall have this permission.
 
@@ -60,7 +60,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Site Manager" Module
 
-![Operator’s rights in the "Site manager" module][id-07-05]
+\imgcapt{img/empman-01-03.png}{Operator’s rights in the "Site manager" module}
 
 * "Enter into the program" - permission to enter the "Site manager" module. If the operator shall be able to view and edit site cards, then he/she shall have this permission.
 
@@ -92,7 +92,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Report Manager" Module
 
-![Operator’s rights in the "Report manager" module][id-07-06]
+\imgcapt{img/empman-01-04.png}{Operator’s rights in the "Report manager" module}
 
 * "Enter into the program" - permission to enter the "Report manager" module. If the operator shall be able to create reports, then he/she shall have this permission.
 
@@ -110,7 +110,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Site Maps" Module
 
-![Operator’s rights in the "Site maps" module][id-07-07]
+\imgcapt{img/empman-01-05.png}{Operator’s rights in the "Site maps" module}
 
 * "Enter into the program" - permission to enter the "Site maps" module. If the operator shall be able to view or edit site maps, including - to view the maps of sites when handling an alarm, then he/she shall have this permission.
 
@@ -118,7 +118,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "System Setup" Module
 
-![Operator’s rights in the "System setup" module][id-07-08]
+\imgcapt{img/empman-01-06.png}{Operator’s rights in the "System setup" module}
 
 * "Enter into the program" - permission to enter the "System setup" module. If the operator shall be able to view or change the settings of the system directories of the Security Center, then he/she shall have this permission.
 
@@ -136,7 +136,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Nord-LAN Key Configurator" Module
 
-![Operator’s rights in the "Nord-LAN key Configurator" module][id-07-09]
+\imgcapt{img/empman-01-07.png}{Operator’s rights in the "Nord-LAN key Configurator" module}
 
 * "Enter into the program" - permission to launch the "Nord-LAN keys Configurator" module. 
 
@@ -146,7 +146,7 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 ### Operator’s Rights in "Personnel Manager" Module
 
-![Operator’s rights in the "Personnel manager" module][id-07-10]
+\imgcapt{img/empman-01-08.png}{Operator’s rights in the "Personnel manager" module}
 
 * "Enter into the program" - permission to launch the "Personnel manager" module.
 
@@ -160,15 +160,15 @@ For the current operator of the "Personnel manager" module and the "Administrato
  
 ## guards
 
-!["Guards" tab][id-07-11]
+\imgcapt{img/empman-02.png}{"Guards" tab}
 
-On the "Guards" tab it is possible to edit the list of guards that are used in the Security Center software. 
+On the "Guards" tab it is possible to edit the list of guards that are used in the Security Center software.
 
 To save the changes made on this tab, the user shall have the "Edit Groups" permission for the "Personnel manager" module.
 
 ## Computers
 
-!["Computers" tab][id-07-12]
+\imgcapt{img/empman-03.png}{"Computers" tab}
 
 The "Computers" tab is intended to manage the list of computers on which the network workplaces of the Security Center software are allowed, and to manage the list of sites available on these computers.
 
@@ -192,7 +192,7 @@ This function is useful, when the duty operators use the scheme of dividing site
 
 The "Engineers" tab is used to manage the list of engineers that can be granted permissions to access remote site management.
 
-![Add engineer][id-07-14] 
+\imgcapt{img/empman-04-00.png}{Add engineer}
 
 The list of engineers can be edited by the user who has the right to "Edit engineers".
 
@@ -220,19 +220,6 @@ Information about the permissions granted to the engineer for access to sites is
 
 To cancel the permission granted to the engineer for access to a site, select the permission in the list and click the "Delete permission" button.
 
-[id-07-01]: img/empman-01.png "Operators tab"
-[id-07-02]: img/empman-01-00.png "Selecting list of rights for new operator"
-[id-07-03]: img/empman-01-01.png "Operator’s rights in the "Event manager" module"
-[id-07-04]: img/empman-01-02.png "Operator’s rights in the "Duty operator" module"
-[id-07-05]: img/empman-01-03.png "Operator’s rights in the "Site manager" module"
-[id-07-06]: img/empman-01-04.png "Operator’s rights in the "Report manager" module"
-[id-07-07]: img/empman-01-05.png "Operator’s rights in the "Site maps" module"
-[id-07-08]: img/empman-01-06.png "Operator’s rights in the "System setup" module"
-[id-07-09]: img/empman-01-07.png "Operator’s rights in the "Nord-LAN key Configurator" module"
-[id-07-10]: img/empman-01-08.png "Operator’s rights in the "Personnel manager" module"
-[id-07-11]: img/empman-02.png "Guards" tab"
-[id-07-12]: img/empman-03.png ""Computers" tab"
 [id-07-13]: img/empman-04.png ""Engineers" tab"
-[id-07-14]: img/empman-04-00.png "Add engineer"
 [id-07-15]: img/empman-05.png ""Administrators of personal account" tab"
 [id-07-16]: img/empman-05-00.png "Add administrator of personal account"

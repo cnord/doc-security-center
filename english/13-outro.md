@@ -1,6 +1,6 @@
 # Technical Support
 
-If problems arise during the operation of the Security Center software, or if you want to improve it, contact the technical support service of C.Nord by e-mail support@cnord.ru. 
+If problems arise during the operation of the Security Center software, or if you want to improve it, contact the technical support service of C.Nord by e-mail [support@cnord.ru](mailto:support@cnord.ru].
 
 When contacting technical support about a problem, specify Security Center version that is being installed and describe the problem.
 
