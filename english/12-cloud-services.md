@@ -42,7 +42,7 @@ The private security company can use the administrator panel to configure the cl
 
 ### Partner Account Registration
 
-To register a partner in the Cloud, open web page at https://cloud.cnord.net. The page contains a brief background on cloud services that can be configured in the administrator panel. 
+To register a partner in the Cloud, open web page at [cloud.cnord.net](https://cloud.cnord.net). The page contains a brief background on cloud services that can be configured in the administrator panel. 
 
 ![Partner web-interface][id-13-04]
 
@@ -80,7 +80,7 @@ Important: UID change is possible when the connection to the Cloud is made and w
 
 ### Login to Partner Account
 
-To log in to an account of an already registered partner on the https://cloud.cnord.ru/ web- page, select the "Log in" tab. Shall enter the e-mail address in the "E-mail" field and the password specified after the partner registration in the "Password" field.
+To log in to an account of an already registered partner on the [cloud.cnord.net](https://cloud.cnord.net/) page, select the "Log in" tab. Shall enter the e-mail address in the "E-mail" field and the password specified after the partner registration in the "Password" field.
 
 ![Login to partner account][id-13-09]
 
@@ -159,7 +159,7 @@ If when the web keyboard is opened or used it turns out that the site is armed, 
 
 After the work is finished, the engineer shall exit the system by clicking on the "Exit" link located on the main panel of the page.
 
-To log in to the web-interface, go to https://keyboard.cnord.net/ and enter the e-mail address and password created at registration. After that, click the "Login" button. To recover a password, click on the link "Forgot your password?". In the appeared window it is necessary to enter the e-mail address and press the button "Restore password". At the same time, a letter containing a link for password restoration will be sent to the specified address.
+To log in to the web-interface, go to [keyboard.cnord.net](https://keyboard.cnord.net/) and enter the e-mail address and password created at registration. After that, click the "Login" button. To recover a password, click on the link "Forgot your password?". In the appeared window it is necessary to enter the e-mail address and press the button "Restore password". At the same time, a letter containing a link for password restoration will be sent to the specified address.
 
 ## Personal Account
 
@@ -167,7 +167,7 @@ The "Personal account" Cloud service allows clients of a private security compan
 
 Access to "Personal account" is provided to a user registered in the Cloud who has an account of the Administrator of the "Personal account". 
 
-It is possible to create an administrator account on the "Administrators of personal account" tab of the "Personnel manager" module. Here it is possible to send an invitation to register in the Cloud to an administrator. At the same time, an SMS message will be sent to the mobile number of the administrator, containing a link to the page for registration in the Personal Account (https://my.cnord.net/) and a special code for registration.
+It is possible to create an administrator account on the "Administrators of personal account" tab of the "Personnel manager" module. Here it is possible to send an invitation to register in the Cloud to an administrator. At the same time, an SMS message will be sent to the mobile number of the administrator, containing a link to the page for registration in the Personal Account ([my.cnord.net](https://my.cnord.net/) and a special code for registration.
 
 !["Personal account" web interface][id-13-17]
 
@@ -177,7 +177,7 @@ Click on the link specified in the SMS message and select the "Registration" tab
 
 A letter containing a link to confirm registration will be sent to the specified mail address. After clicking on the link, registration will be completed.
 
-To enter the "Personal account", open the web page at https://my.cnord.net/ and open the "Login" tab. Here it is necessary to enter the e-mail address and password specified during registration and click "Login".
+To enter the "Personal account", open the web page at [my.cnord.net](https://my.cnord.net/) and open the "Login" tab. Here it is necessary to enter the e-mail address and password specified during registration and click "Login".
 
 !["Login to the "Personal account"][id-13-19]
 
@@ -201,7 +201,7 @@ If a video router is installed on the site, the "Personal account" contains the 
 
 ![Video surveillance in "Personal account"][id-13-23]
 
-It is also possible to use the "Personal account" cloud service on mobile devices using the "MyAlarm" application. Download links can be found on the login page of the "Personal Account" at https://my.cnord.net/.
+It is also possible to use the "Personal account" cloud service on mobile devices using the "MyAlarm" application. Download links can be found on the login page of the "Personal Account" at [my.cnord.net](https://my.cnord.net/).
 
 [id-13-01]: img/CldSrvcs-01-RouterConnection.png "Telephone router connection"
 [id-13-02]: img/CldSrvcs-02-CallCenterServices.png "Selection of services when calling to "Call Center""
