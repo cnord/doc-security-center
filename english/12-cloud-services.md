@@ -2,9 +2,9 @@
 
 The cloud is an infrastructure software and hardware complex. It provides services to improve the quality of services offered by the private security company.
 
-"Alarm to Guard" is also a cloud service. This application provides fast interaction between the Security Center operator and Guard employees. Besides, it allows the Guard to get the necessary information about the site and its status.
+<!-- "Alarm to Guard" is also a cloud service. This application provides fast interaction between the Security Center operator and Guard employees. Besides, it allows the Guard to get the necessary information about the site and its status.
 
-In addition to these services, various web-interfaces are available. For example, with the help of the "Partner interface" a private security company can manage the Cloud services. It is possible to configure one of the cloud services, for example, "Alarm to Guard."
+In addition to these services, various web-interfaces are available. For example, with the help of the "Partner interface" a private security company can manage the Cloud services. It is possible to configure one of the cloud services, for example, "Alarm to Guard." -->
 
 The "Engineer Interface" displays a site available for control and provides the ability to remotely control the equipment on it.
 
