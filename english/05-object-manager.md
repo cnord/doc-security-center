@@ -4,13 +4,14 @@ The "Site manager" module is intended to manage the description of sites availab
 
 To launch the "Site manager" module, the user shall have the "Log in" permission for this module.
 
-![Module main window][id-05-01]
+\imgcapt{img/ObjMngr-01-Main.png}{Module main window}
+![][id-05-01]
 
 The main window of the "Site manager" module displays a list of Security Center sites and a card of the current (selected) site. To perform any operation with the site, select the appropriate item in the menu. The most requested menu items are duplicated in the control panel of the module and control panels on the tabs on which the fields of the site card are grouped.
 
 ## Control Panel
 
-![Control Panel][id-05-02]
+\imgcapt{img/ObjMngr-02-Toolbar.png}{Control Panel}
 
 The operations, which are controlled by buttons on the control panel (listed in the order of the buttons):
 
@@ -38,7 +39,7 @@ If there is a possibility that the information about the site to be deleted may 
 
 ## List of Sites
 
-![List of sites][id-05-03]
+\imgcapt{img/ObjMngr-03-ObjectList.png}{List of sites}
 
 The main purpose of the list of sites in the "Site manager" module is to find and select a site, information about which shall be viewed or changed.
 
@@ -46,7 +47,7 @@ Search for the site is done using the search bar at the top of the site list. En
 
 ### Selection of Displayed Columns
 
-![List of sites: selection of displayed columns][id-05-03-01]
+\imgcapt{img/ObjMngr-03-ObjectList-01.png}{List of sites: selection of displayed columns}
 
 It shall be noted that it is possible to select the columns that shall be displayed in the list of sites. To do this, left-click on the special button located in the upper left corner of the list of sites and check the necessary columns in the list that appears.
 
@@ -58,7 +59,7 @@ It is possible to sort by several columns. To do this, click on the column heade
 
 ### Filtering of Sites during Display
 
-![List of sites: filtering button][id-05-03-02]
+\imgcapt{img/ObjMngr-03-ObjectList-02.png}{List of sites: filtering button}
 
 Another useful function of the list of sites is filtering by a given characteristic. For example, if it is necessary to display only sites of the "store" type, click on the arrow that appears in the column header when the mouse cursor appears over it and select the type of site in the drop-down list.
 
@@ -66,11 +67,11 @@ Or, for example, to make sure that only sites with the word "Dixie" are displaye
 
 Special filtering flexibility is achieved due to the comparison rule "similar to". Using the rule it is possible to filter the list of sites, ignoring minor discrepancies in the values of fields: to do this, a special symbol "%" can be used in the reference value, indicating the comparison procedure, that instead of it any substring can appear, including an empty one.
 
-![List of sites: filtering settings window][id-05-03-03]
+\imgcapt{img/ObjMngr-03-ObjectList-03.png}{List of sites: filtering settings window}
 
 The figure shows the result of filtering by comparison using the rule "similar to %id%".
 
-![List of sites: result of filtering by comparing "similar to %%ld %%"][id-05-03-04]
+\imgcapt{img/ObjMngr-03-ObjectList-04.png}{List of sites: result of filtering by comparing "similar to %IR%"}
 
 ## Restoring of Deleted Site
 
@@ -78,17 +79,17 @@ To see the card of the deleted site of the Security Center or generate a report 
 
 To restore a deleted site, the Security Center operator, who has the appropriate permission, shall select "Restore deleted site..." of the "Site" item in the menu of the "Site manager" module.
 
-![Restore deleted site][id-05-22]
+\imgcapt{img/ObjMngr-22-ObjectRecovery.png}{Restore deleted site}
 
 The "Select site to restore" window that opens displays the sites that were deleted earlier. For each of them, the number of sites (at the time of the first deletion of the site), name and address of the site, contract number, as well as date and time of deletion of the site are indicated in the corresponding fields. It is convenient to search the site to be restored using these parameters by sorting and filtering sites by a specified characteristic.
 
-![Select site to restore][id-05-23]
+\imgcapt{img/ObjMngr-23-ObjectRecovery-01.png}{Select site to restore}
 
 To restore, select the site in the "Select site to restore" window and click the "OK" button. After that, the site will be restored and displayed in the list of sites in the main window of the module.
 
 In this case, the number of the restored site changes, if it coincides with the number of already existing site or part. The number change is achieved by adding certain symbols (from "A" to "F"): for example, the site number "314" is changed to "A314". In the same way, the number of any part of the restored site changes if it coincides with the number of already existing site or part. The number of the restored site and number of its parts are reported in a window that automatically opens immediately after the site is restored.
 
-![Information on number of restored site and its parts][id-05-24]
+\imgcapt{img/ObjMngr-24-ObjectRecovery-02.png}{Information on number of restored site and its parts}
 
 It shall be noted that for the computer on which the site is being restored, a restriction on the available site numbers can be set. If the number of the site to be restored exceeds the limits of this restriction, the site will be restored, but a message will appear informing the user about the need to change the site number or change the restriction on available site numbers.
 
@@ -100,7 +101,7 @@ It is important to remember that the necessary condition for site restoration is
 
 On the "Site" tab it is possible to specify the basic descriptive information about the site: number, name, address, phone numbers and so on.
 
-!["Site" tab][id-05-04]
+\imgcapt{img/ObjMngr-04-Object.png}{"Site" tab}
 
 ### Site location on map {#object-manager-put-to-map}
 
@@ -112,7 +113,7 @@ To locate the site click the "Set on the map..." button next to the "Address" fi
 
 By hovering the cursor over it and holding down the left mouse button, it is possible to move the marker to indicate a more accurate location of the site. To zoom in or out use the zoom slider. Move the map with the cursor. The drop-down list allows to change the default type of the map "Scheme" to "Satellite", "Hybrid", "Public map", "Public map + satellite".
 
-!["Site" tab: Set on the map][id-05-04-01]
+\imgcapt{img/ObjMngr-04-PlaceObject-01.png}{"Site" tab: Set on the map}
 
 After the marker is set, click the "Save" button to save the changes. The received site coordinates will be stored in the "Cloud" and in the Security Center database. After the coordinates are successfully saved, the "Delete from map" button will be active. Otherwise, it will be necessary to repeat the operation of setting the site on the map.
 
@@ -158,7 +159,7 @@ To quickly find them on the hard disk and correctly save in the Cloud, it is bet
 
 After selecting the graphic files, click the "Send" button. In this case, the image size will be automatically reduced to the optimal for displaying on the tablet in the "Alarm to Guard" mobile application. The progress bar in the "Progress" field displays the status of loading the selected images. Closing the "Image of site" window or selecting new graphic files for uploading is not possible until the download is complete.
 
-!["Site" tab: image of site][id-05-04-02]
+\imgcapt{img/ObjMngr-04-ObjectImage-02.png}{"Site" tab: image of site}
 
 Moving or removing of the graphic files, stored in the "Cloud", from the hard disk does not lead to their loss in the Cloud. To delete downloaded image from the Cloud, hover over its thumbnail in the "Image of site" window and click on the "Basket" icon that appears.
 
@@ -166,7 +167,7 @@ Moving or removing of the graphic files, stored in the "Cloud", from the hard di
 
 The "Parts" tab allows to save information about which parts (areas) the site is divided into and what equipment is used to organize parts on the site.
 
-!["Parts" tab][id-05-05]
+\imgcapt{img/ObjMngr-05-Parts.png}{"Parts" tab}
 
 In a number of cases, the term "Area" is used in the documentation for site devices instead of the term "Part". There is no meaningful difference between these terms, the term "Area" is used for historical reasons: once it was used in one of the translations of the documentation for site devices and since then it is often used as a synonym for the term "Part". Besides, the term "Key" is very common in Russian literature, which is also a synonym of the term "Part".
 
@@ -208,11 +209,9 @@ To save the changes made to the description fields of the parts, it is necessary
 
 On the tab "Zones", it is possible to describe in detail the protection coverages of the site, including information about the equipment used and distribution of zones in the site parts.
 
-!["Zones" tab][id-05-06]
+\imgcapt{img/ObjMngr-06-Zones.png}{"Zones" tab}
 
 Information about zones is a very important part of the site description, since it is used when generating the description of events received from the site. For example, if an alert is received from the site in zone one, the event description, which will be created for handling by the Security Center operator, will be substituted for description of zone one from the site card.
-
-
 
 Use the "Add zone" and "Delete zone" buttons to add a new zone to the site zone list, or delete the selected zone from the list.
 
@@ -228,7 +227,7 @@ As the value for the "Key" field it is possible to specify the part to which thi
 
 ## Responsible Persons {#object-manager-doorkeys}
 
-!["Responsible persons" tab][id-05-07]
+\imgcapt{img/ObjMngr-07-DoorKeys.png}{"Responsible persons" tab}
 
 Use the "New" and "Delete" buttons to add a new or delete the selected person from the list.
 
@@ -258,7 +257,7 @@ If the responsible persons describe the users with the personal codes of arming/
 
 On the "Arm" tab it is possible to change the parameters associated with the site protection rules and protection.
 
-!["Arm" tab][id-05-08]
+\imgcapt{img/ObjMngr-08-Arming.png}{"Arm" tab}
 
 ### Long-term arm
 
@@ -298,7 +297,7 @@ For example, if the site is currently armed, the context menu item will be calle
 
 The "Control time" tab is intended for control of one of the most important parameters of site operation control.
 
-!["Control time" tab][id-05-09]
+\imgcapt{img/ObjMngr-09-ControlTime.png}{"Control time" tab}
 
 The site control time is the time interval during which any event shall be received from the site. It shall be understood that the term "Control time" differs in meaning from the term "Autotest control". During autotest control it is expected that the site will send quite specific events. But if we are talking about the site control time in the Security Center software, then during its handling, any events received from the site are taken into account.
 
@@ -342,7 +341,7 @@ On the "Arm schedule" tab it is possible to specify the time periods for each da
 
 To make changes to the arm schedule settings, the user shall have the "Edit schedule" permission for the "Site manager" module.
 
-!["Arm schedule" tab][id-05-10]
+\imgcapt{img/ObjMngr-10-ArmSchedule.png}{"Arm schedule" tab}
 
 It is possible to make arm schedule for the whole site, and for each of its parts. By default, the tab is set to the "Schedule for the whole site" mode. This mode shall be used when making arm schedule for the whole site, that is, for all its parts. If it is necessary to create arm schedule for one or more parts of the site, use the drop-down menu. Here there are all parts created for the site, each of which can be selected to make a separate schedule.
 
@@ -354,11 +353,11 @@ To add an interval during which a site or its parts shall be armed, it is necess
 
 If the drawn interval captures both the blue and white area, a window with two buttons will appear - "Add interval" and "Delete interval". If the site or its parts are to be armed during the selected time interval, click on the "Add interval" button. If the site or its parts shall be disarmed, click on the "Delete" button.
 
-!["Arm schedule" tab:][id-05-10-01]
+\imgcapt{img/ObjMngr-10-ArmSchedule-01.png}{"Arm schedule" tab}
 
 It is possible to set the schedule control parameters using check-boxes located at the bottom of the tab. By checking the necessary boxes, specify the monitored states of the armed site.
 
-!["Arm schedule" tab: site schedule control][id-05-10-02]
+\imgcapt{img/ObjMngr-10-ArmSchedule-02.png}{"Arm schedule" tab: site schedule control}
 
 Arming control is configured using the following parameters presented in the "Arm" line:
 
@@ -388,7 +387,7 @@ It is possible to create arm schedule template based on the arm schedule. To do 
 
 In the "New arm schedule template" window that opens, the arm schedule used to create the template is given. Specify the name of the template and click the "Create template" button in this window.
 
-!["Arm schedule" tab: new template][id-05-10-03]
+\imgcapt{img/ObjMngr-10-ArmSchedule-03.png}{"Arm schedule" tab: new template}
 
 To apply a template to the site or its part arm schedule, do the following:
 
@@ -396,13 +395,13 @@ select the required template in the drop-down menu in the "Template" field.
 
 The arm schedule can be edited. To do this, select the "Edit" item in drop-down menu of the "Template" field. All created templates are displayed in the "Arm schedule template edit" window. Click on the line of the required template to enter a new name. Besides, the template can be deleted by clicking on the "Delete" link in the template line and confirming the template deletion.
 
-!["Arm schedule" tab: template editing][id-05-10-04]
+\imgcapt{img/ObjMngr-10-ArmSchedule-04.png}{"Arm schedule" tab: template editing}
 
 ## Event Template
 
 The "Event template" tab is intended for changing the event code template, used for decoding of events received from the site, disabling of alarm events, and for changing the properties of a specific event code for this site.
 
-!["Event template" tab][id-05-11]
+\imgcapt{img/ObjMngr-11-EventTemplate.png}{"Event template" tab}
 
 The event template that will be used to decode events from the site can be selected from the list in the upper-left corner of the tab.
 
@@ -418,7 +417,7 @@ If you change the template events, changes to the database are saved immediately
 
 When creating a new event or changing an existing event, it is possible to specify all event attributes in the "Edit event" window.
 
-!["Edit event" window][id-05-11-01]
+\imgcapt{img/ObjMngr-11-EventTemplate-01.png}{"Edit event" window}
 
 A detailed description of the event fields is given in the chapter on the "System setup" module in the section describing the "Event template" tab.
 
@@ -426,7 +425,7 @@ Due to the fact that changes in the event template for a particular site are ext
 
 Disabling an alarm event that can be performed using the "Disable event" button, by its value, is very similar to disabling a site, with the only difference being that it is only one event code. When receiving a disabled event in the "Duty operator" module, there is no sound for the event, and "Event manager" creates an automatic cancellation for this alarm. It shall be emphasized that, unlike canceling an alarm for a disabled site, canceling an alarm for a disabled event will cancel only this event - the site arming continues in its entirety, except for the disabled event code.
 
-!["Disable event" window][id-05-11-02]
+\imgcapt{img/ObjMngr-11-EventTemplate-02.png}{"Disable event" window}
 
 The event can be disabled only for a limited time interval, which is indicated when the disabling is performed. After this interval, the event will be automatically enabled. It is possible to enable the disabled event manually at any time by clicking on the "Enable event" button.
 
@@ -442,7 +441,7 @@ To replace the outdated event template with its latest version, use the function
 
 On the "Additional characteristics" tab it is possible to specify values for additional characteristics of sites (custom fields). Add a new additional characteristic or change an existing one in the "System setup" module, on the "Site fields" tab.
 
-!["Additional characteristics" tab][id-05-12]
+\imgcapt{img/ObjMngr-12-ExtFields.png}{"Additional characteristics" tab}
 
 To save the changes made to the additional characteristics, it is necessary to confirm them by pressing the "Enter" button after completing the entry of the values.
 
@@ -456,7 +455,7 @@ The "Event Handlers" tab is intended to display and change the event handlers as
 
 In order for the user to see the groups of handlers and event handlers on this tab, he/she shall have the "View event handlers" permission for the "Event manager" module.
 
-!["Event handlers" tab][id-05-13]
+\imgcapt{img/ObjMngr-13-EventHandlers.png}{"Event handlers" tab}
 
 The purpose of the control panel buttons for the event handlers is the same as in the event handler in the "Event manager" module.
 
@@ -468,7 +467,7 @@ In order for the user to make changes to the event handlers associated with the 
 
 The "Equipment" tab of the "Site manager" module is intended to indicate the type of equipment used on the site and make the necessary settings. Entering information about the equipment provides the correct support of the Security Center installed on the site devices.
 
-!["Equipment" tab][id-05-14]
+\imgcapt{img/ObjMngr-14-Equipment.png}{"Equipment" tab}
 
 To configure the equipment, select the desired site and switch to the edit mode. From the list of systems presented on the "Equipment" tab, select the type of equipment used on the site: "TR-100 GSM III/Soyuz GSM", "AlarmView", "Lonta-202", "RS200", "Puper type 5", or "Neman". If the equipment of another system is installed on the site, specify the "Other" type.
 
@@ -484,13 +483,13 @@ If the site is one of the parts on the control panel, then in the "Site number" 
 
 This type of equipment shall be specified for the site if one of the following devices is installed on it:
 
-* "Nord GSM" or "Nord GSM (WRL)"
+* "Nord GSM" or "Nord GSM WRL"
 
 * "Serzhant GSM"
 
-* "Soyuz GSM (OEM) or "Soyuz GSM (BOX) "
+* "Soyuz GSM"
 
-* Transmitter "TR-100 GSM III", connected to the control panel produced by C.Nord or PIMA Electronic Systems Ltd.
+* Transmitter "TR-100 GSM IV"
 
 The "ID" field will be automatically filled in after the device connects to the Security Center for the first time.
 
@@ -524,7 +523,7 @@ The "RS200 " type of equipment shall be selected when using the radio centralize
 
 The "Comments" tab is intended for entering an arbitrary description of the site.
 
-!["Comments" tab][id-05-15]
+\imgcapt{img/ObjMngr-15-Comments.png}{"Comments" tab}
 
 In the "Comment for operator" field, the information intended for the Security Center operator is indicated. This information is displayed in the site card in the "Duty operator" module, so it is often used to store notes on the site: requests from the responsible persons, observations of engineers serving the site, recommendations to operators, etc.
 
@@ -536,7 +535,7 @@ The "Videorouters" tab in the "Site manager" module allows to specify video rout
 
 Thanks to the installation of video cameras, remote monitoring of the site is possible. The surveillance can be conducted both by a responsible person of the protected enterprise by means of the web interface of the "Personal account" or mobile application, and the security company duty operator in the "Duty operator" module while handling an alarm.
 
-!["Videorouters" tab][id-05-19]
+\imgcapt{img/ObjMngr-19-VideoRouters.png}{"Videorouters" tab}
 
 To add or change data about video routers, as well as view the keys of video routers installed on the site, the user shall have the "Change information about videorouters" permission for the "Site manager" module.
 
@@ -554,13 +553,13 @@ The "Service" tab is intended to provide engineers with permissions for access t
 
 When site in the list of sites on the tab is selected, information about engineers, date and time of permission start and end is displayed.
 
-!["Service" tab][id-05-20]
+\imgcapt{img/ObjMngr-20-Support.png}{"Service" tab}
 
 Only the user with the corresponding permission can grant site access to engineers.
 
 To issue a permission, select the desired site in the site list and click the "Add permission" button.
 
-!["Issue permission for site access" window][id-05-21]
+\imgcapt{img/ObjMngr-21-Support-01.png}{"Issue permission for site access" window}
 
 In the "Issue permission for site access" window fill in the following fields:
 
@@ -572,74 +571,6 @@ After entering the data, click on the "Give permission" button to complete the o
 
 To remove the permission to access the site, select the permission in the list and click on the "Delete permission" button.
 
-[id-05-01]: img/ObjMngr-01-Main.png "Module main window"
-
-[id-05-02]: img/ObjMngr-02-Toolbar.png "Control Panel"
-
-[id-05-03]: img/ObjMngr-03-ObjectList.png "List of sites"
-
-[id-05-03-01]: img/ObjMngr-03-ObjectList-01.png "List of sites: selection of displayed columns"
-
-[id-05-03-02]: img/ObjMngr-03-ObjectList-02.png "List of sites: filtering button"
-
-[id-05-03-03]: img/ObjMngr-03-ObjectList-03.png "List of sites: filtering settings window"
-
-[id-05-03-04]: img/ObjMngr-03-ObjectList-04.png "List of sites: result of filtering by comparing "similar to %IR%""
-
-[id-05-04]: img/ObjMngr-04-Object.png ""Site" tab"
-
-[id-05-04-01]: img/ObjMngr-04-PlaceObject-01.png ""Site" tab: Set on the map"
-
-[id-05-04-02]: img/ObjMngr-04-ObjectImage-02.png ""Site" tab: image of site"
-
-[id-05-05]: img/ObjMngr-05-Parts.png ""Parts" tab"
-
-[id-05-06]: img/ObjMngr-06-Zones.png ""Zones" tab"
-
-[id-05-07]: img/ObjMngr-07-DoorKeys.png ""Responsible persons" tab"
-
-[id-05-08]: img/ObjMngr-08-Arming.png ""Arm" tab"
-
-[id-05-09]: img/ObjMngr-09-ControlTime.png ""Control time" tab"
-
-[id-05-10]: img/ObjMngr-10-ArmSchedule.png ""Arm schedule" tab"
-
-[id-05-10-01]: img/ObjMngr-10-ArmSchedule-01.png ""Arm schedule" tab:"
-
-[id-05-10-02]: img/ObjMngr-10-ArmSchedule-02.png ""Arm schedule" tab: site schedule control"
-
-[id-05-10-03]: img/ObjMngr-10-ArmSchedule-03.png ""Arm schedule" tab: new template"
-
-[id-05-10-04]: img/ObjMngr-10-ArmSchedule-04.png ""Arm schedule" tab: template editing"
-
-[id-05-11]: img/ObjMngr-11-EventTemplate.png ""Event template" tab"
-
-[id-05-11-01]: img/ObjMngr-11-EventTemplate-01.png ""Edit event" window"
-
-[id-05-11-02]: img/ObjMngr-11-EventTemplate-02.png ""Disable event" window"
-
-[id-05-12]: img/ObjMngr-12-ExtFields.png ""Additional characteristics" tab"
-
-[id-05-13]: img/ObjMngr-13-EventHandlers.png ""Event handlers" tab"
-
-[id-05-14]: img/ObjMngr-14-Equipment.png ""Equipment" tab"
-
-[id-05-15]: img/ObjMngr-15-Comments.png ""Comments" tab"
-
 [id-05-16]: img/ObjMngr-16-Account.png ""Personal account" tab"
-
 [id-05-17]: img/ObjMngr-17-Account-01.png "Event class editing"
-
 [id-05-18]: img/ObjMngr-18-Account-02.png "Editing operator&#39;s actions and alarm cancellations"
-
-[id-05-19]: img/ObjMngr-19-VideoRouters.png ""Videorouters" tab"
-
-[id-05-20]: img/ObjMngr-20-Support.png ""Service" tab"
-
-[id-05-21]: img/ObjMngr-21-Support-01.png ""Issue permission for site access" window"
-
-[id-05-22]: img/ObjMngr-22-ObjectRecovery.png "Restore deleted site"
-
-[id-05-23]: img/ObjMngr-23-ObjectRecovery-01.png "Select site to restore"
-
-[id-05-24]: img/ObjMngr-24-ObjectRecovery-02.png "Information on number of restored site and its parts"

@@ -1,6 +1,6 @@
 # What's New
 
-Version 5 of Security Center software has a number of novelties that allow the security company not only to increase the list of services provided to clients, but also to optimize the work of the operator and engineering services. 
+Version 5 of Security Center software has a number of novelties that allow the security company not only to increase the list of services provided to clients, but also to optimize the work of the operator and engineering services.
 
 ## Disabling of Sites, Communication Channels and Events
 
@@ -8,7 +8,7 @@ During maintenance or repair of equipment installed on the site, it is convenien
 
 For the period of maintenance or repair of equipment used to provide communication channels with the site, it is possible to disable the communication channels. After specifying the time and reason for disabling, the duty operator can disable one or several site communication channels so as not to be distracted by receiving and handling messages passing through them. Disabling of one or another communication channel do not hinder reception of messages through other site communication channels. After the expiration of the disabling period, the communication channels are turned on automatically, however, the operator can enable the communication channels earlier.
 
-If deliberately false alarms of fire alarm systems occur on the site (due to equipment malfunction, technical vulnerability of the site, movement of animals, etc.), it is possible to use the operation of event temporary disabling. After specifying the time and reason for disabling, the duty operator can disable the site event so as not to be distracted by handling the alarm. After the expiration of the disabling period, the event is turned on automatically, however, the operator can enable the event earlier. 
+If deliberately false alarms of fire alarm systems occur on the site (due to equipment malfunction, technical vulnerability of the site, movement of animals, etc.), it is possible to use the operation of event temporary disabling. After specifying the time and reason for disabling, the duty operator can disable the site event so as not to be distracted by handling the alarm. After the expiration of the disabling period, the event is turned on automatically, however, the operator can enable the event earlier.
 
 See details on how to disconnect a site, communication channel or event, in the chapter on the "Duty operator" module.
 
@@ -30,7 +30,7 @@ The "Duty operator" module provides [tooltip](#duty-opertor-tooltip), which appe
 
 ## Video confirmations
 
-To reduce the likelihood of response to a false alarm, as well as to coordinate the actions of guards at the site, the operator can view live video from the cameras at the site during alarm handling. To do this, a *video router* shall be installed on the site. It is a special device that can broadcast video from the connected cameras to the Security Center software. 
+To reduce the likelihood of response to a false alarm, as well as to coordinate the actions of guards at the site, the operator can view live video from the cameras at the site during alarm handling. To do this, a *video router* shall be installed on the site. It is a special device that can broadcast video from the connected cameras to the Security Center software.
 
 See information on how to add a video router installed on the site to the site card in the chapter on the description of the ["Site Manager"] module (#site-manager-videorouter) for information on how to add a video router installed on the site to the site card.
 
@@ -38,13 +38,13 @@ In the chapter about the ["Duty operator"] module (#duty-opertor-process-alarm),
 
 ## Cloud Services
 
-Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services)".
+Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services-2)".
 
 ### Call Center
 
 "[Call center](#cloud-services-call-center)" service allows the client of a private security company to obtain information about the current status of the site (under protection/removed from protection) and to check the panic button. Both services are provided in automatic mode, which allows to reduce the load on the Security Center operator.
 
-"Call Center" service is set in the [partner interface](#cloud-services-settings) in the "Cloud". Also here it is possible to get statistics of the service usage. 
+"Call Center" service is set in the [partner interface](#cloud-services-settings) in the "Cloud". Also here it is possible to get statistics of the service usage.
 
 Identification numbers ("PIN") for access of responsible persons to the services of the "Call Center" service can be set in the ["Site Manager"] module (#site-manager-doorkeys).
 
@@ -105,11 +105,13 @@ It shall be noted that if a video router is installed on the site, in addition t
 It is necessary to specify the same login and password, which are used to access the "Personal account" services, for authorization in the "MyAlarm" application.
 
 ### Site Access Control from "MyAlarm" Application
+
 Version 5.3 of the Security Center had only one way to give the responsible person access to the site from the "MyAlarm" application - to assign the responsible person as the administrator of the personal account. 
 
 In version 5.4 of the Security Center, a new opportunity appeared: to give access to the responsible persons specified in site card. More information on how to do this can be found in a [separate article](#myalarm-access).
 
 ### Operator Permissions during Alarm Handling
+
 In version 5.2.855, new operator permissions related to alarm handling in the "Duty Operator" module have been added.
 
 Suppose that the duty operators on the receiver are divided into two groups.
@@ -132,6 +134,3 @@ Since this is a new permission, when upgrading to version 5.2.855, all operators
 
 Process only confirmed alarms / Cancel only confirmed alarms
 These are permissions for the operators from the second group. If the operator has permissions only for handling of confirmed alarms, he/she will "see" the alarm only after it has been confirmed.
-
-
-

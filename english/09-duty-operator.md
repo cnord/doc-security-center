@@ -4,7 +4,7 @@ The "Duty operator" module is intended to monitor the operational status of the 
 
 Before starting working in the "Duty operator" module, make sure that the "Event manager" module is running. If during the operation of the "Duty operator" module a connection error occurs with the "Event manager" module, a window with the error appears.
 
-![Message of connection error with "Event manager" module][id-09-00]
+\imgcapt{img/ShiftOp-Main-00.png}{Message of connection error with "Event manager" module}
 
 To launch the "Duty operator" module, the user shall have the "Enter into the program" permission for this module.
 
@@ -12,7 +12,7 @@ Just like the rest of the Security Center modules, the "Duty operator" module do
 
 ## Module Main Window
 
-![Module main window][id-09-01]
+\imgcapt{img/ShiftOp-Main-01.png}{Module main window}
 
 The main window of the "Duty operator" module is divided into two parts. The upper part is intended for displaying sites, the lower one for displaying the received events.
 
@@ -20,7 +20,7 @@ The main window of the "Duty operator" module is divided into two parts. The upp
 
 The toolbar contains buttons that allow to access the most requested functions of the "Duty operator" module. In addition to the name of the function, a key or a combination of keys is given in parentheses to access the function from the keyboard.
 
-!["Quick Access Toolbar"][id-09-05]
+\imgcapt{img/ShiftOp-Main-Toolbar-01.png}{Quick Access Toolbar}
 
 Click on the "Settings" button to open the settings window of the "Duty operator" module. In order for the user to make changes to the module settings, he/she shall have the "Change settings" permission for the "Duty operator" module.
 
@@ -37,8 +37,8 @@ Click on the "Handling..." button to open the "Alarm handling" window. The butto
 ## Sites
 
 At the top of the "Site status" window, the total number of sites loaded by the module, number of sites that are currently armed, and number of sites which alarm handling has not yet been completed, is given.
- 
-!["Site status" window, "All" tab][id-09-02-01]
+
+\imgcapt{img/ShiftOp-Main-State-01.png}{"Site status" window, "All" tab}
 
 Protected sites are displayed in the "Duty operator" module in the form of icons in the "Site status" window. The icon color displays the current status of the site. If it is blue, then the site is armed, green is disarmed, gray - the site is disabled. If one part of the icon is blue and the other is green, the site is partially armed. A red circle or square means that there is an alarm on the site, which has not yet been completed, while a red circle indicates that no action has been recorded for this alarm. 
 
@@ -74,7 +74,7 @@ When you hover over a site in the "Site status" window, a tooltip appears, with 
 
 The tooltip contains information about the site status if at least one site is armed or disarmed.
 
-!["Site status" window, tooltip, "Site status][id-09-02-01-01]
+\imgcapt{img/ShiftOp-Main-Tooltip-01.png}{"Site status" window, tooltip, Site status}
 
 The tooltip indicates the time of the site arming or disarming if the event occurred within the last 24 hours, or the date if the event occurred earlier. The background color indicates the site current status: blue - the site is armed, green is disarmed. It shall be noted that when the "Show status color in reverse" parameter is selected, the colors that show the status of the protected sites are inverted. Besides, the tooltip informs about the user who completed the site arming or disarming.
 
@@ -84,7 +84,7 @@ If the site is divided into sections, the tooltip provides information about the
 
 If an alarm situation is registered at the site, the tooltip contains information about the alarm. If several alarm events are registered at the site, the tooltip displays information about the first and last registered alarm.
 
-!["Site status" window, tooltip, "Alarm"][id-09-02-01-02]
+\imgcapt{img/ShiftOp-Main-Tooltip-02.png}{"Site status" window, tooltip, Alarm}
 
 The tooltip indicates the time of the alarm if the event occurred within the last 24 hours, or the date if the event occurred earlier. The red background indicates an alarm situation at the site. 
 
@@ -94,7 +94,7 @@ If the site is divided into parts, the alarm parts are red.
 
 The tooltip contains information about the Guard, if the Guard is called to the site ("Guard en route") or is present at the site ("Guard on site"). If the Guard call to the site is canceled, the call information is not displayed.
 
-!["Site status" window, tooltip, "Guard"][id-09-02-01-03]
+\imgcapt{img/ShiftOp-Main-Tooltip-03.png}{"Site status" window, tooltip, Guard}
 
 The tooltip indicates the time of the Guard call or arrival to the site, if the event occurred within the last 24 hours, or the date if the event occurred earlier. 
 
@@ -102,7 +102,7 @@ The tooltip indicates the time of the Guard call or arrival to the site, if the 
 
 When you right-click on the site icon, a context menu is displayed, with which you can quickly access information about the site.
 
-!["Site status" window, context menu][id-09-02-02]
+\imgcapt{img/ShiftOp-Main-State-02.png}{"Site status" window, context menu}
 
 Selecting the "Site card..." menu item to access the window displaying the card fields of the selected site. The window appearance and its description are presented below, in the section "Site Card" Window".
 
@@ -116,17 +116,17 @@ The "Disable site" item in the context menu allows to temporarily disable any Se
 
 The Security Center sites can be disabled by the operator with the corresponding permission. Select the "Disable site" item to view the "Site disabling" window, which contains information about the site number and name. Enter the time during which the site shall be disabled in the "Disable for" field of this window. After this time, the site will be enabled automatically. Enter the time in minutes, the maximum allowed value is 180 minutes. Specify the reason for the site temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable site" button, study the warning that automatically alerts about the time when the site is disabled automatically (for example, "The site will be enabled automatically in 120 minutes, today at 22:16").
 
-!["Site status" window, "Site disabling" window][id-09-02-07]
+\imgcapt{img/ShiftOp-Main-State-07.png}{"Site status" window, "Site disabling" window}
 
 The event log displays information about the site disabling, namely: date and time of the site disabling; operator who performed disabling; time and reason for disabling.
 
 The "Enable site" item allows to enable the previously disabled Security Center site before the expiration of the time specified during disabling.
 
-!["Site status" window, context menu, "Enable site" item][id-09-02-08]
+\imgcapt{img/ShiftOp-Main-State-08.png}{"Site status" window, context menu, "Enable site" item}
 
 Select the "Enable site" item to view the "Site enabling" window, which contains information about the site number and name and time of the site automatic disabling. To enable the site, click the "Enable site" button of this window.
 
-!["Site status" window, "Site enabling" window][id-09-02-09]
+\imgcapt{img/ShiftOp-Main-State-09.png}{"Site status" window, "Site enabling" window}
 
 The event log displays information about the site enabling, namely: date and time of the site enabling; enabling mode (automatic or manual). If the site is manually enabled, the operator who performed the operation is specified for the event.
 
@@ -134,33 +134,33 @@ The "Disable channels" item in the context menu allows to temporarily disable an
 
 The communication channel can be disabled by the operator, who has the right to "Disable channels for site". Select the "Disable channels" item to view the "Site channels disabling" window, which contains information about the site number and name. Select one or several communication channels for disabling in the "Channels that can be disabled" section: Radio, Phone, System, Ethernet, GPRS, SMS, and CSD. Enter the time during which the channels shall be disabled in the "Disable for" field of this window. After this time, the channels will be enabled automatically. Enter the time in minutes, the maximum allowed value is 180 minutes. Specify the reason for the channel temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable channels" button, study the warning that automatically alerts about the time when the channels are disabled automatically (for example, "The channel will be enabled automatically in 120 minutes, today at 16:31").
 
-!["Site status" window, "Site channels disabling" window][id-09-02-10]
+\imgcapt{img/ShiftOp-Main-State-10.png}{"Site status" window, "Site channels disabling" window}
 
 The event log displays information about the channel disabling, namely: date and time of the channel disabling; channel name; period and reason for disabling.
 
 The "Enable channels" item allows to enable the previously disabled channels before the expiration of the time specified during disabling.
 
-!["Site status" window, context menu, "Site channels enabling" item][id-09-02-11]
+\imgcapt{img/ShiftOp-Main-State-11.png}{"Site status" window, context menu, "Site channels enabling" item}
 
 Select the "Enable channels" item to view the "Site channels enabling" window, which contains information about the site number and name. Select one or several communication channels for enabling in the "Channels that can be disabled" section and click on the "Enable channels" button:
 
-!["Site status" window, "Site channels enabling" window][id-09-02-12]
+\imgcapt{img/ShiftOp-Main-State-12.png}{"Site status" window, "Site channels enabling" window}
 
 The event log displays information about the channel enabling, namely: date and time of the channel enabling; enabling mode (automatic or manual). If the channel is manually enabled, the operator who performed the operation is specified for the event.
 
 The "View" item is intended to change the way the list of sites is displayed.
 
-!["Site status" window, context menu, "View" item][id-09-02-03]
+\imgcapt{img/ShiftOp-Main-State-03.png}{"Site status" window, context menu, "View" item}
 
 "Large icons", "Small icons", "List" items differ only in the size of the site icon and the way items are scrolled in the window. As for the "Table" item, if it is selected in the "Site status" window, a list of sites similar to the list of sites used in the "Site manager" module will be displayed.
 
-!["Site status" window, "All" tab, "Table" view][id-09-02-06]
+\imgcapt{img/ShiftOp-Main-State-06.png}{"Site status" window, "All" tab, "Table" view}
 
 A detailed description of functions of such list of sites is given in the chapter devoted to the "Site manager" module. It shall be noted here that this list of sites allows to search for a site using the majority of significant fields, and not only by number, and in addition, the operator can see the fields of the site necessary to him/her without opening a separate window with the site card.
 
 The "Arrange icons" context menu item is intended to change the way the icons of the sites are sorted when displayed.
 
-!["Site status" window, context menu, "Arrange icons" item][id-09-02-04]
+\imgcapt{img/ShiftOp-Main-State-04.png}{"Site status" window, context menu, "Arrange icons" item}
 
 If you select sorting by site number, the site icons in the list will be displayed in ascending order of the site numbers. If you select sorting by site status, the site status will be taken into account in the first instance. 
 
@@ -168,7 +168,7 @@ In this case, first, sites will be displayed for which there are undefined alarm
 
 It shall be noted that the item highlighted in the context menu in bold is the default item and will be executed in case of double clicking on the site with the left mouse button. If there are no undefined alarms for the selected site, then the item "Site card..." is the default item. If the alarm site is selected, then the default item is "Alarm handling...", after it is selected a window intended for the site alarm handling is opened:
 
-!["Site status" window, context menu, "Enable site" item][id-09-02-05]
+\imgcapt{img/ShiftOp-Main-State-05.png}{"Site status" window, context menu, "Enable site" item}
 
 ## Events
 
@@ -178,7 +178,7 @@ Events are divided into three categories, each of which is displayed on a separa
 
 ### All
 
-!["Events" window, "All" tab][id-09-03-01]
+\imgcapt{img/ShiftOp-Main-Event-01.png}{"Events" window, "All" tab}
 
 The "All" tab displays all the significant events received from the sites loaded by the "Duty operator" module. In order to clarify what events are considered significant, it shall be mentioned that a filtering mechanism for test and duplicate events, which allows the operator of the Security Center to be released from handling information that does not matter to him/her, has been implemented in the Security Center software. The event filtering mechanism is controlled with the settings in the "Event manager" module. See the chapter devoted to this module to get acquainted with the details of this mechanism. Here it shall be mentioned that events that the significant events are those, that are not test or repeated, and only they are displayed on the "All" tab.
 If the duty operator for some reason needs to see all events received from a particular site, then he/she can do it using the "Events from site" tab, which is described below.
@@ -197,19 +197,19 @@ Events in the list can be sorted by any of the displayed columns. To do this, le
 
 When you right-click on the event, a context menu is displayed, with which you can quickly access information about the site. 
 
-!["Events" window, context menu][id-09-03-05]
+\imgcapt{img/ShiftOp-Main-Event-05.png}{"Events" window, context menu}
 
 The purpose of the menu items is completely similar to that in the context menu displayed when clicking on the site icon in the "Site status" window.
 
 ### Alarms
 
-!["Events" window, "Alarms" tab][id-09-03-02]
+\imgcapt{img/ShiftOp-Main-Event-02.png}{"Events" window, "Alarms" tab}
 
 The "Alarms" tab displays alarm events that have not yet been completed. 
 
 ### Events at the Site
 
-!["Events" window, "Events at the site" tab][id-09-03-03]
+\imgcapt{img/ShiftOp-Main-Event-03.png}{"Events" window, "Events at the site" tab}
 
 The "Events at the site" tab displays a summary of the selected site, as well as the events received from it. 
 
@@ -219,29 +219,29 @@ Use the "Show tests" parameter to enable or disable display of filtered test eve
 
 Right-click on the event to display the context menu, with which you can temporarily disable the event.
 
-Events can be disabled by the operator with "Disable event codes" permission. If you select the "Disable event" option, a dialog box with information about the number, name and address of the site appears. Besides, the following is indicated: event code; event class; number of the part in which the event occurred; number of the zone in which the event occurred; description of the event. 
+Events can be disabled by the operator with "Disable event codes" permission. If you select the "Disable event" option, a dialog box with information about the number, name and address of the site appears. Besides, the following is indicated: event code; event class; number of the part in which the event occurred; number of the zone in which the event occurred; description of the event.
 
-!["Events" window, context menu, "Disable event" item][id-09-03-03-01]
+\imgcapt{img/ShiftOp-Main-Event-03-01.png}{"Events" window, context menu, "Disable event" item}
 
 Enter the time during which the event shall be disabled in the "Disable for" field of this window. After this time, the event will be enabled automatically. Enter the time in minutes, the maximum allowed value is 90 minutes. Specify the reason for the event temporary disabling in the "Reason for disconnection" field. This field is required. Before clicking on the "Disable event" button, study the warning that automatically alerts about the time when the event is disabled automatically (for example, "The event will be enabled automatically in 45 minutes, today at 21:51").
 
-!["Events" window, "Disable event" window][d-09-03-03-02]
+\imgcapt{img/ShiftOp-Main-Event-03-02.png}{"Events" window, "Disable event" window}
 
 The event log displays information about the event disabling, namely: date and time of the event disabling; event code; part and zone numbers, period and reason for disabling.
 
 The "Enable event" item in the context menu allows to enable a previously disabled event before the expiration of the period, specified for disabling.
 
-!["Events" window, context menu, "Enable event" item][d-09-03-03-03]
+\imgcapt{img/ShiftOp-Main-Event-03-03.png}{"Events" window, context menu, "Enable event" item}
 
 If you select the "Enable event" item, a dialog box with information about the number and name of the site appears. Besides, the following is indicated: event code; event class; number of the part; number of the zone; description of the event. The window also indicates the time of the event automatic enabling. To enable the event, click on the "Enable event" button of this window.
 
-!["Events" window, "Enable event" window][id-09-03-03-04]
+\imgcapt{img/ShiftOp-Main-Event-03-04.png}{"Events" window, "Enable event" window}
 
 The event log displays information about the event enabling, namely: date and time of the event enabling; event code; part and zone numbers; enabling mode (automatic or manual). If the event is manually enabled, the operator who performed the operation is specified for the event.
 
 ### Status of guards
 
-!["Events" tab, "Guard" tab][id-09-03-04]
+\imgcapt{img/ShiftOp-Main-Event-04.png}{"Events" tab, "Guard" tab}
 
 The "Guards" tab displays the guards used by the Security Center. In addition to the general information about the guards on the tab, their current status is displayed ("Free", "Travelling to the site", "At the site"), and the name of the site to which the guard is called, if it is currently occupied.
 
@@ -253,7 +253,7 @@ When the alarm event is received, the "Alarm handling" window opens automaticall
 
 When handling an alarm, it is important to understand that if another alarm is received from the site during the alarm process, both these alarms will be combined into a group and then they will be handled together. In the same way, these events will be displayed together when viewing handled alarms and when creating alarm reports in the "Report manager" module.
 
-!["Alarm handling" window][id-09-08-01]
+\imgcapt{img/ShiftOp-Alarm-01.png}{"Alarm handling" window}
 
 At the top of the "Alarm handling" window, all site alarms, which shall be handled, are displayed. 
 
@@ -261,7 +261,7 @@ In the middle part of the window there is a site card, on different tabs of whic
 
 The link "Video at site’s place" allows the operator to view the video transmitted by the cameras installed on the site. When the link is clicked, a window opens, where live video is displayed from all cameras installed on the site connected to the video router.
 
-> To view video from the cameras, you shall have Adobe Flash Player installed on the computer with the latest available version that can be downloaded from the [official Adobe website](http://get.adobe.com/flashplayer/otherversions/).
+> To view video from the cameras, you shall have Adobe Flash Player installed on the computer with the latest available version that can be downloaded from the [official Adobe website](https://get.adobe.com/flashplayer/).
 
 A list of actions, that the operator can perform during an alarm handling, is located to the right of the site card. This list includes the actions that are assigned to the classes of the events that shall be handled. Thus, for different alarms, the operator sees various possible actions, which allows to help and manage the operator's work.
 
@@ -273,7 +273,7 @@ See more information on how to create possible actions during alarm handling, as
 
 When registering an action with the "Call a guard" type, a window is displayed in which the operator shall select the guard that he/she called on the site.
 
-!["Call a guard to the site" window][id-09-08-02]
+\imgcapt{img/ShiftOp-Alarm-02.png}{"Call a guard to the site" window}
 
 To register a guard call, check it in the list of guards and press the "OK" button. 
 It is possible to check a guard in the list in two ways: by left-clicking the check box to the left of the group name, or by double-clicking the left mouse button anywhere on the line, in which the guard name and its senior are displayed.
@@ -286,7 +286,7 @@ It is possible to change the list of guards in the "Personnel manager" module. S
 
 If the operator registers an action with the type "Operator’s comment", then the text of the comment can be entered in a special window.
 
-!["Operator’s comment" window][id-09-08-03]
+\imgcapt{img/ShiftOp-Alarm-03.png}{"Operator’s comment" window}
 
 The maximum length of the operator's comment is limited to four thousand characters. 
 
@@ -298,7 +298,7 @@ If the alarm handling is completed and the operator shall register this, then he
 
 The operator can select the brief result of the alarm handling or cause for canceling it in the "Alarm cancellation" window.
 
-!["Alarm cancellation" window][id-09-08-04]
+\imgcapt{img/ShiftOp-Alarm-04.png}{"Alarm cancellation" window}
 
 Reasons for alarm cancellation, displayed in the list, are assigned to the alarm event classes, for which the alarm cancellation is registered.
 
@@ -312,7 +312,7 @@ The "Site card" window is intended for access to information about the site. To 
 
 Besides, the site card can also be opened from the menu that appears when you right-click on any events from the site. Double-clicking the left mouse button on any event that is not alarming will result in a similar result.
 
-!["Site card" window][id-09-06]
+\imgcapt{img/ShiftOp-ObjectCard-01.png}{"Site card" window}
 
 All information about the site that the duty operator may need is displayed on the tabs of the "Site card" window.. The purpose of the displayed site fields is discussed in detail in the chapter devoted to the "Site manager" module.
 
@@ -320,7 +320,7 @@ All information about the site that the duty operator may need is displayed on t
 
 The "Information about alarms" window allows the operator to view the log of handling alarms, which were canceled.
 
-!["Information about alarms" window][id-09-09]
+\imgcapt{img/ShiftOp-AlarmInfo-01.png}{"Information about alarms" window}
 
 Switch of information display mode when moving to the next or previous alarm is located in the upper part of the window. In the "All alarms" mode, if you press "<< Previous" or "Next >>" button, the program will switch to the previous or next alarm in chronological order. In the "Alarms for the site" mode, the program will switch to the alarms for the site that is displayed in the window.
 
@@ -336,7 +336,7 @@ Access to the settings of the "Duty operator" module is regulated by rights that
 
 ### Common
 
-!["Setup" window, "Common" tab][id-09-07-01]
+\imgcapt{img/ShiftOp-Settings-01.png}{"Setup" window, "Common" tab}
 
 The "Pause at the start" parameter sets a pause, during which the "Duty operator" module will be delayed at the start. The parameter can be useful, if the icons of the "Event manager" and "Duty operator" modules are located in the "Startup" folder or if they are downloaded automatically at the start of the operating system in another way. To start the "Duty operator" module, the running "Event manager" module is needed, and it may take some time to start and fully initialize the module. 
 
@@ -354,7 +354,7 @@ The maximum time for disabling the Security Center sites is set in minutes using
 
 ### Alarm Handling
 
-!["Setup" window, "Alarm handling" tab][id-09-07-02]
+\imgcapt{img/ShiftOp-Settings-02.png}{"Setup" window, "Alarm handling" tab}
 
 If, when receiving a new alarm event, it is necessary for the "Duty operator" module to attract the attention of the operator, it is necessary to set the value for the "Activation at alarm" parameter.
 
@@ -364,7 +364,7 @@ The checked "Automatic opening" item of the "Alarm handling" window allows the a
 
 ### Hot Keys
 
-!["Setup" window, "Hot keys" tab][id-09-07-03]
+\imgcapt{img/ShiftOp-Settings-03.png}{"Setup" window, "Hot keys" tab}
 
 Use the "Hot keys" tab to assign keyboard shortcuts for quick access to the main functions of the "Duty operator" module.
 
@@ -374,7 +374,7 @@ The "Add hot keys to titles" parameter allows to display the hot keys assigned t
 
 ### Dialing
 
-!["Setup" window, "Dialing" tab][id-09-07-04]
+\imgcapt{img/ShiftOp-Settings-04.png}{"Setup" window, "Dialing" tab}
 
 If there is a modem or any device that supports dialing via TAPI interface connected to the computer, it is possible to specify the list of devices that the "Duty operator" module can use to dial on the "Dialing" tab.
 
@@ -384,7 +384,7 @@ If the dialed number is busy, the "Duty operator" module can dial it again if th
 
 ### Security Center - Persona
 
-!["Setup" window, "Security center - Persona" tab][id-09-07-05]
+\imgcapt{img/ShiftOp-Settings-05.png}{"Setup" window, "Security center - Persona" tab}
 
 The Security Center software can be used in conjunction with the "Andromeda Persona" software. In particular, it is possible to download a list of sites of the Security Center to the "Persona", after which they can be placed on the terrain map.
 
@@ -392,56 +392,6 @@ Besides, changes in the status of sites and guards can be transferred from the S
 
 On the "Andromeda Persona" tab, it is possible to enable the "Duty operator" module integration with the "Andromeda Persona" software, and also allow automatic display of alarm sites and the status of guards in the "Persona".
 
-[id-09-00]: img/ShiftOp-Main-00.png "Message of connection error with "Event manager" module"
-[id-09-01]: img/ShiftOp-Main-01.png "Module main window"
-[id-09-02-01]: img/ShiftOp-Main-State-01.png ""Site status" window, "All" tab""
-
-[id-09-02-01-01]: img/ShiftOp-Main-Tooltip-01.png ""Site status" window, tooltip, "Site status"
-[id-09-02-01-02]: img/ShiftOp-Main-Tooltip-02.png ""Site status" window, tooltip, "Alarm""
-[id-09-02-01-03]: img/ShiftOp-Main-Tooltip-03.png ""Site status" window, tooltip, "Guard""
-
-[id-09-02-02]: img/ShiftOp-Main-State-02.png ""Site status" window, context menu"
-[id-09-02-03]: img/ShiftOp-Main-State-03.png ""Site status" window, context menu, "View" item"
-[id-09-02-04]: img/ShiftOp-Main-State-04.png ""Site status" window, context menu, "Arrange icons" item"
-[id-09-02-05]: img/ShiftOp-Main-State-05.png ""Site status" window, context menu, "Enable site" item"
-[id-09-02-06]: img/ShiftOp-Main-State-06.png ""Site status" window, "All" tab, "Table" view"
-[id-09-02-07]: img/ShiftOp-Main-State-07.png ""Site status" window, "Site disabling" window"
-[id-09-02-08]: img/ShiftOp-Main-State-08.png ""Site status" window, context menu, "Enable site" item"
-[id-09-02-09]: img/ShiftOp-Main-State-09.png ""Site status" window, "Site enabling" window"
-[id-09-02-10]: img/ShiftOp-Main-State-10.png ""Site status" window, "Site channels disabling" window"
-[id-09-02-11]: img/ShiftOp-Main-State-11.png ""Site status" window, context menu, "Site channels enabling" item"
-[id-09-02-12]: img/ShiftOp-Main-State-12.png ""Site status" window, "Site channels enabling" window"
-
-[id-09-03-01]: img/ShiftOp-Main-Event-01.png ""Events" window, "All" tab"
-[id-09-03-02]: img/ShiftOp-Main-Event-02.png ""Events" window, "Alarms" tab"
-
-[id-09-03-03]: img/ShiftOp-Main-Event-03.png ""Events" window, "Events at the site" tab"
-[id-09-03-03-01]: img/ShiftOp-Main-Event-03-01.png ""Events" window, context menu, "Disable event" item"
-[id-09-03-03-02]: img/ShiftOp-Main-Event-03-02.png ""Events" window, "Disable event" window"
-[id-09-03-03-03]: img/ShiftOp-Main-Event-03-03.png ""Events" window, context menu, "Enable event" item"
-[id-09-03-03-04]: img/ShiftOp-Main-Event-03-04.png ""Events" window, "Enable event" window"
-
-[id-09-03-04]: img/ShiftOp-Main-Event-04.png ""Events" tab, "Guard" tab"
-[id-09-03-05]: img/ShiftOp-Main-Event-05.png ""Events" window, context menu"
 [id-09-03-06]: img/ShiftOp-Main-Event-06.png "Events" window, context menu of alarm site"
-
 [id-09-04]: img/ShiftOp-Main-LastEvent.png "Line of last received event"
-
-[id-09-05]: img/ShiftOp-Main-Toolbar-01.png "Quick Access Toolbar"
-
-[id-09-06]: img/ShiftOp-ObjectCard-01.png ""Site card" window"
-
-[id-09-07-01]: img/ShiftOp-Settings-01.png ""Setup" window, "Common" tab"
-[id-09-07-02]: img/ShiftOp-Settings-02.png ""Setup" window, "Alarm handling" tab"
-[id-09-07-03]: img/ShiftOp-Settings-03.png ""Setup" window, "Hot keys" tab"
-[id-09-07-04]: img/ShiftOp-Settings-04.png ""Setup" window, "Dialing" tab"
-[id-09-07-05]: img/ShiftOp-Settings-05.png ""Setup" window, "Security center - Persona" tab"
-
-[id-09-08-01]: img/ShiftOp-Alarm-01.png ""Alarm handling" window"
-[id-09-08-02]: img/ShiftOp-Alarm-02.png ""Call a guard to the site" window"
-[id-09-08-03]: img/ShiftOp-Alarm-03.png ""Operator’s comment" window"
-[id-09-08-04]: img/ShiftOp-Alarm-04.png ""Alarm cancellation" window"
-
-[id-09-09]: img/ShiftOp-AlarmInfo-01.png ""Information about alarms" window"
-
 [id-09-10]: img/ShiftOp-Browse-01.png ""Select site" window"

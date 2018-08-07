@@ -46,9 +46,10 @@ If Security Center is installed just to get acquainted, then to create events fr
 After the "Event manager" module is started, it is possible to start working with other modules. Sites are entered into the system with the help of the "Site manager" module, and the received events are monitored and alarms are handled with the help of the "Duty operator" module.
 
 ## Admin Password
+
 Immediately after installation of the Security Center software, only one operator is present in the list of operators: "Administrator". The password of the "Administrator" operator by default is **222222**.
 
-## Data Import 
+## Data Import
 
 The Security Center software implements the function of importing information about sites from databases of the following programs:
 
@@ -62,10 +63,8 @@ The Security Center software implements the function of importing information ab
 * «Mirazh»
 * «Import from XML»
 
-
 If before Security Center installation the software from the list above was used, then for a comfortable transition to Security Center, it is possible to import the descriptions of sites from the database of these programs.
 
 If it is intended to import data from the "Andromeda" software version 2.0 - 2.76 or "Andromeda Liberty", then when installing Security Center, it is necessary to specify the need to install BDE, the subsystem used to access the data of these programs.
 
 Data import is performed with the help of the "Database wizard" module. In the case of import from "Andromeda" software versions 2.0 - 2.76 or "Andromeda Liberty", all files from the database folder will be required to run it. If there is a backup copy of the database in ZIP format, it is necessary to extract the files from the archive to any folder on the computer hard drive.
-

@@ -8,7 +8,7 @@ The "Database wizard" module is intended to perform the following operations:
 
 After starting the "Database wizard" module, select the required operation:
 
-![Start window of the "Database wizard" module][id-11-01]
+\imgcapt{img/AnDBWiz-BR.png}{Start window of the "Database wizard" module}
 
 ## Database Check
 
@@ -24,7 +24,7 @@ The backup procedure does not have a critical impact on the operation of other S
 
 When creating a database backup, set the values for the parameters that control the backup operation.
 
-![Backup settings window][id-11-02]
+\imgcapt{img/AnDBWiz-BR-Back-02.png}{Backup settings window}
 
 The Destination folder option specifies the folder on the hard disk of the computer or network resource in which the database backup will be saved.
 
@@ -52,7 +52,7 @@ Before restoring the database from a backup, stop all modules of the Security Ce
 
 The version of the database from which the restore is performed does not matter: immediately after the restore, the "Database wizard" module will check the version of the recovered data and, if necessary, perform the update.
 
-![Configuration window for restore from a backup][id-11-03]
+\imgcapt{img/AnDBWiz-BR-Rest-02.png}{Configuration window for restore from a backup}
 
 The name of the backup file from which it is necessary to restore the database can be specified using the same parameter. If a database backup was created in a multi-volume archive, then all archive files are required when recovering from such a copy.
 
@@ -70,7 +70,7 @@ It is possible to import data only on the computer on which the full installatio
 
 Before starting data import, stop all modules of the Security Center, including the "Event manager" module.
 
-![Window for selecting data source for import operation][id-11-04]
+\imgcapt{img/AnDBWiz-EI-Imp-And-01.png}{Window for selecting data source for import operation}
 
 In the Security Center, in addition to other sources, it is possible to import from an XML file.
 
@@ -78,7 +78,7 @@ In the Security Center, in addition to other sources, it is possible to import f
 
 By importing from an XML file, it is possible to import a site database of Cobra software to the Security Center.
 
-![Window for setting import from XML file][id-11-13]
+\imgcapt{img/AnDBWiz-EI-Imp-XML-02.png}{Window for setting import from XML file}
 
 Use the "XML filename" parameter to select the database file by specifying the path to it.
 
@@ -90,13 +90,13 @@ See more information about the function of shifting site numbers in event source
 
 The Security Center supports exporting information about sites to a text file with a value separator.
 
-![Window for selecting sites and fields when setting up site information export][id-11-09]
+\imgcapt{img/AnDBWiz-EI-Exp-Csv-02.png}{Window for selecting sites and fields when setting up site information export}
 
 For export, select sites and fields (columns) which information will be written to the export file.
 Select the sites, information about which shall be exported, by checking the boxes in the first column of the line near the site.
 Select fields, information from which will be written to the export file, by enabling or disabling their display. The export file will include information only from those fields (columns) that are displayed in the table.
 
-![Window for setting exporting information about sites][id-11-10]
+\imgcapt{img/AnDBWiz-EI-Exp-Csv-03.png}{Window for setting exporting information about sites}
 
 Use the "File name" parameter to specify the folder and name of the export file.
 
@@ -162,16 +162,12 @@ The above mentioned set of command-line parameters means that the "Database wiza
 
 When copying a backup to the destination folder, the "Database wizard" module shall check that the total number of online backup files in the destination folder does not exceed 24, and if there are more, the oldest backup file shall be deleted.
 
-[id-11-01]: img/AnDBWiz-BR.png "Start window of the "Database wizard" module"
-[id-11-02]: img/AnDBWiz-BR-Back-02.png "Backup settings window"
-[id-11-03]: img/AnDBWiz-BR-Rest-02.png "Configuration window for restore from a backup"
-[id-11-04]: img/AnDBWiz-EI-Imp-And-01.png "Window for selecting data source for import operation"
 [id-11-05]: img/AnDBWiz-EI-Imp-And-02.png "Window for setting up import from Andromeda database"
 [id-11-06]: img/AnDBWiz-EI-Imp-Str-02.png "Window for setting up import from "Strazh" database"
 [id-11-07]: img/AnDBWiz-EI-Imp-Csm-02.png "Window for setting up import from CSM32 database"
 [id-11-08]: img/AnDBWiz-EI-Imp-Csm-03.png "Window for mapping event classes during import from CSM32 database"
-[id-11-09]: img/AnDBWiz-EI-Exp-Csv-02.png "Window for selecting sites and fields when setting up site information export"
-[id-11-10]: img/AnDBWiz-EI-Exp-Csv-03.png "Window for setting exporting information about sites"
+[id-11-09]:  "Window for selecting sites and fields when setting up site information export"
+[id-11-10]:  "Window for setting exporting information about sites"
 [id-11-11]: img/AnDBWiz-EI-Imp-GN-02.png "Window for setting up import from GuardNet database"
 [id-11-12]: img/AnDBWiz-EI-Imp-Nmn-02.png "Window for setting up import from Neman database"
-[id-11-13]: img/AnDBWiz-EI-Imp-XML-02.png "Window for setting import from XML file"
+[id-11-13]:  "Window for setting import from XML file"
