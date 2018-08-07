@@ -10,7 +10,7 @@ The "Engineer Interface" displays a site available for control and provides the 
 
 The Security Center user can select one of the modes of operation with cloud services, depending on the degree of integration with the Cloud. Full integration allows to use all cloud services. Partial means only a service that provides remote access to equipment on a site. By prohibiting transfer of any data to the Cloud, the user refuses to use all cloud services.
 
-## Call center
+<!-- ## Call center
 
 ### Getting Information about Site Status
 
@@ -34,7 +34,9 @@ The "Panic button check" service provided by the "Call Center" can be used to ch
 
 To check the panic button, the client shall call the special number of the company. After that, he/she can independently select the service "Panic button check" using the voice menu, enter the site number and PIN. The client of the private security company can get the PIN code in the "Personal account" of the partner, and the Security Center operator - in the "Site manager" on the "Responsible persons" tab.
 
-After that, the client shall press the panic button. If it works, an alarm signal is sent to the Security Center, which is automatically canceled due to the "Test" cause. In this case, the "Call Center" informs the client about the serviceability of the panic button, and the alarm log is recorded in the event log.
+After that, the client shall press the panic button. If it works, an alarm signal is sent to the Security Center, which is automatically canceled due to the "Test" cause. In this case, the "Call Center" informs the client about the serviceability of the panic button, and the alarm log is recorded in the event log. -->
+
+<!--  
 
 ## Partner’s Web-Interface
 
@@ -123,6 +125,7 @@ Three links to situational maps are given in "Situational map" section. Links ca
 The "Comment" field for each link is intended for specifying the necessary information: for example, it is possible to specify who uses this link to access the situational map.
 
 If it is necessary to block any responsible person to access the map by the link, the link can be updated. In this case, in case of clicking on the outdated link, the map will be unavailable, and if the link has already been opened in the browser, the data will no longer be updated.
+-->
 
 ## Engineering Panel
 
@@ -161,7 +164,8 @@ After the work is finished, the engineer shall exit the system by clicking on th
 
 To log in to the web-interface, go to [keyboard.cnord.net](https://keyboard.cnord.net/) and enter the e-mail address and password created at registration. After that, click the "Login" button. To recover a password, click on the link "Forgot your password?". In the appeared window it is necessary to enter the e-mail address and press the button "Restore password". At the same time, a letter containing a link for password restoration will be sent to the specified address.
 
-## Personal Account
+
+<!-- ## Personal Account 
 
 The "Personal account" Cloud service allows clients of a private security company to receive information about their sites. 
 
@@ -202,6 +206,7 @@ If a video router is installed on the site, the "Personal account" contains the 
 \imgcapt{img/CldSrvcs-23-PersonalAccount-06.png}{Video surveillance in Personal account}
 
 It is also possible to use the "Personal account" cloud service on mobile devices using the "MyAlarm" application. Download links can be found on the login page of the "Personal Account" at [my.cnord.net](https://my.cnord.net/).
+-->
 
 [id-13-01]: img/CldSrvcs-01-RouterConnection.png "Telephone router connection"
 [id-13-03]: img/CldSrvcs-03-SituationalMap.png "Situational map"

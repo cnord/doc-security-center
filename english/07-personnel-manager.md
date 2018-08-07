@@ -74,7 +74,9 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 * "Edit long-term arm" - permission to edit the parameters of long-term arm of the site. If the long-term arm is enabled for the site, then when you try to disarm the site, the Security Center will create a system event (alarm).
 
-* "Change site images" - permission to change the site images. Image data are used in the "Alarm to Guard" application to provide more complete information about the site.
+* "Change site images" - permission to change the site images. 
+  
+<!-- Image data are used in the "Alarm to Guard" application to provide more complete information about the site. -->
 
 * "Restore deleted sites" - permission to restore deleted sites.
 

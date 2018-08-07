@@ -93,7 +93,7 @@ In this case, the number of the restored site changes, if it coincides with the 
 
 It shall be noted that for the computer on which the site is being restored, a restriction on the available site numbers can be set. If the number of the site to be restored exceeds the limits of this restriction, the site will be restored, but a message will appear informing the user about the need to change the site number or change the restriction on available site numbers.
 
-For the site, such parameters as identifier of TP-100 GSM III transmitter, identifier and encryption key of the "Yupiter" device are not restored. For the site to be restored, the administrator of the site is also deleted in the personal account and subscriptions to event classes and operator actions are deleted, which were available in the "MyAlarm" application before the site deletion.  Besides, for the site to be restored, the permissions granted to engineers for remote access to this site are canceled.
+For the site, such parameters as identifier of TP-100 GSM III transmitter, identifier and encryption key of the "Yupiter" device are not restored. For the site to be restored, the administrator of the site is also deleted in the "MyAlarm" and subscriptions to event classes and operator actions are deleted, which were available in the "MyAlarm" application before the site deletion.  Besides, for the site to be restored, the permissions granted to engineers for remote access to this site are canceled.
 
 It is important to remember that the necessary condition for site restoration is the ability to add a site to the Security Center database in accordance with the available license restrictions. If the maximum possible number of sites is created in the database, an error message is displayed and the procedure for restoring the site is terminated.
 
@@ -105,9 +105,9 @@ On the "Site" tab it is possible to specify the basic descriptive information ab
 
 ### Site location on map {#object-manager-put-to-map}
 
-To display the site on the situational map, it is necessary to specify the geographic coordinates of the site by placing it on the terrain map.
+<!-- To display the site on the situational map, it is necessary to specify the geographic coordinates of the site by placing it on the terrain map. -->
 
-To do this, the Security Center operator shall have the permission to "Set on the map".
+<!-- To do this, the Security Center operator shall have the permission to "Set on the map". -->
 
 To locate the site click the "Set on the map..." button next to the "Address" field on the "Site" tab. It is not necessary to switch to editing mode to do this. The "Map" window, called by this action, displays "Google Maps". The marker marks the location of the site. The location is determined in accordance with the value of the "City" field specified when registering in the "Cloud" and the "Address" field specified on the "Site" tab. Besides, the window provides a brief information about the site, namely: number, name and address of the site, as well as a comment for the Guard, entered on the "Comment" tab.
 
@@ -145,7 +145,7 @@ Similarly, in the field "Web link" it is possible to specify the path to the des
 
 In the "Site manager" module, it is possible to download images of the selected site from the hard disk to the Cloud or delete it from the Cloud.
 
-The "Alarm to Guard" application displays the images of the site stored in the Cloud from which the alarm signal arrived. Thanks to this, employees of security companies can obtain the necessary information about the type of the site and the most convenient entrances to it.
+<!-- The "Alarm to Guard" application displays the images of the site stored in the Cloud from which the alarm signal arrived. Thanks to this, employees of security companies can obtain the necessary information about the type of the site and the most convenient entrances to it. -->
 
 To load and delete images, the operator shall have the permission to "Edit image of site".
 
@@ -241,7 +241,7 @@ If the described responsible person does not own the personal code of the site a
 
 In addition to the user number for the responsible person, it is possible to specify other necessary information: name, position, mobile and home phone numbers, address.
 
-If the "Display in a private account" field has "Yes", the responsible person will be displayed in the list of responsible persons in the "Personal account" application.
+If the "Display in a private account" field has "Yes", the responsible person will be displayed in the list of responsible persons in the "MyAlarm" application.
 
 Configure the automatic notification of the responsible person about the need to reclose the site using the "Reclosing" field. If the value is "Yes", the responsible person will receive SMS with information about the site that needs to be opened, inspected and taken under protection once the cause of the alarm has been eliminated.
 
@@ -527,7 +527,7 @@ The "Comments" tab is intended for entering an arbitrary description of the site
 
 In the "Comment for operator" field, the information intended for the Security Center operator is indicated. This information is displayed in the site card in the "Duty operator" module, so it is often used to store notes on the site: requests from the responsible persons, observations of engineers serving the site, recommendations to operators, etc.
 
-In the "Commentary for guard" field, information for the guards is indicated. In case of the site alarm, it is transferred to the "Alarm to Guard" application.
+<!-- In the "Commentary for guard" field, information for the guards is indicated. In case of the site alarm, it is transferred to the "Alarm to Guard" application. -->
 
 ## Videorouters {#object-manager-videorouter}
 
