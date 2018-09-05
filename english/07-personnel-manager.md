@@ -190,7 +190,7 @@ This function is useful, when the duty operators use the scheme of dividing site
 
 ## Engineers {# personnel-manager-engineer}
 
-!"Engineers" tab][id-07-13]
+\imgcapt{img/empman-04.png}{"Engineers" tab}
 
 The "Engineers" tab is used to manage the list of engineers that can be granted permissions to access remote site management.
 
@@ -222,6 +222,5 @@ Information about the permissions granted to the engineer for access to sites is
 
 To cancel the permission granted to the engineer for access to a site, select the permission in the list and click the "Delete permission" button.
 
-[id-07-13]: img/empman-04.png ""Engineers" tab"
 [id-07-15]: img/empman-05.png ""Administrators of personal account" tab"
 [id-07-16]: img/empman-05-00.png "Add administrator of personal account"
