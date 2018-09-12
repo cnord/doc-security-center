@@ -18,7 +18,8 @@ When handling an alarm message received from a site, it may be necessary to recl
 
 The responsible person is notified of the need to reclose the site, as well as the refusal of the responsible person to reclose with SMS messages. It is possible to inform the responsible person of this and other situations in the "Site manager" module on ["Responsible Persons"] tab (#site-manager-doorkeys).
 
-Guard can notify the responsible person about the site reclosing using "Alarm to Guard" application, also it can be done by the Security Center operator.
+<!-- Guard can notify the responsible person about the site reclosing using "Alarm to Guard" application, also it can be done by the Security Center operator. -->
+The Security Center operator can notify the responsible person about the site reclosing using "Alarm to Guard" application.
 
 In order for the Security Center operator to notify the responsible persons of the site reclosing, such types of actions as "Reclosing request" and "Reclosing failure" shall be allowed. The necessary settings can be set in the "System Settings" module on the "Actions" tab (#system-setup-actions).
 
@@ -38,17 +39,19 @@ In the chapter about the ["Duty operator"] module (#duty-opertor-process-alarm),
 
 ## Cloud Services
 
-Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services-2)".
+<!-- Some new features of the Security Center software of version 5 are implemented as cloud services: "Call Center", "Alarm to Guard" application, "Situational chart", "Remote programming interface", "Personal account", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services-2)". -->
 
-### Call Center
+Some new features of the Security Center software of version 5 are implemented as cloud services: "Remote programming interface", Mobile Application "MyAlarm", etc. A brief description of the features of these services is given below, and more details about working with them can be found in the chapter "[Cloud Services](#cloud-services-2)".
+
+<!-- ### Call Center
 
 "[Call center](#cloud-services-call-center)" service allows the client of a private security company to obtain information about the current status of the site (under protection/removed from protection) and to check the panic button. Both services are provided in automatic mode, which allows to reduce the load on the Security Center operator.
 
 "Call Center" service is set in the [partner interface](#cloud-services-settings) in the "Cloud". Also here it is possible to get statistics of the service usage.
 
-Identification numbers ("PIN") for access of responsible persons to the services of the "Call Center" service can be set in the ["Site Manager"] module (#site-manager-doorkeys).
+Identification numbers ("PIN") for access of responsible persons to the services of the "Call Center" service can be set in the ["Site Manager"] module (#site-manager-doorkeys). -->
 
-### Alarm to Guard
+<!-- ### Alarm to Guard
 
 "Alarm to Guard" application is intended for use by guards during alarm handling. The application shall be installed on a mobile device (smartphone or tablet). Android or iOS can be used as the operating system of the mobile device.
 
@@ -58,9 +61,9 @@ If the site is [located on map](#site-manager-put-to-map), then the site locatio
 
 To ensure that the guards have graphic information about the site (floor plans, site photos, etc.), in the "Alarm to Guard" application it is possible to view the site images. It is possible to download the site images for transferring them to the "Alarm to Guard" application in the ["Site Manager"] module (#site-manager-images)).
 
-Passwords for accessing the "Alarm to Guard" application are created in the [partner interface](#cloud-services-settings).
+Passwords for accessing the "Alarm to Guard" application are created in the [partner interface](#cloud-services-settings). -->
 
-### Situational Chart
+<!-- ### Situational Chart
 
 ["Situational chart"](#cloud-services-radar) service is intended for displaying information about the sites and location, and condition of the Guards on the terrain map.
 
@@ -68,7 +71,7 @@ In order for the sites to be displayed on the situational map, they shall be pre
 
 And for displaying of the Guards on the situational map, the guards shall be equipped with mobile devices with installed "Alarm to Guard" application.
 
-Links to the "Situation Chart" can be obtained from the [partner interface](#cloud-services-settings).
+Links to the "Situation Chart" can be obtained from the [partner interface](#cloud-services-settings). -->
 
 ### Remote Programming Interface
 
@@ -78,7 +81,7 @@ To ensure remote access at the site, the control panel by C.Nord or PIMA Electro
 
 To gain access to the "Remote programming interface" service, it is necessary to [register](#personnel-manager-engineer) the engineer in the "Cloud", and also give him access to the [site management](#site-manager-service).  
 
-### Personal Account
+<!-- ### Personal Account
 
 The "Personal account" service is intended for clients of a private security company. With its help, they can access the site card and verify correctness of the key information in it, view the report on the taking the site under protection/removing it from protection, and view the identification codes of the responsible persons for accessing the "Call Center" service. 
 
@@ -86,11 +89,11 @@ Besides, if a video router is installed on the site, a private security company 
 
 To give the client access to the "Personal account", the Security Center operator shall [register](#personnel-manager-myalarm-admin) him/her in the "Cloud" and assign him/her as [administrator](#site-manager-myalarm) for one or more sites.
 
-Information about the private security company, which the administrator sees in the "Personal account" (name of the private security company, link to the site, phone and e-mail) can be specified in the [partner interface](#cloud-services-settings).
+Information about the private security company, which the administrator sees in the "Personal account" (name of the private security company, link to the site, phone and e-mail) can be specified in the [partner interface](#cloud-services-settings). -->
 
 ### Mobile Application "MyAlarm"
 
-"MyAlarm" application, as well as "Personal account" service, are intended for clients of private security companies. With its help, it is possible to access the site card, information about its status, and also the list of responsible persons.
+"MyAlarm" application are intended for clients of private security companies. With its help, it is possible to access the site card, information about its status, and also the list of responsible persons.
 
 The application shall be installed on a mobile device (smartphone or tablet). Android or iOS can be used as the operating system of the mobile device.
 
