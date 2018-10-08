@@ -1,4 +1,4 @@
-﻿# Installation
+# Installation
 
 ## Selection of Operating System
 
@@ -50,6 +50,8 @@ After that, you will need to select the language of the Security Center user int
 * English
 
 * Russian
+
+* Spanish
 
 \imgcapt{img/Setup-Main-02.png}{Selecting Security Center language}
 

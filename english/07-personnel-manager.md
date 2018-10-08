@@ -176,7 +176,7 @@ The "Computers" tab is intended to manage the list of computers on which the net
 
 To save the changes made on this tab, the user shall have the "Edit computers" permission for the "Personnel manager" module.
 
-### Allow to rum Security Center modules on computers from list only
+### Allow to run Security Center modules on computers from list only
 
 If this option is disabled, the Security Center modules can be run on any computer on the network. In this case, if the computer on which the Security Center modules are launched is not included in the list, it will be added there automatically. 
 
