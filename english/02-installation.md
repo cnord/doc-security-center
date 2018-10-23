@@ -42,7 +42,6 @@ When installing Security Center software, you need to specify values for several
 
 Immediately after the installer starts, you need to specify the installer user interface language.
 
-
 \imgcapt{img/Setup-Main-01.png}{Selecting installer language}
 
 After that, you will need to select the language of the Security Center user interface from the following list:
@@ -68,7 +67,6 @@ After that, you will need to select the type of workstation on which you are ins
 * Select _Full installation_ if the computer will act as a server: it will store Security Center database, and will receive events.
 
 > Select full installation if it is the only computer on which Security Center will be used.
-
 > In case of full installation, Microsoft SQL Server and Security Center database will be installed on the computer. Besides, "Event manager" module will be installed on the computer to receive and process notifications.
 
 * Select installation on _Network workstation_ if it is necessary to organize a workplace in the local computer network. Almost all program functions are available to the operator on the network workstation. An exception is a number of service operations, such as changing settings of "Event manager" module and backup management.
@@ -132,4 +130,3 @@ In case of request by e-mail, it is recommended to attach the archive containing
 * files from folder `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` - The files from this folder and its subfolders contain the logs of Microsoft SQL Server Setup installer
 
 The listed files do not contain personal data or confidential information.
-
