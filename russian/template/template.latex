@@ -115,8 +115,8 @@ $endif$
 
 \usepackage{titlesec}
 
-\titleformat*{\section}{\Large\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\section}{\huge\bfseries}
+\titleformat*{\subsection}{\LARGE\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 \titleformat*{\paragraph}{\normalsize\bfseries}
 \titleformat*{\subparagraph}{\small\bfseries}

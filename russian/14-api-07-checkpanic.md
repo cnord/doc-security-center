@@ -1,6 +1,6 @@
 # Проверка КТС
 
-## Начать проверку КТС (/api/CheckPanic/start) {#api-checkpanic-start}
+## Начать проверку КТС (POST /api/CheckPanic/start) {#api-checkpanic-start}
 
 Метод предназначен для запуска процедуры проверки КТС.
 
@@ -8,17 +8,19 @@
 
 **Метод** : `POST`
 
-**Требуется ApiKey** : да
-
 ### Параметры
 
 #### siteId
 
-Идентификатор объекта, по которому нужно проверить КТС. Обязательный параметр.
+Обязательный параметр.
+
+Идентификатор объекта, по которому нужно проверить КТС.
 
 #### userName
 
-Имя пользователя, от имени которого выполняется операция. Необязательный параметр.
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
 
 ### Возможные статусы ответов
 
@@ -31,8 +33,8 @@
 ```json
 {
 "Status": 200,
-"Description": "string",
-"CheckPanicId": "string"
+"Description": string,
+"CheckPanicId": string
 }
 ```
 
@@ -58,8 +60,9 @@
 ### Пример использования
 
 ```bash
-curl -X POST --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' `
-`'http://10.7.22.145:9002/api/CheckPanic/start?siteId=ae59ad78-6341-44dc-adb8-4803b7f02412&`
+curl --request POST \
+--header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+--url 'http://10.0.0.2:9002/api/CheckPanic/start?siteId=ae59ad78-6341-44dc-adb8-4803b7f02412&`
 `userName=automatic_panic_checker'
 ```
 
@@ -71,7 +74,7 @@ curl -X POST --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4
 }
 ```
 
-## Получить результат проверки КТС (/api/CheckPanic/result) {#api-checkpanic-result}
+## Получить результат проверки КТС (GET /api/CheckPanic/result) {#api-checkpanic-result}
 
 Метод предназначен для получения результата процедуры проверки КТС.
 
@@ -79,17 +82,19 @@ curl -X POST --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4
 
 **Метод** : `GET`
 
-**Требуется ApiKey** : да
-
 ### Параметры
 
 #### checkPanicId
+
+Обязательный параметр.
 
 Идентификатор процеудры проверки, для которой нужно получить результат. Идентификатор возвращается в результате вызова метода [`/api/CheckPanic/start`](#api-checkpanic-start).
 
 #### userName
 
-Имя пользователя, от имени которого выполняется операция. Необязательный параметр.
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
 
 ### Возможные статусы ответов
 
@@ -102,7 +107,7 @@ curl -X POST --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4
 ```json
 {
     "Status": 200,
-    "Description": "string"
+    "Description": string
 }
 ```
 
@@ -128,7 +133,7 @@ curl -X POST --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4
 
 ```bash
 curl -X GET --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' `
-`'http://10.7.22.145:9002/api/CheckPanic/result?checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115&`
+`'http://10.0.0.2:9002/api/CheckPanic/result?checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115&`
 `userName=automatic_panic_checker'
 ```
 
