@@ -53,7 +53,7 @@ TypeName & string & Название типа объекта \\ \arrayrulecolor{
 IsFire & boolean & Флаг наличия пожарной сигнализации на объекте \\ \arrayrulecolor{light-gray}\hline
 IsArm & boolean & Флаг наличия охранной сигнализации на объекте \\ \arrayrulecolor{light-gray}\hline
 IsPanic & boolean & Флаг наличия тревожной кнопки на объекте \\ \arrayrulecolor{light-gray}\hline
-DeviceTypeName & string & Название типа оборудования на объекте. Возможные значения: см. ниже \\ \arrayrulecolor{light-gray}\hline
+DeviceTypeName & string & Псевдоним типа оборудования на объекте. Возможные значения: см. ниже \\ \arrayrulecolor{light-gray}\hline
 EventTemplateName & string & Название шаблона событий объекта \\ \arrayrulecolor{light-gray}\hline
 ContractNumber & string & Номер договора \\ \arrayrulecolor{light-gray}\hline
 ContractPrice & number & Сумма ежемесячного платежа по договору. Отображается в приложении MyAlarm \\ \arrayrulecolor{light-gray}\hline
@@ -76,26 +76,48 @@ WebLink & string & Web-ссылка: ссылка на ресурс с допо�
 
 ### Значения поля DeviceTypeName
 
-Название типа оборудования на объекте. Возможные значения:
+Псевдоним типа оборудования на объекте.
 
-- «Си-Норд GSM (CML)»;
-- «Lonta-202»;
-- «RS200»;
-- «AlarmView»;
-- «Puper type 5»;
-- «Neman»;
-- «Ритм»;
-- «Другое».
+Соответствия значений псевдонима и названий типа оборудования:
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{ll}
+\textbf{Псевдоним} & \textbf{Название типа оборудования} \\ \midrule
+
+cnord-gsm-cml & «Си-Норд GSM (CML)» \\ \arrayrulecolor{light-gray}\hline
+lonta-202 & «Lonta-202» \\ \arrayrulecolor{light-gray}\hline
+rs200 & «RS200» \\ \arrayrulecolor{light-gray}\hline
+alarmview & «AlarmView» \\ \arrayrulecolor{light-gray}\hline
+puper-type-5 & «Puper type 5» \\ \arrayrulecolor{light-gray}\hline
+neman & «Neman» \\ \arrayrulecolor{light-gray}\hline
+ritm & «Ритм» \\ \arrayrulecolor{light-gray}\hline
+other & «Другое» \\
+
+\bottomrule
+\end{tabularx}
+
+> Тип оборудования, установленного на объекте, указывается в модуле «Менеджер объектов», на вкладке «Оборудование».
 
 ### Значения поля DebtInformLevel
 
-Уровень информирования клиента о состоянии услуг охраны. Возможные значения:
+Уровень информирования клиента о состоянии услуг охраны. 
 
-- `-1` – Не отображать информацию в MyAlarm;
-- `0` - Нет задолженности;
-- `1` - Информировать о необходимости оплаты;
-- `2` - Предупреждать о наличии задолженности;
-- `3` - Запретить взятие под охрану и ограничить функции MyAlarm.
+Возможные значения:
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{cl}
+\textbf{Значение} & \textbf{Описание} \\ \midrule
+
+-1 & Не отображать информацию в MyAlarm \\ \arrayrulecolor{light-gray}\hline
+0 & Нет задолженности \\ \arrayrulecolor{light-gray}\hline
+1 & Информировать о необходимости оплаты \\ \arrayrulecolor{light-gray}\hline
+2 & Предупреждать о наличии задолженности \\ \arrayrulecolor{light-gray}\hline
+3 & Запретить взятие под охрану и ограничить функции MyAlarm \\
+
+\bottomrule
+\end{tabularx}
 
 ### Формат полей с датой и временем
 
@@ -156,9 +178,9 @@ WebLink & string & Web-ссылка: ссылка на ресурс с допо�
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c'
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
   --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&`
-        `userName=crm-Ivanova-A-A' \
+        `userName=crm-Ivanova-A-A'
 ```
 
 **Status:** `200`
@@ -176,7 +198,7 @@ curl --request GET \
         "IsFire": true,
         "IsArm": true,
         "IsPanic": true,
-        "DeviceTypeName": "Другое",
+        "DeviceTypeName": "other",
         "EventTemplateName": "Си-Норд GSM",
         "ContractNumber": "2018-12/91",
         "ContractPrice": 0,
@@ -205,7 +227,7 @@ curl --request GET \
         "IsFire": true,
         "IsArm": true,
         "IsPanic": true,
-        "DeviceTypeName": "Си-Норд GSM (CML)",
+        "DeviceTypeName": "cnord-gsm-cml",
         "EventTemplateName": "Си-Норд GSM",
         "ContractNumber": "2018-12/91",
         "ContractPrice": 0,
@@ -281,7 +303,7 @@ curl --request GET \
     "IsFire": true,
     "IsArm": true,
     "IsPanic": true,
-    "DeviceTypeName": "Си-Норд GSM (CML)",
+    "DeviceTypeName": "cnord-gsm-cml",
     "EventTemplateName": "Си-Норд GSM",
     "ContractNumber": "",
     "ContractPrice": 0,
@@ -361,7 +383,7 @@ curl --request POST \
   --url http://192.168.0.2:9002/api/Sites/ \
   --data '{"Name": "Ресторан \"У Палыча\"","Address": "Виноградная, 26",`
          `"Phone1": "+7 812 327 1633","ObjTypeName": "Ресторан",`
-         `"DeviceTypeName": "Си-Норд GSM (CML)",`
+         `"DeviceTypeName": "cnord-gsm-cml",`
          `"EventTemplateName": "Си-Норд GSM"}'
 ```
 
@@ -383,7 +405,7 @@ curl --request POST \
   --data '{"AccountNumber": 9001,`
          `"Name": "Ресторан \"У Михалыча\"", "Address": "Виноградная, 26",`
          `"Phone1": "+7 812 327 1633","ObjTypeName": "Ресторан",`
-         `"DeviceTypeName": "Си-Норд GSM (CML)",`
+         `"DeviceTypeName": "cnord-gsm-cml",`
          `"EventTemplateName": "Си-Норд GSM"}'
 ```
 

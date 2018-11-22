@@ -62,8 +62,9 @@
 ```bash
 curl --request POST \
 --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
---url 'http://10.0.0.2:9002/api/CheckPanic/start?siteId=ae59ad78-6341-44dc-adb8-4803b7f02412&`
-`userName=automatic_panic_checker'
+--url 'http://10.0.0.2:9002/api/CheckPanic/start?`
+      `siteId=ae59ad78-6341-44dc-adb8-4803b7f02412&`
+      `userName=automatic_panic_checker'
 ```
 
 ```json
@@ -132,9 +133,11 @@ curl --request POST \
 ### Пример использования
 
 ```bash
-curl -X GET --header 'Accept: application/json' --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' `
-`'http://10.0.0.2:9002/api/CheckPanic/result?checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115&`
-`userName=automatic_panic_checker'
+curl --request GET \
+    --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+    --url 'http://10.0.0.2:9002/api/CheckPanic/result?`
+          `checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115&`
+          `userName=automatic_panic_checker'
 ```
 
 ```json
