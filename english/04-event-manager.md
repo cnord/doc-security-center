@@ -144,20 +144,6 @@ For example, the "Event Source via TCP/IP" can receive events from transmitters 
 
 The "Receive channel number" parameter is used to specify the number that will be used to identify the channel on which the event was received. The parameter value is especially useful if several event sources are used via TCP/IP: to distinguish between sources from which the event was received it is necessary to set different receive channel numbers for them.
 
-### GuardBox Events Source
-
-"GuardBox events source" is intended to receive events via the serial port from the GuardBox software.
-
-This event source guarantees transmission of events from the receiving equipment of the central station. Besides, it provides a number of other functions, for example, time synchronization with the central station computer.
-
-\imgcapt{img/EventSource-13-01.png}{"GuardBox Events source Properties" window, "GuardBox" tab}
-
-Use "Port" parameter to select the serial port to which the computer, on which the GuardBox is running, is connected, and use the "Connection baud rate" parameter to set the exchange rate.
-
-The "Check Security Center functioning" parameter is intended to enable or disable monitoring of the Security Center by the GuardBox software. 
-The monitoring includes connection to the "Event manager" module over the network and generation of queries about functioning of the "Event Manager" and "Duty operator" modules. 
-Information about the results of the performed check is transferred to the GuardBox software. If the check is completed with an error, the GuardBox software informs about it visually and with a sound signal.
-
 ### GSM Events Source
 
 "GSM Events Source" is intended for reception of events via GSM SMS and CSD channels from the "Nord GSM", "Soyuz GSM" and "TR-100 GSM IV" - via CSD channel.
@@ -779,7 +765,9 @@ To select the action or cancel for transmission, check them in the list.
 
 This event handler is intended to transmit information about the Security Center, sites, received events, guards and operator actions, engineers and their permissions, as well as about the video routers installed on the site, to the "Cloud". The "Cloud" is a service that allows to provide web-access to sites and events for owners, installation organizations, operators, and guards.
 
-The "Repeater to Cloud" handler provides operation of such additional services as Call-center, partner's web-interface, Personal account, remote control of the site equipment, "Alarm to Guard" application, situational chart and some others. In more detail, all these services are described in the "Cloud Services" section.
+The "Repeater to Cloud" handler provides operation of such additional services as remote control of the site equipment, mobile Application "MyAlarm" and some others. In more detail, all these services are described in the "Cloud Services" section.
+
+<!-- The "Repeater to Cloud" handler provides operation of such additional services as Call-center, partner's web-interface, Personal account, remote control of the site equipment, "Alarm to Guard" application, situational chart and some others. In more detail, all these services are described in the "Cloud Services" section. -->
 
 The operation of this handler is important for the proper functioning of all cloud services, that is why editing it is very limited. The "Repeater to Cloud" event handler group and the handler in it are created during the first start of the "Event manager" module and are enabled automatically if the "Cloud Communication" dialog box indicates the need to use cloud services. 
 
@@ -819,7 +807,7 @@ Select one of the cloud connection modes on the "Connection mode" tab of the "Co
 
 \imgcapt{img/EvMan-07-CloudConnection.png}{"Connection to the Cloud" window, "Connection mode" tab}
 
-Full integration with the Cloud allows to use remote access to site equipment, as well as available cloud services, for example, "Alarm to Guard." In this case, all data about sites, events and actions of operators will be transmitted to the "Cloud".
+Full integration with the Cloud allows to use remote access to site equipment, as well as available cloud services. In this case, all data about sites, events and actions of operators will be transmitted to the "Cloud".
 
 Connection to the Cloud can only be used for remote access to the site equipment. This connection mode allows to send only site numbers, communicator identifiers and permissions for engineers to access sites to the Cloud. Other Cloud services will be disabled and information on them will not be transmitted to the Cloud.
 

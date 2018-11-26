@@ -1,4 +1,4 @@
-﻿# Installation
+# Installation
 
 ## Selection of Operating System
 
@@ -42,8 +42,7 @@ When installing Security Center software, you need to specify values for several
 
 Immediately after the installer starts, you need to specify the installer user interface language.
 
-
-![Selecting installer language][id-02-01]
+\imgcapt{img/Setup-Main-01.png}{Selecting installer language}
 
 After that, you will need to select the language of the Security Center user interface from the following list:
 
@@ -51,22 +50,23 @@ After that, you will need to select the language of the Security Center user int
 
 * Russian
 
-![Selecting Security Center language][id-02-02]
+* Spanish
+
+\imgcapt{img/Setup-Main-02.png}{Selecting Security Center language}
 
 Be careful: Security Center user interface language cannot be changed after installation. If an error is made when selecting the user interface language, to correct it, you will need to remove the Security Center and reinstall it.
 
 Next, the installer will prompt you to specify the directory where the executable files of the Security Center will be located.
 
-![Selecting installation folder][id-02-03]
+\imgcapt{img/Setup-Main-03.png}{Selecting installation folder}
 
 After that, you will need to select the type of workstation on which you are installing:
 
-![Selecting installation type][id-02-04]
+\imgcapt{img/Setup-Main-04.png}{Selecting installation type}
 
 * Select _Full installation_ if the computer will act as a server: it will store Security Center database, and will receive events.
 
 > Select full installation if it is the only computer on which Security Center will be used.
-
 > In case of full installation, Microsoft SQL Server and Security Center database will be installed on the computer. Besides, "Event manager" module will be installed on the computer to receive and process notifications.
 
 * Select installation on _Network workstation_ if it is necessary to organize a workplace in the local computer network. Almost all program functions are available to the operator on the network workstation. An exception is a number of service operations, such as changing settings of "Event manager" module and backup management.
@@ -77,11 +77,11 @@ After that, you will need to select the type of workstation on which you are ins
 
 When installing the full version, you will need to specify the directory in which Security Center database will be stored.
 
-![Full installation: selecting database installation folder][id-02-05]
+\imgcapt{img/Setup-Full-01.png}{Full installation: selecting database installation folder}
 
 To increase Security Center performance, it is recommended to place the database files on a separate hard disk or at least on a separate hard disk partition. By default, the installer prompts you to install the database files on a disk partition other than the system one.
 
-![Full installation: selecting BDE setup][id-02-06]
+\imgcapt{img/Setup-Full-02.png}{Full installation: selecting BDE setup}
 
 You also need to specify the need of BDE setup. The BDE subsystem ("Borland Database Engine") was used by the Andromeda 1.0 - 2.76, as well as Andromeda Liberty for the database access. BDE subsystem is used by Security Center only when importing data from the databases of the listed programs. If you do not need to import information from the databases of Andromeda 2.6 - 2.76 or Andromeda Liberty, it is not necessary to install the BDE subsystem.
 
@@ -89,13 +89,13 @@ In case of full installation, a named instance of Microsoft SQL Server 2005 Expr
 
 Before the installer begins installing SQL Server 2005 and copying the Security Center files to the computer, you can view its settings to make sure that all values for all parameters are set correctly.
 
-![Full installation: list of setup program settings][id-02-07]
+\imgcapt{img/Setup-Full-03.png}{Full installation: list of setup program settings}
 
 ### Installation on network workstation
 
 When installing Security Center on a network workstation, you shall specify an instance of Microsoft SQL Server that is used to store the database.
 
-![Installation on network workstation: selecting SQL server][id-02-08]
+\imgcapt{img/Setup-Network-01.png}{Installation on network workstation: selecting SQL server}
 
 An instance of Microsoft SQL Server is installed when a full installation of Security Center is performed. The instance name is "ANDROMEDA". Thus, you need to select a line of the form "`computer name\ANDROMEDA`" in the list, where `computer name` is the name of the computer to which the full installation of Security Center was performed.
 
@@ -103,13 +103,13 @@ If the installer cannot find the instance of Microsoft SQL Server in the local n
 
 After this you need to enter the name or IP address of the computer on which "Event manager" module is started. In most cases, this is the same computer that is used as Security Center server.
 
-![Installation on network workstation: selecting computer with "Event manager" module][id-02-09]
+\imgcapt{img/Setup-Network-02.png}{Installation on network workstation: selecting computer with "Event manager" module}
 
 Communication with "Event manager" module is necessary for the remaining modules of Security Center to exchange information and synchronize actions.
 
 Before the installer begins copying the files to the computer, you can view its settings to make sure that all values for all parameters are set correctly.
 
-![Installation on network workstation: list of installer settings][id-02-10]
+\imgcapt{img/Setup-Network-03.png}{Installation on network workstation: list of installer settings}
 
 ## Security Center Removal
 
@@ -130,24 +130,3 @@ In case of request by e-mail, it is recommended to attach the archive containing
 * files from folder `C:\Program Files\Microsoft SQL Server\90\Setup Bootstrap\LOG` - The files from this folder and its subfolders contain the logs of Microsoft SQL Server Setup installer
 
 The listed files do not contain personal data or confidential information.
-
-
-[id-02-01]: img/Setup-Main-01.png "Selecting installer language"
-
-[id-02-02]: img/Setup-Main-02.png "Selecting Security Center language"
-
-[id-02-03]: img/Setup-Main-03.png "Selecting installation folder"
-
-[id-02-04]: img/Setup-Main-04.png "Selecting installation type"
-
-[id-02-05]: img/Setup-Full-01.png "Full installation: selecting database installation folder"
-
-[id-02-06]: img/Setup-Full-02.png "Full installation: selecting BDE setup"
-
-[id-02-07]: img/Setup-Full-03.png "Full installation: list of setup program settings"
-
-[id-02-08]: img/Setup-Network-01.png "Installation on network workstation: selecting SQL server"
-
-[id-02-09]: img/Setup-Network-02.png "Installation on network workstation: selecting computer with "Event manager" module"
-
-[id-02-10]: img/Setup-Network-03.png "Installation on network workstation: list of installer settings"
