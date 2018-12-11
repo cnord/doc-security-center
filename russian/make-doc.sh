@@ -18,7 +18,7 @@ echo "Russian user manual – $DIFF seconds"
 
 START=$(date +%s)
 
-pandoc --template template/template.latex -V title-source=title-http-api.tex -o sc5-http-api-rus.pdf 14-api-01-intro.md 14-api-02-object.md 14-api-07-checkpanic.md
+pandoc --template template/template.latex -V title-source=title-http-api.tex -o sc5-http-api-rus.pdf 14-api-01-intro.md 14-api-02-object.md 14-api-03-part.md 14-api-07-checkpanic.md
 
 END=$(date +%s)
 DIFF=$(( $END - $START ))
