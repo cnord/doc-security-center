@@ -74,7 +74,9 @@ For the current operator of the "Personnel manager" module and the "Administrato
 
 * "Edit long-term arm" - permission to edit the parameters of long-term arm of the site. If the long-term arm is enabled for the site, then when you try to disarm the site, the Security Center will create a system event (alarm).
 
-* "Change site images" - permission to change the site images. Image data are used in the "Alarm to Guard" application to provide more complete information about the site.
+* "Change site images" - permission to change the site images. 
+  
+<!-- Image data are used in the "Alarm to Guard" application to provide more complete information about the site. -->
 
 * "Restore deleted sites" - permission to restore deleted sites.
 
@@ -174,7 +176,7 @@ The "Computers" tab is intended to manage the list of computers on which the net
 
 To save the changes made on this tab, the user shall have the "Edit computers" permission for the "Personnel manager" module.
 
-### Allow to rum Security Center modules on computers from list only
+### Allow to run Security Center modules on computers from list only
 
 If this option is disabled, the Security Center modules can be run on any computer on the network. In this case, if the computer on which the Security Center modules are launched is not included in the list, it will be added there automatically. 
 
@@ -188,7 +190,7 @@ This function is useful, when the duty operators use the scheme of dividing site
 
 ## Engineers {# personnel-manager-engineer}
 
-!"Engineers" tab][id-07-13]
+\imgcapt{img/empman-04.png}{"Engineers" tab}
 
 The "Engineers" tab is used to manage the list of engineers that can be granted permissions to access remote site management.
 
@@ -220,6 +222,5 @@ Information about the permissions granted to the engineer for access to sites is
 
 To cancel the permission granted to the engineer for access to a site, select the permission in the list and click the "Delete permission" button.
 
-[id-07-13]: img/empman-04.png ""Engineers" tab"
 [id-07-15]: img/empman-05.png ""Administrators of personal account" tab"
 [id-07-16]: img/empman-05-00.png "Add administrator of personal account"

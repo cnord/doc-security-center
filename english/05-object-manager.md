@@ -5,7 +5,6 @@ The "Site manager" module is intended to manage the description of sites availab
 To launch the "Site manager" module, the user shall have the "Log in" permission for this module.
 
 \imgcapt{img/ObjMngr-01-Main.png}{Module main window}
-![][id-05-01]
 
 The main window of the "Site manager" module displays a list of Security Center sites and a card of the current (selected) site. To perform any operation with the site, select the appropriate item in the menu. The most requested menu items are duplicated in the control panel of the module and control panels on the tabs on which the fields of the site card are grouped.
 
@@ -71,7 +70,7 @@ Special filtering flexibility is achieved due to the comparison rule "similar to
 
 The figure shows the result of filtering by comparison using the rule "similar to %id%".
 
-\imgcapt{img/ObjMngr-03-ObjectList-04.png}{List of sites: result of filtering by comparing "similar to %IR%"}
+\imgcapt{img/ObjMngr-03-ObjectList-04.png}{List of sites: result of filtering by comparing "similar to %ld%"}
 
 ## Restoring of Deleted Site
 
@@ -253,6 +252,43 @@ The "Commentary to responsible persons" field is intended to add additional info
 
 If the responsible persons describe the users with the personal codes of arming/disarming, then information about the user, who performed arming or disarming, will be included in the description of the event handled by the Security Center operator.
 
+## MyAlarm
+
+The MyAlarm tab is required to control user access to the MyAlarm application.
+
+When you enter the application, information about the site is not available until the user is logged into the Security Center and will not be granted access to it. 
+
+To make the list of users appear on the "MyAlarm" tab, it is necessary to create it on the "Responsible persons" tab. It is necessary to mandatory specify the number, name and surname, as well as the mobile phone. In the absence of one of the values, the line with the user will not appear.
+
+\imgcapt{img/MyAlarm_ResponsiblePerson.png}{List of responsible persons for Myalarm tab}
+
+Users cannot get access to sites after invitation to the application. To open access, it is necessary to click on the "Allow access" button, then the application will display the site.
+
+\imgcapt{img/MyAlarm_AllowAccess.png}{"Allow Access" button}
+
+There are two types of access:
+
+* User - sees the status of all partitions and receives notifications about changing their status;
+* Site Administrator - sees the status of all partitions and receives notifications about changing their state, controls the site state.  Can invite other users to the MyAlarm application without the Security Center.
+
+\imgcapt{img/MyAlarm_AccessTypes.png}{Access types in MyAlarm}
+
+To restrict access, it is necessary to click the "Deny access" button. After that, the site in the application will not be displayed.
+
+\imgcapt{img/MyAlarm_RestrictAccess_1.png}{"Deny Access" button}
+
+** “Enable panic button" **. Displays a virtual panic button in MyAlarm, which can be used for emergency call to a site. It works like a real panic button, but it is in the smartphone, which allows to call help regardless of the user's location. A security company can control access to the button for each user via the Security Center.
+
+\imgcapt{img/MyAlarm_AllowPanicButton.png}{"Allow Panic Button" button}
+
+To remove the panic button from the application, it is necessary to click on the “Disable panic button" button.
+
+\imgcapt{img/MyAlarm_RestrictPanicButton_1.png}{"Disable panic button" button}
+
+**"Synchronize with Cloud"**. Using the button "Synchronize with Cloud", it is possible to request the MyAlarm user list from the Cloud and synchronize it with the list of users of the site. The button works only if there is at least one user on the MyAlarm tab.
+
+\imgcapt{img/MyAlarm_CloudSync.png}{"Synchronize with Cloud" button}
+
 ## Arm
 
 On the "Arm" tab it is possible to change the parameters associated with the site protection rules and protection.
@@ -377,7 +413,7 @@ Disarming control is configured using the following parameters presented in the 
 
 In the field indicated by the timer icon, the time range is set, during which any violations in the schedule of sites are allowed (the maximum value of the parameter is 30 minutes). For example, minus 15 minutes from the arming time and plus 15 minutes from the disarming time in the schedule of sites.
 
-Let&#39;s suppose, that the schedule for the site arming is from 21:45 to 09:15. With an acceptable deviation of 15 minutes, arming is allowed from 21:30 to 21:45, and disarming is allowed from 09:15 to 09:30.
+Let's suppose, that the schedule for the site arming is from 21:45 to 09:15. With an acceptable deviation of 15 minutes, arming is allowed from 21:30 to 21:45, and disarming is allowed from 09:15 to 09:30.
 
 By default, events with "ZZXB" and "ZZXD" codes are described in all event templates as alarms, that is, they require registration of operator actions for handling and cancellation. If necessary, it is possible to change the event description. See information about how to do this in the chapter of this description devoted to the "System setup" module.
 
@@ -483,13 +519,13 @@ If the site is one of the parts on the control panel, then in the "Site number" 
 
 This type of equipment shall be specified for the site if one of the following devices is installed on it:
 
-* "Nord GSM" or "Nord GSM WRL"
+* "Nord GSM" or "Nord GSM (WRL)"
 
 * "Serzhant GSM"
 
-* "Soyuz GSM"
+* "Soyuz GSM (OEM) or "Soyuz GSM (BOX) "
 
-* Transmitter "TR-100 GSM IV"
+* Transmitter "TR-100 GSM III", connected to the control panel produced by C.Nord or PIMA Electronic Systems Ltd.
 
 The "ID" field will be automatically filled in after the device connects to the Security Center for the first time.
 
@@ -507,11 +543,11 @@ Select the "Lonta-202" type of equipment when using the centralized radio securi
 
 In the "Transmitter" section, set values for the "Site number" and "Part number" parameters. If the site is connected to the radio transmitter as one of the parts, then in the "Site number" field it is necessary to specify the site number of the transmitter, and in the "Part number" field - the parts number corresponding to the site.
 
-The values indicated in the "Site number" and "Part number" fileds are priority with respect to the standart numbers of the Security Center sites: when receiving event, the values entered on the "Equipment" tab and first of all values of the site numbers are viewed first.
+The values indicated in the "Site number" and "Part number" fields are priority with respect to the standard numbers of the Security Center sites: when receiving events, the values ​​entered on the "Equipment" tab and first of all values of the site numbers are viewed first.
 
 To control the quality of communication with the site on which the equipment of Lonta-202 system is used, it is necessary to set the threshold levels of the transmitter signal. Do this in the "Signal levels" section, indicating the corresponding parameter values in the "Level of warning" and "Level of alarm" fields.
 
-If the level of the signal received from the site becomes less than the value specified in the "Level of warning" field, a system event with the "ZZXV" code will be created. If the level of the signal received from the site is less than the value specified in the "Level of alarm" field, a system event with the "ZZXU" code will be created. With the help of system events with "ZZXV" and "ZZXU" codes it is possible to automatically monitor the received signal level, attracting the operator's attention only to those sites where it is required to intervene.
+If the level of the signal received from the site becomes less than the value specified in the "Level of warning" field, a system event with the "ZZXV" code will be created. If the level of the signal received from the site is less than the value specified in the "Level of alarm" field, a system event with the "ZZXU" code will be created. With the help of system events with "ZZXV" and "ZZXU" codes it is possible to automatically monitor the received signal level, attracting the operator&#39;s attention only to those sites where it is required to intervene.
 
 It shall be noted that for sites on which the equipment of Lonta-202 system is installed, the function of viewing the received signal level is available in the "Duty operator" module. The site card has a tab that allows to display the signal level in the form of a graph or as a table of values.
 
@@ -563,7 +599,7 @@ To issue a permission, select the desired site in the site list and click the "A
 
 In the "Issue permission for site access" window fill in the following fields:
 
-* "Engineer" - engineer from the drop-down list. The list displays the engineers created in the "Personnel manager" module. Engineers who have not confirmed the e-mail address for registration in the Cloud can also be selected from the list, but they will only gain access to sites after the registration is completed;
+* "Engineer "- engineer from the drop-down list. The list displays the engineers created in the "Personnel manager" module. Engineers who have not confirmed the e-mail address for registration in the Cloud can also be selected from the list, but they will only gain access to sites after the registration is completed;
 
 * "Allow access to the site from" and "to" - date and time of permission start and end, respectively. Permission to access the site can be issued for no more than thirty days. When issuing a permission for more than three days, the application will ask for confirmation. Besides, granting an engineer permission to access the site will cancel the permission granted to him/her for access to this site earlier.
 
@@ -571,6 +607,10 @@ After entering the data, click on the "Give permission" button to complete the o
 
 To remove the permission to access the site, select the permission in the list and click on the "Delete permission" button.
 
+<!--
 [id-05-16]: img/ObjMngr-16-Account.png ""Personal account" tab"
+
 [id-05-17]: img/ObjMngr-17-Account-01.png "Event class editing"
+
 [id-05-18]: img/ObjMngr-18-Account-02.png "Editing operator&#39;s actions and alarm cancellations"
+-->
