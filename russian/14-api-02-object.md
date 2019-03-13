@@ -444,6 +444,20 @@ curl --request POST \
 
 В теле запроса должен быть передан элемент JSON с [полями объекта](#api-site-json), которые нужно изменить. Если поле необходимо оставить без изменения, то оно не должно быть указано в эелементе JSON.
 
+В случае если поле необходимо очитстить, то оно не должно быть указано и должен быть выставлен соответствующий признак принудительной записи поля. Список полей которые можно очистить представлен в таблице ниже:
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{Признак принудительной записи (boolean)} \\ \midrule
+
+ContractPrice & decimal & IsContractPriceForceUpdate \\ \arrayrulecolor{light-gray}\hline
+MoneyBalance & decimal  & IsMoneyBalanceForceUpdate \\ \arrayrulecolor{light-gray}\hline
+PaymentDate & string & IsPaymentDateForceUpdate \\
+
+\bottomrule
+\end{tabularx}
+
 Идентификатор объекта передается параметром в заголовке запроса, поэтому поле `id` в элементе JSON может быть не указано или будет проигнорировано.
 
 ### Возможные статусы ответов
