@@ -4,7 +4,7 @@
 
 ## Поля ответственного лица {#api-customer-json}
 
-Элементо JSON, содержащий все поля раздела:
+Элементо JSON, содержащий все поля ответственного лица:
 
 ```json
 {
@@ -31,7 +31,7 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-Id & string & Идентификатор раздела \\ \arrayrulecolor{light-gray}\hline
+Id & string & Идентификатор отвественного лица \\ \arrayrulecolor{light-gray}\hline
 OrderNumber & number & Порядковый номер ответственного в списке \\ \arrayrulecolor{light-gray}\hline
 UserNumber & number & Номер ответственного (номер пользователя на контрольной панели, может быть не задан) \\ \arrayrulecolor{light-gray}\hline
 ObjCustName & string & ФИО \\ \arrayrulecolor{light-gray}\hline
