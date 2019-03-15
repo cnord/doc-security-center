@@ -36,7 +36,9 @@
     "CommentForOperator": string,
     "CommentForGuard": string,
     "MapFileName": string,
-    "WebLink": string
+    "WebLink": string,
+    "ControlTime": number,
+    "CTIgnoreSystemEvent": bool
 }
 ```
 
@@ -71,7 +73,9 @@ CustomersComment & string & Комментарий к списку ответс�
 CommentForOperator & string & Комментарий для оператора \\ \arrayrulecolor{light-gray}\hline
 CommentForGuard & string & Комментарий для ГБР \\ \arrayrulecolor{light-gray}\hline
 MapFileName & string & Путь к файлу с картой объекта \\ \arrayrulecolor{light-gray}\hline
-WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\
+WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\ \arrayrulecolor{light-gray}\hline
+ControlTime & number & Общее контрольное время (мин.) \\ \arrayrulecolor{light-gray}\hline
+CTIgnoreSystemEvent & bool & Игнорировать системные события \\
 
 \bottomrule
 \end{tabularx}
@@ -216,7 +220,9 @@ curl --request GET \
         "CommentForOperator": "",
         "CommentForGuard": "",
         "MapFileName": "",
-        "WebLink": ""
+        "WebLink": "",
+        "ControlTime": 0,
+        "CTIgnoreSystemEvent": false
     },
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
@@ -245,7 +251,9 @@ curl --request GET \
         "CommentForOperator": "",
         "CommentForGuard": "",
         "MapFileName": "",
-        "WebLink": ""
+        "WebLink": "",
+        "ControlTime": 1,
+        "CTIgnoreSystemEvent": true
     }
 ]
 ```
@@ -321,7 +329,9 @@ curl --request GET \
     "CommentForOperator": "",
     "CommentForGuard": "",
     "MapFileName": "",
-    "WebLink": ""
+    "WebLink": "",
+    "ControlTime": 10,
+    "CTIgnoreSystemEvent": false
 }
 ```
 
