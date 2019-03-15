@@ -1,3 +1,5 @@
+\pagebreak
+
 # Проверка КТС
 
 ## Начать проверку КТС (POST /api/CheckPanic) {#api-checkpanic-post}
