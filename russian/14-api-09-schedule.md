@@ -117,28 +117,19 @@ curl --request GET \
     "Intervals" :
     [
         {
-            "Id" : 1,
-            "ObjectID" : 2,
             "DayNumber" : 2,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T01:00:00.000Z",
-            "StopDT" : "2012-04-23T01:23:59.999Z"
+            "StartDT" : "2012-04-23T01:00:00",
+            "StopDT" : "2012-04-23T01:23:59"
         },
         {
-            "Id" : 2,
-            "ObjectID" : 2,
             "DayNumber" : 1,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T01:00:00.000Z",
-            "StopDT" : "2012-04-23T01:23:59.999Z"
+            "StartDT" : "2012-04-23T01:00:00",
+            "StopDT" : "2012-04-23T01:23:59"
         },
         {
-            "Id" : 3,
-            "ObjectID" : 1,
             "DayNumber" : 1,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T02:00:00.000Z",
-            "StopDT" : "2012-04-23T02:21:59.999Z"
+            "StartDT" : "2012-04-23T02:00:00",
+            "StopDT" : "2012-04-23T02:21:59"
         }
     ]
 }
@@ -183,7 +174,7 @@ curl --request GET \
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?userName=crm-Ivanova-A-A' \
+  --url 'http://10.7.22.128:9002/api/Schedule?userName=crm-Ivanova-A-A' \
   --data '{`
     `"Id" : "082232F8-8B06-4F7A-ABCA-AFDCC5593283",`
     `"ArmSchedule_EarlyArm" : false,`
@@ -197,18 +188,18 @@ curl --request POST \
     `[`
         `{`
             `"DayNumber" : 2,`
-            `"StartDT" : "2012-04-23T01:00:00.000Z",`
-            `"StopDT" : "2012-04-23T01:23:59.999Z"`
+            `"StartDT" : "2012-04-23T01:00:00",`
+            `"StopDT" : "2012-04-23T01:23:59"`
         `},`
         `{`
             `"DayNumber" : 1,`
-            `"StartDT" : "2012-04-23T01:00:00.000Z",`
-            `"StopDT" : "2012-04-23T01:23:59.999Z"`
+            `"StartDT" : "2012-04-23T01:00:00",`
+            `"StopDT" : "2012-04-23T01:23:59"`
         `},`
         `{`
             `"DayNumber" : 1,`
-            `"StartDT" : "2012-04-23T02:00:00.000Z",`
-            `"StopDT" : "2012-04-23T02:21:59.999Z"`
+            `"StartDT" : "2012-04-23T02:00:00",`
+            `"StopDT" : "2012-04-23T02:21:59"`
         `}`
     `]`
 `}'
@@ -230,28 +221,19 @@ curl --request POST \
     "Intervals" :
     [
         {
-            "Id" : 1,
-            "ObjectID" : 2,
             "DayNumber" : 2,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T01:00:00.000Z",
-            "StopDT" : "2012-04-23T01:23:59.999Z"
+            "StartDT" : "2012-04-23T01:00:00",
+            "StopDT" : "2012-04-23T01:23:59"
         },
         {
-            "Id" : 2,
-            "ObjectID" : 2,
             "DayNumber" : 1,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T01:00:00.000Z",
-            "StopDT" : "2012-04-23T01:23:59.999Z"
+            "StartDT" : "2012-04-23T01:00:00",
+            "StopDT" : "2012-04-23T01:23:59"
         },
         {
-            "Id" : 3,
-            "ObjectID" : 1,
             "DayNumber" : 1,
-            "IntervalNumber" : 0,
-            "StartDT" : "2012-04-23T02:00:00.000Z",
-            "StopDT" : "2012-04-23T02:21:59.999Z"
+            "StartDT" : "2012-04-23T02:00:00",
+            "StopDT" : "2012-04-23T02:21:59"
         }
     ]
 }
@@ -292,6 +274,6 @@ curl --request POST \
 ```bash
 curl --request DELETE \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?id=082232F8-8B06-4F7A-ABCA-AFDCC5593283&`
+  --url 'http://10.7.22.128:9002/api/Schedule?id=082232F8-8B06-4F7A-ABCA-AFDCC5593283&`
         `userName=crm-Ivanova-A-A'
 ```
