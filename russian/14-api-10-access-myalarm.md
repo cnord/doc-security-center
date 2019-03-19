@@ -10,10 +10,11 @@
 
 ```json
 {
-    "CustGUID" : string,
-    "UserID" : string,
-    "UserRole" : number,
-    "IsPanicEnabled" : boolean
+    "ObjCustGUID" : string,
+    "MyAlarmUserID" : string,
+    "MyAlarmUserRole" : number,
+    "MyAlarmUserPhone" : string,
+    "MyAlarmIsPanicEnabled" : boolean
 }
 ```
 
@@ -22,10 +23,11 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-CustGUID & string & Идентификатор пользователя \\ \arrayrulecolor{light-gray}\hline
-UserID & string & Идентификатор пользователя в облаке \\ \arrayrulecolor{light-gray}\hline
-UserRole & number & Тип доступа \\ \arrayrulecolor{light-gray}\hline
-IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
+ObjCustGUID & string & Идентификатор пользователя \\ \arrayrulecolor{light-gray}\hline
+MyAlarmUserID & string & Идентификатор пользователя в облаке \\ \arrayrulecolor{light-gray}\hline
+MyAlarmUserRole & number & Тип доступа \\ \arrayrulecolor{light-gray}\hline
+MyAlarmUserPhone & string & Телефон \\ \arrayrulecolor{light-gray}\hline
+MyAlarmIsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 
 \bottomrule
 \end{tabularx}
@@ -34,8 +36,9 @@ IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 
 ```json
 {
-	"CustGUID" : string,
-	"UserRole" : number
+    "ObjCustGUID" : string,
+    "MyAlarmUserRole" : number,
+    "MyAlarmUserPhone" : string
 }
 ```
 
@@ -44,8 +47,9 @@ IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-CustGUID & string & Идентификатор пользователя \\ \arrayrulecolor{light-gray}\hline
-UserRole & number & Тип доступа \\
+ObjCustGUID & string & Идентификатор пользователя \\ \arrayrulecolor{light-gray}\hline
+MyAlarmUserRole & number & Тип доступа \\ \arrayrulecolor{light-gray}\hline
+MyAlarmUserPhone & string & Телефон \\
 
 \bottomrule
 \end{tabularx}
@@ -67,8 +71,8 @@ UserRole & number & Тип доступа \\
 
 ```json
 {
-	"CustGUID" : string,
-	"IsPanicEnabled" : boolean
+	"ObjCustGUID" : string,
+	"MyAlarmIsPanicEnabled" : boolean
 }
 ```
 
@@ -87,7 +91,7 @@ IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 
 ```json
 {
-    "Id" : number,
+    "EventClassID" : number,
     "Order" : number,
     "Name" : string
 }
@@ -98,7 +102,7 @@ IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-Id & number & Идентификатор класса события \\ \arrayrulecolor{light-gray}\hline
+EventClassID & number & Идентификатор класса события \\ \arrayrulecolor{light-gray}\hline
 Order & number & Порядок сортировки \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название класса события \\
 
@@ -109,7 +113,7 @@ Name & string & Название класса события \\
 
 ```json
 {
-    "Id" : number,
+    "UserActionID" : number,
     "Order" : number,
     "Name" : string
 }
@@ -120,7 +124,7 @@ Name & string & Название класса события \\
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-Id & number & Идентификатор действия \\ \arrayrulecolor{light-gray}\hline
+UserActionID & number & Идентификатор действия \\ \arrayrulecolor{light-gray}\hline
 Order & number & Порядок сортировки \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название действия \\
 
@@ -131,8 +135,8 @@ Name & string & Название действия \\
 
 ```json
 {
-    "ObjectID" : number,
-    "SubID" : number
+    "ObjectGUID" : string,
+    "EventClassIDs" : Array<number>
 }
 ```
 
@@ -141,8 +145,8 @@ Name & string & Название действия \\
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-ObjectID & number & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
-SubID & number & Идентификатор класса события \\
+ObjectGUID & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
+EventClassID & number & Идентификатор класса события \\
 
 \bottomrule
 \end{tabularx}
@@ -151,8 +155,8 @@ SubID & number & Идентификатор класса события \\
 
 ```json
 {
-    "ObjectID" : number,
-    "SubID" : number
+    "ObjectGUID" : string,
+    "UserActionIDs" : Array<number>
 }
 ```
 
@@ -161,8 +165,8 @@ SubID & number & Идентификатор класса события \\
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-ObjectID & number & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
-SubID & number & Идентификатор действия \\
+ObjectGUID & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
+UserActionID & number & Идентификатор действия \\
 
 \bottomrule
 \end{tabularx}
@@ -210,16 +214,18 @@ curl --request GET \
 ```json
 [
     {
-        "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933d",
-        "UserID" : "124bf1a5-76ce-43a7-9ed5-562917509332",
-        "UserRole" : 2,
-        "IsPanicEnabled" : true
+        "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933d",
+        "MyAlarmUserID" : "124bf1a5-76ce-43a7-9ed5-562917509332",
+        "MyAlarmUserRole" : 2,
+        "MyAlarmUserPhone" : "89123456789",
+        "MyAlarmIsPanicEnabled" : true
     },
     {
-        "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933b",
-        "UserID" : "224bf1a5-76ce-43a7-9ed5-56291750933c",
-        "UserRole" : 1,
-        "IsPanicEnabled" : false
+        "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933b",
+        "MyAlarmUserID" : "224bf1a5-76ce-43a7-9ed5-56291750933c",
+        "MyAlarmUserRole" : 1,
+        "MyAlarmUserPhone" : "89113456799",
+        "MyAlarmIsPanicEnabled" : false
     }
 ]
 ```
@@ -267,10 +273,11 @@ curl --request GET \
 
 ```json
 {
-    "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933e",
-    "UserID" : "124bf1a5-76ce-43a7-9ed5-562917509332",
-    "UserRole" : 2,
-    "IsPanicEnabled" : true
+    "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933e",
+    "MyAlarmUserID" : "124bf1a5-76ce-43a7-9ed5-562917509332",
+    "MyAlarmUserRole" : 2,
+    "MyAlarmUserPhone" : "89123456789",
+    "MyAlarmIsPanicEnabled" : true
 }
 ```
 
@@ -302,7 +309,7 @@ curl --request GET \
 
 ### Возвращаемые данные
 
-При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями управления доступом пользователя в MyAlarm](#api-access-myalarm-access-json) – с учетом изменений, которые произошли в результате выполнения запроса.
+При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями управления пользователем в MyAlarm](#api-access-myalarm-info-json) – с учетом изменений, которые произошли в результате выполнения запроса.
 
 Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
 
@@ -312,7 +319,7 @@ curl --request GET \
 curl --request PUT \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
   --url 'http://10.7.22.128:9002/api/AccessMyAlarm' \
-  --data '{ "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "UserRole" : 2 }'
+  --data '{ "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "MyAlarmUserRole" : 2, "MyAlarmUserPhone" : "89123456789" }'
 ```
 
 ## Разрешить\\Запретить КТС пользователю (PUT /api/AccessMyAlarm) {#api-access-myalarm-set-ktc}
@@ -343,7 +350,7 @@ curl --request PUT \
 
 ### Возвращаемые данные
 
-При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями управления КТС пользователя в MyAlarm](#api-access-myalarm-ktc-json) – с учетом изменений, которые произошли в результате выполнения запроса.
+При успешном выполнении метод возвращает в теле ответа элемент JSON с  [полями управления пользователем в MyAlarm](#api-access-myalarm-info-json) – с учетом изменений, которые произошли в результате выполнения запроса.
 
 Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
 
@@ -353,7 +360,167 @@ curl --request PUT \
 curl --request PUT \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
   --url 'http://10.7.22.128:9002/api/AccessMyAlarm' \
-  --data '{ "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "IsPanicEnabled" : true }'
+  --data '{ "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "MyAlarmIsPanicEnabled" : true }'
+```
+
+## Подписать объект на классы событий (POST /api/AccessMyAlarm/Class) {#api-access-myalarm-subscribe-class}
+
+Метод предназначен для подписки объекта на классы событий
+
+**URL** : `/api/AccessMyAlarm/Class`
+
+**Метод** : `POST`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Тело запроса
+
+В теле запроса должен быть передан элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json)
+
+Все поля обязательные.
+
+### Возможные статусы ответов
+
+`201`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json) – с учетом изменений, которые произошли в результате выполнения запроса.
+
+Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+### Пример использования
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
+  --data '{ "ObjectGUID" : 23, "EventClassIDs" : [ 55, 32, 11 ] }'
+```
+
+## Отписать объект от классов событий (DELETE /api/AccessMyAlarm/Class) {#api-access-myalarm-unsubscribe-class}
+
+Метод предназначен для отписки объекта от классов событий
+
+**URL** : `/api/AccessMyAlarm/Class`
+
+**Метод** : `DELETE`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Тело запроса
+
+В теле запроса должен быть передан элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json)
+
+Все поля обязательные.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+### Пример использования
+
+```bash
+curl --request DELETE \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
+  --data '{ "ObjectGUID" : 23, "EventClassIDs" : [ 55, 11 ] }'
+```
+
+## Подписать объект на действия (POST /api/AccessMyAlarm/Action) {#api-access-myalarm-subscribe-actions}
+
+Метод предназначен для подписки объекта на действия
+
+**URL** : `/api/AccessMyAlarm/Action`
+
+**Метод** : `POST`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Тело запроса
+
+В теле запроса должен быть передан элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json)
+
+Все поля обязательные.
+
+### Возможные статусы ответов
+
+`201`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json) – с учетом изменений, которые произошли в результате выполнения запроса.
+
+Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+### Пример использования
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
+  --data '{ "ObjectGUID" : 23, "UserActionIDs" : [ 55, 64, 33, 15 ] }'
+```
+
+## Отписать объект от действий (DELETE /api/AccessMyAlarm/Action) {#api-access-myalarm-unsubscribe-actions}
+
+Метод предназначен для отписки объекта от действий
+
+**URL** : `/api/AccessMyAlarm/Action`
+
+**Метод** : `DELETE`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Тело запроса
+
+В теле запроса должен быть передан элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json)
+
+Все поля обязательные.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+### Пример использования
+
+```bash
+curl --request DELETE \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
+  --data '{ "ObjectGUID" : 23, "UserActionIDs" : [ 64, 15 ] }'
 ```
 
 ## Получить список всех классов событий (GET /api/AccessMyAlarm/Class) {#api-access-myalarm-class-list}
@@ -393,97 +560,17 @@ curl --request GET \
 ```json
 [
     {
-        "Id" : 3,
+        "EventClassID" : 3,
         "Order" : 3,
         "Name" : "Тревога"
     },
     {
-        "Id" : 4,
+        "EventClassID" : 4,
         "Order" : 4,
         "Name" : "Тихая тревога"
     },
     ...
 ]
-```
-
-## Подписать объект на класс событий (POST /api/AccessMyAlarm/Class) {#api-access-myalarm-subscribe-class}
-
-Метод предназначен для подписки объекта на класс событий
-
-**URL** : `/api/AccessMyAlarm/Class`
-
-**Метод** : `POST`
-
-### Параметры
-
-#### userName
-
-Необязательный параметр.
-
-Имя пользователя, от имени которого выполняется операция.
-
-### Тело запроса
-
-В теле запроса должен быть передан элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json)
-
-Все поля обязательные.
-
-### Возможные статусы ответов
-
-`201`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
-
-### Возвращаемые данные
-
-При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json) – с учетом изменений, которые произошли в результате выполнения запроса.
-
-Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
-
-### Пример использования
-
-```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
-  --data '{ "ObjectID" : 23, "SubID" : 55 }'
-```
-
-## Отписать объект от класса событий (DELETE /api/AccessMyAlarm/Class) {#api-access-myalarm-unsubscribe-class}
-
-Метод предназначен для подписки объекта на класс событий
-
-**URL** : `/api/AccessMyAlarm/Class`
-
-**Метод** : `DELETE`
-
-### Параметры
-
-#### userName
-
-Необязательный параметр.
-
-Имя пользователя, от имени которого выполняется операция.
-
-### Тело запроса
-
-В теле запроса должен быть передан элемент JSON с [полями подписки объектом классов событий в MyAlarm](#api-access-myalarm-subscribe-class-json)
-
-Все поля обязательные.
-
-### Возможные статусы ответов
-
-`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
-
-### Возвращаемые данные
-
-При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
-
-### Пример использования
-
-```bash
-curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
-  --data '{ "ObjectID" : 23, "SubID" : 55 }'
 ```
 
 ## Получить список всех действий (GET /api/AccessMyAlarm/Action) {#api-access-myalarm-action-list}
@@ -523,95 +610,15 @@ curl --request GET \
 ```json
 [
     {
-        "Id" : 2,
+        "UserActionID" : 2,
         "Order" : 1,
         "Name" : "Вызов группы"
     },
     {
-        "Id" : 3,
+        "UserActionID" : 3,
         "Order" : 2,
         "Name" : "Прибытие группы"
     },
     ...
 ]
-```
-
-## Подписать объект на действие событий (POST /api/AccessMyAlarm/Action) {#api-access-myalarm-subscribe-action}
-
-Метод предназначен для подписки объекта на действие
-
-**URL** : `/api/AccessMyAlarm/Action`
-
-**Метод** : `POST`
-
-### Параметры
-
-#### userName
-
-Необязательный параметр.
-
-Имя пользователя, от имени которого выполняется операция.
-
-### Тело запроса
-
-В теле запроса должен быть передан элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json)
-
-Все поля обязательные.
-
-### Возможные статусы ответов
-
-`201`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
-
-### Возвращаемые данные
-
-При успешном выполнении метод возвращает в теле ответа элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json) – с учетом изменений, которые произошли в результате выполнения запроса.
-
-Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в теле ответа – см. «[Код 400: описание ошибки](#api-code-400-result)»
-
-### Пример использования
-
-```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
-  --data '{ "ObjectID" : 23, "SubID" : 55 }'
-```
-
-## Отписать объект от действия событий (DELETE /api/AccessMyAlarm/Action) {#api-access-myalarm-unsubscribe-action}
-
-Метод предназначен для подписки объекта на действие
-
-**URL** : `/api/AccessMyAlarm/Action`
-
-**Метод** : `DELETE`
-
-### Параметры
-
-#### userName
-
-Необязательный параметр.
-
-Имя пользователя, от имени которого выполняется операция.
-
-### Тело запроса
-
-В теле запроса должен быть передан элемент JSON с [полями подписки объектом действий в MyAlarm](#api-access-myalarm-subscribe-action-json)
-
-Все поля обязательные.
-
-### Возможные статусы ответов
-
-`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
-
-### Возвращаемые данные
-
-При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
-
-### Пример использования
-
-```bash
-curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
-  --data '{ "ObjectID" : 23, "SubID" : 55 }'
 ```
