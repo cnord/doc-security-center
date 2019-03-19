@@ -83,6 +83,50 @@ IsPanicEnabled & boolean & Разрешён или запрещён КТС \\
 \bottomrule
 \end{tabularx}
 
+### Поля класса события в MyAlarm {#api-access-myalarm-class-json}
+
+```json
+{
+    "Id" : number,
+    "Order" : number,
+    "Name" : string
+}
+```
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
+
+Id & number & Идентификатор класса события \\ \arrayrulecolor{light-gray}\hline
+Order & number & Порядок сортировки \\ \arrayrulecolor{light-gray}\hline
+Name & string & Название класса события \\
+
+\bottomrule
+\end{tabularx}
+
+### Поля действия в MyAlarm {#api-access-myalarm-action-json}
+
+```json
+{
+    "Id" : number,
+    "Order" : number,
+    "Name" : string
+}
+```
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
+
+Id & number & Идентификатор действия \\ \arrayrulecolor{light-gray}\hline
+Order & number & Порядок сортировки \\ \arrayrulecolor{light-gray}\hline
+Name & string & Название действия \\
+
+\bottomrule
+\end{tabularx}
+
 ### Поля подписки объектом классов событий в MyAlarm  {#api-access-myalarm-subscribe-class-json}
 
 ```json
@@ -312,6 +356,56 @@ curl --request PUT \
   --data '{ "CustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "IsPanicEnabled" : true }'
 ```
 
+## Получить список всех классов событий (GET /api/AccessMyAlarm/Class) {#api-access-myalarm-class-list}
+
+Метод предназначен для получения списка всех классов событий.
+
+**URL** : `/api/AccessMyAlarm/Class`
+
+**Метод** : `GET`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Возможные статусы ответов
+
+`200`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод возвращает в теле ответа список элементов JSON с [полями класса события](#api-access-myalarm-class-json).
+
+### Пример использования
+
+```bash
+curl --request GET \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class'
+```
+
+**Status:** `200`
+
+```json
+[
+    {
+        "Id" : 3,
+        "Order" : 3,
+        "Name" : "Тревога"
+    },
+    {
+        "Id" : 4,
+        "Order" : 4,
+        "Name" : "Тихая тревога"
+    },
+    ...
+]
+```
+
 ## Подписать объект на класс событий (POST /api/AccessMyAlarm/Class) {#api-access-myalarm-subscribe-class}
 
 Метод предназначен для подписки объекта на класс событий
@@ -390,6 +484,56 @@ curl --request DELETE \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
   --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
   --data '{ "ObjectID" : 23, "SubID" : 55 }'
+```
+
+## Получить список всех действий (GET /api/AccessMyAlarm/Action) {#api-access-myalarm-action-list}
+
+Метод предназначен для получения списка всех действий.
+
+**URL** : `/api/AccessMyAlarm/Action`
+
+**Метод** : `GET`
+
+### Параметры
+
+#### userName
+
+Необязательный параметр.
+
+Имя пользователя, от имени которого выполняется операция.
+
+### Возможные статусы ответов
+
+`200`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод возвращает в теле ответа список элементов JSON с [полями действия](#api-access-myalarm-action-json).
+
+### Пример использования
+
+```bash
+curl --request GET \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action'
+```
+
+**Status:** `200`
+
+```json
+[
+    {
+        "Id" : 2,
+        "Order" : 1,
+        "Name" : "Вызов группы"
+    },
+    {
+        "Id" : 3,
+        "Order" : 2,
+        "Name" : "Прибытие группы"
+    },
+    ...
+]
 ```
 
 ## Подписать объект на действие событий (POST /api/AccessMyAlarm/Action) {#api-access-myalarm-subscribe-action}
