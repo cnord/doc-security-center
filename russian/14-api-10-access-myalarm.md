@@ -363,11 +363,11 @@ curl --request PUT \
   --data '{ "ObjCustGUID" : "524bf1a5-76ce-43a7-9ed5-56291750933f", "MyAlarmIsPanicEnabled" : true }'
 ```
 
-## Подписать объект на классы событий (POST /api/AccessMyAlarm/Class) {#api-access-myalarm-subscribe-class}
+## Подписать объект на классы событий (POST /api/AccessMyAlarm/Classes) {#api-access-myalarm-subscribe-class}
 
 Метод предназначен для подписки объекта на классы событий
 
-**URL** : `/api/AccessMyAlarm/Class`
+**URL** : `/api/AccessMyAlarm/Classes`
 
 **Метод** : `POST`
 
@@ -400,15 +400,15 @@ curl --request PUT \
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Classes' \
   --data '{ "ObjectGUID" : 23, "EventClassIDs" : [ 55, 32, 11 ] }'
 ```
 
-## Отписать объект от классов событий (DELETE /api/AccessMyAlarm/Class) {#api-access-myalarm-unsubscribe-class}
+## Отписать объект от классов событий (DELETE /api/AccessMyAlarm/Classes) {#api-access-myalarm-unsubscribe-class}
 
 Метод предназначен для отписки объекта от классов событий
 
-**URL** : `/api/AccessMyAlarm/Class`
+**URL** : `/api/AccessMyAlarm/Classes`
 
 **Метод** : `DELETE`
 
@@ -439,15 +439,15 @@ curl --request POST \
 ```bash
 curl --request DELETE \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Classes' \
   --data '{ "ObjectGUID" : 23, "EventClassIDs" : [ 55, 11 ] }'
 ```
 
-## Подписать объект на действия (POST /api/AccessMyAlarm/Action) {#api-access-myalarm-subscribe-actions}
+## Подписать объект на действия (POST /api/AccessMyAlarm/Actions) {#api-access-myalarm-subscribe-actions}
 
 Метод предназначен для подписки объекта на действия
 
-**URL** : `/api/AccessMyAlarm/Action`
+**URL** : `/api/AccessMyAlarm/Actions`
 
 **Метод** : `POST`
 
@@ -480,15 +480,15 @@ curl --request DELETE \
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Actions' \
   --data '{ "ObjectGUID" : 23, "UserActionIDs" : [ 55, 64, 33, 15 ] }'
 ```
 
-## Отписать объект от действий (DELETE /api/AccessMyAlarm/Action) {#api-access-myalarm-unsubscribe-actions}
+## Отписать объект от действий (DELETE /api/AccessMyAlarm/Actions) {#api-access-myalarm-unsubscribe-actions}
 
 Метод предназначен для отписки объекта от действий
 
-**URL** : `/api/AccessMyAlarm/Action`
+**URL** : `/api/AccessMyAlarm/Actions`
 
 **Метод** : `DELETE`
 
@@ -519,15 +519,15 @@ curl --request POST \
 ```bash
 curl --request DELETE \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action' \
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Actions' \
   --data '{ "ObjectGUID" : 23, "UserActionIDs" : [ 64, 15 ] }'
 ```
 
-## Получить список всех классов событий (GET /api/AccessMyAlarm/Class) {#api-access-myalarm-class-list}
+## Получить список всех классов событий (GET /api/AccessMyAlarm/Classes) {#api-access-myalarm-class-list}
 
 Метод предназначен для получения списка всех классов событий.
 
-**URL** : `/api/AccessMyAlarm/Class`
+**URL** : `/api/AccessMyAlarm/Classes`
 
 **Метод** : `GET`
 
@@ -552,7 +552,7 @@ curl --request DELETE \
 ```bash
 curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Class'
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Classes'
 ```
 
 **Status:** `200`
@@ -573,11 +573,11 @@ curl --request GET \
 ]
 ```
 
-## Получить список всех действий (GET /api/AccessMyAlarm/Action) {#api-access-myalarm-action-list}
+## Получить список всех действий (GET /api/AccessMyAlarm/Actions) {#api-access-myalarm-action-list}
 
 Метод предназначен для получения списка всех действий.
 
-**URL** : `/api/AccessMyAlarm/Action`
+**URL** : `/api/AccessMyAlarm/Actions`
 
 **Метод** : `GET`
 
@@ -602,7 +602,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Action'
+  --url 'http://10.7.22.128:9002/api/AccessMyAlarm/Actions'
 ```
 
 **Status:** `200`
