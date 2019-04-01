@@ -131,13 +131,13 @@ curl --request GET \
 }
 ```
 
-## Создать/изменить расписание охраны объекта (PUT|POST /api/SiteSchedule) {#api-schedule-update}
+## Создать/изменить расписание охраны объекта (POST /api/SiteSchedule) {#api-schedule-update}
 
 Метод предназначен для создания/изменения расписания охраны объекта.
 
 **URL** : `/api/SiteSchedule`
 
-**Метод** : `POST` или `PUT`
+**Метод** : `POST`
 
 ### Параметры
 
