@@ -109,23 +109,23 @@ curl --request GET \
     "ArmSchedule_EarlyDisarm" : false,
     "ArmSchedule_ControlDisarm" : false,
     "ArmSchedule_LaterDisarm" : true,
-    "ArmSchedule_Deviation" : 12,
+    "ArmSchedule_Deviation" : 15,
     "Intervals" :
     [
         {
             "DayNumber" : 2,
             "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:23:59"
+            "StopDT" : "2012-04-23T01:30:00"
         },
         {
             "DayNumber" : 1,
             "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:23:59"
+            "StopDT" : "2012-04-23T01:30:00"
         },
         {
             "DayNumber" : 1,
             "StartDT" : "2012-04-23T02:00:00",
-            "StopDT" : "2012-04-23T02:21:59"
+            "StopDT" : "2012-04-23T23:59:59"
         }
     ]
 }
@@ -193,23 +193,23 @@ curl --request POST \
     `"ArmSchedule_EarlyDisarm" : false,`
     `"ArmSchedule_ControlDisarm" : false,`
     `"ArmSchedule_LaterDisarm" : true,`
-    `"ArmSchedule_Deviation" : 12,`
+    `"ArmSchedule_Deviation" : 15,`
     `"Intervals" :`
     `[`
         `{`
             `"DayNumber" : 2,`
             `"StartDT" : "2012-04-23T01:00:00",`
-            `"StopDT" : "2012-04-23T01:23:59"`
+            `"StopDT" : "2012-04-23T01:30:00"`
         `},`
         `{`
             `"DayNumber" : 1,`
             `"StartDT" : "2012-04-23T01:00:00",`
-            `"StopDT" : "2012-04-23T01:23:59"`
+            `"StopDT" : "2012-04-23T01:30:00"`
         `},`
         `{`
             `"DayNumber" : 1,`
             `"StartDT" : "2012-04-23T02:00:00",`
-            `"StopDT" : "2012-04-23T02:21:59"`
+            `"StopDT" : "2012-04-23T23:59:59"`
         `}`
     `]`
 `}'
@@ -225,23 +225,23 @@ curl --request POST \
     "ArmSchedule_EarlyDisarm" : false,
     "ArmSchedule_ControlDisarm" : false,
     "ArmSchedule_LaterDisarm" : true,
-    "ArmSchedule_Deviation" : 12,
+    "ArmSchedule_Deviation" : 15,
     "Intervals" :
     [
         {
             "DayNumber" : 2,
             "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:23:59"
+            "StopDT" : "2012-04-23T01:30:00"
         },
         {
             "DayNumber" : 1,
             "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:23:59"
+            "StopDT" : "2012-04-23T01:30:00"
         },
         {
             "DayNumber" : 1,
             "StartDT" : "2012-04-23T02:00:00",
-            "StopDT" : "2012-04-23T02:21:59"
+            "StopDT" : "2012-04-23T23:59:59"
         }
     ]
 }
