@@ -43,8 +43,8 @@ Intervals & Interval[] & Интервалы расписания объекта 
 ```json
 {
     "DayNumber" : number,
-    "StartDT" : datetime,
-    "StopDT" : datetime
+    "StartDT" : timespan,
+    "StopDT" : timespan
 }
 ```
 
@@ -54,8 +54,8 @@ Intervals & Interval[] & Интервалы расписания объекта 
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
 DayNumber & number & День недели (от 1 до 7) \\ \arrayrulecolor{light-gray}\hline
-StartDT & datetime & Начальное время \\ \arrayrulecolor{light-gray}\hline
-StopDT & datetime & Конечное время \\
+StartDT & timespan & Начальное время \\ \arrayrulecolor{light-gray}\hline
+StopDT & timespan & Конечное время \\
 
 \bottomrule
 \end{tabularx}
@@ -114,18 +114,18 @@ curl --request GET \
     [
         {
             "DayNumber" : 2,
-            "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:30:00"
+            "StartDT" : "01:00",
+            "StopDT" : "01:30"
         },
         {
             "DayNumber" : 1,
-            "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:30:00"
+            "StartDT" : "01:00",
+            "StopDT" : "01:30"
         },
         {
             "DayNumber" : 1,
-            "StartDT" : "2012-04-23T02:00:00",
-            "StopDT" : "2012-04-23T23:59:59"
+            "StartDT" : "02:00",
+            "StopDT" : "23:59:59"
         }
     ]
 }
@@ -163,7 +163,8 @@ curl --request GET \
 
 Для полей `StartDT`, `StopDT` допустим следующий формат строковых значений:
 
-- "`YYYY-MM-DDTHH:mm:ss`";.
+- "`HH:mm`";.
+- "`HH:mm:ss`";.
 
 где mm - минуты должны быть кратными 30, а ss - секунды всегда 00, за исключением последнего интервала за день, который может закончиться в 23:59:59
 
@@ -198,18 +199,18 @@ curl --request POST \
     `[`
         `{`
             `"DayNumber" : 2,`
-            `"StartDT" : "2012-04-23T01:00:00",`
-            `"StopDT" : "2012-04-23T01:30:00"`
+            `"StartDT" : "01:00",`
+            `"StopDT" : "01:30"`
         `},`
         `{`
             `"DayNumber" : 1,`
-            `"StartDT" : "2012-04-23T01:00:00",`
-            `"StopDT" : "2012-04-23T01:30:00"`
+            `"StartDT" : "01:00",`
+            `"StopDT" : "01:30"`
         `},`
         `{`
             `"DayNumber" : 1,`
-            `"StartDT" : "2012-04-23T02:00:00",`
-            `"StopDT" : "2012-04-23T23:59:59"`
+            `"StartDT" : "02:00",`
+            `"StopDT" : "23:59:59"`
         `}`
     `]`
 `}'
@@ -230,18 +231,18 @@ curl --request POST \
     [
         {
             "DayNumber" : 2,
-            "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:30:00"
+            "StartDT" : "01:00",
+            "StopDT" : "01:30"
         },
         {
             "DayNumber" : 1,
-            "StartDT" : "2012-04-23T01:00:00",
-            "StopDT" : "2012-04-23T01:30:00"
+            "StartDT" : "01:00",
+            "StopDT" : "01:30"
         },
         {
             "DayNumber" : 1,
-            "StartDT" : "2012-04-23T02:00:00",
-            "StopDT" : "2012-04-23T23:59:59"
+            "StartDT" : "02:00",
+            "StopDT" : "23:59:59"
         }
     ]
 }
