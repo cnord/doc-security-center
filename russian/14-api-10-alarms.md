@@ -203,20 +203,12 @@ curl --request GET \
 ```json
 [
     {
-        "DateTime": "2019-02-17T12:08:50.24",
-        "UserName": "Иванова",
-        "ActionName": "Вызов группы",
-        "ActionType": "ConfirmAlarm",
-        "GuardName": "Название охраны",
-        "Comment": "Комментарий"
-    },
-    {
         "DateTime": "2019-02-17T12:22:38.12",
         "UserName": "Петров",
-        "ActionName": "Прибытие группы",
-        "ActionType": "CancelAlarm",
-        "GuardName": "Название охраны",
-        "Comment": "Комментарий"
+        "ActionName": "Вызов полиции",
+        "ActionType": "Other",
+        "GuardName": "",
+        "Comment": "Запасной выход"
     }, ...
 ]
 ```
