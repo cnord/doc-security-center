@@ -75,6 +75,7 @@ $endif$
 % причем картинки жмутся в 0.75 своего размера, либо ширины страницы
 \usepackage{calc}
 \usepackage{graphicx, subfigure}
+\usepackage{grffile}
 \usepackage{wrapfig}
 
 \newlength{\imgwidth}
