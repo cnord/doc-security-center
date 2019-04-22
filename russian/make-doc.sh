@@ -2,20 +2,11 @@
 
 START=$(date +%s)
  
-pandoc --template template/template.latex -V title-source=title-install.tex -o sc5-installation-rus.pdf 01-introduction.md 02-installation.md
+pandoc --template template/template.latex -V title-source=title-install.tex -o sc5-installation-rus.pdf 01-introduction.md 02-installation.md "setup SQL\02-1-installation_sql.md"
  
 END=$(date +%s)
 DIFF=$(( $END - $START ))
 echo "Russian instalation manual – $DIFF seconds"
-
-START=$(date +%s)
-
-pandoc --template template/template.latex -V title-source=title-install-sql.tex -o SC5-Installation-SQL-Rus.pdf "setup SQL\02-1-installation_sql.md"
-
-END=$(date +%s)
-DIFF=$(( $END - $START ))
-echo "Russian instalation SQL manual – $DIFF seconds"
-
 
 START=$(date +%s)
 
