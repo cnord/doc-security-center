@@ -1,3 +1,5 @@
+\pagebreak
+
 # Установка и настройка SQL Server Express 2017 для работы с ПО «Центр охраны»
 
 ## Подготовка к установке
@@ -111,6 +113,7 @@
 
 \imgcapt{"setup SQL"/img_setup/2017/13.jpg}{}
 
+\pagebreak
 
 ## Настройка SQL Server
 
@@ -148,6 +151,7 @@
 
 Настройка SQL Server завершена.
 
+\pagebreak
 
 ## Настройка Windows Firewall
 
