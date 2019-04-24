@@ -1,4 +1,4 @@
-pandoc --template template/template.latex -V title-source=title-install.tex -o sc5-installation-rus.pdf 01-introduction.md 02-installation.md "setup SQL\02-1-installation_sql.md"
+pandoc --template template/template.latex -V title-source=title-install.tex -o sc5-installation-rus.pdf 01-introduction.md 02-1-installation.md 02-2-installation_sql.md
 
 pandoc --template template/template-manual.latex -V lang=russian -o SC5-UserManual-Rus.pdf *.md
 
