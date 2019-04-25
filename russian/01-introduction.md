@@ -24,12 +24,13 @@
 
 * Microsoft Windows 7
 * Microsoft Windows 8
+* Microsoft Windows 10
 * Microsoft Windows Server 2003
 * Microsoft Windows Server 2008
 * Microsoft Windows Server 2012
 * Microsoft Windows Server 2016
 
-Работа с Microsoft Windows XP, Microsoft Windows Server 2003, Microsoft Windows Server 2008 возможна, но если еть выбор, то лучше использовать более новую операционную систему.
+Работа с Microsoft Windows XP, Microsoft Windows Server 2003, Microsoft Windows Server 2008 возможна, но если есть выбор, то лучше использовать более новую операционную систему.
 Программное обеспечение «Центр охраны» версии 5 предназначено для эксплуатации как на 32-битных, так и на 64-битных версиях перечисленных операционных систем.
 
 Перед установкой «Центра охраны» рекомендуется проверить, что для операционной системы установлен последний из пакетов обновления, предлагаемых компанией «Microsoft».
