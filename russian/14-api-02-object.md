@@ -36,7 +36,10 @@
     "CommentForOperator": string,
     "CommentForGuard": string,
     "MapFileName": string,
-    "WebLink": string
+    "WebLink": string,
+    "IsContractPriceForceUpdate": boolean,
+    "IsMoneyBalanceForceUpdate": boolean,
+    "IsPaymentDateForceUpdate": boolean
 }
 ```
 
@@ -71,7 +74,10 @@ CustomersComment & string & Комментарий к списку ответс�
 CommentForOperator & string & Комментарий для оператора \\ \arrayrulecolor{light-gray}\hline
 CommentForGuard & string & Комментарий для ГБР \\ \arrayrulecolor{light-gray}\hline
 MapFileName & string & Путь к файлу с картой объекта \\ \arrayrulecolor{light-gray}\hline
-WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\
+WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\ \arrayrulecolor{light-gray}\hline
+IsContractPriceForceUpdate & boolean & Признак принудительной записи поля ContractPrice (необходимо выставить true и пропустить поле ContractPrice при очистке) \\ \arrayrulecolor{light-gray}\hline
+IsMoneyBalanceForceUpdate & boolean & Признак принудительной записи поля MoneyBalance (необходимо выставить true и пропустить поле MoneyBalance при очистке) \\ \arrayrulecolor{light-gray}\hline
+IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\
 
 \bottomrule
 \end{tabularx}
