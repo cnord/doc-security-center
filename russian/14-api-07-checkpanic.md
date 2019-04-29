@@ -106,7 +106,7 @@ curl --request POST \
 
 Метод предназначен для получения результата процедуры проверки КТС.
 
-**URL** : `/api/CheckPanic/result`
+**URL** : `/api/CheckPanic`
 
 **Метод** : `GET`
 
