@@ -38,7 +38,6 @@
     "CommentForGuard": string,
     "MapFileName": string,
     "WebLink": string,
-    "WebLink": string,
     "ControlTime": number,
     "CTIgnoreSystemEvent": bool,
     "IsContractPriceForceUpdate": boolean,
