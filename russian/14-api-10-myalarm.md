@@ -301,7 +301,7 @@ curl --request PUT \
 
 ## Управление подписками
 
-### Получить список подписок объекта на классы событий (GET /api/MyAlarm/EventClass) {#api-myalarm-event-class-list}
+### Получить список подписок объекта на классы событий \newline (GET /api/MyAlarm/EventClass) {#api-myalarm-event-class-list}
 
 Метод предназначен для получения списка подписок объекта на классы событий
 
@@ -355,7 +355,7 @@ curl --request GET \
 ]
 ```
 
-### Получить список подписок объекта на действия и отмены (GET /api/MyAlarm/UserAction) {#api-myalarm-user-action-list}
+### Получить список подписок объекта на действия и отмены \newline (GET /api/MyAlarm/UserAction) {#api-myalarm-user-action-list}
 
 Метод предназначен для получения списка подписок объекта на действия и отмены
 
@@ -409,7 +409,7 @@ curl --request GET \
 ]
 ```
 
-### Модификация подписок объекта на классы событий (PUT /api/MyAlarm/EventClass) {#api-myalarm-modify-event-class-list}
+### Модификация подписок объекта на классы событий \newline (PUT /api/MyAlarm/EventClass) {#api-myalarm-modify-event-class-list}
 
 Метод предназначен для изменения списка подписок объекта на классы событий
 
@@ -450,7 +450,7 @@ curl --request PUT \
 
 **Status:** `200`
 
-### Модификация подписок объекта на действия и отмены (PUT /api/MyAlarm/UserAction) {#api-myalarm-modify-user-action-list}
+### Модификация подписок объекта на действия и отмены \newline (PUT /api/MyAlarm/UserAction) {#api-myalarm-modify-user-action-list}
 
 Метод предназначен для изменения списка подписок объекта на действия или отмены
 
