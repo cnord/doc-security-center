@@ -23,17 +23,17 @@
 
 \definecolor{light-gray}{gray}{0.7}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{llX}
-\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
+\begin{tabularx}{\textwidth}{lllX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{По умолчанию} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
-ArmSchedule\_EarlyArm & boolean & Контролировать ранне взятие под охрану объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_ControlArm & boolean & Контролировать отсутствие взятия под охрану объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_LaterArm & boolean & Контролировать позднее взятие под охрану объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_EarlyDisarm & boolean & Контролировать раннее снятие с охраны объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_ControlDisarm & boolean & Контролировать отсутствие снятия с охраны объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_LaterDisarm & boolean & Контролировать позднее снятие с охраны объекта \\ \arrayrulecolor{light-gray}\hline
-ArmSchedule\_Deviation & number & Отклонение расписания объекта \\ \arrayrulecolor{light-gray}\hline
-Intervals & Interval[] & Интервалы расписания объекта \\
+ArmSchedule\_EarlyArm & boolean & false & Контролировать ранне взятие под охрану объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_ControlArm & boolean & false & Контролировать отсутствие взятия под охрану объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_LaterArm & boolean & false & Контролировать позднее взятие под охрану объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_EarlyDisarm & boolean & false & Контролировать раннее снятие с охраны объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_ControlDisarm & boolean & false & Контролировать отсутствие снятия с охраны объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_LaterDisarm & boolean & false & Контролировать позднее снятие с охраны объекта \\ \arrayrulecolor{light-gray}\hline
+ArmSchedule\_Deviation & number & 0 & Отклонение расписания объекта \\ \arrayrulecolor{light-gray}\hline
+Intervals & Interval[] & Отсутствует & Интервалы расписания объекта \\
 
 \bottomrule
 \end{tabularx}
@@ -155,11 +155,13 @@ curl --request GET \
 
 ### Тело запроса
 
-В теле запроса должен быть передан элемент JSON с [полями расписания охраны объекта](#api-schedule-json), который нужно создать/изменить. При создании раздела обязательно указать только идентификатор объекта. Значения для всех остальных полей, можно не указывать: будет использовано значение по умолчанию.
+В теле запроса должен быть передан элемент JSON с [полями расписания охраны объекта](#api-schedule-json), который нужно создать/изменить.
 
 Если расписание охраны объекта уже создано и отличается то оно будет перезаписано.
 
 Если интервалы расписания охраны объекта пересекаются, то метод вернёт ошибку.
+
+Если в json не передать данных, то расписание примет значение по умолчанию.
 
 Для полей `StartDT`, `StopDT` допустим следующий формат строковых значений:
 
