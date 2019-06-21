@@ -14,7 +14,7 @@
     "MobilePhone" : string,
     "MyAlarmPhone" : string,
     "Role" : string,
-    "IsPanic" : string
+    "IsPanic" : bool
 }
 ```
 
