@@ -35,7 +35,7 @@
 
 Id & string & Идентификатор отвественного лица \\ \arrayrulecolor{light-gray}\hline
 OrderNumber & number & Порядковый номер ответственного в списке \\ \arrayrulecolor{light-gray}\hline
-UserNumber & number & Номер ответственного (номер пользователя на контрольной панели, может быть не задан) \\ \arrayrulecolor{light-gray}\hline
+UserNumber & number & Номер ответственного (номер пользователя на контрольной панели, больше 1, уникальный, может быть не задан) \\ \arrayrulecolor{light-gray}\hline
 ObjCustName & string & ФИО \\ \arrayrulecolor{light-gray}\hline
 ObjCustTitle & string & Должность \\ \arrayrulecolor{light-gray}\hline
 ObjCustPhone1 & string & Мобильный телефон \\ \arrayrulecolor{light-gray}\hline
