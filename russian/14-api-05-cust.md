@@ -34,17 +34,17 @@
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
 Id & string & Идентификатор отвественного лица \\ \arrayrulecolor{light-gray}\hline
-OrderNumber & number & Порядковый номер ответственного в списке \\ \arrayrulecolor{light-gray}\hline
-UserNumber & number & Номер ответственного (номер пользователя на контрольной панели, больше 1, уникальный, может быть не задан) \\ \arrayrulecolor{light-gray}\hline
+OrderNumber & number & Порядковый номер ответственного в списк (уникальный на объекте, может быть не задан) \\ \arrayrulecolor{light-gray}\hline
+UserNumber & number & Номер ответственного (номер пользователя на контрольной панели, натуральное число, уникальный на объекте, может быть не задан, нельзя очистить для пользователя MyAlarm) \\ \arrayrulecolor{light-gray}\hline
 ObjCustName & string & ФИО \\ \arrayrulecolor{light-gray}\hline
 ObjCustTitle & string & Должность \\ \arrayrulecolor{light-gray}\hline
-ObjCustPhone1 & string & Мобильный телефон \\ \arrayrulecolor{light-gray}\hline
+ObjCustPhone1 & string & Мобильный телефон (уникальный на объекте, нельзя изменить для пользователя MyAlarm) \\ \arrayrulecolor{light-gray}\hline
 ObjCustPhone2 & string & Телефон 2 \\ \arrayrulecolor{light-gray}\hline
 ObjCustPhone3 & string & Телефон 3 \\ \arrayrulecolor{light-gray}\hline
 ObjCustPhone4 & string & Телефон 4 \\ \arrayrulecolor{light-gray}\hline
 ObjCustPhone5 & string & Телефон 5 \\ \arrayrulecolor{light-gray}\hline
 ObjCustAddress & string & Адрес \\ \arrayrulecolor{light-gray}\hline
-IsVisibleInCabinet & boolean & Отображать в личном кабинете \\ \arrayrulecolor{light-gray}\hline
+IsVisibleInCabinet & boolean & Отображать в личном кабинете (нельзя отключить для пользователя MyAlarm) \\ \arrayrulecolor{light-gray}\hline
 ReclosingRequest & boolean & Отправлять SMS о необходимости перезакрытия \\ \arrayrulecolor{light-gray}\hline
 ReclosingFailure & boolean & Отправлять SMS об отказе от перезакрытия \\ \arrayrulecolor{light-gray}\hline
 PINCode & string & PIN для Call-центра \\
@@ -312,6 +312,8 @@ curl --request PUT \
 ## Удалить ответственное лицо (DELETE /api/Customers) {#api-customers-delete}
 
 Метод предназначен для удаления ответственного лица объекта.
+
+Примечание: Нельзя удалить пользователя, которому выдан доступ в MyAlarm.
 
 **URL** : `/api/Customers`
 
