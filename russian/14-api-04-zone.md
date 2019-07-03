@@ -24,7 +24,7 @@
 
 Id & string & Идентификатор шлейфа \\ \arrayrulecolor{light-gray}\hline
 ZoneNumber & number & Номер шлейфа (обязательное поле, натуральное число) \\ \arrayrulecolor{light-gray}\hline
-ZoneDesc & string & Описание шлейфа (обязательное поле) \\ \arrayrulecolor{light-gray}\hline
+ZoneDesc & string & Описание шлейфа (обязательное поле при создании, не может быть пустым) \\ \arrayrulecolor{light-gray}\hline
 ZoneEquip & string & Оборудование шлейфа \\
 
 \bottomrule

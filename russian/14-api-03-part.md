@@ -26,7 +26,7 @@
 Id & string & Идентификатор раздела \\ \arrayrulecolor{light-gray}\hline
 PartNumber & number & Номер раздела (обязательный, почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте, натуральное число) \\ \arrayrulecolor{light-gray}\hline
 ObjectNumber & number & Объектовый номер раздела. Используется только для объектовых приборов, поддерживающих индивидуальные объектовые номера для разделов \\ \arrayrulecolor{light-gray}\hline
-PartDesc & string & Название (описание) раздела (обязательный) \\ \arrayrulecolor{light-gray}\hline
+PartDesc & string & Название (описание) раздела (обязательный при создании, не может быть пустым) \\ \arrayrulecolor{light-gray}\hline
 PartEquip & string & Название (описание) оборудования, установленного в разделе \\
 
 \bottomrule
