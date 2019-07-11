@@ -60,7 +60,7 @@ StopDT & timespan & Конечное время \\
 \bottomrule
 \end{tabularx}
 
-## Получить расписание охраны объекта (GET /api/SiteSchedule) {#api-schedule-get}
+## Получить расписание охраны объекта \newline (GET /api/SiteSchedule) {#api-schedule-get}
 
 Метод предназначен для получения расписания охраны объекта.
 
@@ -250,7 +250,7 @@ curl --request POST \
 }
 ```
 
-## Удалить расписание охраны объекта (DELETE /api/SiteSchedule) {#api-schedule-delete}
+## Удалить расписание охраны объекта \newline (DELETE /api/SiteSchedule) {#api-schedule-delete}
 
 Метод предназначен для удаления расписания охраны объекта.
 

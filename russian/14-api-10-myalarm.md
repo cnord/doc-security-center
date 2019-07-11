@@ -156,7 +156,7 @@ curl --request GET \
 ]
 ```
 
-### Получить список объектов пользователя MyAlarm (GET /api/MyAlarm/UserObjects) {#api-myalarm-user-object-list}
+### Получить список объектов пользователя MyAlarm \newline (GET /api/MyAlarm/UserObjects) {#api-myalarm-user-object-list}
 
 Метод предназначен для получения списка объектов пользователя MyAlarm.
 
