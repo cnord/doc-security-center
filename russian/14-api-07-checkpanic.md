@@ -102,7 +102,7 @@ curl --request POST \
 }
 ```
 
-## Получить результат проверки КТС (GET /api/CheckPanic) {#api-checkpanic-get}
+## Получить результат проверки КТС \newline (GET /api/CheckPanic) {#api-checkpanic-get}
 
 Метод предназначен для получения результата процедуры проверки КТС.
 
