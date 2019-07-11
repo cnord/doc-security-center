@@ -13,6 +13,7 @@
     "Id": string,
     "AccountNumber": number,
     "Name": string,
+    "ObjectPassword": string,
     "Address": string,
     "Phone1": string,
     "Phone2": string,
@@ -37,6 +38,8 @@
     "CommentForGuard": string,
     "MapFileName": string,
     "WebLink": string,
+    "ControlTime": number,
+    "CTIgnoreSystemEvent": bool,
     "IsContractPriceForceUpdate": boolean,
     "IsMoneyBalanceForceUpdate": boolean,
     "IsPaymentDateForceUpdate": boolean
@@ -51,6 +54,7 @@
 Id & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
 AccountNumber & number & Номер объекта (почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название объекта \\ \arrayrulecolor{light-gray}\hline
+ObjectPassword & string & Пароль \\ \arrayrulecolor{light-gray}\hline
 Address & string & Адрес объекта \\ \arrayrulecolor{light-gray}\hline
 Phone1 & string & Телефон 1 \\ \arrayrulecolor{light-gray}\hline
 Phone2 & string & Телефон 2 \\ \arrayrulecolor{light-gray}\hline
@@ -75,6 +79,8 @@ CommentForOperator & string & Комментарий для оператора \
 CommentForGuard & string & Комментарий для ГБР \\ \arrayrulecolor{light-gray}\hline
 MapFileName & string & Путь к файлу с картой объекта \\ \arrayrulecolor{light-gray}\hline
 WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\ \arrayrulecolor{light-gray}\hline
+ControlTime & number & Общее контрольное время (мин.) \\ \arrayrulecolor{light-gray}\hline
+CTIgnoreSystemEvent & bool & Игнорировать системные события \\ \arrayrulecolor{light-gray}\hline
 IsContractPriceForceUpdate & boolean & Признак принудительной записи поля ContractPrice (необходимо выставить true и пропустить поле ContractPrice при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsMoneyBalanceForceUpdate & boolean & Признак принудительной записи поля MoneyBalance (необходимо выставить true и пропустить поле MoneyBalance при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\
@@ -164,7 +170,7 @@ other & «Другое» \\
 
 Необязательный параметр.
 
-Максимальное количество элементов, которое необходимо вернуть в результате выполнения запроса. Если значение для параметра не указано, то метод вернет количество элементов, не превышающее значение параметра [`DefaultPageSize`](#api-settings-default-page-size), указанное в настройках службы «C.Nord HTTP-API Service».
+Максимальное количество элементов, которое необходимо вернуть в результате выполнения запроса. Если значение для параметра не указано, то метод вернет количество элементов, не превышающее значение параметра [`DefaultPageSize`](#api-settings-default-page-size), указанное в настройках службы «C.Nord HTTP-API Service». Примечание: параметр [`DefaultPageSize`](#api-settings-default-page-size) не может быть больше 200.
 
 #### userName
 
@@ -199,6 +205,7 @@ curl --request GET \
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 265,
         "Name": "Вестколл Северо-Запад",
+        "ObjectPassword": "1234",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
         "Phone1": "нет",
         "Phone2": "",
@@ -222,12 +229,15 @@ curl --request GET \
         "CommentForOperator": "",
         "CommentForGuard": "",
         "MapFileName": "",
-        "WebLink": ""
+        "WebLink": "",
+        "ControlTime": 0,
+        "CTIgnoreSystemEvent": false
     },
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 282,
         "Name": "Инвест-Москва",
+        "ObjectPassword": "4321",
         "Address": "Шостаковича ул. д. 3 к. 1",
         "Phone1": "785-03-39",
         "Phone2": "",
@@ -251,7 +261,9 @@ curl --request GET \
         "CommentForOperator": "",
         "CommentForGuard": "",
         "MapFileName": "",
-        "WebLink": ""
+        "WebLink": "",
+        "ControlTime": 1,
+        "CTIgnoreSystemEvent": true
     }
 ]
 ```
@@ -304,6 +316,7 @@ curl --request GET \
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
     "AccountNumber": 282,
     "Name": "Инвест-Москва",
+    "ObjectPassword": "1234",
     "Address": "Шостаковича ул. д. 3 к. 1",
     "Phone1": "785-03-39",
     "Phone2": "",
@@ -327,7 +340,9 @@ curl --request GET \
     "CommentForOperator": "",
     "CommentForGuard": "",
     "MapFileName": "",
-    "WebLink": ""
+    "WebLink": "",
+    "ControlTime": 10,
+    "CTIgnoreSystemEvent": false
 }
 ```
 

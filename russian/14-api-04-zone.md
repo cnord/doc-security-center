@@ -23,8 +23,8 @@
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
 Id & string & Идентификатор шлейфа \\ \arrayrulecolor{light-gray}\hline
-ZoneNumber & number & Номер шлейфа (обязательное поле) \\ \arrayrulecolor{light-gray}\hline
-ZoneDesc & string & Описание шлейфа \\ \arrayrulecolor{light-gray}\hline
+ZoneNumber & number & Номер шлейфа (обязательный при создании, натуральное число) \\ \arrayrulecolor{light-gray}\hline
+ZoneDesc & string & Описание шлейфа (обязательный при создании, не может быть пустым) \\ \arrayrulecolor{light-gray}\hline
 ZoneEquip & string & Оборудование шлейфа \\
 
 \bottomrule
