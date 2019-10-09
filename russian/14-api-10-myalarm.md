@@ -209,7 +209,7 @@ curl --request GET \
     {
         "ObjectGUID":"fd2cdaae-585e-44a3-804e-a24537f6de7a",
         "CustomerID":"548de89a-8b93-4319-997d-8902d8fb2a8e",
-        "Role":1,
+        "Role":"admin",
         "IsPanic":false
     }
 ]
