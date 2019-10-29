@@ -30,9 +30,7 @@ Name & string & ФИО пользователя \\
 
 **Метод** : `GET`
 
-### Тело запроса
-
-json структура с параметрами:
+### Параметры
 
 #### startFrom
 
@@ -85,11 +83,11 @@ curl --request GET \
 
 ### Тело запроса
 
-json структура с параметрами:
+В теле запроса должен быть передан объект json с полями.
 
 #### Phone
 
-Телефон пользователя
+Телефон пользователя, должен соответствовать регулярному выражению ^\+[0-9]{11,25}$
 
 ### Возможные статусы ответов
 
@@ -127,13 +125,7 @@ curl --request GET \
 
 **Метод** : `GET`
 
-### Тело запроса
-
-json структура с параметрами:
-
-#### Phone
-
-Телефон пользователя
+### Параметры
 
 #### startFrom
 
@@ -146,6 +138,14 @@ json структура с параметрами:
 Необязательный параметр.
 
 Размер страницы для вывода данных. Если не указано - то используется размер страницы по умолчанию из конфигурационного файла
+
+### Тело запроса
+
+В теле запроса должен быть передан объект json с полями.
+
+#### Phone
+
+Телефон пользователя, должен соответствовать регулярному выражению ^\+[0-9]{11,25}$
 
 ### Возможные статусы ответов
 
@@ -160,11 +160,9 @@ json структура с параметрами:
 ```bash
 curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Neva/MobileUserSites' \
+  --url 'http://10.7.22.128:9002/api/Neva/MobileUserSites?startFrom=1&pageSize=10' \
   --data '{`
-        `"Phone" : "+71234567890",`
-		`"startFrom" : 1,`
-		`"pageSize" : 10`
+        `"Phone" : "+71234567890"`
     `}'
 ```
 
@@ -174,45 +172,25 @@ curl --request GET \
 [
     {
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
+        "AccountNumber": 1,
         "Name": "Вестколл Северо-Запад",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
-		...
-		"State":
-		{
-			"IsArm" : True,
-			"IsAlarm" : False,
-			"IsPartArm" : False,
-			"ArmDisArmDateTime" : "1899-12-30T00:00:00",
-			"Parts":
-			[
-				{
-					"PartNumber" : "1",
-					"PartIsArm" : True,
-					"PartIsAlarm" : False
-				},
-			...]
-		}
+        ...
+        "IsStateArm" : True,
+        "IsStateAlarm" : False,
+        "IsStatePartArm" : False,
+        "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
+        "AccountNumber": 2,
         "Name": "Инвест-Москва",
         "Address": "Шостаковича ул. д. 3 к. 1",
-		...
-		"State":
-		{
-			"IsArm" : True,
-			"IsAlarm" : True,
-			"IsPartArm" : False,
-			"ArmDisArmDateTime" : "1899-12-30T00:00:00",
-			"Parts":
-			[
-				{
-					"PartNumber" : "1",
-					"PartIsArm" : True,
-					"PartIsAlarm" : True
-				},
-			...]
-		}
+        ...
+        "IsStateArm" : True,
+        "IsStateAlarm" : True,
+        "IsStatePartArm" : False,
+        "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     }
 ]
 ```

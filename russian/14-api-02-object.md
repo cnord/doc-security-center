@@ -39,11 +39,14 @@
     "MapFileName": string,
     "WebLink": string,
     "ControlTime": number,
-    "CTIgnoreSystemEvent": bool,
+    "CTIgnoreSystemEvent": boolean,
     "IsContractPriceForceUpdate": boolean,
     "IsMoneyBalanceForceUpdate": boolean,
     "IsPaymentDateForceUpdate": boolean,
-    "State": SiteState
+    "IsStateArm": boolean,
+    "IsStateAlarm": boolean,
+    "IsStatePartArm": boolean,
+    "StateArmDisArmDateTime": string
 }
 ```
 
@@ -81,11 +84,14 @@ CommentForGuard & string & Комментарий для ГБР \\ \arrayrulecol
 MapFileName & string & Путь к файлу с картой объекта \\ \arrayrulecolor{light-gray}\hline
 WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\ \arrayrulecolor{light-gray}\hline
 ControlTime & number & Общее контрольное время (мин.) \\ \arrayrulecolor{light-gray}\hline
-CTIgnoreSystemEvent & bool & Игнорировать системные события \\ \arrayrulecolor{light-gray}\hline
+CTIgnoreSystemEvent & boolean & Игнорировать системные события \\ \arrayrulecolor{light-gray}\hline
 IsContractPriceForceUpdate & boolean & Признак принудительной записи поля ContractPrice (необходимо выставить true и пропустить поле ContractPrice при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsMoneyBalanceForceUpdate & boolean & Признак принудительной записи поля MoneyBalance (необходимо выставить true и пропустить поле MoneyBalance при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\ \arrayrulecolor{light-gray}\hline
-State & SiteState & Состояние объекта \\
+IsStateArm & boolean & Состояние объекта: взят/снят/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStateAlarm & boolean & Состояние объекта: объект в тревоге - да/нет/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStatePartArm & boolean & Состояние объекта: частично - да/нет/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+StateArmDisArmDateTime & string & Состояние объекта: время последнего взятия / снятия. Нельзя указывать при создании и модификации. \\
 
 \bottomrule
 \end{tabularx}
@@ -144,58 +150,6 @@ other & «Другое» \\
 - "`YYYY-MM-DDTHH:mm:ssZ`";
 - "`YYYY-MM-DDTHH:mm:ss.fffZ`".
 
-## Состояние объекта {#api-sitestate-json}
-
-Элемент JSON, содержащий поля состояния объекта:
-
-```json
-{
-    "IsArm": boolean,
-    "IsAlarm": boolean,
-    "IsPartArm": boolean,
-    "ArmDisArmDateTime": DateTime,
-    "StateParts": StatePart[ ]
-}
-```
-
-\definecolor{light-gray}{gray}{0.7}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{llX}
-\textbf{Название поля} & \textbf{Тип} & \textbf{Описание поля; примечание} \\ \midrule
-
-IsArm & boolean & Объект взят под охраны/снят с охраны \\ \arrayrulecolor{light-gray}\hline
-IsAlarm & boolean & Объект в тревоге - да/нет \\ \arrayrulecolor{light-gray}\hline
-IsPartArm & boolean & Объект взят под охрану частично - да/нет \\ \arrayrulecolor{light-gray}\hline
-ArmDisArmDateTime & DateTime & Время последнего взятия/снятия \\ \arrayrulecolor{light-gray}\hline
-StateParts & StatePart[] & Список состояний разделов \\
-
-\bottomrule
-\end{tabularx}
-
-## Состояние раздела объекта {#api-sitepartstate-json}
-
-Элемент JSON, содержащий поля состояния раздела объекта:
-
-```json
-{
-    "PartNumber": string,
-    "PartIsArm": boolean,
-    "PartIsAlarm": boolean
-}
-```
-
-\definecolor{light-gray}{gray}{0.7}
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{llX}
-\textbf{Название поля} & \textbf{Тип} & \textbf{Описание поля; примечание} \\ \midrule
-
-PartNumber & string & Номер раздела \\ \arrayrulecolor{light-gray}\hline
-PartIsArm & boolean & Состояние раздела (взят/снят/неизвестно) \\ \arrayrulecolor{light-gray}\hline
-PartIsAlarm & boolean & Объект в тревоге/в норме/неизвестно \\
-
-\bottomrule
-\end{tabularx}
-
 ## Получить список объектов (GET /api/Sites) {#api-sites-get-list}
 
 Метод предназначен для получения списка объектов. В качестве критерия для поиска объекта могжет использоваться номер договора.
@@ -232,13 +186,17 @@ PartIsAlarm & boolean & Объект в тревоге/в норме/неизв�
 
 Имя пользователя, от имени которого выполняется операция.
 
-#### name
+### Тело запроса
+
+В теле запроса, при необходимости, может быть передан объект json с полями.
+
+#### Name
 
 Необязательный параметр.
 
 Фильтр/поиск по названию объекта
 
-#### address
+#### Address
 
 Необязательный параметр.
 
@@ -254,12 +212,12 @@ PartIsAlarm & boolean & Объект в тревоге/в норме/неизв�
 
 ### Пример использования
 
-#### Пример выполнения запроса, в котором указано значение для параметра `contractNumber` и фильтр по названию объекта
+#### Пример выполнения запроса, в котором указано значение для параметра `contractNumber`
 
 ```bash
 curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&userName=crm-Ivanova-A-A&name=вест'
+  --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&userName=crm-Ivanova-A-A'
 ```
 
 **Status:** `200`
@@ -297,25 +255,10 @@ curl --request GET \
         "WebLink": "",
         "ControlTime": 0,
         "CTIgnoreSystemEvent": false,
-        "State":
-        {
-            "IsArm": true,
-            "IsAlarm": true,
-            "IsPartArm": false,
-            "ArmDisArmDateTime": "1899-12-30T00:00:00",
-            "StateParts": [
-                {
-                    "PartNumber": 1,
-                    "PartIsArm": true,
-                    "PartIsAlarm": true
-                },
-                {
-                    "PartNumber": 2,
-                    "PartIsArm": true,
-                    "PartIsAlarm": false
-                }
-            ]
-        }
+        "IsStateArm": true,
+        "IsStateAlarm": true,
+        "IsStatePartArm": false,
+        "StateArmDisArmDateTime": "1899-12-30T00:00:00"
     },
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
@@ -348,27 +291,21 @@ curl --request GET \
         "WebLink": "",
         "ControlTime": 1,
         "CTIgnoreSystemEvent": true,
-        "State":
-        {
-            "IsArm": false,
-            "IsAlarm": false,
-            "IsPartArm": true,
-            "ArmDisArmDateTime": "1899-12-30T00:00:00",
-            "StateParts": [
-                {
-                    "PartNumber": 1,
-                    "PartIsArm": true,
-                    "PartIsAlarm": true
-                },
-                {
-                    "PartNumber": 2,
-                    "PartIsArm": false,
-                    "PartIsAlarm": false
-                }
-            ]
-        }
+        "IsStateArm": false,
+        "IsStateAlarm": false,
+        "IsStatePartArm": true,
+        "StateArmDisArmDateTime": "1899-12-30T00:00:00"
     }
 ]
+```
+
+#### Пример выполнения запроса, в котором указано значение для фильтра по названию объекта
+
+```bash
+curl --request GET \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Sites?userName=crm-Ivanova-A-A' \
+  --data '{"Name": "естколл"}'
 ```
 
 ## Получить объект по номеру или идентификатору (GET /api/Sites) {#api-sites-get-single}
@@ -446,25 +383,10 @@ curl --request GET \
     "WebLink": "",
     "ControlTime": 10,
     "CTIgnoreSystemEvent": false,
-    "State":
-    {
-        "IsArm": true,
-        "IsAlarm": true,
-        "IsPartArm": false,
-        "ArmDisArmDateTime": "1899-12-30T00:00:00",
-        "StateParts": [
-            {
-                "PartNumber": 1,
-                "PartIsArm": true,
-                "PartIsAlarm": true
-            },
-            {
-                "PartNumber": 2,
-                "PartIsArm": true,
-                "PartIsAlarm": false
-            }
-        ]
-    }
+    "IsStateArm": true,
+    "IsStateAlarm": true,
+    "IsStatePartArm": false,
+    "StateArmDisArmDateTime": "1899-12-30T00:00:00"
 }
 ```
 
