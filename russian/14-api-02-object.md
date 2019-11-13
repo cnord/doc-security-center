@@ -89,7 +89,7 @@ IsContractPriceForceUpdate & boolean & Признак принудительно
 IsMoneyBalanceForceUpdate & boolean & Признак принудительной записи поля MoneyBalance (необходимо выставить true и пропустить поле MoneyBalance при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsStateArm & boolean & Состояние объекта: взят/снят/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
-IsStateAlarm & boolean & Состояние объекта: объект в тревоге - да/нет/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStateAlarm & boolean & Состояние объекта: объект в тревоге - да/нет. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
 IsStatePartArm & boolean & Состояние объекта: частично - да/нет/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
 StateArmDisArmDateTime & string & Состояние объекта: время последнего взятия / снятия. Нельзя указывать при создании и модификации. \\
 

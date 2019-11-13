@@ -32,7 +32,7 @@ ObjectNumber & number & Объектовый номер раздела. Испо
 PartDesc & string & Название (описание) раздела (обязательный при создании, не может быть пустым) \\ \arrayrulecolor{light-gray}\hline
 PartEquip & string & Название (описание) оборудования, установленного в разделе \\ \arrayrulecolor{light-gray}\hline
 IsStateArm & boolean & Состояние раздела: взят/снят/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
-IsStateAlarm & boolean & Состояние раздела: раздел в тревоге/в норме/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStateAlarm & boolean & Состояние раздела: раздел в тревоге/в норме. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
 StateArmDisArmDateTime & string & Состояние раздела: время последнего взятия / снятия. Нельзя указывать при создании и модификации. \\
 
 \bottomrule
@@ -96,7 +96,10 @@ curl --request GET \
         "PartNumber": 2,
         "ObjectNumber": 0,
         "PartDesc": "Внутренние помещения",
-        "PartEquip": ""
+        "PartEquip": "",
+        "IsStateArm": True,
+        "IsStateAlarm": False,
+        "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
 ]
 ```
