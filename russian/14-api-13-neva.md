@@ -177,6 +177,7 @@ curl --request GET \
     {
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 1,
+		"CloudObjectID": 2,
         "Name": "Вестколл Северо-Запад",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
         ...
@@ -188,6 +189,7 @@ curl --request GET \
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 2,
+		"CloudObjectID": 3,
         "Name": "Инвест-Москва",
         "Address": "Шостаковича ул. д. 3 к. 1",
         ...

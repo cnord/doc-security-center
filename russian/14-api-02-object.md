@@ -12,6 +12,7 @@
 {
     "Id": string,
     "AccountNumber": number,
+	"CloudObjectID": number,
     "Name": string,
     "ObjectPassword": string,
     "Address": string,
@@ -57,6 +58,7 @@
 
 Id & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
 AccountNumber & number & Номер объекта (почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
+CloudObjectID & number & Идентификатор объекта в облаке \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название объекта \\ \arrayrulecolor{light-gray}\hline
 ObjectPassword & string & Пароль \\ \arrayrulecolor{light-gray}\hline
 Address & string & Адрес объекта \\ \arrayrulecolor{light-gray}\hline
@@ -227,6 +229,7 @@ curl --request GET \
     {
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 265,
+		"CloudObjectID": 3,
         "Name": "Вестколл Северо-Запад",
         "ObjectPassword": "1234",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
@@ -263,6 +266,7 @@ curl --request GET \
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 282,
+		"CloudObjectID": 4,
         "Name": "Инвест-Москва",
         "ObjectPassword": "4321",
         "Address": "Шостаковича ул. д. 3 к. 1",
@@ -355,6 +359,7 @@ curl --request GET \
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
     "AccountNumber": 282,
+	"CloudObjectID": 5,
     "Name": "Инвест-Москва",
     "ObjectPassword": "1234",
     "Address": "Шостаковича ул. д. 3 к. 1",
