@@ -10,6 +10,7 @@
 
 ```json
 {
+    "RowNumber": number,
     "Id": string,
     "AccountNumber": number,
     "Name": string,
@@ -55,6 +56,7 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
+RowNumber & number & Порядковый номер (присутствует только при выводе списка объектов) \\ \arrayrulecolor{light-gray}\hline
 Id & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
 AccountNumber & number & Номер объекта (почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название объекта \\ \arrayrulecolor{light-gray}\hline
@@ -225,6 +227,7 @@ curl --request GET \
 ```json
 [
     {
+        "RowNumber": 1,
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 265,
         "Name": "Вестколл Северо-Запад",
@@ -261,6 +264,7 @@ curl --request GET \
         "StateArmDisArmDateTime": "1899-12-30T00:00:00"
     },
     {
+        "RowNumber": 2,
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 282,
         "Name": "Инвест-Москва",

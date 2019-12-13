@@ -8,6 +8,7 @@
 
 ```json
 {
+    "RowNumber": number,
     "RChannelName": string,
     "DateTime": string,
     "AccountNumber": number,
@@ -27,6 +28,7 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Описание} \\ \midrule
 
+RowNumber & number & Порядковый номер \\ \arrayrulecolor{light-gray}\hline
 RChannelName & string & Мнемоническое название и номер канала связи \\ \arrayrulecolor{light-gray}\hline
 DateTime & string & Дата и время формирования события \\ \arrayrulecolor{light-gray}\hline
 AccountNumber & number & Номер объекта, по которому сформировано событие \\ \arrayrulecolor{light-gray}\hline
@@ -183,6 +185,7 @@ curl --request GET \
 ```json
 [
     {
+        "RowNumber": 1,
         "RChannelName": "Gprs6",
         "DateTime": "2019-02-17T12:08:50.24",
         "AccountNumber": 265,
@@ -196,6 +199,7 @@ curl --request GET \
         "SaveDateTime": "2019-02-17T12:08:50.26"
     },
     {
+        "RowNumber": 2,
         "RChannelName": "T3",
         "DateTime": "2019-02-17T12:22:38.12",
         "AccountNumber": 265,
@@ -209,6 +213,7 @@ curl --request GET \
         "SaveDateTime": "2019-02-17T12:22:38.143"
     },
     {
+        "RowNumber": 3,
         "RChannelName": "Sms1",
         "DateTime": "2019-02-17T12:29:11.75",
         "AccountNumber": 265,
@@ -249,6 +254,7 @@ curl --request GET \
 ```json
 [
     {
+        "RowNumber": 1,
         "RChannelName": "Gprs6",
         "DateTime": "2019-02-17T12:08:50.24",
         "AccountNumber": 265,
