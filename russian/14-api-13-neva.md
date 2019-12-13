@@ -6,6 +6,7 @@
 
 ```json
 {
+    "RowNumber": number,
     "Phone" : string,
     "Name" : string
 }
@@ -16,6 +17,7 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Описание поля; примечание} \\ \midrule
 
+RowNumber & number & Порядковый номер (присутствует только при выводе списка мобильных пользователей) \\ \arrayrulecolor{light-gray}\hline
 Phone & string & Телефон пользователя \\ \arrayrulecolor{light-gray}\hline
 Name & string & ФИО пользователя \\
 
@@ -64,12 +66,14 @@ curl --request GET \
 
 ```json
 [{
-	"Phone": "+71234567890",
-	"Name": "Иванов Иван Иванович"
+    "RowNumber": 1,
+    "Phone": "+71234567890",
+    "Name": "Иванов Иван Иванович"
 },
 {
-	"Phone": "+71234567891",
-	"Name": "Петров Пётр Петрович"
+    "RowNumber": 2,
+    "Phone": "+71234567891",
+    "Name": "Петров Пётр Петрович"
 }, ...]
 ```
 
@@ -175,6 +179,7 @@ curl --request GET \
 ```json
 [
     {
+        "RowNumber": 1,
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 1,
 		"CloudObjectID": 2,
@@ -187,6 +192,7 @@ curl --request GET \
         "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
     {
+        "RowNumber": 2,
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 2,
 		"CloudObjectID": 3,
