@@ -67,7 +67,7 @@ EventTemplateName & string & Название шаблона событий об
 ContractNumber & string & Номер договора \\ \arrayrulecolor{light-gray}\hline
 ContractPrice & number & Сумма ежемесячного платежа по договору. Отображается в приложении MyAlarm \\ \arrayrulecolor{light-gray}\hline
 MoneyBalance & number & Баланс лицевого счета.  Отображается в приложении MyAlarm \\ \arrayrulecolor{light-gray}\hline
-PaymentDate & number & Дата ближайшего списания средств. Отображается в приложении MyAlarm \\ \arrayrulecolor{light-gray}\hline
+PaymentDate & string & Дата ближайшего списания средств. Отображается в приложении MyAlarm \\ \arrayrulecolor{light-gray}\hline
 DebtInformLevel & number & Уровень информирования клиента о состоянии услуг охраны. Отображается в приложении MyAlarm. Возможные значения: см. ниже \\ \arrayrulecolor{light-gray}\hline
 Disabled & boolean & Флаг: объект отключен \\ \arrayrulecolor{light-gray}\hline
 DisableReason & number & Код: причина отключения объекта (не используется) \\ \arrayrulecolor{light-gray}\hline
