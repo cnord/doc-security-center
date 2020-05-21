@@ -2,7 +2,7 @@
 
 # Раздел
 
-Методы для управления разделами объекта: получение списка разделов, создание, изменение или удаление раздела объекта.
+Методы для управления разделами объекта: получение списка разделов, создание, изменение или удаление раздела объекта. Взятия/снятия с охраны.
 
 ## Поля раздела {#api-part-json}
 
@@ -24,7 +24,7 @@
 \definecolor{light-gray}{gray}{0.7}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabularx}{\textwidth}{llX}
-\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
+\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке раздела; примечание} \\ \midrule
 
 Id & string & Идентификатор раздела \\ \arrayrulecolor{light-gray}\hline
 PartNumber & number & Номер раздела (обязательный при создании, натуральное число, почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
@@ -308,3 +308,156 @@ curl --request DELETE \
   --url 'http://10.7.22.128:9002/api/Parts?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
         `userName=crm-Ivanova-A-A'
 ```
+## Взять раздел под охрану (POST /api/Parts/Arm)
+
+Метод предназначен для взятия раздела под охрану
+
+**URL** : `/api/Parts/Arm`
+
+**Метод** : `POST`
+
+### Параметры
+
+#### id
+
+Обязательный параметр.
+
+Идентификатор раздела, который нужно взять под охрану.
+
+#### code
+
+Не обязательный параметр.
+
+Код пользователя.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+Примечание: взятие раздела с кодом и без имеют различную нумерацию ошибок.
+
+#### Возможные коды ошибок без кода пользователя
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Код} & \textbf{Сообщение} & \textbf{Примечание} \\ \midrule
+
+1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
+2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Не верный формат команды \\ \arrayrulecolor{light-gray}\hline
+4 & The partition is already armed & Раздел уже поставлен, синхронизация БД \\ \arrayrulecolor{light-gray}\hline
+5 & Remote arming forbidden & Запрещена удалённая постановка \\
+
+\bottomrule
+\end{tabularx}
+
+#### Возможные коды ошибок с кодом пользователя
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Код} & \textbf{Сообщение} & \textbf{Примечание} \\ \midrule
+
+1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
+2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
+4 & The partition is already armed & Пользователь попытался поставить на охрану раздел, который уже стоит на охране, синхронизация БД \\ \arrayrulecolor{light-gray}\hline
+5 & Remote arming forbidden & Постановка разделов этого устройства из внешнего приложения запрещена \\ \arrayrulecolor{light-gray}\hline
+6 & Incorrect code & Неверный код (пользователь с переданным кодом не найден) \\ \arrayrulecolor{light-gray}\hline
+7 & The partition with number does not exist & Раздел с номером не существует или на объекте не сконфигурированы разделы \\ \arrayrulecolor{light-gray}\hline
+8 & The site has more than a one partition & В качетсве номера раздела был передан 0, а на объекте сконфигурирован больше, чем 1 раздел \\
+
+\bottomrule
+\end{tabularx}
+
+### Пример использования
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+```
+
+**Status** : `200`
+
+## Снять раздел с охраны (POST /api/Parts/Disarm)
+
+Метод предназначен для снятия раздела с охраны
+
+**URL** : `/api/Parts/Disarm`
+
+**Метод** : `POST`
+
+### Параметры
+
+#### id
+
+Обязательный параметр.
+
+Идентификатор раздела, который нужно снять с охраны.
+
+#### code
+
+Не обязательный параметр.
+
+Код пользователя.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
+
+Примечание: снятие раздела с кодом и без имеют различную нумерацию ошибок.
+
+#### Возможные коды ошибок без кода пользователя
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Код} & \textbf{Сообщение} & \textbf{Примечание} \\ \midrule
+
+1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
+2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Не верный формат команды \\ \arrayrulecolor{light-gray}\hline
+4 & The partition is already disarmed & Раздел уже снят, синхронизация БД \\ \arrayrulecolor{light-gray}\hline
+5 & Remote disarming forbidden & Запрещено удалённое снятие \\
+
+\bottomrule
+\end{tabularx}
+
+#### Возможные коды ошибок с кодом пользователя
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Код} & \textbf{Сообщение} & \textbf{Примечание} \\ \midrule
+
+1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
+2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
+4 & The partition is already disarmed & Пользователь попытался с охраны раздел, который не стоит на охране, синхронизация БД \\ \arrayrulecolor{light-gray}\hline
+5 & Remote disarming forbidden & Постановка разделов этого устройства из внешнего приложения запрещена \\ \arrayrulecolor{light-gray}\hline
+6 & Incorrect code & Неверный код (пользователь с переданным кодом не найден) \\ \arrayrulecolor{light-gray}\hline
+7 & The partition with number does not exist & Раздел с номером не существует или на объекте не сконфигурированы разделы \\ \arrayrulecolor{light-gray}\hline
+8 & The site has more than a one partition & В качетсве номера раздела был передан 0, а на объекте сконфигурирован больше, чем 1 раздел \\
+
+\bottomrule
+\end{tabularx}
+
+### Пример использования
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+```
+
+**Status** : `200`
