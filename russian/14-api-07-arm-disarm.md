@@ -19,7 +19,7 @@
 6 & Refusal of arming & Отказ от взятия \\ \arrayrulecolor{light-gray}\hline
 7 & Incorrect code & Неверный код (пользователь с переданным кодом не найден) \\ \arrayrulecolor{light-gray}\hline
 8 & The partition with number does not exist & Раздел с номером не существует или на объекте не сконфигурированы разделы \\ \arrayrulecolor{light-gray}\hline
-9 & The site has more than a one partition & В качетсве номера раздела был передан 0, а на объекте сконфигурирован больше, чем 1 раздел \\
+9 & The site has more than a one partition & В качестве номера раздела был передан 0, а на объекте сконфигурирован больше, чем 1 раздел \\
 
 \bottomrule
 \end{tabularx}
