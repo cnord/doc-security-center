@@ -14,20 +14,26 @@
     "PartNumber": number,
     "ObjectNumber": number,
     "PartDesc": string,
-    "PartEquip": string
+    "PartEquip": string,
+    "IsStateArm": boolean,
+    "IsStateAlarm": boolean,
+    "StateArmDisArmDateTime" : string
 }
 ```
 
 \definecolor{light-gray}{gray}{0.7}
 \renewcommand{\arraystretch}{1.4}
 \begin{tabularx}{\textwidth}{llX}
-\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
+\textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке раздела; примечание} \\ \midrule
 
 Id & string & Идентификатор раздела \\ \arrayrulecolor{light-gray}\hline
 PartNumber & number & Номер раздела (обязательный при создании, натуральное число, почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
 ObjectNumber & number & Объектовый номер раздела. Используется только для объектовых приборов, поддерживающих индивидуальные объектовые номера для разделов \\ \arrayrulecolor{light-gray}\hline
 PartDesc & string & Название (описание) раздела (обязательный при создании, не может быть пустым) \\ \arrayrulecolor{light-gray}\hline
-PartEquip & string & Название (описание) оборудования, установленного в разделе \\
+PartEquip & string & Название (описание) оборудования, установленного в разделе \\ \arrayrulecolor{light-gray}\hline
+IsStateArm & boolean & Состояние раздела: взят/снят/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStateAlarm & boolean & Состояние раздела: раздел в тревоге/в норме. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+StateArmDisArmDateTime & string & Состояние раздела: время последнего взятия / снятия. Нельзя указывать при создании и модификации. \\
 
 \bottomrule
 \end{tabularx}
@@ -80,14 +86,20 @@ curl --request GET \
         "PartNumber": 1,
         "ObjectNumber": 0,
         "PartDesc": "Вход и периметр",
-        "PartEquip": ""
+        "PartEquip": "",
+        "IsStateArm": True,
+        "IsStateAlarm": False,
+        "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
     {
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933e",
         "PartNumber": 2,
         "ObjectNumber": 0,
         "PartDesc": "Внутренние помещения",
-        "PartEquip": ""
+        "PartEquip": "",
+        "IsStateArm": True,
+        "IsStateAlarm": False,
+        "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
 ]
 ```
@@ -139,7 +151,10 @@ curl --request GET \
     "PartNumber": 2,
     "ObjectNumber": null,
     "PartDesc": "Внутренние помещения",
-    "PartEquip": null
+    "PartEquip": null,
+    "IsStateArm": True,
+    "IsStateAlarm": True,
+    "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
 }
 ```
 

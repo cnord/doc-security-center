@@ -10,8 +10,10 @@
 
 ```json
 {
+    "RowNumber": number,
     "Id": string,
     "AccountNumber": number,
+	"CloudObjectID": number,
     "Name": string,
     "ObjectPassword": string,
     "Address": string,
@@ -39,10 +41,14 @@
     "MapFileName": string,
     "WebLink": string,
     "ControlTime": number,
-    "CTIgnoreSystemEvent": bool,
+    "CTIgnoreSystemEvent": boolean,
     "IsContractPriceForceUpdate": boolean,
     "IsMoneyBalanceForceUpdate": boolean,
-    "IsPaymentDateForceUpdate": boolean
+    "IsPaymentDateForceUpdate": boolean,
+    "IsStateArm": boolean,
+    "IsStateAlarm": boolean,
+    "IsStatePartArm": boolean,
+    "StateArmDisArmDateTime": string
 }
 ```
 
@@ -51,8 +57,10 @@
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Поле в карточке объекта; примечание} \\ \midrule
 
+RowNumber & number & Порядковый номер (присутствует только при выводе списка объектов) \\ \arrayrulecolor{light-gray}\hline
 Id & string & Идентификатор объекта \\ \arrayrulecolor{light-gray}\hline
 AccountNumber & number & Номер объекта (почти всегда совпадает с номером, запрограммированным в контрольную панель, установленную на объекте) \\ \arrayrulecolor{light-gray}\hline
+CloudObjectID & number & Идентификатор объекта в облаке \\ \arrayrulecolor{light-gray}\hline
 Name & string & Название объекта \\ \arrayrulecolor{light-gray}\hline
 ObjectPassword & string & Пароль \\ \arrayrulecolor{light-gray}\hline
 Address & string & Адрес объекта \\ \arrayrulecolor{light-gray}\hline
@@ -80,10 +88,14 @@ CommentForGuard & string & Комментарий для ГБР \\ \arrayrulecol
 MapFileName & string & Путь к файлу с картой объекта \\ \arrayrulecolor{light-gray}\hline
 WebLink & string & Web-ссылка: ссылка на ресурс с дополнительной информацией об объекте \\ \arrayrulecolor{light-gray}\hline
 ControlTime & number & Общее контрольное время (мин.) \\ \arrayrulecolor{light-gray}\hline
-CTIgnoreSystemEvent & bool & Игнорировать системные события \\ \arrayrulecolor{light-gray}\hline
+CTIgnoreSystemEvent & boolean & Игнорировать системные события \\ \arrayrulecolor{light-gray}\hline
 IsContractPriceForceUpdate & boolean & Признак принудительной записи поля ContractPrice (необходимо выставить true и пропустить поле ContractPrice при очистке) \\ \arrayrulecolor{light-gray}\hline
 IsMoneyBalanceForceUpdate & boolean & Признак принудительной записи поля MoneyBalance (необходимо выставить true и пропустить поле MoneyBalance при очистке) \\ \arrayrulecolor{light-gray}\hline
-IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\
+IsPaymentDateForceUpdate & boolean & Признак принудительной записи поля PaymentDate (необходимо выставить true и пропустить поле PaymentDate при очистке) \\ \arrayrulecolor{light-gray}\hline
+IsStateArm & boolean & Состояние объекта: взят/снят/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStateAlarm & boolean & Состояние объекта: объект в тревоге - да/нет. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+IsStatePartArm & boolean & Состояние объекта: частично - да/нет/неизвестно. Нельзя указывать при создании и модификации. \\ \arrayrulecolor{light-gray}\hline
+StateArmDisArmDateTime & string & Состояние объекта: время последнего взятия / снятия. Нельзя указывать при создании и модификации. \\
 
 \bottomrule
 \end{tabularx}
@@ -178,6 +190,22 @@ other & «Другое» \\
 
 Имя пользователя, от имени которого выполняется операция.
 
+### Тело запроса
+
+В теле запроса, при необходимости, может быть передан объект json с полями.
+
+#### Name
+
+Необязательный параметр.
+
+Фильтр/поиск по названию объекта
+
+#### Address
+
+Необязательный параметр.
+
+Фильтр/поиск по адресу объекта
+
 ### Возможные статусы ответов
 
 `200`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -193,8 +221,7 @@ other & «Другое» \\
 ```bash
 curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&`
-        `userName=crm-Ivanova-A-A'
+  --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&userName=crm-Ivanova-A-A'
 ```
 
 **Status:** `200`
@@ -202,8 +229,10 @@ curl --request GET \
 ```json
 [
     {
+        "RowNumber": 1,
         "Id": "94df3af9-36c1-423b-aa88-fb505bda3fa4",
         "AccountNumber": 265,
+		"CloudObjectID": 3,
         "Name": "Вестколл Северо-Запад",
         "ObjectPassword": "1234",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
@@ -231,11 +260,17 @@ curl --request GET \
         "MapFileName": "",
         "WebLink": "",
         "ControlTime": 0,
-        "CTIgnoreSystemEvent": false
+        "CTIgnoreSystemEvent": false,
+        "IsStateArm": true,
+        "IsStateAlarm": true,
+        "IsStatePartArm": false,
+        "StateArmDisArmDateTime": "1899-12-30T00:00:00"
     },
     {
+        "RowNumber": 2,
         "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
         "AccountNumber": 282,
+		"CloudObjectID": 4,
         "Name": "Инвест-Москва",
         "ObjectPassword": "4321",
         "Address": "Шостаковича ул. д. 3 к. 1",
@@ -263,9 +298,22 @@ curl --request GET \
         "MapFileName": "",
         "WebLink": "",
         "ControlTime": 1,
-        "CTIgnoreSystemEvent": true
+        "CTIgnoreSystemEvent": true,
+        "IsStateArm": false,
+        "IsStateAlarm": false,
+        "IsStatePartArm": true,
+        "StateArmDisArmDateTime": "1899-12-30T00:00:00"
     }
 ]
+```
+
+#### Пример выполнения запроса, в котором указано значение для фильтра по названию и адресу объекта
+
+```bash
+curl --request GET \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Sites?userName=crm-Ivanova-A-A' \
+  --data '{"Name": "естколл", "Address": "ул. д. 3"}'
 ```
 
 ## Получить объект по номеру или идентификатору (GET /api/Sites) {#api-sites-get-single}
@@ -315,6 +363,7 @@ curl --request GET \
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933c",
     "AccountNumber": 282,
+	"CloudObjectID": 5,
     "Name": "Инвест-Москва",
     "ObjectPassword": "1234",
     "Address": "Шостаковича ул. д. 3 к. 1",
@@ -342,7 +391,11 @@ curl --request GET \
     "MapFileName": "",
     "WebLink": "",
     "ControlTime": 10,
-    "CTIgnoreSystemEvent": false
+    "CTIgnoreSystemEvent": false,
+    "IsStateArm": true,
+    "IsStateAlarm": true,
+    "IsStatePartArm": false,
+    "StateArmDisArmDateTime": "1899-12-30T00:00:00"
 }
 ```
 
