@@ -26,7 +26,7 @@
 
 ## Взять раздел под охрану (POST /api/Parts/Arm)
 
-Метод предназначен для взятия раздела под охрану
+Метод предназначен для взятия раздела или объекта без разделов под охрану
 
 **URL** : `/api/Parts/Arm`
 
@@ -36,9 +36,18 @@
 
 #### id
 
-Обязательный параметр.
+Не обязательный параметр.
 
 Идентификатор раздела, который нужно взять под охрану. Соответствует полю `Id` элемента JSON с [полями раздела](#api-part-json).
+
+#### siteId
+
+Не обязательный параметр.
+
+Идентификатор объекта без разделов, который нужно взять под охрану. Соответствует полю `Id` элемента JSON с [полями объекта](#api-site-json).
+
+
+Один из идентификаторов id или siteId обязательно должен быть задан.
 
 #### code
 
@@ -72,7 +81,7 @@ curl --request POST \
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --url 'http://10.7.22.128:9002/api/Parts/Aarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
 ```
 
 **Status** : `400`
@@ -89,7 +98,7 @@ curl --request POST \
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
 ```
 
 **Status** : `400`
@@ -98,6 +107,22 @@ curl --request POST \
 {
     "SpResultCode": 6,
     "Message": "Refusal of arming"
+},
+```
+
+#### Постановка с ошибкой "У объекта есть разделы"
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?siteId=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+```
+
+**Status** : `400`
+
+```json
+{
+    "Message": "Object has parts"
 },
 ```
 
@@ -113,9 +138,18 @@ curl --request POST \
 
 #### id
 
-Обязательный параметр.
+Не обязательный параметр.
 
 Идентификатор раздела, который нужно снять с охраны. Соответствует полю `Id` элемента JSON с [полями раздела](#api-part-json).
+
+#### siteId
+
+Не обязательный параметр.
+
+Идентификатор объекта без разделов, который нужно взять под охрану. Соответствует полю `Id` элемента JSON с [полями объекта](#api-site-json).
+
+
+Один из идентификаторов id или siteId обязательно должен быть задан.
 
 #### code
 
@@ -176,5 +210,21 @@ curl --request POST \
 {
     "SpResultCode": 7,
     "Message": "Incorrect code"
+},
+```
+
+#### Снятие с ошибкой "У объекта есть разделы"
+
+```bash
+curl --request POST \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/Parts/Disarm?siteId=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+```
+
+**Status** : `400`
+
+```json
+{
+    "Message": "Object has parts"
 },
 ```
