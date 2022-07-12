@@ -39,11 +39,11 @@
 
 Идентификатор объекта, состояния открытых коллекторов которого должен вернуть метод. Соответствует полю `Id` элемента JSON с [полями объекта](#api-site-json).
 
-#### code
+#### userName
 
-Не обязательный параметр.
+Необязательный параметр.
 
-Код пользователя.
+Имя пользователя, от имени которого выполняется операция.
 
 ### Тело запроса
 
@@ -61,67 +61,104 @@
 
 ### Возвращаемые данные
 
+При успешном выполнении метод возвращает элемент JSON, содержащий состояние открытых коллекторов:
+
 ```json
 {
-    "SpResultCode": 1,
-    "Message": "Device is not connected"
-},
+    "ChangeTime": string,
+    "OcStates": [
+        {
+            "Number": number,
+            "State": number
+        },
+        ...
+    ]
+}
 ```
 
-При успешном выполнении метод не возвращает данных. Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{Примечание} \\ \midrule
+
+ChangeTime & string & Время получения \\ \arrayrulecolor{light-gray}\hline
+Number & number & Номер коллектора \\ \arrayrulecolor{light-gray}\hline
+State & number & Состояние коллектора (0 - коллектор разомкнут, 1 - коллектор замкнут, 2 - с коллектором нет связи) \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
+
+Если при выполнении запроса возникла ошибка, то запрос вернет код 400 и описание возникшей ошибки в ответе – см. «[Код 400: описание ошибки](#api-code-400-result)»
 
 Коды возможных ошибок см. «[Возможные коды ошибок](#api-open-collector-errors-json)»
 
 ### Пример использования
 
-#### Успешная постановка
+#### Запрос получения состояния всех открытых коллекторов
 ```bash
-curl --request POST \
+curl --request GET \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --url 'http://10.7.22.128:9002/api/OpenCollectors/OcStates?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
 ```
 
 **Status** : `200`
 
-#### Постановка с ошибкой "Прибор не подключён к центру охраны"
-
-```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+```json
+{
+    "ChangeTime": "2000-01-01T03:43:34",
+    "OcStates": [
+        {
+            "Number": 0,
+            "State": 1
+        },
+        {
+            "Number": 1,
+            "State": 0
+        },
+        {
+            "Number": 2,
+            "State": 0
+        },
+        {
+            "Number": 3,
+            "State": 0
+        }
+    ]
+}
 ```
 
-**Status** : `400`
+#### Запрос получения состояния выбранных коллекторов
+
+```bash
+curl --request GET \
+  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --url 'http://10.7.22.128:9002/api/OpenCollectors/OcStates?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --data '{"OcNumbers": "0,2"}'
+```
+
+**Status** : `200`
 
 ```json
 {
-    "SpResultCode": 1,
-    "Message": "Device is not connected"
-},
+    "ChangeTime": "2000-01-01T03:43:37",
+    "OcStates": [
+        {
+            "Number": 0,
+            "State": 1
+        },
+        {
+            "Number": 2,
+            "State": 0
+        }
+    ]
+}
 ```
 
-#### Постановка с ошибкой "Отказ от взятия"
+## Установить состояние открытого коллектора (POST /api/Parts/Disarm)
 
-```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
-```
+Метод предназначен для установки состояния открытого коллектора
 
-**Status** : `400`
-
-```json
-{
-    "SpResultCode": 6,
-    "Message": "Refusal of arming"
-},
-```
-
-## Снять раздел с охраны (POST /api/Parts/Disarm)
-
-Метод предназначен для снятия раздела с охраны
-
-**URL** : `/api/Parts/Disarm`
+**URL** : `/api/OpenCollectors/OcSet`
 
 **Метод** : `POST`
 
@@ -131,13 +168,37 @@ curl --request POST \
 
 Обязательный параметр.
 
-Идентификатор раздела, который нужно снять с охраны. Соответствует полю `Id` элемента JSON с [полями раздела](#api-part-json).
+Идентификатор объекта, состояния открытых коллекторов которого должен вернуть метод. Соответствует полю `Id` элемента JSON с [полями объекта](#api-site-json).
 
-#### code
+#### userName
 
-Не обязательный параметр.
+Необязательный параметр.
 
-Код пользователя.
+Имя пользователя, от имени которого выполняется операция.
+
+### Тело запроса
+
+В теле запроса, должен быть передан объект json с полями:
+
+```json
+{
+    "Number": number,
+    "Action": number,
+    "Interval": number
+}
+```
+
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{llX}
+\textbf{Название поля} & \textbf{Тип} & \textbf{Примечание} \\ \midrule
+
+Number & number & Номер коллектора \\ \arrayrulecolor{light-gray}\hline
+Action & number & Требуемое действие (0 - (PULSE) – замкнуть коллектор на время, 1 - (ON) – замкнуть коллектор, 2 - (OFF) – разомкнуть коллектор) \\ \arrayrulecolor{light-gray}\hline
+Interval & number & Время в миллисекундах, на которое следует замкнуть коллектор в случае, если параметр ACTION принимает значение 0 (PULSE) \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
 
 ### Возможные статусы ответов
 
@@ -151,12 +212,15 @@ curl --request POST \
 
 ### Пример использования
 
-#### Успешное снятие
+#### Успешная установка
+
+Установить 1-й коллектор на 2 секунды
 
 ```bash
 curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --url 'http://10.7.22.128:9002/api/OpenCollectors/OcSet?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --data '{"Number": 1, "Action": 0, "Interval": 2000}'
 ```
 
 **Status** : `200`
