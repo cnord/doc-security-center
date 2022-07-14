@@ -53,7 +53,7 @@
 
 Необязательный параметр.
 
-Список, через запятую, номеров коллекторов, информацию по которым необходимо получить
+Список, через запятую, номеров коллекторов, информацию по которым необходимо получить. Максимальное количество коллекторов 20.
 
 ### Возможные статусы ответов
 
@@ -69,7 +69,7 @@
     "OcStates": [
         {
             "Number": number,
-            "State": number
+            "State": string
         },
         ...
     ]
@@ -82,8 +82,8 @@
 \textbf{Название поля} & \textbf{Тип} & \textbf{Примечание} \\ \midrule
 
 ChangeTime & string & Время получения \\ \arrayrulecolor{light-gray}\hline
-Number & number & Номер коллектора \\ \arrayrulecolor{light-gray}\hline
-State & number & Состояние коллектора (0 - коллектор разомкнут, 1 - коллектор замкнут, 2 - с коллектором нет связи) \\ \arrayrulecolor{light-gray}\hline
+Number & number & Номер коллектора из настроек \\ \arrayrulecolor{light-gray}\hline
+State & string & Состояние коллектора («open» - коллектор разомкнут, «close» - коллектор замкнут, «no connection» - с коллектором нет связи) \\ \arrayrulecolor{light-gray}\hline
 
 \bottomrule
 \end{tabularx}
@@ -109,19 +109,19 @@ curl --request GET \
     "OcStates": [
         {
             "Number": 0,
-            "State": 1
+            "State": "close"
         },
         {
             "Number": 1,
-            "State": 0
+            "State": "open"
         },
         {
             "Number": 2,
-            "State": 0
+            "State": "open"
         },
         {
             "Number": 3,
-            "State": 0
+            "State": "open"
         }
     ]
 }
@@ -144,11 +144,11 @@ curl --request GET \
     "OcStates": [
         {
             "Number": 0,
-            "State": 1
+            "State": "close"
         },
         {
             "Number": 2,
-            "State": 0
+            "State": "open"
         }
     ]
 }
@@ -193,9 +193,9 @@ curl --request GET \
 \begin{tabularx}{\textwidth}{llX}
 \textbf{Название поля} & \textbf{Тип} & \textbf{Примечание} \\ \midrule
 
-Number & number & Номер коллектора \\ \arrayrulecolor{light-gray}\hline
+Number & number & Номер коллектора из настроек \\ \arrayrulecolor{light-gray}\hline
 Action & number & Требуемое действие (0 - (PULSE) – замкнуть коллектор на время, 1 - (ON) – замкнуть коллектор, 2 - (OFF) – разомкнуть коллектор) \\ \arrayrulecolor{light-gray}\hline
-Interval & number & Время в миллисекундах, на которое следует замкнуть коллектор в случае, если параметр ACTION принимает значение 0 (PULSE) \\ \arrayrulecolor{light-gray}\hline
+Interval & number & Время в миллисекундах, на которое следует замкнуть коллектор в случае, если параметр ACTION принимает значение 0 (PULSE). Для беспроводного открытого коллектора в качестве времени допустимо устанавливать только целое число секунд от 1 до 255. \\ \arrayrulecolor{light-gray}\hline
 
 \bottomrule
 \end{tabularx}
