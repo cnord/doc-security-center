@@ -13,7 +13,7 @@
 
 1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
 2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
-3 & Invalid command format & Не верный формат команды, ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Неверный формат команды, ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
 10 & There was not enough space in the buffer to send & Не хватило места в буфере на отправку \\ \arrayrulecolor{light-gray}\hline
 11 & Open collector is disabled or assigned a role & Открытый коллектор отключён или ему назначена роль \\ \arrayrulecolor{light-gray}\hline
 12 & There is no space in the action queue & В очереди действий нет места \\ \arrayrulecolor{light-gray}\hline

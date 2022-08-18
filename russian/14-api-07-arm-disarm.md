@@ -13,7 +13,7 @@
 
 1 & Device is not connected & Прибор не подключён к центру охраны \\ \arrayrulecolor{light-gray}\hline
 2 & Device did not respond & Нет квитанции на команду \\ \arrayrulecolor{light-gray}\hline
-3 & Invalid command format & Не верный формат команды, ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
+3 & Invalid command format & Неверный формат команды, ошибка разбора параметров или др. ошибка \\ \arrayrulecolor{light-gray}\hline
 4 & The partition is already armed/disarmed & Раздел уже поставлен/снят, синхронизация БД \\ \arrayrulecolor{light-gray}\hline
 5 & Remote arming/disarming forbidden & Запрещена удалённая постановка/снятие \\ \arrayrulecolor{light-gray}\hline
 6 & Refusal of arming & Отказ от взятия \\ \arrayrulecolor{light-gray}\hline
