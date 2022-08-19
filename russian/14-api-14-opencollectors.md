@@ -360,6 +360,106 @@ curl --request POST \
 
 \bottomrule
 \end{tabularx}
+
+
+#### Nord Pro B315 (41.1), Nord Pro B316 (51.1), Nord Pro B331 (51.3), Nord Max B516 (50.1), Nord Max LTE B562 (50.3), Nord Max B531 (50.5)
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{clc}
+\textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
+
+0 & OD-1 & 1 \\ \arrayrulecolor{light-gray}\hline
+1 & OD-2 & 2 \\ \arrayrulecolor{light-gray}\hline
+2 & OD-3 & 3 \\ \arrayrulecolor{light-gray}\hline
+3 & OD-4 & 4 \\ \arrayrulecolor{light-gray}\hline
+4 & EX81.1.Z1 & 5 \\ \arrayrulecolor{light-gray}\hline
+5 & EX81.1.Z2 & 6 \\ \arrayrulecolor{light-gray}\hline
+6 & EX81.1.Z3 & 7 \\ \arrayrulecolor{light-gray}\hline
+7 & EX81.1.Z4 & 8 \\ \arrayrulecolor{light-gray}\hline
+8 & EX81.1.Z5 & 9 \\ \arrayrulecolor{light-gray}\hline
+9 & EX81.1.Z6 & 10 \\ \arrayrulecolor{light-gray}\hline
+10 & EX81.2.Z1 & 11 \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+33 & EX81.5.Z6 & 34 \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
+
+
+#### Nord Pro Air C315 (41.2), Nord Pro Air C316 (51.2), Nord Pro Air C331 (51.4), Nord Max Air C516 (50.2), Nord Max Air LTE C562 (50.4), Nord Max Air C531 (50.6)
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{clc}
+\textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
+
+0 & OD-1 & 1 \\ \arrayrulecolor{light-gray}\hline
+1 & OD-2 & 2 \\ \arrayrulecolor{light-gray}\hline
+2 & OD-3 & 3 \\ \arrayrulecolor{light-gray}\hline
+3 & OD-4 & 4 \\ \arrayrulecolor{light-gray}\hline
+4 & EX81.1.Z1 & 5 \\ \arrayrulecolor{light-gray}\hline
+5 & EX81.1.Z2 & 6 \\ \arrayrulecolor{light-gray}\hline
+6 & EX81.1.Z3 & 7 \\ \arrayrulecolor{light-gray}\hline
+7 & EX81.1.Z4 & 8 \\ \arrayrulecolor{light-gray}\hline
+8 & EX81.1.Z5 & 9 \\ \arrayrulecolor{light-gray}\hline
+9 & EX81.1.Z6 & 10 \\ \arrayrulecolor{light-gray}\hline
+10 & - & - \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+24 & WRL-OC1 & 17 \\ \arrayrulecolor{light-gray}\hline
+25 & WRL-OC2 & 18 \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
+
+
+#### Nord Mini D331 (53.2)
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{clc}
+\textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
+
+0 & Z1 & 1 \\ \arrayrulecolor{light-gray}\hline
+1 & Z2 & 2 \\ \arrayrulecolor{light-gray}\hline
+2 & Z3 & 3 \\ \arrayrulecolor{light-gray}\hline
+3 & Z4 & 4 \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
+
+
+#### Nord Mini Air F331 (55.2)
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{clc}
+\textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
+
+0 & Z1 & 1 \\ \arrayrulecolor{light-gray}\hline
+1 & Z2 & 2 \\ \arrayrulecolor{light-gray}\hline
+3 & - & - \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+24 & WRL-OC1 & 17 \\ \arrayrulecolor{light-gray}\hline
+25 & WRL-OC2 & 18 \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
+
+
+#### Sergeant GSM G231 (59.2)
+\definecolor{light-gray}{gray}{0.7}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{clc}
+\textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
+
+0 & OD-1 & 1 \\ \arrayrulecolor{light-gray}\hline
+1 & OD-2 & 2 \\ \arrayrulecolor{light-gray}\hline
+2 & OD-3 & 3 \\ \arrayrulecolor{light-gray}\hline
+3 & OD-4 & 4 \\ \arrayrulecolor{light-gray}\hline
+
+\bottomrule
+\end{tabularx}
 EXT-Z1, EXT-Z2,.. – зоны/открытые коллектора РПШ-12.
 
 \text{EX81.1.Z1 - это <расширитель EX81>.<порядковый номер EX81>.<название клеммы EX81>}
