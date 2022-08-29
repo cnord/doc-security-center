@@ -19,6 +19,7 @@
 12 & There is no space in the action queue & В очереди действий нет места \\ \arrayrulecolor{light-gray}\hline
 13 & Parameter value error & Ошибка значения параметра \\ \arrayrulecolor{light-gray}\hline
 14 & No open collector connection & Нет связи с открытым коллектором \\ \arrayrulecolor{light-gray}\hline
+15 & Transmitter ID not defined & Для объекта не определен ID передатчика \\
 
 \bottomrule
 \end{tabularx}
@@ -83,7 +84,7 @@
 
 ChangeTime & string & Время получения \\ \arrayrulecolor{light-gray}\hline
 Number & number & Номер коллектора из настроек \\ \arrayrulecolor{light-gray}\hline
-State & string & Состояние коллектора («open» - коллектор разомкнут, «close» - коллектор замкнут, «no connection» - с коллектором нет связи) \\ \arrayrulecolor{light-gray}\hline
+State & string & Состояние коллектора («open» - коллектор разомкнут, «close» - коллектор замкнут, «no connection» - с коллектором нет связи) \\
 
 \bottomrule
 \end{tabularx}
@@ -198,7 +199,7 @@ curl --request GET \
 Number & number & Номер коллектора из настроек \\ \arrayrulecolor{light-gray}\hline
 Action & string & Требуемое действие («pulse» – замкнуть коллектор на время, «close» - замкнуть коллектор, «open» – разомкнуть коллектор) \\ \arrayrulecolor{light-gray}\hline
 Interval & number & Время в миллисекундах, на которое замыкается коллектор в случае, если параметр «Action» принимает значение «pulse», допустимые значения от 1 до 255000. \\
- & & Для беспроводного открытого коллектора допустимо устанавливать только целое число секунд. \\ \arrayrulecolor{light-gray}\hline
+ & & Для беспроводного открытого коллектора допустимо устанавливать только целое число секунд. \\
 
 \bottomrule
 \end{tabularx}
@@ -248,7 +249,7 @@ curl --request POST \
 9 & EX81.1.Z6 & 10 \\ \arrayrulecolor{light-gray}\hline
 10 & EX81.2.Z1 & 11 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-33 & EX81.5.Z6 & 34 \\ \arrayrulecolor{light-gray}\hline
+33 & EX81.5.Z6 & 34 \\
 
 \bottomrule
 \end{tabularx}
@@ -275,7 +276,7 @@ curl --request POST \
 24 & WRL-OC1 & 17 \\ \arrayrulecolor{light-gray}\hline
 25 & WRL-OC2 & 18 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-54 & WRL-OC31 & 47 \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 \\
 
 \bottomrule
 \end{tabularx}
@@ -290,7 +291,7 @@ curl --request POST \
 0 & Z1 & 1 \\ \arrayrulecolor{light-gray}\hline
 1 & Z2 & 2 \\ \arrayrulecolor{light-gray}\hline
 2 & Z3 & 3 \\ \arrayrulecolor{light-gray}\hline
-3 & Z4 & 4 \\ \arrayrulecolor{light-gray}\hline
+3 & Z4 & 4 \\
 
 \bottomrule
 \end{tabularx}
@@ -303,7 +304,7 @@ curl --request POST \
 \textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
 
 0 & Z1 & 1 \\ \arrayrulecolor{light-gray}\hline
-1 & Z2 & 2 \\ \arrayrulecolor{light-gray}\hline
+1 & Z2 & 2 \\
 
 \bottomrule
 \end{tabularx}
@@ -315,7 +316,7 @@ curl --request POST \
 \begin{tabularx}{\textwidth}{clc}
 \textbf{Номер в настройках} & \textbf{Название} & \textbf{Номер в событии} \\ \midrule
 
-0 & REL & 1 \\ \arrayrulecolor{light-gray}\hline
+0 & REL & 1 \\
 
 \bottomrule
 \end{tabularx}
@@ -356,7 +357,7 @@ curl --request POST \
 26 & WRL-OC3 & 19 & 19 & 19 & 19 & 19 & 19 & 19 & - & - & 19 & 19 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
 53 & WRL-OC30 & 46 & 46 & 46 & 46 & 46 & 46 & 46 & - & - & 46 & 46 \\ \arrayrulecolor{light-gray}\hline
-54 & WRL-OC31 & 47 & 47 & 47 & 47 & 47 & 47 & 47 & - & - & 47 & 47 \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 & 47 & 47 & 47 & 47 & 47 & 47 & - & - & 47 & 47 \\
 
 \bottomrule
 \end{tabularx}
@@ -380,7 +381,7 @@ curl --request POST \
 9 & EX81.1.Z6 & 10 \\ \arrayrulecolor{light-gray}\hline
 10 & EX81.2.Z1 & 11 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-33 & EX81.5.Z6 & 34 \\ \arrayrulecolor{light-gray}\hline
+33 & EX81.5.Z6 & 34 \\
 
 \bottomrule
 \end{tabularx}
@@ -407,7 +408,7 @@ curl --request POST \
 24 & WRL-OC1 & 17 \\ \arrayrulecolor{light-gray}\hline
 25 & WRL-OC2 & 18 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-54 & WRL-OC31 & 47 \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 \\
 
 \bottomrule
 \end{tabularx}
@@ -422,7 +423,7 @@ curl --request POST \
 0 & Z1 & 1 \\ \arrayrulecolor{light-gray}\hline
 1 & Z2 & 2 \\ \arrayrulecolor{light-gray}\hline
 2 & Z3 & 3 \\ \arrayrulecolor{light-gray}\hline
-3 & Z4 & 4 \\ \arrayrulecolor{light-gray}\hline
+3 & Z4 & 4 \\
 
 \bottomrule
 \end{tabularx}
@@ -441,7 +442,7 @@ curl --request POST \
 24 & WRL-OC1 & 17 \\ \arrayrulecolor{light-gray}\hline
 25 & WRL-OC2 & 18 \\ \arrayrulecolor{light-gray}\hline
 ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-54 & WRL-OC31 & 47 \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 \\
 
 \bottomrule
 \end{tabularx}
@@ -456,7 +457,7 @@ curl --request POST \
 0 & OD-1 & 1 \\ \arrayrulecolor{light-gray}\hline
 1 & OD-2 & 2 \\ \arrayrulecolor{light-gray}\hline
 2 & OD-3 & 3 \\ \arrayrulecolor{light-gray}\hline
-3 & OD-4 & 4 \\ \arrayrulecolor{light-gray}\hline
+3 & OD-4 & 4 \\
 
 \bottomrule
 \end{tabularx}
