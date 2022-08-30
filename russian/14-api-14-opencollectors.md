@@ -200,6 +200,7 @@ Number & number & Номер коллектора из настроек \\ \arra
 Action & string & Требуемое действие («pulse» – замкнуть коллектор на время, «close» - замкнуть коллектор, «open» – разомкнуть коллектор) \\ \arrayrulecolor{light-gray}\hline
 Interval & number & Время в миллисекундах, на которое замыкается коллектор в случае, если параметр «Action» принимает значение «pulse», допустимые значения от 1 до 255000. \\
  & & Для беспроводного открытого коллектора допустимо устанавливать только целое число секунд. \\
+ & & Для беспроводных устройств типа «СН-Включатель» и «СН-Розетка» режим «pulse» не поддерживается. \\
 
 \bottomrule
 \end{tabularx}
@@ -325,39 +326,39 @@ curl --request POST \
 #### Норды (номера в событиях)
 \definecolor{light-gray}{gray}{0.7}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{clccccccccccc}
-\textbf{Номер} & \textbf{Название} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Mini} & \textbf{Mini} & \textbf{Air} & \textbf{Air} \\
-\textbf{OC} & \textbf{ } & \textbf{5.1} & \textbf{5.2} & \textbf{5.3} & \textbf{5.4} & \textbf{5.5} & \textbf{5.7} & \textbf{9.0} & \textbf{13.2} & \textbf{13.3} & \textbf{15.1} & \textbf{15.2} \\ \midrule
+\begin{tabularx}{\textwidth}{clccccccc}
+\textbf{Номер} & \textbf{Название} & \textbf{Норд} & \textbf{Норд} & \textbf{Норд} & \textbf{Mini} & \textbf{Mini} & \textbf{Air} & \textbf{Air} \\
+\textbf{OC} & \textbf{ } & \textbf{5.1} & \textbf{5.2-5.7} & \textbf{9.0} & \textbf{13.2} & \textbf{13.3} & \textbf{15.1} & \textbf{15.2} \\ \midrule
 
-0 & FIRE & 1 & 1 & 1 & 1 & 1 & 1 & 1 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-1 & DEFECT & 2 & 2 & 2 & 2 & 2 & 2 & 2 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-2 & LED G & - & 3 & 3 & 3 & 3 & 3 & 3 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-4 & FIRE2 & - & 5 & 5 & 5 & 5 & 5 & 5 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-5 & DEFECT2 & - & 6 & 6 & 6 & 6 & 6 & 6 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-6 & DISABL & - & 7 & 7 & 7 & 7 & 7 & 7 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-7 & Z1 & - & - & - & - & - & - & - & 1 & 1 & 1 & 1 \\ \arrayrulecolor{light-gray}\hline
-8 & Z2 & - & - & - & - & - & - & - & 2 & 2 & 2 & 2 \\ \arrayrulecolor{light-gray}\hline
-9 & Z3 & - & - & - & - & - & - & - & 3 & 3 & - & - \\ \arrayrulecolor{light-gray}\hline
-10 & Z4 & - & - & - & - & - & - & - & 4 & 4 & - & - \\ \arrayrulecolor{light-gray}\hline
-11 & - & - & - & - & - & - & - & - & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
-12 & EXT-Z1 & 9 & 9 & 9 & 9 & 9 & 9 & 9 & 5 & 5 & 5 & 5 \\ \arrayrulecolor{light-gray}\hline
-13 & EXT-Z2 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 6 & 6 & 6 & 6 \\ \arrayrulecolor{light-gray}\hline
-14 & EXT-Z3 & 11 & 11 & 11 & 11 & 11 & 11 & 11 & 7 & 7 & 7 & 7 \\ \arrayrulecolor{light-gray}\hline
-15 & EXT-Z4 & 12 & 12 & 12 & 12 & 12 & 12 & 12 & 8 & 8 & 8 & 8 \\ \arrayrulecolor{light-gray}\hline
-16 & EXT-Z5 & 13 & 13 & 13 & 13 & 13 & 13 & 13 & 9 & 9 & 9 & 9 \\ \arrayrulecolor{light-gray}\hline
-17 & EXT-Z6 & 14 & 14 & 14 & 14 & 14 & 14 & 14 & 10 & 10 & 10 & 10 \\ \arrayrulecolor{light-gray}\hline
-18 & EXT-Z7 & 15 & 15 & 15 & 15 & 15 & 15 & 15 & 11 & 11 & 11 & 11 \\ \arrayrulecolor{light-gray}\hline
-19 & EXT-Z8 & 16 & 16 & 16 & 16 & 16 & 16 & 16 & 12 & 12 & 12 & 12 \\ \arrayrulecolor{light-gray}\hline
-20 & EXT-Z9 & - & - & - & - & - & - & - & 13 & 13 & 13 & 13 \\ \arrayrulecolor{light-gray}\hline
-21 & EXT-Z10 & - & - & - & - & - & - & - & 14 & 14 & 14 & 14 \\ \arrayrulecolor{light-gray}\hline
-22 & EXT-Z11 & - & - & - & - & - & - & - & 15 & 15 & 15 & 15 \\ \arrayrulecolor{light-gray}\hline
-23 & EXT-Z12 & - & - & - & - & - & - & - & 16 & 16 & 16 & 16 \\ \arrayrulecolor{light-gray}\hline
-24 & WRL-OC1 & 17 & 17 & 17 & 17 & 17 & 17 & 17 & - & - & 17 & 17 \\ \arrayrulecolor{light-gray}\hline
-25 & WRL-OC2 & 18 & 18 & 18 & 18 & 18 & 18 & 18 & - & - & 18 & 18 \\ \arrayrulecolor{light-gray}\hline
-26 & WRL-OC3 & 19 & 19 & 19 & 19 & 19 & 19 & 19 & - & - & 19 & 19 \\ \arrayrulecolor{light-gray}\hline
-... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
-53 & WRL-OC30 & 46 & 46 & 46 & 46 & 46 & 46 & 46 & - & - & 46 & 46 \\ \arrayrulecolor{light-gray}\hline
-54 & WRL-OC31 & 47 & 47 & 47 & 47 & 47 & 47 & 47 & - & - & 47 & 47 \\
+0 & FIRE & 1 & 1 & 1 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+1 & DEFECT & 2 & 2 & 2 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+2 & LED G & - & 3 & 3 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+4 & FIRE2 & - & 5 & 5 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+5 & DEFECT2 & - & 6 & 6 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+6 & DISABL & - & 7 & 7 & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+7 & Z1 & - & - & - & 1 & 1 & 1 & 1 \\ \arrayrulecolor{light-gray}\hline
+8 & Z2 & - & - & - & 2 & 2 & 2 & 2 \\ \arrayrulecolor{light-gray}\hline
+9 & Z3 & - & - & - & 3 & 3 & - & - \\ \arrayrulecolor{light-gray}\hline
+10 & Z4 & - & - & - & 4 & 4 & - & - \\ \arrayrulecolor{light-gray}\hline
+11 & - & - & - & - & - & - & - & - \\ \arrayrulecolor{light-gray}\hline
+12 & EXT-Z1 & 9 & 9 & 9 & 5 & 5 & 5 & 5 \\ \arrayrulecolor{light-gray}\hline
+13 & EXT-Z2 & 10 & 10 & 10 & 6 & 6 & 6 & 6 \\ \arrayrulecolor{light-gray}\hline
+14 & EXT-Z3 & 11 & 11 & 11 & 7 & 7 & 7 & 7 \\ \arrayrulecolor{light-gray}\hline
+15 & EXT-Z4 & 12 & 12 & 12 & 8 & 8 & 8 & 8 \\ \arrayrulecolor{light-gray}\hline
+16 & EXT-Z5 & 13 & 13 & 13 & 9 & 9 & 9 & 9 \\ \arrayrulecolor{light-gray}\hline
+17 & EXT-Z6 & 14 & 14 & 14 & 10 & 10 & 10 & 10 \\ \arrayrulecolor{light-gray}\hline
+18 & EXT-Z7 & 15 & 15 & 15 & 11 & 11 & 11 & 11 \\ \arrayrulecolor{light-gray}\hline
+19 & EXT-Z8 & 16 & 16 & 16 & 12 & 12 & 12 & 12 \\ \arrayrulecolor{light-gray}\hline
+20 & EXT-Z9 & - & - & - & 13 & 13 & 13 & 13 \\ \arrayrulecolor{light-gray}\hline
+21 & EXT-Z10 & - & - & - & 14 & 14 & 14 & 14 \\ \arrayrulecolor{light-gray}\hline
+22 & EXT-Z11 & - & - & - & 15 & 15 & 15 & 15 \\ \arrayrulecolor{light-gray}\hline
+23 & EXT-Z12 & - & - & - & 16 & 16 & 16 & 16 \\ \arrayrulecolor{light-gray}\hline
+24 & WRL-OC1 & 17 & 17 & 17 & - & - & 17 & 17 \\ \arrayrulecolor{light-gray}\hline
+25 & WRL-OC2 & 18 & 18 & 18 & - & - & 18 & 18 \\ \arrayrulecolor{light-gray}\hline
+26 & WRL-OC3 & 19 & 19 & 19 & - & - & 19 & 19 \\ \arrayrulecolor{light-gray}\hline
+... & ... & ... & ... & ... & ... & ... & ... & ... \\ \arrayrulecolor{light-gray}\hline
+53 & WRL-OC30 & 46 & 46 & 46 & - & - & 46 & 46 \\ \arrayrulecolor{light-gray}\hline
+54 & WRL-OC31 & 47 & 47 & 47 & - & - & 47 & 47 \\
 
 \bottomrule
 \end{tabularx}
