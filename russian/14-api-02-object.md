@@ -458,7 +458,7 @@ curl --request POST \
   --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
   --url http://192.168.0.2:9002/api/Sites/ \
   --data '{"Name": "Ресторан \"У Палыча\"","Address": "Виноградная, 26",`
-         `"Phone1": "+7 812 327 1633","ObjTypeName": "Ресторан",`
+         `"Phone1": "+7 812 327 1633","TypeName": "Ресторан",`
          `"DeviceTypeName": "cnord-gsm-cml",`
          `"EventTemplateName": "Си-Норд GSM"}'
 ```
@@ -480,7 +480,7 @@ curl --request POST \
   --url http://192.168.0.2:9002/api/Sites/ \
   --data '{"AccountNumber": 9001,`
          `"Name": "Ресторан \"У Михалыча\"", "Address": "Виноградная, 26",`
-         `"Phone1": "+7 812 327 1633","ObjTypeName": "Ресторан",`
+         `"Phone1": "+7 812 327 1633","TypeName": "Ресторан",`
          `"DeviceTypeName": "cnord-gsm-cml",`
          `"EventTemplateName": "Си-Норд GSM"}'
 ```
