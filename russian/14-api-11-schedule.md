@@ -93,15 +93,17 @@ StopDT & timespan & Конечное время \\
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/SiteSchedule'
+SC_API_URL="$SC_API_URL"'?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/SiteSchedule?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
 
-```bash
+```json
 {
     "ArmSchedule_EarlyArm" : false,
     "ArmSchedule_ControlArm" : false,
@@ -161,7 +163,7 @@ curl --request GET \
 
 Если интервалы расписания охраны объекта пересекаются, то метод вернёт ошибку.
 
-Если в json не передать данных, то расписание примет значение по умолчанию.
+Если передать JSON `{}`, расписание заменяется значениями по умолчанию. Запрос без тела возвращает `400`.
 
 Для полей `StartDT`, `StopDT` допустим следующий формат строковых значений:
 
@@ -185,42 +187,44 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/SiteSchedule?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283`
-        `&userName=crm-Ivanova-A-A' \
-  --data '{`
-    `"ArmSchedule_EarlyArm" : false,`
-    `"ArmSchedule_ControlArm" : false,`
-    `"ArmSchedule_LaterArm" : false,`
-    `"ArmSchedule_EarlyDisarm" : false,`
-    `"ArmSchedule_ControlDisarm" : false,`
-    `"ArmSchedule_LaterDisarm" : true,`
-    `"ArmSchedule_Deviation" : 15,`
-    `"Intervals" :`
-    `[`
-        `{`
-            `"DayNumber" : 2,`
-            `"StartDT" : "01:00",`
-            `"StopDT" : "01:30"`
-        `},`
-        `{`
-            `"DayNumber" : 1,`
-            `"StartDT" : "01:00",`
-            `"StopDT" : "01:30"`
-        `},`
-        `{`
-            `"DayNumber" : 1,`
-            `"StartDT" : "02:00",`
-            `"StopDT" : "23:59:59"`
-        `}`
-    `]`
-`}'
+SC_API_URL='http://10.7.22.128:9002/api/SiteSchedule'
+SC_API_URL="$SC_API_URL"'?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
+  --data '{
+  "ArmSchedule_EarlyArm": false,
+  "ArmSchedule_ControlArm": false,
+  "ArmSchedule_LaterArm": false,
+  "ArmSchedule_EarlyDisarm": false,
+  "ArmSchedule_ControlDisarm": false,
+  "ArmSchedule_LaterDisarm": true,
+  "ArmSchedule_Deviation": 15,
+  "Intervals": [
+    {
+      "DayNumber": 2,
+      "StartDT": "01:00",
+      "StopDT": "01:30"
+    },
+    {
+      "DayNumber": 1,
+      "StartDT": "01:00",
+      "StopDT": "01:30"
+    },
+    {
+      "DayNumber": 1,
+      "StartDT": "02:00",
+      "StopDT": "23:59:59"
+    }
+  ]
+}'
 ```
 
-**Status** : `200`
+**Status** : `201`
 
-```bash
+```json
 {
     "ArmSchedule_EarlyArm" : false,
     "ArmSchedule_ControlArm" : false,
@@ -283,8 +287,10 @@ curl --request POST \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/SiteSchedule'
+SC_API_URL="$SC_API_URL"'?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/SiteSchedule?siteId=082232F8-8B06-4F7A-ABCA-AFDCC5593283&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```

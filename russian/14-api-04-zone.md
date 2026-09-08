@@ -4,6 +4,8 @@
 
 Методы для управления шлейфами объекта: получение списка шлейфов, создание, изменение или удаление шлейфа объекта.
 
+Чтобы включить шлейф в раздел, используйте [PUT /api/Parts/{id}/zones/{zoneId}](#api-parts-link-zone).
+
 ## Поля шлейфа {#api-zone-json}
 
 Элемент JSON, содержащий все поля шлейфа:
@@ -13,7 +15,7 @@
     "Id": string,
     "ZoneNumber": number,
     "ZoneDesc": string,
-    "ZoneEquip": string,
+    "ZoneEquip": string
 }
 ```
 
@@ -63,10 +65,12 @@ ZoneEquip & string & Оборудование шлейфа \\
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Zones'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Zones?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -78,7 +82,7 @@ curl --request GET \
         "ZoneNumber":3,
         "ZoneDesc":"Описание шлейфа",
         "ZoneEquip":"Оборудование шлейфа"
-    }
+    },
     {
         "Id":"e6f14ede-65d3-45f7-a79e-80ebaf6f1302",
         "ZoneNumber":4,
@@ -121,10 +125,12 @@ curl --request GET \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Zones'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933e'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Zones?id=524bf1a5-76ce-43a7-9ed5-56291750933e&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -187,16 +193,19 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Zones?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/Zones'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{"ZoneNumber": 3,"ZoneDesc": "Описание шлейфа", "ZoneEquip": "Оборудование шлейфа"}'
 ```
 
 **Status** : `201`
 
-```bash
+```json
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933f"
 }
@@ -230,6 +239,8 @@ curl --request POST \
 
 Идентификатор объекта передается параметром в заголовке запроса, поэтому поле `id` в элементе JSON может быть не указано или будет проигнорировано.
 
+Дополнительное поле тела `siteId` допускается моделью запроса, но при изменении объект определяется по идентификатору записи. Перенос на другой объект этим полем не выполняется; для обычного изменения поле можно не передавать.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -243,10 +254,13 @@ curl --request POST \
 ### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Zones?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/Zones'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{"ZoneDesc": "Новое описание шлейфа"}'
 ```
 
@@ -283,8 +297,10 @@ curl --request PUT \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Zones'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Zones?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```

@@ -220,7 +220,7 @@ other & «Другое» \\
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Sites?contractNumber=2018-12/91&userName=crm-Ivanova-A-A'
 ```
 
@@ -310,8 +310,9 @@ curl --request GET \
 #### Пример выполнения запроса, в котором указано значение для фильтра по названию и адресу объекта
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Sites?userName=crm-Ivanova-A-A' \
   --data '{"Name": "естколл", "Address": "ул. д. 3"}'
 ```
@@ -351,10 +352,12 @@ curl --request GET \
 #### Пример выполнения запроса, в котором в качестве параметра указан идентификатор объекта
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Sites'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933c'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites?id=524bf1a5-76ce-43a7-9ed5-56291750933c&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -403,9 +406,8 @@ curl --request GET \
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites?id=282c&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites?id=282c&userName=crm-Ivanova-A-A'
 ```
 
 ## Создать объект (POST /api/Sites) {#api-sites-post}
@@ -454,18 +456,23 @@ curl --request GET \
 #### Пример выполнения запроса, в котором номер для нового объекта не указан
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
   --url http://192.168.0.2:9002/api/Sites/ \
-  --data '{"Name": "Ресторан \"У Палыча\"","Address": "Виноградная, 26",`
-         `"Phone1": "+7 812 327 1633","TypeName": "Ресторан",`
-         `"DeviceTypeName": "cnord-gsm-cml",`
-         `"EventTemplateName": "Си-Норд GSM"}'
+  --data '{
+  "Name": "Ресторан \"У Палыча\"",
+  "Address": "Виноградная, 26",
+  "Phone1": "+7 812 327 1633",
+  "TypeName": "Ресторан",
+  "DeviceTypeName": "cnord-gsm-cml",
+  "EventTemplateName": "Си-Норд GSM"
+}'
 ```
 
 **Status** : `201`
 
-```bash
+```json
 {
     "Id": "a4835f0e-8909-42fc-a878-217aef0a3aa2",
     "AccountNumber": 9001
@@ -475,19 +482,24 @@ curl --request POST \
 #### Пример выполнения запроса, в котором указан номер существующего объекта
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
   --url http://192.168.0.2:9002/api/Sites/ \
-  --data '{"AccountNumber": 9001,`
-         `"Name": "Ресторан \"У Михалыча\"", "Address": "Виноградная, 26",`
-         `"Phone1": "+7 812 327 1633","TypeName": "Ресторан",`
-         `"DeviceTypeName": "cnord-gsm-cml",`
-         `"EventTemplateName": "Си-Норд GSM"}'
+  --data '{
+  "AccountNumber": 9001,
+  "Name": "Ресторан \"У Михалыча\"",
+  "Address": "Виноградная, 26",
+  "Phone1": "+7 812 327 1633",
+  "TypeName": "Ресторан",
+  "DeviceTypeName": "cnord-gsm-cml",
+  "EventTemplateName": "Си-Норд GSM"
+}'
 ```
 
 **Status** : `400`
 
-```bash
+```json
 {
     "Message": "Вставка: объект с указанным номером уже существует.",
     "SpResultCode": 205
@@ -549,12 +561,19 @@ PaymentDate & string & IsPaymentDateForceUpdate \\
 ### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://192.168.0.2:9002/api/Sites?id=524bf1a5-76ce-43a7-9ed5-56291750933c&`
-        `userName=crm-Ivanova-A-A' \
-  --data '{"Name": "Инвест-Москва-35","Address": "Шостаковича ул. д. 3 к. 1",`
-         `"Phone1": "785-03-39","TypeName": "Банк"}'
+SC_API_URL='http://192.168.0.2:9002/api/Sites'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933c'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
+  --data '{
+  "Name": "Инвест-Москва-35",
+  "Address": "Шостаковича ул. д. 3 к. 1",
+  "Phone1": "785-03-39",
+  "TypeName": "Банк"
+}'
 ```
 
 ## Удалить объект (DELETE /api/Sites) {#api-sites-delete}
@@ -590,8 +609,10 @@ curl --request PUT \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.0.0.2:9002/api/Sites'
+SC_API_URL="$SC_API_URL"'?id=68b3fc63-10b7-4eeb-9308-769c1fb1e6d3'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.0.0.2:9002/api/Sites?id=68b3fc63-10b7-4eeb-9308-769c1fb1e6d3&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```

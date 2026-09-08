@@ -25,7 +25,7 @@
 Id & string & Идентификатор характеристики \\ \arrayrulecolor{light-gray}\hline
 ExtFieldName & string & Название характеристики \\ \arrayrulecolor{light-gray}\hline
 ExtFieldValue & string & Значение характеритстики \\ \arrayrulecolor{light-gray}\hline
-OrderNumber & number & Порядковый номер дополнительной характеристики \\
+OrderNumber & number & Порядковый номер дополнительной характеристики. Возвращается при чтении; передача OrderNumber при создании или изменении не меняет порядок \\
 
 \bottomrule
 \end{tabularx}
@@ -63,10 +63,12 @@ OrderNumber & number & Порядковый номер дополнительн�
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/ExtFields'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/ExtFields?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -121,10 +123,12 @@ curl --request GET \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/ExtFields'
+SC_API_URL="$SC_API_URL"'?id=3cdf90f7-9687-44c8-b202-5d3dc9ddf4f3'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/ExtFields?id=3cdf90f7-9687-44c8-b202-5d3dc9ddf4f3&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -185,16 +189,19 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/ExtFields?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/ExtFields'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{ "ExtFieldName": "ExtraUserPhone", "ExtFieldValue": "+79012345678" }'
 ```
 
 **Status** : `201`
 
-```bash
+```json
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933f"
 }
@@ -224,9 +231,9 @@ curl --request POST \
 
 ### Тело запроса
 
-В теле запроса должен быть передан элемент JSON с [полями дополнительной характеристики](#api-extfield-json), которые нужно изменить. Если поле необходимо оставить без изменения, то оно не должно быть указано в эелементе JSON. Название и значение характеристики обязательные поля.
+В теле запроса передайте JSON с полями `ExtFieldName` и непустым `ExtFieldValue`. При обновлении указывайте оба поля; `OrderNumber` этим методом не изменяется.
 
-Идентификатор дополнительной характеристики передается параметром в заголовке запроса, поэтому поле `id` в элементе JSON может быть не указано или будет проигнорировано.
+Идентификатор дополнительной характеристики передаётся параметром `id` в URL; поле `Id` в JSON не используется. Модель запроса также допускает `ObjectId`, но при обновлении объект определяется по идентификатору характеристики: перенести её на другой объект этим полем нельзя.
 
 ### Возможные статусы ответов
 
@@ -241,10 +248,13 @@ curl --request POST \
 ### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/ExtFields?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/ExtFields'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{ "ExtFieldName": "ExtraUserPhone", "ExtFieldValue": "88005553232" }'
 ```
 
@@ -281,8 +291,10 @@ curl --request PUT \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/ExtFields'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/ExtFields?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```

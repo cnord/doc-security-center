@@ -85,10 +85,12 @@ PINCode & string & PIN для Call-центра \\
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Customers'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Customers?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -165,10 +167,12 @@ curl --request GET \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Customers'
+SC_API_URL="$SC_API_URL"'?id=c29632f8-01be-4e6f-83b7-34ac831eff25'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Customers?id=c29632f8-01be-4e6f-83b7-34ac831eff25&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -242,18 +246,23 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Customers?siteId=c29632f8-01be-4e6f-83b7-34ac831eff25&`
-        `userName=crm-Ivanova-A-A' \
-  --data '{ "ObjCustName" : "Иванов Иван Иванович",`
-        `"ObjCustTitle": "Главный производственный инженер",`
-        `"ObjCustPhone1": "88005553535" }'
+SC_API_URL='http://10.7.22.128:9002/api/Customers'
+SC_API_URL="$SC_API_URL"'?siteId=c29632f8-01be-4e6f-83b7-34ac831eff25'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
+  --data '{
+  "ObjCustName": "Иванов Иван Иванович",
+  "ObjCustTitle": "Главный производственный инженер",
+  "ObjCustPhone1": "88005553535"
+}'
 ```
 
 **Status** : `201`
 
-```bash
+```json
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933f"
 }
@@ -287,6 +296,8 @@ curl --request POST \
 
 Идентификатор объекта передается параметром в заголовке запроса, поэтому поле `id` в элементе JSON может быть не указано или будет проигнорировано.
 
+Дополнительное поле тела `siteId` допускается моделью запроса, но при изменении объект определяется по идентификатору записи. Перенос на другой объект этим полем не выполняется; для обычного изменения поле можно не передавать.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -300,13 +311,18 @@ curl --request POST \
 ### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Customers?id=c29632f8-01be-4e6f-83b7-34ac831eff25&`
-        `userName=crm-Ivanova-A-A' \
-  --data '{ "ObjCustName" : "Иванов Иван Иванович",`
-         `"ObjCustTitle": "Инженер технолог",`
-         `"ObjCustPhone1": "88005553232" }'
+SC_API_URL='http://10.7.22.128:9002/api/Customers'
+SC_API_URL="$SC_API_URL"'?id=c29632f8-01be-4e6f-83b7-34ac831eff25'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
+  --data '{
+  "ObjCustName": "Иванов Иван Иванович",
+  "ObjCustTitle": "Инженер технолог",
+  "ObjCustPhone1": "88005553232"
+}'
 ```
 
 ## Удалить ответственное лицо (DELETE /api/Customers) {#api-customers-delete}
@@ -344,8 +360,10 @@ curl --request PUT \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Customers'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Customers?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```

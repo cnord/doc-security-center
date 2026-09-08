@@ -103,11 +103,11 @@ test & Тест \\
 
 Необязательный параметр.
 
-Размер страницы для вывода данных. Если не указано - то используется размер страницы по умолчанию из конфигурационного файла
+Размер страницы для вывода данных. Если не указано, возвращаются все записи, подходящие под фильтр; `DefaultPageSize` здесь не применяется. Для ограничения объёма ответа задавайте `pageSize`.
 
 ### Тело запроса
 
-В теле запроса должен быть передан элемент JSON со значениями параметров, уточняющими интервал и типы классов для событий, которые необходимо вернуть.
+В необязательном теле GET-запроса можно передать JSON со значениями параметров, уточняющими интервал и типы классов событий. Без тела используются значения по умолчанию.
 Если ни для какого параметра значение не указано, то есть в теле передаются пустые скобки `{}`, то будет использовано значение по умолчанию. 
 
 ```json
@@ -133,8 +133,8 @@ test & Тест \\
 \begin{tabularx}{\textwidth}{lllX}
 \textbf{Параметр} & \textbf{Тип} & \textbf{Значение по умолчанию} & \textbf{Примечание} \\ \midrule
 
-startDate & string & `Now` & Начало временного интервала, за который нужно вернуть события \\ \arrayrulecolor{light-gray}\hline
-stopDate & string & `Now - 32 days` & Конец временного интервала, за который нужно вернуть события \\ \arrayrulecolor{light-gray}\hline
+startDate & string & `Now - 32 days` & Начало временного интервала, за который нужно вернуть события \\ \arrayrulecolor{light-gray}\hline
+stopDate & string & `Now` & Конец временного интервала, за который нужно вернуть события \\ \arrayrulecolor{light-gray}\hline
 ectAlarm & boolean & true & Вернуть события с типом класса «Тревога» \\ \arrayrulecolor{light-gray}\hline
 ectReset & boolean & true & Вернуть события с типом класса «Сброс» \\ \arrayrulecolor{light-gray}\hline
 ectFault & boolean & true & Вернуть события с типом класса «Неисправность» \\ \arrayrulecolor{light-gray}\hline
@@ -173,9 +173,10 @@ duplicateEvent & boolean & false & Вернуть дублирующие соб�
 #### Пример выполнения запроса, в котором указано только значение для идентификатора объекта
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Events?id=94df3af9-36c1-423b-aa88-fb505bda3fa4'
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Events?id=94df3af9-36c1-423b-aa88-fb505bda3fa4' \
   --data '{
         }'
 ```
@@ -232,20 +233,21 @@ curl --request GET \
 #### Пример выполнения запроса, в котором указаны типы классов событий
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Events'
-  --data '{`
-        "startDate": "2019-02-01",`
-        "stopDate": "2019-02-02"`
-        "ectReset": false,`
-        "ectFault": false,`
-        "ectRestore": false,`
-        "ectArm": false,`
-        "ectDisarm": false,`
-        "ectBypass": false,`
-        "ectWarning": false,`
-        "ectOther": false`
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Events' \
+  --data '{
+        "startDate": "2019-02-01",
+        "stopDate": "2019-02-02",
+        "ectReset": false,
+        "ectFault": false,
+        "ectRestore": false,
+        "ectArm": false,
+        "ectDisarm": false,
+        "ectBypass": false,
+        "ectWarning": false,
+        "ectOther": false
     }'
 ```
 

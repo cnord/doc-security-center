@@ -124,7 +124,7 @@ Comment & string & Комментарий \\
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Alarms?dateFrom=20160102100013&dateTo=20190319150859'
 ```
 
@@ -194,7 +194,7 @@ curl --request GET \
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Alarms?alarmIndex=2019031915085742'
 ```
 

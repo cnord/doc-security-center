@@ -46,6 +46,10 @@
 
 Код пользователя.
 
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -61,8 +65,8 @@
 #### Успешная постановка
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `200`
@@ -71,8 +75,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234'
 ```
 
 **Status** : `400`
@@ -81,15 +85,15 @@ curl --request POST \
 {
     "SpResultCode": 1,
     "Message": "Device is not connected"
-},
+}
 ```
 
 #### Постановка с ошибкой "Отказ от взятия"
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Parts/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234'
 ```
 
 **Status** : `400`
@@ -98,7 +102,7 @@ curl --request POST \
 {
     "SpResultCode": 6,
     "Message": "Refusal of arming"
-},
+}
 ```
 
 ## Снять раздел с охраны (POST /api/Parts/Disarm)
@@ -123,6 +127,10 @@ curl --request POST \
 
 Код пользователя.
 
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -139,8 +147,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `200`
@@ -149,8 +157,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `400`
@@ -159,15 +167,18 @@ curl --request POST \
 {
     "SpResultCode": 5,
     "Message": "Remote arming/disarming forbidden"
-},
+}
 ```
 
 #### Снятие с ошибкой "Неверный код (пользователь с переданным кодом не найден)"
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Parts/Disarm'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&code=1234'
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status** : `400`
@@ -176,7 +187,7 @@ curl --request POST \
 {
     "SpResultCode": 7,
     "Message": "Incorrect code"
-},
+}
 ```
 
 ## Взять объект под охрану (POST /api/Sites/Arm)
@@ -201,6 +212,10 @@ curl --request POST \
 
 Код пользователя.
 
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -216,8 +231,8 @@ curl --request POST \
 #### Успешная постановка
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `200`
@@ -226,8 +241,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234'
 ```
 
 **Status** : `400`
@@ -236,15 +251,15 @@ curl --request POST \
 {
     "SpResultCode": 1,
     "Message": "Device is not connected"
-},
+}
 ```
 
 #### Постановка с ошибкой "У объекта есть разделы"
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites/Arm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234'
 ```
 
 **Status** : `400`
@@ -252,7 +267,7 @@ curl --request POST \
 ```json
 {
     "Message": "Object has parts"
-},
+}
 ```
 
 ## Снять объект с охраны (POST /api/Sites/Disarm)
@@ -277,6 +292,10 @@ curl --request POST \
 
 Код пользователя.
 
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -293,8 +312,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `200`
@@ -303,8 +322,8 @@ curl --request POST \
 
 ```bash
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f`
+  --header "apiKey: $SC_API_KEY" \
+  --url 'http://10.7.22.128:9002/api/Sites/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
 ```
 
 **Status** : `400`
@@ -313,15 +332,18 @@ curl --request POST \
 {
     "SpResultCode": 5,
     "Message": "Remote arming/disarming forbidden"
-},
+}
 ```
 
 #### Снятие с ошибкой "Неверный код (пользователь с переданным кодом не найден)"
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Sites/Disarm'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&code=1234'
 curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Sites/Disarm?id=524bf1a5-76ce-43a7-9ed5-56291750933f&code=1234`
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status** : `400`
@@ -330,5 +352,138 @@ curl --request POST \
 {
     "SpResultCode": 7,
     "Message": "Incorrect code"
-},
+}
+```
+
+\pagebreak
+
+# Управление выходами {#api-open-collectors}
+
+Методы запрашивают состояние выходов (открытых коллекторов) прибора и передают команды управления. Прибор должен поддерживать соответствующие команды и иметь связь с ЦО. Ожидание ответа прибора занимает около 30 секунд; учитывайте это при настройке времени ожидания HTTP-клиента.
+
+## Получить состояние выходов (GET) {#api-oc-states}
+
+**URL** : `/api/OpenCollectors/OcStates`
+
+**Метод** : `GET`
+
+### Параметры
+
+#### id
+
+Обязательный параметр строки запроса. Идентификатор объекта (`Id` в [полях объекта](#api-site-json)), в формате GUID.
+
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
+#### OcNumbers
+
+Необязательное поле JSON в **теле GET-запроса**. Строка с номерами выходов через запятую, например `"1,2"`. Без тела запроса или с пустой строкой запрашиваются все выходы.
+
+Тело GET-запроса поддерживают не все клиенты и промежуточные серверы. Для выбора выходов передавайте тело без изменений до службы; параметр `OcNumbers` в URL его не заменяет.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` — см. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успехе возвращается JSON с полями:
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| ChangeTime | string | Время получения списка, переданное прибором; строка даты и времени. |
+| OcStates | array или null | Список состояний выходов; `null`, если в результате нет записей о состояниях. |
+| Number | number | Номер выхода в элементе списка `OcStates`. |
+| State | string | `open` — разомкнут; `close` — замкнут; `no connection` — нет связи с выходом. |
+
+Коды `SpResultCode` для ошибки `400`: `1` — прибор не подключён; `2` — нет ответа прибора; `3` — неверный формат команды; `10` — недостаточно места в буфере отправки; `11` — неожиданный формат результата; `15` — для объекта не задан идентификатор прибора. Ошибки поиска объекта возвращаются по общим правилам API.
+
+### Пример использования
+
+```bash
+SC_API_URL='http://localhost:9002/api/OpenCollectors/OcStates'
+SC_API_URL="$SC_API_URL"'?id=b8144107-31d1-4800-b83d-764f015a54a5'
+curl --request GET \
+  --header "apiKey: $SC_API_KEY" \
+  --header 'Content-Type: application/json' \
+  --url "$SC_API_URL" \
+  --data '{"OcNumbers":"1,2"}'
+```
+
+**Status** : `200`
+
+```json
+{
+    "ChangeTime": "2026-09-08T10:15:00",
+    "OcStates": [
+        {"Number": 1, "State": "open"},
+        {"Number": 2, "State": "close"}
+    ]
+}
+```
+
+## Управлять выходом (POST) {#api-oc-set}
+
+**URL** : `/api/OpenCollectors/OcSet`
+
+**Метод** : `POST`
+
+### Параметры
+
+Параметры строки запроса `id` и `userName` имеют тот же смысл, что в [запросе состояния выходов](#api-oc-states). В теле передаётся JSON:
+
+| Поле | Тип | Описание |
+|------|-----|----------|
+| Number | number | Обязательный номер выхода из настроек прибора; целое неотрицательное число. Допустимые номера определяются прибором. |
+| Action | string | Обязательное действие: `pulse` — замкнуть на время; `close` — замкнуть; `open` — разомкнуть. Регистр букв не учитывается. |
+| Interval | number | Обязателен для `pulse`: время в миллисекундах, целое число от 1 до 255000. Для беспроводного выхода задавайте целое число секунд от 1 до 255, пересчитанное в миллисекунды (1000, 2000, …, 255000). Для `close` и `open` поле не используется. |
+
+### Возможные статусы ответов
+
+`200`, `400`, `403` — см. «[Статусы ответов](#api-status-codes)».
+
+### Возвращаемые данные
+
+При успехе возвращается `200` без данных. Это означает, что прибор получил команду и поставил действие в очередь. Чтобы проверить состояние выхода, выполните [запрос состояния](#api-oc-states).
+
+При ошибке `400` возвращается [описание ошибки](#api-code-400-result). Возможные значения `SpResultCode`:
+
+| Код | Сообщение | Описание |
+|-----|-----------|----------|
+| 1 | Device is not connected | Прибор не подключён к ЦО. |
+| 2 | Device did not respond | Нет ответа прибора. |
+| 3 | Invalid command format | Не задано обязательное поле, неизвестное действие или неверный формат команды. |
+| 11 | Open collector is disabled or assigned a role | Выход отключён или ему назначена роль. |
+| 12 | There is no space in the action queue | Нет места в очереди действий. |
+| 13 | Parameter value error | Значение параметра вне допустимого диапазона. |
+| 14 | No open collector connection | Нет связи с выходом. |
+| 15 | Transmitter ID not defined | Для объекта не задан идентификатор прибора. |
+
+Ошибки поиска объекта возвращаются по общим правилам API. Неверный GUID и отсутствующее тело возвращают `400` с `Message`, без `SpResultCode`. Значение кода `11` различается у запроса состояния и команды управления.
+
+### Пример использования
+
+Замкнуть выход на пять секунд:
+
+```bash
+curl --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --header 'Content-Type: application/json' \
+  --url 'http://localhost:9002/api/OpenCollectors/OcSet?id=b8144107-31d1-4800-b83d-764f015a54a5' \
+  --data '{"Number":1,"Action":"pulse","Interval":5000}'
+```
+
+**Status** : `200`
+
+Пример ошибки при попытке управлять выходом с назначенной ролью:
+
+**Status** : `400`
+
+```json
+{
+    "Message": "Open collector is disabled or assigned a role",
+    "SpResultCode": 11
+}
 ```

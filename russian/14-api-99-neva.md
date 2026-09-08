@@ -8,7 +8,7 @@
 {
     "RowNumber": number,
     "Phone" : string,
-    "Name" : string
+    "FIO" : string
 }
 
 ```
@@ -19,7 +19,7 @@
 
 RowNumber & number & Порядковый номер (присутствует только при выводе списка мобильных пользователей) \\ \arrayrulecolor{light-gray}\hline
 Phone & string & Телефон пользователя \\ \arrayrulecolor{light-gray}\hline
-Name & string & ФИО пользователя \\
+FIO & string & ФИО пользователя \\
 
 \bottomrule
 \end{tabularx}
@@ -44,7 +44,7 @@ Name & string & ФИО пользователя \\
 
 Необязательный параметр.
 
-Размер страницы для вывода данных. Если не указано - то используется размер страницы по умолчанию из конфигурационного файла
+Размер страницы для вывода данных. Если не указано, используется значение `DefaultPageSize`. Максимальный размер страницы — 200: большее значение уменьшается до 200.
 
 ### Возможные статусы ответов
 
@@ -58,7 +58,7 @@ Name & string & ФИО пользователя \\
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Neva/MobileUsers?startFrom=1&pageSize=10'
 ```
 
@@ -68,12 +68,12 @@ curl --request GET \
 [{
     "RowNumber": 1,
     "Phone": "+71234567890",
-    "Name": "Иванов Иван Иванович"
+    "FIO": "Иванов Иван Иванович"
 },
 {
     "RowNumber": 2,
     "Phone": "+71234567891",
-    "Name": "Петров Пётр Петрович"
+    "FIO": "Петров Пётр Петрович"
 }, ...]
 ```
 
@@ -106,12 +106,11 @@ curl --request GET \
 ### Пример выполнения запроса
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Neva/MobileUser' \
-  --data '{`
-        `"Phone" : "+71234567890"`
-    `}'
+  --data '{"Phone" : "+71234567890"}'
 ```
 
 **Status:** `200`
@@ -119,7 +118,7 @@ curl --request GET \
 ```json
 {
 	"Phone": "+71234567890",
-	"Name": "Иванов Иван Иванович"
+	"FIO": "Иванов Иван Иванович"
 }
 ```
 
@@ -143,7 +142,7 @@ curl --request GET \
 
 Необязательный параметр.
 
-Размер страницы для вывода данных. Если не указано - то используется размер страницы по умолчанию из конфигурационного файла
+Размер страницы для вывода данных. Если не указано, используется значение `DefaultPageSize`. Максимальный размер страницы — 200: большее значение уменьшается до 200.
 
 ### Тело запроса
 
@@ -166,15 +165,16 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/Neva/MobileUserSites?startFrom=1&pageSize=10' \
-  --data '{`
-        `"Phone" : "+71234567890"`
-    `}'
+  --data '{"Phone" : "+71234567890"}'
 ```
 
 **Status:** `200`
+
+В примере показаны отдельные поля ответа.
 
 ```json
 [
@@ -185,10 +185,10 @@ curl --request GET \
 		"CloudObjectID": 2,
         "Name": "Вестколл Северо-Запад",
         "Address": "Митрофаньевское шоссе д.2 кор.2 лит.А",
-        ...
-        "IsStateArm" : True,
-        "IsStateAlarm" : False,
-        "IsStatePartArm" : False,
+
+        "IsStateArm" : true,
+        "IsStateAlarm" : false,
+        "IsStatePartArm" : false,
         "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
     {
@@ -198,10 +198,10 @@ curl --request GET \
 		"CloudObjectID": 3,
         "Name": "Инвест-Москва",
         "Address": "Шостаковича ул. д. 3 к. 1",
-        ...
-        "IsStateArm" : True,
-        "IsStateAlarm" : True,
-        "IsStatePartArm" : False,
+
+        "IsStateArm" : true,
+        "IsStateAlarm" : true,
+        "IsStatePartArm" : false,
         "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     }
 ]

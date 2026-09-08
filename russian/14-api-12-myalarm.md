@@ -138,7 +138,7 @@ Name & string & Название действия и отмены \\
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/MyAlarm?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
 ```
 
@@ -194,12 +194,11 @@ curl --request GET \
 #### Пример использования
 
 ```bash
-curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+curl --header 'Content-Type: application/json' \
+  --request GET \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/MyAlarm/UserObjects' \
-  --data '{`
-        `"Phone" : "+79001122345",`
-    `}'
+  --data '{"Phone" : "+79001122345"}'
 ```
 
 **Status:** `200`
@@ -258,9 +257,12 @@ curl --request GET \
 #### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm'
+SC_API_URL="$SC_API_URL"'?custId=548DE89A-8B93-4319-997D-8902D8FB2A8E'
+SC_API_URL="$SC_API_URL"'&role=admin'
 curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm?custId=548DE89A-8B93-4319-997D-8902D8FB2A8E&role=admin'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -300,9 +302,12 @@ curl --request PUT \
 #### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm'
+SC_API_URL="$SC_API_URL"'?custId=548DE89A-8B93-4319-997D-8902D8FB2A8E'
+SC_API_URL="$SC_API_URL"'&isPanic=true'
 curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm?custId=548DE89A-8B93-4319-997D-8902D8FB2A8E&isPanic=true'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -342,9 +347,11 @@ curl --request PUT \
 #### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm/EventClass'
+SC_API_URL="$SC_API_URL"'?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm/EventClass?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -396,9 +403,11 @@ curl --request GET \
 #### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm/UserAction'
+SC_API_URL="$SC_API_URL"'?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm/UserAction?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -450,9 +459,12 @@ curl --request GET \
 #### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm/EventClass?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a' \
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm/EventClass'
+SC_API_URL="$SC_API_URL"'?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '[3, 4]'
 ```
 
@@ -491,9 +503,12 @@ curl --request PUT \
 #### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/MyAlarm/UserAction?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a' \
+SC_API_URL='http://10.7.22.128:9002/api/MyAlarm/UserAction'
+SC_API_URL="$SC_API_URL"'?siteId=fd2cdaae-585e-44a3-804e-a24537f6de7a'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '[3, 4]'
 ```
 
@@ -529,7 +544,7 @@ curl --request PUT \
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/EventClasses'
 ```
 
@@ -576,7 +591,7 @@ curl --request GET \
 
 ```bash
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
+  --header "apiKey: $SC_API_KEY" \
   --url 'http://10.7.22.128:9002/api/UserActions'
 ```
 

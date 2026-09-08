@@ -75,7 +75,7 @@
 Возможные значения:
 
 - `"has alarm"` – по объекту есть тревога, проверка КТС запрещена;
-- `"already run"` – по объекту уже выполняется проверка КТС;
+- `"already runnig"` – по объекту уже выполняется проверка КТС;
 - `"success"` – проверка КТС начата;
 - `"error"` - при выполнении запроса произошла ошибка;
 - `"invalid checkInterval value"` – для параметра `checkInterval` задано значение, выходящее за пределы допустимого диапазона.
@@ -84,14 +84,17 @@
 
 Идентификатор запущенной процедуры проверки КТС. Значение идентификатора необходимо использовать в качестве аргумента при вызове метода [`GET /api/CheckPanic`](#api-checkpanic-get).
 
+Поле `Status` результата равно `200` и при отказе запуска. Проверяйте `Description`: если проверка не запущена, `CheckPanicId` равно `null`.
+
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.0.0.2:9002/api/CheckPanic'
+SC_API_URL="$SC_API_URL"'?siteId=ae59ad78-6341-44dc-adb8-4803b7f02412'
+SC_API_URL="$SC_API_URL"'&userName=automatic_panic_checker'
 curl --request POST \
---header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
---url 'http://10.0.0.2:9002/api/CheckPanic?`
-      `siteId=ae59ad78-6341-44dc-adb8-4803b7f02412&`
-      `userName=automatic_panic_checker'
+--header "apiKey: $SC_API_KEY" \
+--url "$SC_API_URL"
 ```
 
 ```json
@@ -161,16 +164,17 @@ curl --request POST \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.0.0.2:9002/api/CheckPanic'
+SC_API_URL="$SC_API_URL"'?checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115'
+SC_API_URL="$SC_API_URL"'&userName=automatic_panic_checker'
 curl --request GET \
-    --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-    --url 'http://10.0.0.2:9002/api/CheckPanic?`
-          `checkPanicId=5b42d9f1-52f3-4144-9a4f-bd047c60e115&`
-          `userName=automatic_panic_checker'
+    --header "apiKey: $SC_API_KEY" \
+    --url "$SC_API_URL"
 ```
 
 ```json
 {
     "Status": 200,
-    "Description": "in progress",
+    "Description": "in progress"
 }
 ```

@@ -71,10 +71,12 @@ StateArmDisArmDateTime & string & Состояние раздела: время 
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Parts'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -87,8 +89,8 @@ curl --request GET \
         "ObjectNumber": 0,
         "PartDesc": "Вход и периметр",
         "PartEquip": "",
-        "IsStateArm": True,
-        "IsStateAlarm": False,
+        "IsStateArm": true,
+        "IsStateAlarm": false,
         "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
     },
     {
@@ -97,10 +99,10 @@ curl --request GET \
         "ObjectNumber": 0,
         "PartDesc": "Внутренние помещения",
         "PartEquip": "",
-        "IsStateArm": True,
-        "IsStateAlarm": False,
+        "IsStateArm": true,
+        "IsStateAlarm": false,
         "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
-    },
+    }
 ]
 ```
 
@@ -137,10 +139,12 @@ curl --request GET \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Parts'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933e'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request GET \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?id=524bf1a5-76ce-43a7-9ed5-56291750933e&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
 ```
 
 **Status:** `200`
@@ -152,8 +156,8 @@ curl --request GET \
     "ObjectNumber": null,
     "PartDesc": "Внутренние помещения",
     "PartEquip": null,
-    "IsStateArm": True,
-    "IsStateAlarm": True,
+    "IsStateArm": true,
+    "IsStateAlarm": true,
     "StateArmDisArmDateTime" : "1899-12-30T00:00:00"
 }
 ```
@@ -207,16 +211,19 @@ curl --request GET \
 ### Пример использования
 
 ```bash
-curl --request POST \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?siteId=b8144107-31d1-4800-b83d-764f015a54a5&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/Parts'
+SC_API_URL="$SC_API_URL"'?siteId=b8144107-31d1-4800-b83d-764f015a54a5'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request POST \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{"PartNumber": 3,"PartDesc": "Подвал"}'
 ```
 
 **Status** : `201`
 
-```bash
+```json
 {
     "Id": "524bf1a5-76ce-43a7-9ed5-56291750933f"
 }
@@ -250,6 +257,8 @@ curl --request POST \
 
 Идентификатор объекта передается параметром в заголовке запроса, поэтому поле `id` в элементе JSON может быть не указано или будет проигнорировано.
 
+Дополнительное поле тела `siteId` допускается моделью запроса, но при изменении объект определяется по идентификатору записи. Перенос на другой объект этим полем не выполняется; для обычного изменения поле можно не передавать.
+
 ### Возможные статусы ответов
 
 `200`, `400`, `403` – cм. «[Статусы ответов](#api-status-codes)».
@@ -263,10 +272,13 @@ curl --request POST \
 ### Пример использования
 
 ```bash
-curl --request PUT \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A' \
+SC_API_URL='http://10.7.22.128:9002/api/Parts'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
+curl --header 'Content-Type: application/json' \
+  --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL" \
   --data '{"PartDesc": "Чердак"}'
 ```
 
@@ -303,8 +315,63 @@ curl --request PUT \
 ### Пример использования
 
 ```bash
+SC_API_URL='http://10.7.22.128:9002/api/Parts'
+SC_API_URL="$SC_API_URL"'?id=524bf1a5-76ce-43a7-9ed5-56291750933f'
+SC_API_URL="$SC_API_URL"'&userName=crm-Ivanova-A-A'
 curl --request DELETE \
-  --header 'apiKey: 41c66fd22dcf4742b65e9f5ea5ebde1c' \
-  --url 'http://10.7.22.128:9002/api/Parts?id=524bf1a5-76ce-43a7-9ed5-56291750933f&`
-        `userName=crm-Ivanova-A-A'
+  --header "apiKey: $SC_API_KEY" \
+  --url "$SC_API_URL"
+```
+
+## Включить шлейф в раздел (PUT) {#api-parts-link-zone}
+
+Метод связывает существующие раздел и шлейф одного объекта в базе данных ЦО. Повторный запрос для уже связанной пары возвращает успешный результат. Настройки прибора этим методом не изменяются.
+
+**URL** : `/api/Parts/{id}/zones/{zoneId}`
+
+**Метод** : `PUT`
+
+### Параметры
+
+#### id
+
+Обязательный параметр пути. Идентификатор раздела (`Id` в [полях раздела](#api-part-json)).
+
+#### zoneId
+
+Обязательный параметр пути. Идентификатор шлейфа (`Id` в [полях шлейфа](#api-zone-json)).
+
+#### userName
+
+Необязательный параметр строки запроса. Имя пользователя, от имени которого выполняется операция.
+
+Тело запроса не передаётся.
+
+### Возможные статусы ответов
+
+`200`, `400`, `403`, `404` — см. «[Статусы ответов](#api-status-codes)». Если раздел или шлейф не найден, возвращается `404`. Если они принадлежат разным объектам, возвращается `400` с `SpResultCode` = `307`.
+
+### Возвращаемые данные
+
+При успешном выполнении метод возвращает [поля шлейфа](#api-zone-json). Ошибка `400` описана в разделе «[Код 400: описание ошибки](#api-code-400-result)».
+
+### Пример использования
+
+```bash
+SC_PART_ID=524bf1a5-76ce-43a7-9ed5-56291750933f
+SC_ZONE_ID=aa6e4785-7f0f-46cf-bbe9-b7a2f20a3ac9
+curl --request PUT \
+  --header "apiKey: $SC_API_KEY" \
+  --url "http://localhost:9002/api/Parts/$SC_PART_ID/zones/$SC_ZONE_ID"
+```
+
+**Status** : `200`
+
+```json
+{
+    "Id": "aa6e4785-7f0f-46cf-bbe9-b7a2f20a3ac9",
+    "ZoneNumber": 1,
+    "ZoneDesc": "Входная дверь",
+    "ZoneEquip": "Магнитоконтактный извещатель"
+}
 ```
